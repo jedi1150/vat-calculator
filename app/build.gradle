@@ -5,10 +5,10 @@ apply plugin: 'kotlin-android-extensions'
 android {
     signingConfigs {
         config {
-            keyAlias 's'
-            keyPassword 'santand2012aT'
-            storePassword 'santand2012aT'
-            storeFile file('/Users/jedi1150/Documents/VAT-Calculator/keystore.jks')
+            keyAlias ''
+            keyPassword ''
+            storePassword ''
+            storeFile file('')
         }
     }
     compileSdkVersion 29
