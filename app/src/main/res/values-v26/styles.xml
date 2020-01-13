@@ -8,8 +8,8 @@
         <item name="colorAccent">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/white</item>
         <item name="colorSurface">@color/white</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="elevationOverlayColor">@color/white</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorSecondary">@color/white</item>
         <item name="colorPrimaryFAB">@color/white</item>
         <item name="colorInverseIcon">@color/colorDark</item>
@@ -18,7 +18,6 @@
         <item name="tabSelected">@color/colorPrimary</item>
         <item name="dividerColor">@color/grayLight</item>
         <item name="colorBottomNavigation">#E6FFFFFF</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">#B3FFFFFF</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MyApp.SmallComponent

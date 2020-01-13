@@ -8,8 +8,8 @@
         <item name="colorAccent">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/white</item>
         <item name="colorSurface">@color/white</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="elevationOverlayColor">@color/white</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorSecondary">@color/white</item>
         <item name="colorPrimaryFAB">@color/white</item>
         <item name="colorInverseIcon">@color/colorDark</item>

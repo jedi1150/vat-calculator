@@ -6,7 +6,7 @@
         <item name="android:textColorPrimary">@color/colorLight</item>
         <item name="android:textColorSecondary">@color/colorLight</item>
         <item name="colorAccent">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorDark</item>
+        <item name="colorPrimaryDark">@color/white</item>
         <item name="colorSurface">@color/colorDark</item>
         <item name="elevationOverlayColor">@color/colorDark</item>
         <item name="colorPrimary">@color/colorLight</item>

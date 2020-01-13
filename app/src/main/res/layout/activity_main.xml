@@ -22,34 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        app:layout_anchor="@id/fab_group" />
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/fab_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:layout_marginTop="16dp"
-            android:fitsSystemWindows="false"
-            app:layout_anchor="@+id/bottom_navigation">
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/clear_fab"
-            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center|end"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            app:backgroundTint="?attr/colorPrimaryFAB"
-            app:icon="@drawable/close"
-            app:iconTint="?attr/colorInverseIcon"
-            app:rippleColor="@color/design_default_color_error" />
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        app:layout_anchor="@id/bottom_navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -64,8 +37,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/TL1"
-                android:hint="@string/percent"
+                android:id="@+id/percentTextLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,46 +46,48 @@
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:suffixText="@string/percent">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/editText3"
+                    android:id="@+id/percentEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:importantForAutofill="no"
                     android:inputType="number|numberSigned|numberDecimal"
                     android:maxLength="5"
                     android:minWidth="50dp"
                     android:singleLine="true"
                     android:text="@string/percent_20"
-                    android:importantForAutofill="no"
                     android:textAlignment="center" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:hint="@string/amount"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
+                android:hint="@string/amount"
+                app:endIconDrawable="@drawable/close"
+                app:endIconMode="clear_text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/themeButton"
-                app:layout_constraintLeft_toRightOf="@+id/TL1"
+                app:layout_constraintLeft_toRightOf="@+id/percentTextLayout"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/TL1"
+                app:layout_constraintStart_toEndOf="@+id/percentTextLayout"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/amountEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="0123456789.,"
                     android:imeOptions="actionDone|flagNoFullscreen"
-                    android:inputType="number"
-                    android:maxLength="20"
                     android:importantForAutofill="no"
+                    android:inputType="number|numberSigned|numberDecimal"
+                    android:maxLength="20"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 

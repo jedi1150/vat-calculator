@@ -6,7 +6,7 @@
     <color name="grayDark">#47484d</color>
     <color name="grayLight">#efefef</color>
     <color name="midGray">#757575</color>
-    <color name="white">#fff</color>
+    <color name="white">#ffffff</color>
     <color name="black">#000</color>
     <color name="disabled">#757575</color>
 </resources>

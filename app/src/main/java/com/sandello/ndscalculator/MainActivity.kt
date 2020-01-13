@@ -1,6 +1,5 @@
 package com.sandello.ndscalculator
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
@@ -16,8 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val nightModePref by lazy {  getSharedPreferences("nightMode", Context.MODE_PRIVATE) }
-
+    private val nightModePref by lazy { getSharedPreferences("nightMode", Context.MODE_PRIVATE) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +35,7 @@ class MainActivity : AppCompatActivity() {
         moveTaskToBack(true)
     }
 
-
-    private fun themeAlert()
-    {
+    private fun themeAlert() {
         var items = arrayOf(getString(R.string.light), getString(R.string.dark), getString(R.string.battery_saver))
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
             MaterialAlertDialogBuilder(this)
@@ -54,8 +50,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     .setNegativeButton(getString(R.string.cancel)) { dialogInterface, _ -> dialogInterface.cancel() }
                     .show()
-        }
-        else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             items = arrayOf(getString(R.string.light), getString(R.string.dark), getString(R.string.system_default))
             MaterialAlertDialogBuilder(this)
                     .setTitle(getString(R.string.chooseTheme))
@@ -78,7 +73,6 @@ class MainActivity : AppCompatActivity() {
         saveTheme(prefsMode)
     }
 
-    @SuppressLint("ResourceType") //Переключение ночного режима, при запуске приложения
     private fun setNightMode() {
         val isNightMode = this.resources.configuration.uiMode
                 .and(Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
@@ -115,8 +109,7 @@ class MainActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
                 delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
-            }
-            else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                 delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
             }
