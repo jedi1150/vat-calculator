@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 's'
+            keyPassword 'santand2012aT'
+            storePassword 'santand2012aT'
+            storeFile file('/Users/jedi1150/Documents/VAT-Calculator/keystore.jks')
+        }
+    }
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.sandello.ndscalculator"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 56
+        versionName '5.2.5'
+        signingConfig signingConfigs.config
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.config
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildToolsVersion '29.0.2'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0-rc04'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.0-rc04'
+    implementation 'com.google.android.material:material:1.2.0-alpha03'
+}

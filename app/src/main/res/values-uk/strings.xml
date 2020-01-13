@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ПДВ Калькулятор</string>
+    <string name="amount">Сума</string>
+    <string name="withoutVAT">Сума без ПДВ</string>
+    <string name="includeVAT">Сума включає ПДВ</string>
+    <string name="vat">ПДВ</string>
+    <string name="gross">Нарахувати ПДВ</string>
+    <string name="net">виділити ПДВ</string>
+    <string name="copied">Скопійований!</string>
+    <string name="cancel">Скасувати</string>
+    <string name="chooseTheme">Тема</string>
+    <string name="dark">Темна</string>
+    <string name="light">Світла</string>
+    <string name="system_default">System default</string>
+    <string name="battery_saver">Встановлено в режимі економії акумулятора</string>
+</resources>

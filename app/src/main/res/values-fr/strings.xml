@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculateur TVA</string>
+    <string name="amount">Montant</string>
+    <string name="withoutVAT">Montant hors TVA</string>
+    <string name="includeVAT">Le montant comprend la TVA</string>
+    <string name="vat">TVA</string>
+    <string name="gross">Ajouter la TVA</string>
+    <string name="net">Répartir la TVA</string>
+    <string name="copied">Copié!</string>
+    <string name="cancel">Annuler</string>
+    <string name="chooseTheme">Thème</string>
+    <string name="dark">Thème sombre</string>
+    <string name="light">Thème léger</string>
+    <string name="system_default">Défaut du système</string>
+    <string name="battery_saver">Défini par le mode d\'économie de batterie</string>
+</resources>
