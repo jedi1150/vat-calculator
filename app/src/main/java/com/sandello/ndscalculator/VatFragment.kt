@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_vat.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.NumberFormat
+import java.util.*
 
 
 class VatFragment : Fragment() {
@@ -41,14 +42,17 @@ class VatFragment : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 view.rootView!!.amountEditText.removeTextChangedListener(this)
                 try {
-                    if (s.toString().substringAfter(',').isNotEmpty()) {
+                    if (s.toString().substringAfter(',').isNotEmpty() || s.toString().substringAfter(' ').isNotEmpty()) {
                         var originalString = s.toString()
                         val longVal: Long
                         if (s.toString().contains(",")) {
                             originalString = originalString.replace(",", "")
                         }
+                        if (s.toString().contains(" ")) {
+                            originalString = originalString.replace(" ", "")
+                        }
                         longVal = originalString.toLong()
-                        val formatter: DecimalFormat = NumberFormat.getInstance() as DecimalFormat
+                        val formatter: DecimalFormat = NumberFormat.getInstance(Locale.US) as DecimalFormat
                         formatter.applyPattern("###,###.##")
                         formatter.roundingMode = RoundingMode.FLOOR
                         val formattedString: String = formatter.format(longVal)
@@ -64,7 +68,6 @@ class VatFragment : Fragment() {
             }
 
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
