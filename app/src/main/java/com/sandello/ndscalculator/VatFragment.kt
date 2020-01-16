@@ -23,6 +23,7 @@ import java.util.*
 
 
 class VatFragment : Fragment() {
+    var originalString: String = ""
     private var myClipboard: ClipboardManager? = null
     private var myClip: ClipData? = null
 
@@ -45,10 +46,10 @@ class VatFragment : Fragment() {
                 view.rootView!!.amountEditText.removeTextChangedListener(this)
                 format(s)
                 view.rootView!!.amountEditText.addTextChangedListener(this)
+                count()
             }
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                count()
             }
         })
         view.rootView!!.percentEditText!!.addTextChangedListener(object : TextWatcher {
@@ -65,7 +66,7 @@ class VatFragment : Fragment() {
         vatNetEditText.setOnClickListener { copyVal("vatNet") }
         amountExcludeEditText.setOnClickListener { copyVal("amountExclude") }
 
-        val locales = NumberFormat.getAvailableLocales()
+        /*val locales = NumberFormat.getAvailableLocales()
         val myNumber = -1234.56
         var form: NumberFormat
         for (j in 0..3) {
@@ -90,29 +91,31 @@ class VatFragment : Fragment() {
                 } catch (e: ParseException) {
                 }
             }
-        }
+        }*/
 
     }
 
     fun format(s: CharSequence) {
-        val formatter: DecimalFormat = NumberFormat.getInstance(Locale.GERMAN) as DecimalFormat
+        val current = resources.configuration.locale
+        val formatter: DecimalFormat = NumberFormat.getInstance() as DecimalFormat
         formatter.roundingMode = RoundingMode.FLOOR
         formatter.maximumFractionDigits = 2
         formatter.isGroupingUsed = true
         formatter.isParseIntegerOnly = false
         try {
-//            if (s.toString().substringAfter(',').isNotEmpty()) {
-            var originalString = s.toString().replace("\\s".toRegex(), "")
-//                if (s.toString().contains(",")) {
-//                    originalString = originalString.replace(",", ".")
-//                }
+            originalString = s.replace("\\s".toRegex(), "")
+            if (current == Locale.US)
+                if (s.toString().contains(",")) {
+                    originalString = originalString.replace(",", "")
+                }
+            if (current == Locale.GERMANY)
+                if (s.toString().contains(".")) {
+                    originalString = originalString.replace(".", "").replace(",", ".")
+                }
             val formattedString = formatter.format(originalString.toLong())
-//                if (s.toString().substringAfter('.').isNotEmpty()) {
             view!!.rootView!!.amountEditText.setText(formattedString)
             view!!.rootView!!.amountEditText.setSelection(view!!.rootView!!.amountEditText.text!!.length)
-//                }
             saveVal(view!!.rootView!!.percentEditText.text.toString(), originalString)
-//            }
         } catch (e: NumberFormatException) {
             e.printStackTrace()
         }
@@ -122,10 +125,9 @@ class VatFragment : Fragment() {
         val formatter: DecimalFormat = NumberFormat.getInstance() as DecimalFormat
         formatter.roundingMode = RoundingMode.FLOOR
         formatter.maximumFractionDigits = 2
-        formatter.decimalFormatSymbols.decimalSeparator = '%'
         try {
             if (view!!.rootView.amountEditText.text.toString().isNotEmpty() && view!!.rootView.percentEditText.text.toString().isNotEmpty()) {
-                val amount = view!!.rootView.amountEditText.text.toString().replace("\\s".toRegex(), "").toDouble()
+                val amount = originalString.toDouble()
                 val percent = view!!.rootView.percentEditText.text.toString().toDouble()
                 //Начисление НДС
                 val vatAdd = amount * percent / 100
@@ -187,5 +189,6 @@ class VatFragment : Fragment() {
         val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
         view?.rootView?.amountEditText?.setText(prefs?.getString("amount", ""))
         view?.rootView?.percentEditText?.setText(prefs?.getString("percent", "20"))
+        count()
     }
 }
