@@ -7,6 +7,7 @@ import android.content.Context.CLIPBOARD_SERVICE
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_vat.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.NumberFormat
+import java.text.ParseException
 import java.util.*
 
 
@@ -41,100 +43,106 @@ class VatFragment : Fragment() {
         view.rootView!!.amountEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
                 view.rootView!!.amountEditText.removeTextChangedListener(this)
-                try {
-                    if (s.toString().substringAfter(',').isNotEmpty() || s.toString().substringAfter(' ').isNotEmpty()) {
-                        var originalString = s.toString()
-                        val longVal: Long
-                        if (s.toString().contains(",")) {
-                            originalString = originalString.replace(",", "")
-                        }
-                        if (s.toString().contains(" ")) {
-                            originalString = originalString.replace(" ", "")
-                        }
-                        longVal = originalString.toLong()
-                        val formatter: DecimalFormat = NumberFormat.getInstance(Locale.US) as DecimalFormat
-                        formatter.applyPattern("###,###.##")
-                        formatter.roundingMode = RoundingMode.FLOOR
-                        val formattedString: String = formatter.format(longVal)
-                        if (s.toString().substringAfter('.').isNotEmpty()) {
-                            view.rootView!!.amountEditText.setText(formattedString)
-                            view.rootView!!.amountEditText.setSelection(view.rootView!!.amountEditText.text!!.length)
-                        }
-                    }
-                } catch (e: NumberFormatException) {
-                    e.printStackTrace()
-                }
+                format(s)
                 view.rootView!!.amountEditText.addTextChangedListener(this)
             }
-
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-            }
-
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 count()
-                saveVal()
             }
         })
         view.rootView!!.percentEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (count > 0 && s.contains(",")) {
-                    val comPos = view.rootView!!.percentEditText.text.toString().indexOf(",")
-                    view.rootView!!.percentEditText.setText(s.replace(",".toRegex(), "."))
-                    view.rootView!!.percentEditText.setSelection(comPos + 1)
-                } else {
-                    count()
-                    saveVal()
-                }
+                count()
+                saveVal(view.rootView!!.percentEditText.text.toString(), null)
             }
         })
 
+        vatAddEditText.setOnClickListener { copyVal("vatAdd") }
+        amountIncludeEditText.setOnClickListener { copyVal("amountInclude") }
+        vatNetEditText.setOnClickListener { copyVal("vatNet") }
+        amountExcludeEditText.setOnClickListener { copyVal("amountExclude") }
 
-        vatAddEditText.setOnClickListener {
-            copyVal("vatAdd")
+        val locales = NumberFormat.getAvailableLocales()
+        val myNumber = -1234.56
+        var form: NumberFormat
+        for (j in 0..3) {
+            println("FORMAT")
+            for (i in locales.indices) {
+                if (locales[i].country.isEmpty()) {
+                    continue  // Skip language-only locales
+                }
+                print(locales[i].displayName)
+                form = when (j) {
+                    0 -> NumberFormat.getInstance(locales[i])
+                    1 -> NumberFormat.getIntegerInstance(locales[i])
+                    2 -> NumberFormat.getCurrencyInstance(locales[i])
+                    else -> NumberFormat.getPercentInstance(locales[i])
+                }
+                if (form is DecimalFormat) {
+                    print(": " + form.toPattern())
+                }
+                print(" -> " + form.format(myNumber))
+                try {
+                    println(" -> " + form.parse(form.format(myNumber)))
+                } catch (e: ParseException) {
+                }
+            }
         }
-        amountIncludeEditText.setOnClickListener {
-            copyVal("amountInclude")
-        }
-        vatNetEditText.setOnClickListener {
-            copyVal("vatNet")
-        }
-        amountExcludeEditText.setOnClickListener {
-            copyVal("amountExclude")
+
+    }
+
+    fun format(s: CharSequence) {
+        val formatter: DecimalFormat = NumberFormat.getInstance(Locale.GERMAN) as DecimalFormat
+        formatter.roundingMode = RoundingMode.FLOOR
+        formatter.maximumFractionDigits = 2
+        formatter.isGroupingUsed = true
+        formatter.isParseIntegerOnly = false
+        try {
+//            if (s.toString().substringAfter(',').isNotEmpty()) {
+            var originalString = s.toString().replace("\\s".toRegex(), "")
+//                if (s.toString().contains(",")) {
+//                    originalString = originalString.replace(",", ".")
+//                }
+            val formattedString = formatter.format(originalString.toLong())
+//                if (s.toString().substringAfter('.').isNotEmpty()) {
+            view!!.rootView!!.amountEditText.setText(formattedString)
+            view!!.rootView!!.amountEditText.setSelection(view!!.rootView!!.amountEditText.text!!.length)
+//                }
+            saveVal(view!!.rootView!!.percentEditText.text.toString(), originalString)
+//            }
+        } catch (e: NumberFormatException) {
+            e.printStackTrace()
         }
     }
 
     fun count() {
+        val formatter: DecimalFormat = NumberFormat.getInstance() as DecimalFormat
+        formatter.roundingMode = RoundingMode.FLOOR
+        formatter.maximumFractionDigits = 2
+        formatter.decimalFormatSymbols.decimalSeparator = '%'
         try {
             if (view!!.rootView.amountEditText.text.toString().isNotEmpty() && view!!.rootView.percentEditText.text.toString().isNotEmpty()) {
-                val amount = view!!.rootView.amountEditText.text.toString().replace(",", "").toDouble()
-                val percent = view!!.rootView.percentEditText.text.toString().replace(",", "").toDouble()
+                val amount = view!!.rootView.amountEditText.text.toString().replace("\\s".toRegex(), "").toDouble()
+                val percent = view!!.rootView.percentEditText.text.toString().toDouble()
                 //Начисление НДС
-                val vatAdd = amount * percent / 100.toDouble()
-                val amountInclude = amount + amount * percent / 100.toDouble()
+                val vatAdd = amount * percent / 100
+                val amountInclude = amount + amount * percent / 100
                 //Выделение НДС
-
                 val vatNet = amount * percent / (percent + 100)
                 val vatExclude = amount - vatNet
-                vatAddEditText.setText(String.format("%,1.2f", vatAdd))
-                amountIncludeEditText.setText(String.format("%,1.2f", amountInclude))
-                vatNetEditText.setText(String.format("%,1.2f", vatNet))
-                amountExcludeEditText.setText(String.format("%,1.2f", vatExclude))
 
-                vatAddEditText.isEnabled = true
-                amountIncludeEditText.isEnabled = true
-                vatNetEditText.isEnabled = true
-                amountExcludeEditText.isEnabled = true
+                vatAddEditText.setText(formatter.format(vatAdd))
+                amountIncludeEditText.setText(formatter.format(amountInclude))
+                vatNetEditText.setText(formatter.format(vatNet))
+                amountExcludeEditText.setText(formatter.format(vatExclude))
             } else {
                 vatAddEditText.setText("0")
                 amountIncludeEditText.setText("0")
                 vatNetEditText.setText("0")
                 amountExcludeEditText.setText("0")
-                vatAddEditText.isEnabled = false
-                amountIncludeEditText.isEnabled = false
-                vatNetEditText.isEnabled = false
-                amountExcludeEditText.isEnabled = false
             }
         } catch (e: NumberFormatException) {
             e.printStackTrace()
@@ -164,11 +172,14 @@ class VatFragment : Fragment() {
         }
     }
 
-    private fun saveVal() {
+    private fun saveVal(percent: String?, amount: String?) {
         val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
         val editor = prefs?.edit()
-        editor?.putString("amount", view?.rootView?.amountEditText?.text.toString())
-        editor?.putString("percent", view?.rootView?.percentEditText?.text.toString())
+        editor?.putString("percent", percent!!)
+        if (amount != null) {
+            editor?.putString("amount", amount)
+            Log.d("amount", amount)
+        }
         editor?.apply()
     }
 
