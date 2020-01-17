@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.fragment_vat.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.NumberFormat
-import java.text.ParseException
 import java.util.*
 
 
@@ -49,15 +48,15 @@ class VatFragment : Fragment() {
                 count()
             }
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-            }
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+
         })
         view.rootView!!.percentEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 count()
-                saveVal(view.rootView!!.percentEditText.text.toString(), null)
+                saveVal(view.rootView!!.percentEditText.text.toString(), "")
             }
         })
 
@@ -65,57 +64,46 @@ class VatFragment : Fragment() {
         amountIncludeEditText.setOnClickListener { copyVal("amountInclude") }
         vatNetEditText.setOnClickListener { copyVal("vatNet") }
         amountExcludeEditText.setOnClickListener { copyVal("amountExclude") }
-
-        /*val locales = NumberFormat.getAvailableLocales()
-        val myNumber = -1234.56
-        var form: NumberFormat
-        for (j in 0..3) {
-            println("FORMAT")
-            for (i in locales.indices) {
-                if (locales[i].country.isEmpty()) {
-                    continue  // Skip language-only locales
-                }
-                print(locales[i].displayName)
-                form = when (j) {
-                    0 -> NumberFormat.getInstance(locales[i])
-                    1 -> NumberFormat.getIntegerInstance(locales[i])
-                    2 -> NumberFormat.getCurrencyInstance(locales[i])
-                    else -> NumberFormat.getPercentInstance(locales[i])
-                }
-                if (form is DecimalFormat) {
-                    print(": " + form.toPattern())
-                }
-                print(" -> " + form.format(myNumber))
-                try {
-                    println(" -> " + form.parse(form.format(myNumber)))
-                } catch (e: ParseException) {
-                }
-            }
-        }*/
-
     }
 
     fun format(s: CharSequence) {
+        var formattedString = ""
         val current = resources.configuration.locale
         val formatter: DecimalFormat = NumberFormat.getInstance() as DecimalFormat
         formatter.roundingMode = RoundingMode.FLOOR
-        formatter.maximumFractionDigits = 2
-        formatter.isGroupingUsed = true
-        formatter.isParseIntegerOnly = false
+//        formatter.applyPattern("###,###.##")
         try {
-            originalString = s.replace("\\s".toRegex(), "")
-            if (current == Locale.US)
+            if (s.toString().substringAfter(',').isNotEmpty() && s.toString().substringAfter('.').isNotEmpty()) {
+                originalString = s.replace("\\s".toRegex(), "")
+                if (current == Locale.FRANCE)
+                    if (s.toString().contains(",")) {
+                        originalString = originalString.replace(",", ".")
+                    }
+                if (current == Locale.US)
+                    if (s.toString().contains(",")) {
+                        originalString = originalString.replace(",", "")
+                    }
+                if (current == Locale.GERMANY) {
+                    if (s.toString().contains(".")) {
+                        originalString = originalString.replace(".", "")
+                    }
+                    if (s.toString().contains(",")) {
+                        originalString = originalString.replace(",", ".")
+                    }
+                }
                 if (s.toString().contains(",")) {
-                    originalString = originalString.replace(",", "")
+                    originalString = originalString.replace(",", ".")
                 }
-            if (current == Locale.GERMANY)
-                if (s.toString().contains(".")) {
-                    originalString = originalString.replace(".", "").replace(",", ".")
-                }
-            val formattedString = formatter.format(originalString.toLong())
-            view!!.rootView!!.amountEditText.setText(formattedString)
-            view!!.rootView!!.amountEditText.setSelection(view!!.rootView!!.amountEditText.text!!.length)
-            saveVal(view!!.rootView!!.percentEditText.text.toString(), originalString)
+                if (originalString.substringAfter('.').length > 2)
+                    originalString = originalString.replaceAfter('.', originalString.substringAfter('.').substring(0, 2))
+
+                formattedString = formatter.format(originalString.toDouble())
+
+
+                view!!.rootView!!.amountEditText.setText(formattedString)
+                view!!.rootView!!.amountEditText.setSelection(view!!.rootView!!.amountEditText.text!!.length)
+                saveVal(view!!.rootView!!.percentEditText.text.toString(), originalString)
+            }
         } catch (e: NumberFormatException) {
             e.printStackTrace()
         }
@@ -123,11 +111,11 @@ class VatFragment : Fragment() {
 
     fun count() {
         val formatter: DecimalFormat = NumberFormat.getInstance() as DecimalFormat
-        formatter.roundingMode = RoundingMode.FLOOR
+        formatter.roundingMode = RoundingMode.HALF_UP
         formatter.maximumFractionDigits = 2
         try {
             if (view!!.rootView.amountEditText.text.toString().isNotEmpty() && view!!.rootView.percentEditText.text.toString().isNotEmpty()) {
-                val amount = originalString.toDouble()
+                val amount = originalString.replace(",", ".").toDouble()
                 val percent = view!!.rootView.percentEditText.text.toString().toDouble()
                 //Начисление НДС
                 val vatAdd = amount * percent / 100
@@ -174,11 +162,11 @@ class VatFragment : Fragment() {
         }
     }
 
-    private fun saveVal(percent: String?, amount: String?) {
+    private fun saveVal(percent: String, amount: String) {
         val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
         val editor = prefs?.edit()
-        editor?.putString("percent", percent!!)
-        if (amount != null) {
+        editor?.putString("percent", percent)
+        if (amount != "") {
             editor?.putString("amount", amount)
             Log.d("amount", amount)
         }
@@ -189,6 +177,6 @@ class VatFragment : Fragment() {
         val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
         view?.rootView?.amountEditText?.setText(prefs?.getString("amount", ""))
         view?.rootView?.percentEditText?.setText(prefs?.getString("percent", "20"))
-        count()
+        format(prefs?.getString("amount", "")!!)
     }
 }
