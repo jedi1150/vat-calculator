@@ -5,10 +5,10 @@ apply plugin: 'kotlin-android-extensions'
 android {
     signingConfigs {
         config {
-            keyAlias ''
-            keyPassword ''
-            storePassword ''
-            storeFile file('')
+            keyAlias 's'
+            keyPassword 'santand2012aT'
+            storePassword 'santand2012aT'
+            storeFile file('/Users/jedi1150/Documents/VAT-Calculator/keystore.jks')
         }
     }
     compileSdkVersion 29
@@ -16,8 +16,8 @@ android {
         applicationId "com.sandello.ndscalculator"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 57
-        versionName '5.2.6'
+        versionCode 59
+        versionName '5.3'
         signingConfig signingConfigs.config
     }
     buildTypes {

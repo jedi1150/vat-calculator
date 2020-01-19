@@ -87,6 +87,7 @@
                     android:imeOptions="actionDone|flagNoFullscreen"
                     android:importantForAutofill="no"
                     android:inputType="number|numberSigned|numberDecimal"
+                    android:digits="0123456789.,"
                     android:maxLength="20"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
