@@ -7,7 +7,6 @@ import android.content.Context.CLIPBOARD_SERVICE
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,15 +15,15 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_vat.*
 import java.math.RoundingMode
+import java.text.DecimalFormat
 import java.text.NumberFormat
-import java.util.*
 
 
 class VatFragment : Fragment() {
     private var amountDouble: Double? = null
     private var myClipboard: ClipboardManager? = null
     private var myClip: ClipData? = null
-    var formatter: NumberFormat = NumberFormat.getNumberInstance()
+    var formatter: DecimalFormat = NumberFormat.getNumberInstance() as DecimalFormat
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -33,8 +32,10 @@ class VatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        formatter.roundingMode = RoundingMode.HALF_UP
+        formatter.roundingMode = RoundingMode.FLOOR
+        formatter = DecimalFormat("#,###.##")
         formatter.maximumFractionDigits = 2
+
         myClipboard = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
 
         loadVal()
@@ -43,22 +44,15 @@ class VatFragment : Fragment() {
         view.rootView!!.amountEditText!!.requestFocus()
         view.rootView!!.amountEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
-                if (s.toString().substringAfter(',').isNotEmpty() && s.toString().substringAfter('.').isNotEmpty()) {
-                    Log.d("lang", "_________________")
-                    Log.d("lang s", s.toString())
-                    amountDouble = formatter.parseObject(s.toString()).toString().toDouble()
-                    Log.d("lang s parsed", amountDouble.toString())
-                    view.rootView!!.amountEditText.removeTextChangedListener(this)
-                    format()
-                    view.rootView!!.amountEditText.addTextChangedListener(this)
-                }
-                else
-                    amountDouble = null
+                view.rootView!!.amountEditText.removeTextChangedListener(this)
+                format()
+                view.rootView!!.amountEditText.addTextChangedListener(this)
                 count()
             }
 
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+            }
 
         })
         view.rootView!!.percentEditText!!.addTextChangedListener(object : TextWatcher {
@@ -76,23 +70,62 @@ class VatFragment : Fragment() {
         amountExcludeEditText.setOnClickListener { copyVal("amountExclude") }
     }
 
-    fun format() {
-        formatter.roundingMode = RoundingMode.FLOOR
-        formatter.maximumFractionDigits = 2
+    private fun format() {
+        var string: String
         try {
-            if (amountDouble != null && amountDouble.toString().substringAfter(',').isNotEmpty() && amountDouble.toString().substringAfter('.').isNotEmpty()) {
-                view!!.rootView!!.amountEditText.setText(formatter.format(amountDouble!!))
-                view!!.rootView!!.amountEditText.setSelection(view!!.rootView!!.amountEditText.text!!.length)
-                saveVal(view!!.rootView!!.percentEditText.text.toString())
+            formatter.minimumFractionDigits = 0
+            string = view!!.rootView.amountEditText.text.toString()
+            val pos = view!!.rootView.amountEditText.selectionStart
+
+            if (string.isNotEmpty()) {
+                view!!.rootView.amountEditTextLayout.error = ""
+                if (pos > 0 && (string.substring(pos - 1, pos).contains("[,.]".toRegex()))) {
+                    view!!.rootView.amountEditText.setText(string.replaceRange(pos - 1, pos, formatter.decimalFormatSymbols.decimalSeparator.toString()))
+                    string = string.replaceRange(pos - 1, pos, ".")
+                    view!!.rootView.amountEditText.setSelection(view!!.rootView.amountEditText.text!!.length)
+                }
+                string = string.replaceFirst(formatter.decimalFormatSymbols.decimalSeparator.toString(), ":")
+                string = string.replace(formatter.decimalFormatSymbols.decimalSeparator.toString(), "")
+                string = string.replace(formatter.decimalFormatSymbols.groupingSeparator.toString(), "")
+                string = string.replace(":", ".")
+                if (string.startsWith(".")) {
+                    string = string.replaceRange(0, 0, "0")
+                }
+                if (string.substringAfter(formatter.decimalFormatSymbols.decimalSeparator) != "0" &&
+                        string.substringAfter(".").isNotEmpty()) {
+                    if (string.contains(".")) {
+                        if (string.substringAfter(".").length <= 2) {
+                            view!!.rootView.amountEditText.setText(formatter.format(string.toDouble()).toString())
+                            view!!.rootView.amountEditText.setSelection(view!!.rootView.amountEditText.text!!.length)
+                        }
+                    } else {
+                        view!!.rootView.amountEditText.setText(formatter.format(string.toDouble()).toString())
+                        view!!.rootView.amountEditText.setSelection(view!!.rootView.amountEditText.text!!.length)
+                    }
+                    count()
+                }
+                if (string.contains(".")) {
+                    if (string.substringAfter(".").length <= 2) {
+                        amountDouble = string.toDouble()
+                    }
+                } else {
+                    amountDouble = string.toDouble()
+                }
+            } else if (string.isEmpty()) {
+                view!!.rootView.amountEditTextLayout.error = ""
+            } else if (string.substringAfter(".").isEmpty() || string.substringAfter(".") == "0") {
+                view!!.rootView.amountEditTextLayout.error = ""
+            } else {
+                view!!.rootView.amountEditTextLayout.error = "проверьте сумму"
             }
+            saveVal(view!!.rootView!!.percentEditText.text.toString())
         } catch (e: NumberFormatException) {
             e.printStackTrace()
         }
     }
 
     fun count() {
-        formatter.roundingMode = RoundingMode.FLOOR
-        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
         try {
             if (amountDouble != null && view!!.rootView.amountEditText.text.toString().isNotEmpty() && view!!.rootView.percentEditText.text.toString().isNotEmpty()) {
                 val amount = amountDouble!!
@@ -145,20 +178,21 @@ class VatFragment : Fragment() {
     private fun saveVal(percent: String) {
         val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
         val editor = prefs?.edit()
-        editor?.putString("percent", percent)
-        editor?.putString("amount", amountDouble!!.toString())
+        try {
+            editor?.putString("percent", percent)
+            editor?.putString("amount", amountDouble.toString())
+        } catch (e: NumberFormatException) {
+        }
         editor?.apply()
     }
 
     private fun loadVal() {
-        formatter = NumberFormat.getNumberInstance()
         val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
         view?.rootView?.percentEditText?.setText(prefs?.getString("percent", "20"))
         try {
-            amountDouble = prefs!!.getString("amount", "")?.toDouble()
+            view!!.rootView.amountEditText.setText(formatter.format(prefs!!.getString("amount", "")?.toDouble()))
             format()
-        }
-        catch (e: NumberFormatException) {
+        } catch (e: NumberFormatException) {
         }
         count()
     }

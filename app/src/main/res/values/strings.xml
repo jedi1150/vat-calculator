@@ -1,21 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="app_name">VAT Calculator</string>
-    <string name="amount">Amount</string>
-    <string name="withoutVAT">Amount excluding VAT</string>
-    <string name="includeVAT">Amount include VAT</string>
-    <string name="vat">VAT</string>
-    <string name="gross">Add VAT</string>
-    <string name="net">Net Amount</string>
-    <string name="copied">Copied!</string>
-    <string name="percent" translatable="false">%</string>
-
-    <string name="light">Light</string>
-    <string name="dark">Dark</string>
-    <string name="battery_saver">Set by Battery Saver</string>
-    <string name="system_default">System default</string>
-    <string name="chooseTheme">Theme</string>
-    <string name="cancel">Cancel</string>
-    <string name="percent_20">20</string>
-
+  <string name="app_name">VAT Calculator</string>
+  <string name="amount">Amount</string>
+  <string name="withoutVAT">Excluding VAT</string>
+  <string name="includeVAT">Including VAT</string>
+  <string name="vat">VAT</string>
+  <string name="grossAmount">Gross Amount</string>
+  <string name="netAmount">Net Amount</string>
+  <string name="copied">Copied!</string>
+  <string name="percent" translatable="false">%</string>
+  <string name="light">Light</string>
+  <string name="dark">Dark</string>
+  <string name="battery_saver">Set by Battery Saver</string>
+  <string name="system_default">System default</string>
+  <string name="chooseTheme">Theme</string>
+  <string name="cancel">Cancel</string>
+  <string name="percent_20" translatable="false">20</string>
 </resources>

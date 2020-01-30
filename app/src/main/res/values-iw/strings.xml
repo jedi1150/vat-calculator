@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="app_name">מחשבון מע מ</string>
+  <string name="amount">כמות</string>
+  <string name="withoutVAT">לא כולל מע\"מ</string>
+  <string name="includeVAT">כולל מע\"מ</string>
+  <string name="vat">מע מ</string>
+  <string name="grossAmount">כמות</string>
+  <string name="netAmount">סכום נטו</string>
+  <string name="copied">הועתק!</string>
+  <string name="light">ערכת נושא קלה</string>
+  <string name="dark">נושא אפל</string>
+  <string name="battery_saver">מוגדר על ידי שומר סוללות</string>
+  <string name="system_default">ברירת מחדל של המערכת</string>
+  <string name="chooseTheme">נושא</string>
+  <string name="cancel">בטל</string>
+</resources>

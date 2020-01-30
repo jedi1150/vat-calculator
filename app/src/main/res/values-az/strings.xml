@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="app_name">ƏDV Kalkulyatoru</string>
+  <string name="amount">Məbləğ</string>
+  <string name="withoutVAT">ƏDV xaric</string>
+  <string name="includeVAT">ƏDV daxil olmaqla</string>
+  <string name="vat">ƏDV</string>
+  <string name="grossAmount">Məbləğ</string>
+  <string name="netAmount">Xalis məbləğ</string>
+  <string name="copied">Kopyalandı!</string>
+  <string name="light">İşıq mövzusu</string>
+  <string name="dark">Qaranlıq mövzu</string>
+  <string name="battery_saver">Batareya qənaətçisi tərəfindən təyin edilmişdir</string>
+  <string name="system_default">Sistem default</string>
+  <string name="chooseTheme">Mövzu</string>
+  <string name="cancel">Ləğv et</string>
+</resources>

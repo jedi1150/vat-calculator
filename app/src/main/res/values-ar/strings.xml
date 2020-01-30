@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="app_name">حاسبة ضريبة القيمة المضافة</string>
+  <string name="amount">كمية</string>
+  <string name="withoutVAT">باستثناء الضريبة على القيمة المضافة</string>
+  <string name="includeVAT">بما في ذلك ضريبة القيمة المضافة</string>
+  <string name="vat">ضريبة</string>
+  <string name="grossAmount">كمية الشبكة</string>
+  <string name="netAmount">كمية الشبكة</string>
+  <string name="copied">نسخ!</string>
+  <string name="light">ضوء</string>
+  <string name="dark">داكن</string>
+  <string name="battery_saver">تعيين بواسطة البطارية التوقف</string>
+  <string name="system_default">النظام الافتراضي</string>
+  <string name="chooseTheme">موضوع</string>
+  <string name="cancel">إلغاء</string>
+</resources>

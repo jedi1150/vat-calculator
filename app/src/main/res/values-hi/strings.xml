@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">वैट कैलकुलेटर</string>
+    <string name="amount">रकम</string>
+    <string name="withoutVAT">वैट को छोड़कर</string>
+    <string name="includeVAT">वैट सहित</string>
+    <string name="vat">वैट</string>
+    <string name="grossAmount">रकम</string>
+    <string name="netAmount">शुद्ध राशि</string>
+    <string name="copied">कॉपी किया गया!</string>
+    <string name="light">प्रकाश विषय</string>
+    <string name="dark">डार्क थीम</string>
+    <string name="battery_saver">बैटरी सेवर द्वारा सेट करें</string>
+    <string name="system_default">सिस्टम डिफ़ॉल्ट</string>
+    <string name="chooseTheme">विषय</string>
+    <string name="cancel">रद्द करना</string>
+</resources>

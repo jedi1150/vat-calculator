@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="app_name">付加価値電卓</string>
+  <string name="amount">量</string>
+  <string name="withoutVAT">VATを除く</string>
+  <string name="includeVAT">付加価値税込み</string>
+  <string name="vat">バット</string>
+  <string name="grossAmount">量</string>
+  <string name="netAmount">正味金額</string>
+  <string name="copied">コピー！</string>
+  <string name="light">ライトテーマ</string>
+  <string name="dark">暗いテーマ</string>
+  <string name="battery_saver">バッテリーセーバーで設定</string>
+  <string name="system_default">システムのデフォルト</string>
+  <string name="chooseTheme">テーマ</string>
+  <string name="cancel">キャンセル</string>
+</resources>
