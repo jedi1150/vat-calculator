@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="app_name">VAT क्यालकुलेटर</string>
+  <string name="amount">रकम</string>
+  <string name="withoutVAT">VAT बाहेक</string>
+  <string name="includeVAT">भ्याट् सहित</string>
+  <string name="vat">भ्याट</string>
+  <string name="grossAmount">कुल रकम</string>
+  <string name="netAmount">नेट रकम</string>
+  <string name="copied">प्रतिलिपि गरियो!</string>
+  <string name="light">हल्का</string>
+  <string name="dark">गाढा</string>
+  <string name="battery_saver">ब्याट्री सेभर द्वारा सेट</string>
+  <string name="system_default">प्रणाली पूर्वनिर्धारित</string>
+  <string name="chooseTheme">विषयवस्तु</string>
+  <string name="cancel">रद्द गर्नुहोस्</string>
+</resources>

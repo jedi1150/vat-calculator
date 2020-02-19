@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="app_name">MwSt. Rechner</string>
-    <string name="amount">Menge</string>
-    <string name="withoutVAT">Betrag ohne MwSt</string>
-    <string name="includeVAT">Betrag inkl. MwSt</string>
-    <string name="vat">MwSt</string>
-    <string name="gross">Mehrwertsteuer hinzufügen</string>
-    <string name="net">Mehrwertsteuer zuordnen</string>
-    <string name="copied">Kopiert!</string>
-    <string name="system_default">Systemfehler</string>
-    <string name="chooseTheme">Thema</string>
-    <string name="dark">Dunkles Thema</string>
-    <string name="light">Lichtthema</string>
-    <string name="cancel">Stornieren</string>
-    <string name="battery_saver">Wird im Batteriesparmodus eingestellt</string>
+  <string name="app_name">MwSt-Rechner</string>
+  <string name="amount">Menge</string>
+  <string name="withoutVAT">Ohne MwSt</string>
+  <string name="includeVAT">Einschließlich Mehrwertsteuer</string>
+  <string name="vat">MwSt</string>
+  <string name="grossAmount">Netto-Betrag</string>
+  <string name="netAmount">Netto-Betrag</string>
+  <string name="copied">Kopiert!</string>
+  <string name="light">Licht</string>
+  <string name="dark">Dunkles Thema</string>
+  <string name="battery_saver">Wird vom Battery Saver eingestellt</string>
+  <string name="system_default">Systemfehler</string>
+  <string name="chooseTheme">Thema</string>
+  <string name="cancel">Abbrechen</string>
 </resources>

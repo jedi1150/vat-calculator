@@ -2,15 +2,18 @@ package com.sandello.ndscalculator
 
 import android.content.Context
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.PopupMenu
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.view.updatePadding
+import androidx.navigation.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,19 +23,44 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setNightMode()
         setContentView(R.layout.activity_main)
-        themeButton.setOnClickListener {
-            themeAlert()
+
+        fun showMenu(anchor: View) {
+            val popup = PopupMenu(this, anchor)
+            popup.menuInflater.inflate(R.menu.menu, popup.menu)
+            popup.show()
+            popup.setOnMenuItemClickListener {
+                if (it.itemId == R.id.menuTheme) {
+                    themeAlert()
+                }
+                if (it.itemId == R.id.menuTranslate) {
+                    val url = "https://lokalise.com/project/228402545e30480daadfd6.44294341/?view=multi&filter=platform_2"
+                    val builder = CustomTabsIntent.Builder()
+                    val customTabsIntent = builder.build()
+                    customTabsIntent.launchUrl(this, Uri.parse(url))
+                }
+                if (it.itemId == R.id.menuGitHub) {
+                    val url = "https://github.com/jedi1150/VAT-Calculator"
+                    val builder = CustomTabsIntent.Builder()
+                    val customTabsIntent = builder.build()
+                    customTabsIntent.launchUrl(this, Uri.parse(url))
+                }
+                true
+            }
         }
+
+        menuButton.setOnClickListener {
+            showMenu(it)
+        }
+
         main_container.setOnApplyWindowInsetsListener { _, insets ->
             bottom_navigation.updatePadding(bottom = insets.systemWindowInsetBottom, right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
             insets
         }
     }
 
-    override fun onBackPressed() {
-        finish()
-        moveTaskToBack(true)
-    }
+
+    override fun onSupportNavigateUp() = findNavController(R.id.fragment).navigateUp()
+
 
     private fun themeAlert() {
         var items = arrayOf(getString(R.string.light), getString(R.string.dark), getString(R.string.battery_saver))

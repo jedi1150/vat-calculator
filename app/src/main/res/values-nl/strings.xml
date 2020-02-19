@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="app_name">BTW-calculator</string>
+  <string name="amount">Bedrag</string>
+  <string name="withoutVAT">Exclusief BTW</string>
+  <string name="includeVAT">Inclusief btw</string>
+  <string name="vat">VAT</string>
+  <string name="grossAmount">Bedrag</string>
+  <string name="netAmount">Netto bedrag</string>
+  <string name="copied">Gekopieerd!</string>
+  <string name="light">Licht thema</string>
+  <string name="dark">Donker thema</string>
+  <string name="battery_saver">Ingesteld door batterijbesparing</string>
+  <string name="system_default">Systeemstandaard</string>
+  <string name="chooseTheme">Thema</string>
+  <string name="cancel">Annuleren</string>
+</resources>

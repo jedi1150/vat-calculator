@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_container"
     android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         android:fitsSystemWindows="false"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_host"
-        android:id="@+id/fragment"/>
+        android:id="@+id/fragment" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/snackbar"
@@ -63,6 +62,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/amountEditTextLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                 app:endIconDrawable="@drawable/close"
                 app:endIconMode="clear_text"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/themeButton"
+                app:layout_constraintEnd_toStartOf="@+id/menuButton"
                 app:layout_constraintLeft_toRightOf="@+id/percentTextLayout"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/percentTextLayout"
@@ -84,21 +84,21 @@
                     android:id="@+id/amountEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="0123456789.,"
                     android:imeOptions="actionDone|flagNoFullscreen"
                     android:importantForAutofill="no"
                     android:inputType="number|numberSigned|numberDecimal"
-                    android:digits="0123456789.,"
                     android:maxLength="20"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/themeButton"
+                android:id="@+id/menuButton"
                 android:layout_width="24dp"
-                android:layout_marginEnd="8dp"
                 android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/brightness"
+                android:src="@drawable/more_vert"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

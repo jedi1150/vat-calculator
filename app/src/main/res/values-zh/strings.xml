@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">增值稅計算器</string>
+    <string name="amount">量</string>
+    <string name="withoutVAT">不包括增值稅</string>
+    <string name="includeVAT">包括增值稅</string>
+    <string name="vat">增值稅</string>
+    <string name="grossAmount">總金額</string>
+    <string name="netAmount">淨額</string>
+    <string name="copied">複製！</string>
+    <string name="light">光</string>
+    <string name="dark">暗</string>
+    <string name="battery_saver">由省電模式設定</string>
+    <string name="system_default">系統默認</string>
+    <string name="chooseTheme">主題</string>
+    <string name="cancel">由省電模式設定</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="app_name">Calculadora de IVA</string>
+  <string name="amount">Montante</string>
+  <string name="withoutVAT">Excluindo VAT</string>
+  <string name="includeVAT">Incluindo taxas</string>
+  <string name="vat">IVA</string>
+  <string name="grossAmount">Montante bruto</string>
+  <string name="netAmount">Valor líquido</string>
+  <string name="copied">Copiado!</string>
+  <string name="light">Luz</string>
+  <string name="dark">Escuro</string>
+  <string name="battery_saver">Definido por Battery Saver</string>
+  <string name="system_default">Sistema padrão</string>
+  <string name="chooseTheme">Tema</string>
+  <string name="cancel">Cancelar</string>
+</resources>
