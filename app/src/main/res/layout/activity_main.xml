@@ -74,7 +74,7 @@
                 app:endIconDrawable="@drawable/close"
                 app:endIconMode="clear_text"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/themeButton"
+                app:layout_constraintEnd_toStartOf="@+id/menuButton"
                 app:layout_constraintLeft_toRightOf="@+id/percentTextLayout"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/percentTextLayout"
@@ -93,12 +93,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/themeButton"
+                android:id="@+id/menuButton"
                 android:layout_width="24dp"
-                android:layout_marginEnd="8dp"
                 android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/brightness"
+                android:src="@drawable/more_vert"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

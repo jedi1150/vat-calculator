@@ -1,5 +1,6 @@
 package com.sandello.ndscalculator
 
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -43,15 +44,13 @@ class VatFragment : Fragment() {
         view.rootView!!.amountEditText!!.isFocusableInTouchMode = true
         view.rootView!!.amountEditText!!.requestFocus()
         view.rootView!!.amountEditText!!.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable) {
+            override fun afterTextChanged(s: Editable) {}
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 view.rootView!!.amountEditText.removeTextChangedListener(this)
                 format()
                 view.rootView!!.amountEditText.addTextChangedListener(this)
                 count()
-            }
-
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
             }
 
         })
@@ -70,17 +69,17 @@ class VatFragment : Fragment() {
         amountExcludeEditText.setOnClickListener { copyVal("amountExclude") }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun format() {
         var string: String
         try {
             formatter.minimumFractionDigits = 0
             string = view!!.rootView.amountEditText.text.toString()
-            val pos = view!!.rootView.amountEditText.selectionStart
+            var pos = view!!.rootView.amountEditText.selectionStart
 
             if (string.isNotEmpty()) {
                 view!!.rootView.amountEditTextLayout.error = ""
                 if (pos > 0 && (string.substring(pos - 1, pos).contains("[,.]".toRegex()))) {
-                    view!!.rootView.amountEditText.setText(string.replaceRange(pos - 1, pos, formatter.decimalFormatSymbols.decimalSeparator.toString()))
                     string = string.replaceRange(pos - 1, pos, ".")
                     view!!.rootView.amountEditText.setSelection(view!!.rootView.amountEditText.text!!.length)
                 }
@@ -91,26 +90,35 @@ class VatFragment : Fragment() {
                 if (string.startsWith(".")) {
                     string = string.replaceRange(0, 0, "0")
                 }
-                if (string.substringAfter(formatter.decimalFormatSymbols.decimalSeparator) != "0" &&
-                        string.substringAfter(".").isNotEmpty()) {
+                if (string.substringAfter(formatter.decimalFormatSymbols.decimalSeparator) != "0"
+                        && string.substringAfter(".") != "."
+                ) {
                     if (string.contains(".")) {
                         if (string.substringAfter(".").length <= 2) {
-                            view!!.rootView.amountEditText.setText(formatter.format(string.toDouble()).toString())
-                            view!!.rootView.amountEditText.setSelection(view!!.rootView.amountEditText.text!!.length)
+                            amountDouble = string.toDouble()
                         }
                     } else {
-                        view!!.rootView.amountEditText.setText(formatter.format(string.toDouble()).toString())
-                        view!!.rootView.amountEditText.setSelection(view!!.rootView.amountEditText.text!!.length)
-                    }
-                    count()
-                }
-                if (string.contains(".")) {
-                    if (string.substringAfter(".").length <= 2) {
                         amountDouble = string.toDouble()
                     }
-                } else {
-                    amountDouble = string.toDouble()
+                    if (!string.contains(".")) {
+                        view!!.rootView.amountEditText.setText(formatter.format(amountDouble).toString())
+                    } else {
+                        when {
+                            string.substringAfter(".").length in 1..2 -> {
+                                view!!.rootView.amountEditText.setText(formatter.format(amountDouble).toString())
+                            }
+                            string.substringAfter(".").isEmpty() -> {
+                                view!!.rootView.amountEditText.setText("${formatter.format(amountDouble)}${formatter.decimalFormatSymbols.decimalSeparator}")
+                            }
+                            else -> {
+                                view!!.rootView.amountEditText.setText(formatter.format(amountDouble).toString())
+                            }
+                        }
+                    }
+                    if (pos > view!!.rootView.amountEditText.text!!.length) pos = view!!.rootView.amountEditText.text!!.length
+                    view!!.rootView.amountEditText.setSelection(pos)
                 }
+
             } else if (string.isEmpty()) {
                 view!!.rootView.amountEditTextLayout.error = ""
             } else if (string.substringAfter(".").isEmpty() || string.substringAfter(".") == "0") {

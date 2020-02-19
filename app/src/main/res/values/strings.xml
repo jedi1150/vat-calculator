@@ -16,4 +16,6 @@
   <string name="chooseTheme">Theme</string>
   <string name="cancel">Cancel</string>
   <string name="percent_20" translatable="false">20</string>
+  <string name="help_with_translation">Help with translation</string>
+  <string name="github" translatable="false">GitHub</string>
 </resources>
