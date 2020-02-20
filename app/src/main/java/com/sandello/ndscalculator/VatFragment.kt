@@ -8,7 +8,6 @@ import android.content.Context.CLIPBOARD_SERVICE
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -91,8 +90,7 @@ class VatFragment : Fragment() {
                 if (string.startsWith(".")) {
                     string = string.replaceRange(0, 0, "0")
                 }
-                Log.d("string1", string)
-                if (string.substringAfter(formatter.decimalFormatSymbols.decimalSeparator) != "0"
+                if (string.substringAfter(".") != "0"
                         && string.substringAfter(".") != "."
                 ) {
                     if (string.contains(".")) {
