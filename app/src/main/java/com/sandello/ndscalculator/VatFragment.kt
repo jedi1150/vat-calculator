@@ -8,6 +8,7 @@ import android.content.Context.CLIPBOARD_SERVICE
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -83,13 +84,14 @@ class VatFragment : Fragment() {
                     string = string.replaceRange(pos - 1, pos, ".")
                     view!!.rootView.amountEditText.setSelection(view!!.rootView.amountEditText.text!!.length)
                 }
-                string = string.replaceFirst(formatter.decimalFormatSymbols.decimalSeparator.toString(), ":")
-                string = string.replace(formatter.decimalFormatSymbols.decimalSeparator.toString(), "")
+                string = string.replaceFirst("[,.]".toRegex(), ":")
+                string = string.replace("[,.]".toRegex(), "")
                 string = string.replace(formatter.decimalFormatSymbols.groupingSeparator.toString(), "")
                 string = string.replace(":", ".")
                 if (string.startsWith(".")) {
                     string = string.replaceRange(0, 0, "0")
                 }
+                Log.d("string1", string)
                 if (string.substringAfter(formatter.decimalFormatSymbols.decimalSeparator) != "0"
                         && string.substringAfter(".") != "."
                 ) {
@@ -102,10 +104,12 @@ class VatFragment : Fragment() {
                     }
                     if (!string.contains(".")) {
                         view!!.rootView.amountEditText.setText(formatter.format(amountDouble).toString())
+                        pos = view!!.rootView.amountEditText.text!!.length
                     } else {
                         when {
                             string.substringAfter(".").length in 1..2 -> {
                                 view!!.rootView.amountEditText.setText(formatter.format(amountDouble).toString())
+
                             }
                             string.substringAfter(".").isEmpty() -> {
                                 view!!.rootView.amountEditText.setText("${formatter.format(amountDouble)}${formatter.decimalFormatSymbols.decimalSeparator}")
@@ -114,8 +118,8 @@ class VatFragment : Fragment() {
                                 view!!.rootView.amountEditText.setText(formatter.format(amountDouble).toString())
                             }
                         }
+                        if (pos > view!!.rootView.amountEditText.text!!.length) pos = view!!.rootView.amountEditText.text!!.length
                     }
-                    if (pos > view!!.rootView.amountEditText.text!!.length) pos = view!!.rootView.amountEditText.text!!.length
                     view!!.rootView.amountEditText.setSelection(pos)
                 }
 
