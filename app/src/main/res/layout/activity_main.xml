@@ -48,7 +48,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:suffixText="@string/percent">
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/percentEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                 app:layout_constraintStart_toEndOf="@+id/percentTextLayout"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/amountEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
