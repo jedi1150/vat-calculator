@@ -57,7 +57,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/addVatTextView"
                 tools:ignore="KeyboardInaccessibleWidget">
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/vatAddEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/vatAddTextLayout"
                 tools:ignore="KeyboardInaccessibleWidget">
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/amountIncludeEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/netAmountTextView"
                 tools:ignore="KeyboardInaccessibleWidget">
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/vatNetEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
                 tools:ignore="KeyboardInaccessibleWidget">
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/amountExcludeEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
