@@ -64,6 +64,7 @@
                     android:clickable="true"
                     android:cursorVisible="false"
                     android:focusableInTouchMode="false"
+                    android:singleLine="true"
                     android:textAlignment="textEnd" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -89,6 +90,7 @@
                     android:clickable="true"
                     android:cursorVisible="false"
                     android:focusableInTouchMode="false"
+                    android:singleLine="true"
                     android:textAlignment="textEnd" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -129,6 +131,7 @@
                     android:clickable="true"
                     android:cursorVisible="false"
                     android:focusableInTouchMode="false"
+                    android:singleLine="true"
                     android:textAlignment="textEnd" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -153,6 +156,7 @@
                     android:clickable="true"
                     android:cursorVisible="false"
                     android:focusableInTouchMode="false"
+                    android:singleLine="true"
                     android:textAlignment="textEnd" />
             </com.google.android.material.textfield.TextInputLayout>
 
