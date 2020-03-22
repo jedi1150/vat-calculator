@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="app_name">ভ্যাট ক্যালকুলেটর</string>
-  <string name="amount">পরিমাণ</string>
-  <string name="withoutVAT">ভ্যাট</string>
-  <string name="includeVAT">ভ্যাটসহ</string>
-  <string name="vat">ভ্যাট</string>
-  <string name="grossAmount">থোক</string>
-  <string name="netAmount">থোক</string>
-  <string name="copied">অনুলিপি করা হয়েছে!</string>
-  <string name="light">আলো</string>
-  <string name="dark">অন্ধকার</string>
-  <string name="battery_saver">ব্যাটারি সেভার দ্বারা সেট</string>
-  <string name="system_default">সিস্টেমের ডিফল্ট</string>
-  <string name="chooseTheme">বিষয়</string>
-  <string name="cancel">বাতিল</string>
+    <string name="app_name">ভ্যাট</string>
+    <string name="amount">পরিমাণ</string>
+    <string name="without_vat">ভ্যাট</string>
+    <string name="include_vat">ভ্যাটসহ</string>
+    <string name="vat">ভ্যাট</string>
+    <string name="gross_amount">থোক</string>
+    <string name="net_amount">থোক</string>
+    <string name="copied">অনুলিপি করা হয়েছে!</string>
+    <string name="light">আলো</string>
+    <string name="dark">অন্ধকার</string>
+    <string name="battery_saver">ব্যাটারি সেভার দ্বারা সেট</string>
+    <string name="system_default">সিস্টেমের ডিফল্ট</string>
+    <string name="choose_theme">বিষয়</string>
+    <string name="cancel">বাতিল</string>
 </resources>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="app_name">Калькулятор ПДВ</string>
-  <string name="amount">Сума</string>
-  <string name="withoutVAT">Без ПДВ</string>
-  <string name="includeVAT">Включаючи ПДВ</string>
-  <string name="vat">ПДВ</string>
-  <string name="grossAmount">Валова сума</string>
-  <string name="netAmount">Чиста сума</string>
-  <string name="copied">Скопійовані!</string>
-  <string name="light">Світла</string>
-  <string name="dark">Темна</string>
-  <string name="battery_saver">Враховувати режим енергозбереження</string>
-  <string name="system_default">Система за замовчуванням</string>
-  <string name="chooseTheme">Тема</string>
-  <string name="cancel">Скасувати</string>
+    <string name="app_name">ПДВ</string>
+    <string name="amount">Сума</string>
+    <string name="without_vat">Без ПДВ</string>
+    <string name="include_vat">Включаючи ПДВ</string>
+    <string name="vat">ПДВ</string>
+    <string name="gross_amount">Валова сума</string>
+    <string name="net_amount">Чиста сума</string>
+    <string name="copied">Скопійовані!</string>
+    <string name="light">Світла</string>
+    <string name="dark">Темна</string>
+    <string name="battery_saver">Враховувати режим енергозбереження</string>
+    <string name="system_default">Система за замовчуванням</string>
+    <string name="choose_theme">Тема</string>
+    <string name="cancel">Скасувати</string>
 </resources>

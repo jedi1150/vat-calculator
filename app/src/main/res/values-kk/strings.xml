@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="app_name">ҚҚС калькуляторы</string>
-  <string name="amount">Сома</string>
-  <string name="withoutVAT">ҚҚС-сыз</string>
-  <string name="includeVAT">ҚҚС есебімен</string>
-  <string name="vat">ҚҚС</string>
-  <string name="grossAmount">Жалпы сома</string>
-  <string name="netAmount">Таза сома</string>
-  <string name="copied">Көшірілді!</string>
-  <string name="light">Жарық</string>
-  <string name="dark">Қараңғы</string>
-  <string name="battery_saver">Батареяны үнемдегіш арқылы орнатылады</string>
-  <string name="system_default">Жүйе әдепкі</string>
-  <string name="chooseTheme">Тақырып</string>
-  <string name="cancel">Болдырмау</string>
+    <string name="app_name">ҚҚС</string>
+    <string name="amount">Сома</string>
+    <string name="without_vat">ҚҚС-сыз</string>
+    <string name="include_vat">ҚҚС есебімен</string>
+    <string name="vat">ҚҚС</string>
+    <string name="gross_amount">Жалпы сома</string>
+    <string name="net_amount">Таза сома</string>
+    <string name="copied">Көшірілді!</string>
+    <string name="light">Жарық</string>
+    <string name="dark">Қараңғы</string>
+    <string name="battery_saver">Батареяны үнемдегіш арқылы орнатылады</string>
+    <string name="system_default">Жүйе әдепкі</string>
+    <string name="choose_theme">Тақырып</string>
+    <string name="cancel">Болдырмау</string>
 </resources>

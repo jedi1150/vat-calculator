@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="app_name">Calculateur de TVA</string>
-  <string name="amount">Montant</string>
-  <string name="withoutVAT">Sans TVA</string>
-  <string name="includeVAT">Y compris la TVA</string>
-  <string name="vat">T.V.A.</string>
-  <string name="grossAmount">Montant net</string>
-  <string name="netAmount">Montant net</string>
-  <string name="copied">Copié!</string>
-  <string name="light">Thème léger</string>
-  <string name="dark">Thème sombre</string>
-  <string name="battery_saver">Défini par l\'économiseur de batterie</string>
-  <string name="system_default">Défaut du système</string>
-  <string name="chooseTheme">Thème</string>
-  <string name="cancel">Annuler</string>
+    <string name="app_name">T.V.A.</string>
+    <string name="amount">Montant</string>
+    <string name="without_vat">Sans TVA</string>
+    <string name="include_vat">Y compris la TVA</string>
+    <string name="vat">T.V.A.</string>
+    <string name="gross_amount">Montant net</string>
+    <string name="net_amount">Montant net</string>
+    <string name="copied">Copié!</string>
+    <string name="light">Thème léger</string>
+    <string name="dark">Thème sombre</string>
+    <string name="battery_saver">Défini par l\'économiseur de batterie</string>
+    <string name="system_default">Défaut du système</string>
+    <string name="choose_theme">Thème</string>
+    <string name="cancel">Annuler</string>
 </resources>

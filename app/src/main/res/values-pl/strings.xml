@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="app_name">Kalkulator VAT</string>
-  <string name="amount">Ilość</string>
-  <string name="withoutVAT">Bez VAT</string>
-  <string name="includeVAT">W tym podatek VAT</string>
-  <string name="vat">faktura VAT</string>
-  <string name="grossAmount">Kwota brutto</string>
-  <string name="netAmount">Kwota netto</string>
-  <string name="copied">Skopiowano!</string>
-  <string name="light">Światło</string>
-  <string name="dark">Ciemny</string>
-  <string name="battery_saver">Ustawiony przez Oszczędzanie baterii</string>
-  <string name="system_default">Domyślne ustawienie systemowe</string>
-  <string name="chooseTheme">Temat</string>
-  <string name="cancel">Anuluj</string>
+    <string name="app_name">faktura VAT</string>
+    <string name="amount">Ilość</string>
+    <string name="without_vat">Bez VAT</string>
+    <string name="include_vat">W tym podatek VAT</string>
+    <string name="vat">faktura VAT</string>
+    <string name="gross_amount">Kwota brutto</string>
+    <string name="net_amount">Kwota netto</string>
+    <string name="copied">Skopiowano!</string>
+    <string name="light">Światło</string>
+    <string name="dark">Ciemny</string>
+    <string name="battery_saver">Ustawiony przez Oszczędzanie baterii</string>
+    <string name="system_default">Domyślne ustawienie systemowe</string>
+    <string name="choose_theme">Temat</string>
+    <string name="cancel">Anuluj</string>
 </resources>

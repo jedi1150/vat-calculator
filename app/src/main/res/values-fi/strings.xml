@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="app_name">ALV-Laskin</string>
-  <string name="amount">Määrä</string>
-  <string name="withoutVAT">Ilman ALV</string>
-  <string name="includeVAT">Sisältää arvonlisäveron</string>
-  <string name="vat">Arvonlisäveroa</string>
-  <string name="grossAmount">Bruttomäärä</string>
-  <string name="netAmount">Nettomäärä</string>
-  <string name="copied">Kopioitu!</string>
-  <string name="light">valo</string>
-  <string name="dark">Tumma</string>
-  <string name="battery_saver">Asettaa Battery Saver</string>
-  <string name="system_default">Järjestelmän oletusarvo</string>
-  <string name="chooseTheme">Teema</string>
-  <string name="cancel">Peruutus</string>
+    <string name="app_name">ALV</string>
+    <string name="amount">Määrä</string>
+    <string name="without_vat">Ilman ALV</string>
+    <string name="include_vat">Sisältää arvonlisäveron</string>
+    <string name="vat">Arvonlisäveroa</string>
+    <string name="gross_amount">Bruttomäärä</string>
+    <string name="net_amount">Nettomäärä</string>
+    <string name="copied">Kopioitu!</string>
+    <string name="light">valo</string>
+    <string name="dark">Tumma</string>
+    <string name="battery_saver">Asettaa Battery Saver</string>
+    <string name="system_default">Järjestelmän oletusarvo</string>
+    <string name="choose_theme">Teema</string>
+    <string name="cancel">Peruutus</string>
 </resources>

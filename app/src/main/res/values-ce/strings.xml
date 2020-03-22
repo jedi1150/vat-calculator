@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="app_name">Kalkulačka DPH</string>
-  <string name="amount">Množství</string>
-  <string name="withoutVAT">Bez DPH</string>
-  <string name="includeVAT">Včetně DPH</string>
-  <string name="vat">káď</string>
-  <string name="grossAmount">Hrubá částka</string>
-  <string name="netAmount">Čistá částka</string>
-  <string name="copied">Zkopírováno!</string>
-  <string name="light">Lehké</string>
-  <string name="dark">Temné</string>
-  <string name="battery_saver">Nastaveno šetřičem baterie</string>
-  <string name="system_default">výchozí nastavení systému</string>
-  <string name="chooseTheme">Téma</string>
-  <string name="cancel">Zrušit</string>
+    <string name="app_name">káď</string>
+    <string name="amount">Množství</string>
+    <string name="without_vat">Bez DPH</string>
+    <string name="include_vat">Včetně DPH</string>
+    <string name="vat">káď</string>
+    <string name="gross_amount">Hrubá částka</string>
+    <string name="net_amount">Čistá částka</string>
+    <string name="copied">Zkopírováno!</string>
+    <string name="light">Lehké</string>
+    <string name="dark">Temné</string>
+    <string name="battery_saver">Nastaveno šetřičem baterie</string>
+    <string name="system_default">výchozí nastavení systému</string>
+    <string name="choose_theme">Téma</string>
+    <string name="cancel">Zrušit</string>
 </resources>
