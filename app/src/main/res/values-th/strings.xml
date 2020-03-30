@@ -13,5 +13,8 @@
     <string name="battery_saver">กำหนดโดย Battery Saver</string>
     <string name="system_default">ระบบเริ่มต้น</string>
     <string name="choose_theme">กระทู้</string>
-    <string name="cancel">ยกเลิก</string>
+    <string name="improve_translation">ปรับปรุงการแปล</string>
+    <string name="settings">การตั้งค่า</string>
+    <string name="other">อื่น ๆ</string>
+    <string name="save_value">ประหยัดค่า</string>
 </resources>

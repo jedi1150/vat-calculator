@@ -13,5 +13,8 @@
     <string name="battery_saver">Батареяны үнемдегіш арқылы орнатылады</string>
     <string name="system_default">Жүйе әдепкі</string>
     <string name="choose_theme">Тақырып</string>
-    <string name="cancel">Болдырмау</string>
+    <string name="improve_translation">Аударманы жақсарту</string>
+    <string name="settings">Параметрлер</string>
+    <string name="other">Басқа</string>
+    <string name="save_value">Құнды сақтау</string>
 </resources>

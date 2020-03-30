@@ -13,5 +13,8 @@
     <string name="battery_saver">ব্যাটারি সেভার দ্বারা সেট</string>
     <string name="system_default">সিস্টেমের ডিফল্ট</string>
     <string name="choose_theme">বিষয়</string>
-    <string name="cancel">বাতিল</string>
+    <string name="improve_translation">অনুবাদ উন্নত করুন</string>
+    <string name="settings">সেটিংস</string>
+    <string name="other">অন্যান্য</string>
+    <string name="save_value">মান সংরক্ষণ করুন</string>
 </resources>

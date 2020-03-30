@@ -13,5 +13,8 @@
     <string name="battery_saver">Ingesteld door batterijbesparing</string>
     <string name="system_default">Systeemstandaard</string>
     <string name="choose_theme">Thema</string>
-    <string name="cancel">Annuleren</string>
+    <string name="improve_translation">Vertaling verbeteren</string>
+    <string name="settings">Instellingen</string>
+    <string name="other">Andere</string>
+    <string name="save_value">Waarde besparen</string>
 </resources>

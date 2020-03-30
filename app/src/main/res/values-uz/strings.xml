@@ -13,5 +13,8 @@
     <string name="battery_saver">Batareya quvvatini tejash vositasi</string>
     <string name="system_default">Tizim birlamchi</string>
     <string name="choose_theme">Mavzu</string>
-    <string name="cancel">Bekor qilish</string>
+    <string name="improve_translation">Tarjimani yaxshilang</string>
+    <string name="settings">Sozlamalar</string>
+    <string name="other">Boshqalar</string>
+    <string name="save_value">Qiymatni tejash</string>
 </resources>

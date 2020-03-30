@@ -13,5 +13,8 @@
     <string name="battery_saver">Wird vom Battery Saver eingestellt</string>
     <string name="system_default">Systemfehler</string>
     <string name="choose_theme">Thema</string>
-    <string name="cancel">Abbrechen</string>
+    <string name="improve_translation">Übersetzung verbessern</string>
+    <string name="settings">die Einstellungen</string>
+    <string name="other">Andere</string>
+    <string name="save_value">Wert speichern</string>
 </resources>

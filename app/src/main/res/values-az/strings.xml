@@ -13,5 +13,8 @@
     <string name="battery_saver">Batareya qənaətçisi tərəfindən təyin edilmişdir</string>
     <string name="system_default">Sistem default</string>
     <string name="choose_theme">Mövzu</string>
-    <string name="cancel">Ləğv et</string>
+    <string name="improve_translation">Tərcümə təkmilləşdirin</string>
+    <string name="settings">Parametrlər</string>
+    <string name="other">Digərləri</string>
+    <string name="save_value">Dəyər qazanın</string>
 </resources>

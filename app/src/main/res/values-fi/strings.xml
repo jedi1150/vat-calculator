@@ -13,5 +13,8 @@
     <string name="battery_saver">Asettaa Battery Saver</string>
     <string name="system_default">Järjestelmän oletusarvo</string>
     <string name="choose_theme">Teema</string>
-    <string name="cancel">Peruutus</string>
+    <string name="improve_translation">Paranna käännöstä</string>
+    <string name="settings">asetukset</string>
+    <string name="other">muut</string>
+    <string name="save_value">Tallenna arvo</string>
 </resources>

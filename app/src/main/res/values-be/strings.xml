@@ -13,5 +13,8 @@
     <string name="battery_saver">Ўлічваць рэжым энергазберажэння</string>
     <string name="system_default">Сістэма па змаўчанні</string>
     <string name="choose_theme">Тэма</string>
-    <string name="cancel">Адмяніць</string>
+    <string name="improve_translation">Палепшыць пераклад</string>
+    <string name="settings">Налады</string>
+    <string name="other">Іншыя</string>
+    <string name="save_value">Захаваць значэнне</string>
 </resources>

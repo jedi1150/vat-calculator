@@ -13,5 +13,8 @@
     <string name="battery_saver">Враховувати режим енергозбереження</string>
     <string name="system_default">Система за замовчуванням</string>
     <string name="choose_theme">Тема</string>
-    <string name="cancel">Скасувати</string>
+    <string name="improve_translation">Поліпшення перекладу</string>
+    <string name="settings">Налаштування</string>
+    <string name="other">Інший</string>
+    <string name="save_value">Зберегти значення</string>
 </resources>

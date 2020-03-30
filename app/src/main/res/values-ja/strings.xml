@@ -13,5 +13,8 @@
     <string name="battery_saver">バッテリーセーバーで設定</string>
     <string name="system_default">システムのデフォルト</string>
     <string name="choose_theme">テーマ</string>
-    <string name="cancel">キャンセル</string>
+    <string name="improve_translation">翻訳を改善する</string>
+    <string name="settings">設定</string>
+    <string name="other">その他の</string>
+    <string name="save_value">値を保存</string>
 </resources>

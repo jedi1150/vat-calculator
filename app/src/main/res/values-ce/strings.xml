@@ -13,5 +13,8 @@
     <string name="battery_saver">Nastaveno šetřičem baterie</string>
     <string name="system_default">výchozí nastavení systému</string>
     <string name="choose_theme">Téma</string>
-    <string name="cancel">Zrušit</string>
+    <string name="improve_translation">Pomoc s překladem</string>
+    <string name="settings">Nastavení</string>
+    <string name="other">jiný</string>
+    <string name="save_value">neplatná hodnota</string>
 </resources>
