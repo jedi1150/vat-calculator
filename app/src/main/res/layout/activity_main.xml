@@ -5,107 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="true"
+    android:clipChildren="false"
     android:fitsSystemWindows="true">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="false"
+        android:fitsSystemWindows="true"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_host"
         android:id="@+id/fragment" />
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/snackbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_anchor="@id/bottom_navigation" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorBottomNavigation"
-        app:elevation="0dp"
-        android:layout_gravity="bottom">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/percentTextLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:suffixText="@string/percent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/percentEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"
-                    android:inputType="number|numberSigned|numberDecimal"
-                    android:maxLength="5"
-                    android:minWidth="50dp"
-                    android:singleLine="true"
-                    android:text="@string/percent_20"
-                    android:textAlignment="center" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/amountEditTextLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:hint="@string/amount"
-                app:endIconDrawable="@drawable/close"
-                app:endIconMode="clear_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/menuButton"
-                app:layout_constraintLeft_toRightOf="@+id/percentTextLayout"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/percentTextLayout"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/amountEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:digits="0123456789.,"
-                    android:imeOptions="actionDone|flagNoFullscreen"
-                    android:importantForAutofill="no"
-                    android:inputType="number|numberSigned|numberDecimal"
-                    android:maxLength="20"
-                    android:singleLine="true" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/menuButton"
-                android:layout_width="24dp"
-                android:layout_height="0dp"
-                android:layout_marginEnd="8dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/more_vert"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="144dp">
+            android:paddingBottom="122dp">
 
             <TextView
                 android:id="@+id/addVatTextView"
@@ -36,57 +36,66 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/vatAddTextLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:clickable="true"
-                android:hint="@string/vat"
-                app:endIconDrawable="@drawable/text_fields"
-                app:endIconMode="clear_text"
-                tools:ignore="KeyboardInaccessibleWidget">
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/vatAddEditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/vatAddTextLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight=".5"
                     android:clickable="true"
-                    android:cursorVisible="false"
-                    android:focusableInTouchMode="false"
-                    android:singleLine="true"
-                    android:textAlignment="textEnd" />
+                    android:hint="@string/vat"
+                    app:endIconDrawable="@drawable/text_fields"
+                    app:endIconMode="clear_text"
+                    tools:ignore="KeyboardInaccessibleWidget">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/vatAddEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusableInTouchMode="false"
+                        android:singleLine="true"
+                        android:textAlignment="textEnd" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/amountIncludeTextLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:clickable="true"
-                android:hint="@string/include_vat"
-                app:endIconDrawable="@drawable/text_fields"
-                app:endIconMode="clear_text"
-                tools:ignore="KeyboardInaccessibleWidget">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/amountIncludeEditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/amountIncludeTextLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight=".5"
                     android:clickable="true"
-                    android:cursorVisible="false"
-                    android:focusableInTouchMode="false"
-                    android:singleLine="true"
-                    android:textAlignment="textEnd" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:hint="@string/include_vat"
+                    app:endIconDrawable="@drawable/text_fields"
+                    app:endIconMode="clear_text"
+                    tools:ignore="KeyboardInaccessibleWidget">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/amountIncludeEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusableInTouchMode="false"
+                        android:singleLine="true"
+                        android:textAlignment="textEnd" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/netAmountTextView"
@@ -100,55 +109,65 @@
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
                 android:textSize="24sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/vatNetTextLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:clickable="true"
-                android:hint="@string/vat"
-                app:endIconDrawable="@drawable/text_fields"
-                app:endIconMode="clear_text"
-                tools:ignore="KeyboardInaccessibleWidget">
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/vatNetEditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/vatNetTextLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight=".5"
                     android:clickable="true"
-                    android:cursorVisible="false"
-                    android:focusableInTouchMode="false"
-                    android:singleLine="true"
-                    android:textAlignment="textEnd" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:hint="@string/vat"
+                    app:endIconDrawable="@drawable/text_fields"
+                    app:endIconMode="clear_text"
+                    tools:ignore="KeyboardInaccessibleWidget">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/amountNetTextLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:clickable="true"
-                android:hint="@string/without_vat"
-                app:endIconDrawable="@drawable/text_fields"
-                app:endIconMode="clear_text"
-                tools:ignore="KeyboardInaccessibleWidget">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/vatNetEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusableInTouchMode="false"
+                        android:singleLine="true"
+                        android:textAlignment="textEnd" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/amountExcludeEditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/amountNetTextLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight=".5"
                     android:clickable="true"
-                    android:cursorVisible="false"
-                    android:focusableInTouchMode="false"
-                    android:singleLine="true"
-                    android:textAlignment="textEnd" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:hint="@string/without_vat"
+                    app:endIconDrawable="@drawable/text_fields"
+                    app:endIconMode="clear_text"
+                    tools:ignore="KeyboardInaccessibleWidget">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/amountExcludeEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusableInTouchMode="false"
+                        android:singleLine="true"
+                        android:textAlignment="textEnd" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
