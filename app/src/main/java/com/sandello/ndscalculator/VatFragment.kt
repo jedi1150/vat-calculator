@@ -118,15 +118,15 @@ class VatFragment : Fragment() {
             if (pos > 0 && (string.substring(pos - 1, pos).contains("[,.]".toRegex()))) {
                 string = string.replaceRange(pos - 1, pos, decSym.toString())
                 if (string.toCharArray().count { it.toString().contains(decSym) } < 2 && pos > 0) {
+                    if (string.startsWith(decSym))
+                        string = "0${string}"
                     amountEditText.setText(string).toString()
-
                     string = string.replaceFirst(decSym.toString(), ":")
                     string = string.replace("[,.]".toRegex(), "")
 
                     string = string.replace(groupSym.toString(), "") // Убираем групповые разделители
                     string = string.replace(":", ".")
                     amountDouble = string.toDouble()
-                    println(string)
                     amountEditText.setSelection(amountEditText.text!!.length)
                 }
             }
