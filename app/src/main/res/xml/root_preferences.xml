@@ -1,0 +1,31 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory app:title="@string/settings">
+
+        <ListPreference
+            app:icon="@drawable/brightness"
+            app:key="theme"
+            app:title="@string/choose_theme" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            app:icon="@drawable/save"
+            app:key="save_sum"
+            app:title="@string/save_value" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/other">
+
+        <Preference
+            app:icon="@drawable/translate"
+            app:key="translate"
+            app:title="@string/improve_translation" />
+
+        <Preference
+            app:icon="@drawable/github"
+            app:key="github"
+            app:title="@string/github" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
