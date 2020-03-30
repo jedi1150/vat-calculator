@@ -2,12 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@+id/content"
+    app:startDestination="@id/vatFragment"
     tools:ignore="UnusedNavigation">
-
     <fragment
-        android:id="@+id/content"
+        android:id="@+id/vatFragment"
         android:name="com.sandello.ndscalculator.VatFragment"
-        android:label="fragment_content"
-        tools:layout="@layout/fragment_vat" />
+        android:label="fragment_vat"
+        tools:layout="@layout/fragment_vat">
+        <action
+            android:id="@+id/action_vatFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.sandello.ndscalculator.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>
