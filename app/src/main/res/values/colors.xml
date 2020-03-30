@@ -2,7 +2,6 @@
 <resources>
     <color name="colorPrimary">#5F96E4</color>
     <color name="colorDark">#202125</color>
-    <color name="colorLight">#bdbdbd</color>
     <color name="grayDark">#47484d</color>
     <color name="grayLight">#efefef</color>
     <color name="midGray">#757575</color>
