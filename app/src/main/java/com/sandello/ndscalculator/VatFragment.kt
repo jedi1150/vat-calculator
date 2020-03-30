@@ -5,26 +5,40 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.preference.PreferenceManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_main.view.*
+import com.sandello.ndscalculator.R.string.copy
 import kotlinx.android.synthetic.main.fragment_vat.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.NumberFormat
+import java.util.*
 
 
 class VatFragment : Fragment() {
     private var amountDouble: Double? = null
     private var myClipboard: ClipboardManager? = null
     private var myClip: ClipData? = null
-    var formatter: DecimalFormat = NumberFormat.getNumberInstance() as DecimalFormat
+    private var formatter: DecimalFormat = NumberFormat.getNumberInstance() as DecimalFormat
+    private var formatterCount: DecimalFormat = NumberFormat.getNumberInstance() as DecimalFormat
+    private val groupSym = formatter.decimalFormatSymbols.groupingSeparator
+    private val decSym = formatter.decimalFormatSymbols.decimalSeparator
+
+    private var vatAdd: Double? = null
+    private var amountInclude: Double? = null
+    private var vatNet: Double? = null
+    private var amountExclude: Double? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -35,64 +49,109 @@ class VatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         formatter.roundingMode = RoundingMode.FLOOR
         formatter = DecimalFormat("#,###.##")
+        formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
+        formatterCount.roundingMode = RoundingMode.FLOOR
+        formatterCount = DecimalFormat("#,###.##")
+        formatterCount.minimumFractionDigits = 2
+        formatterCount.maximumFractionDigits = 2
 
         myClipboard = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
 
+        menuButton.setOnClickListener {
+            val inputMethodManager = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(vat_layout.windowToken, 0)
+            findNavController().navigate(R.id.action_vatFragment_to_settingsFragment)
+        }
+
         loadVal()
 
-        view.rootView!!.amountEditText!!.isFocusableInTouchMode = true
-        view.rootView!!.amountEditText!!.requestFocus()
-        view.rootView!!.amountEditText!!.addTextChangedListener(object : TextWatcher {
+        amountEditText!!.isFocusableInTouchMode = true
+        amountEditText!!.requestFocus()
+        amountEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                view.rootView!!.amountEditText.removeTextChangedListener(this)
+                amountEditText.removeTextChangedListener(this)
                 format()
-                view.rootView!!.amountEditText.addTextChangedListener(this)
+                amountEditText.addTextChangedListener(this)
                 count()
             }
 
         })
-        view.rootView!!.percentEditText!!.addTextChangedListener(object : TextWatcher {
+        amountEditTextLayout!!.setEndIconOnClickListener {
+            amountEditText.setText("")
+            amountDouble = null
+            saveVal()
+        }
+        percentEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 count()
-                saveVal(view.rootView!!.percentEditText.text.toString())
+                saveVal()
             }
         })
 
-        vatAddEditText.setOnClickListener { copyVal("vatAdd") }
-        amountIncludeEditText.setOnClickListener { copyVal("amountInclude") }
-        vatNetEditText.setOnClickListener { copyVal("vatNet") }
-        amountExcludeEditText.setOnClickListener { copyVal("amountExclude") }
+        checkToTranslate()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            vatAddTextLayout!!.setEndIconOnClickListener { numToWord(R.string.vat, vatAdd!!) }
+            amountIncludeTextLayout!!.setEndIconOnClickListener { numToWord(R.string.include_vat, amountInclude!!) }
+            vatNetTextLayout!!.setEndIconOnClickListener { numToWord(R.string.vat, vatNet!!) }
+            amountNetTextLayout!!.setEndIconOnClickListener { numToWord(R.string.without_vat, amountExclude!!) }
+        }
+
+        // Копировать значения
+        vatAddEditText.setOnClickListener { copyVal("vatAdd", "") }
+        amountIncludeEditText.setOnClickListener { copyVal("amountInclude", "") }
+        vatNetEditText.setOnClickListener { copyVal("vatNet", "") }
+        amountExcludeEditText.setOnClickListener { copyVal("amountExclude", "") }
     }
 
     @SuppressLint("SetTextI18n")
     private fun format() {
         var string: String
         try {
-            formatter.minimumFractionDigits = 0
-            string = view!!.rootView.amountEditText.text.toString()
-            var pos = view!!.rootView.amountEditText.selectionStart
+            string = amountEditText.text.toString()
+            var pos = amountEditText.selectionStart
 
-            if (string.isNotEmpty()) {
-                view!!.rootView.amountEditTextLayout.error = ""
-                if (pos > 0 && (string.substring(pos - 1, pos).contains("[,.]".toRegex()))) {
-                    string = string.replaceRange(pos - 1, pos, ".")
-                    view!!.rootView.amountEditText.setSelection(view!!.rootView.amountEditText.text!!.length)
+            if (pos > 0 && (string.substring(pos - 1, pos).contains("[,.]".toRegex()))) {
+                string = string.replaceRange(pos - 1, pos, decSym.toString())
+                if (string.toCharArray().count { it.toString().contains(decSym) } < 2 && pos > 0) {
+                    amountEditText.setText(string).toString()
+
+                    string = string.replaceFirst(decSym.toString(), ":")
+                    string = string.replace("[,.]".toRegex(), "")
+
+                    string = string.replace(groupSym.toString(), "") // Убираем групповые разделители
+                    string = string.replace(":", ".")
+                    amountDouble = string.toDouble()
+                    println(string)
+                    amountEditText.setSelection(amountEditText.text!!.length)
                 }
-                string = string.replaceFirst("[,.]".toRegex(), ":")
+            }
+            if (string.isNotEmpty() && string.substringAfter(",").isNotEmpty() && string.substringAfter(".").isNotEmpty()) {
+                amountEditTextLayout.error = ""
+
+                string = string.replaceFirst(decSym.toString(), ":")
                 string = string.replace("[,.]".toRegex(), "")
-                string = string.replace(formatter.decimalFormatSymbols.groupingSeparator.toString(), "")
+                string = string.replace(groupSym.toString(), "") // Убираем групповые разделители
                 string = string.replace(":", ".")
                 if (string.startsWith(".")) {
                     string = string.replaceRange(0, 0, "0")
                 }
-                if (string.substringAfter(".") != "0"
-                        && string.substringAfter(".") != "."
-                ) {
+
+
+                //Количество символов после запятой в результатах
+                if (string.contains(".")) {
+                    if (string.substringAfter(".").length <= 2) {
+                        formatterCount.minimumFractionDigits = 2
+                        formatterCount.maximumFractionDigits = 2
+                    }
+                }
+
+
+                if (string.substringAfter(".") != "0" && string.substringAfter(".") != "." && string[string.lastIndex].toString() != "0") {
                     if (string.contains(".")) {
                         if (string.substringAfter(".").length <= 2) {
                             amountDouble = string.toDouble()
@@ -101,95 +160,118 @@ class VatFragment : Fragment() {
                         amountDouble = string.toDouble()
                     }
                     if (!string.contains(".")) {
-                        view!!.rootView.amountEditText.setText(formatter.format(amountDouble).toString())
-                        pos = view!!.rootView.amountEditText.text!!.length
+                        amountEditText.setText(formatter.format(amountDouble!!).toString())
+                        pos = amountEditText.text!!.length
                     } else {
                         when {
-                            string.substringAfter(".").length in 1..2 -> {
-                                view!!.rootView.amountEditText.setText(formatter.format(amountDouble).toString())
-
-                            }
                             string.substringAfter(".").isEmpty() -> {
-                                view!!.rootView.amountEditText.setText("${formatter.format(amountDouble)}${formatter.decimalFormatSymbols.decimalSeparator}")
+                                amountEditText.setText("${formatter.format(amountDouble!!)}${formatter.decimalFormatSymbols.decimalSeparator}")
                             }
                             else -> {
-                                view!!.rootView.amountEditText.setText(formatter.format(amountDouble).toString())
+                                amountEditText.setText(formatter.format(amountDouble!!).toString())
                             }
                         }
-                        if (pos > view!!.rootView.amountEditText.text!!.length) pos = view!!.rootView.amountEditText.text!!.length
+                        if (pos > amountEditText.text!!.length) pos = amountEditText.text!!.length
                     }
-                    view!!.rootView.amountEditText.setSelection(pos)
+                    amountEditText.setSelection(pos)
+                } else {
+                    amountDouble = string.toDouble()
                 }
-
             } else if (string.isEmpty()) {
-                view!!.rootView.amountEditTextLayout.error = ""
+                amountEditTextLayout.error = ""
             } else if (string.substringAfter(".").isEmpty() || string.substringAfter(".") == "0") {
-                view!!.rootView.amountEditTextLayout.error = ""
-            } else {
-                view!!.rootView.amountEditTextLayout.error = "проверьте сумму"
+                amountEditTextLayout.error = ""
             }
-            saveVal(view!!.rootView!!.percentEditText.text.toString())
+            saveVal()
         } catch (e: NumberFormatException) {
             e.printStackTrace()
         }
     }
 
     fun count() {
-        formatter.minimumFractionDigits = 2
-        try {
-            if (amountDouble != null && view!!.rootView.amountEditText.text.toString().isNotEmpty() && view!!.rootView.percentEditText.text.toString().isNotEmpty()) {
-                val amount = amountDouble!!
-                val percent = view!!.rootView.percentEditText.text.toString().toDouble()
-                //Начисление НДС
-                val vatAdd = amount * percent / 100
-                val amountInclude = amount + amount * percent / 100
-                //Выделение НДС
-                val vatNet = amount * percent / (percent + 100)
-                val vatExclude = amount - vatNet
 
-                vatAddEditText.setText(formatter.format(vatAdd))
-                amountIncludeEditText.setText(formatter.format(amountInclude))
-                vatNetEditText.setText(formatter.format(vatNet))
-                amountExcludeEditText.setText(formatter.format(vatExclude))
+        try {
+            if (amountDouble != null && amountEditText.text.toString().isNotEmpty() && percentEditText.text.toString().isNotEmpty()) {
+                val amount = amountDouble!!
+                val percent = percentEditText.text.toString().toDouble()
+                //Начисление НДС
+                vatAdd = amount * percent / 100
+                amountInclude = amount + amount * percent / 100
+                //Выделение НДС
+                vatNet = amount * percent / (percent + 100)
+                amountExclude = amount - vatNet!!
+
+                vatAddEditText.setText(formatterCount.format(vatAdd!!))
+                amountIncludeEditText.setText(formatterCount.format(amountInclude!!))
+                vatNetEditText.setText(formatterCount.format(vatNet!!))
+                amountExcludeEditText.setText(formatterCount.format(amountExclude!!))
             } else {
-                vatAddEditText.setText("0")
-                amountIncludeEditText.setText("0")
-                vatNetEditText.setText("0")
-                amountExcludeEditText.setText("0")
+                vatAddEditText.setText("")
+                amountIncludeEditText.setText("")
+                vatNetEditText.setText("")
+                amountExcludeEditText.setText("")
             }
+            checkToTranslate()
         } catch (e: NumberFormatException) {
             e.printStackTrace()
         }
     }
 
-    private fun copyVal(viewString: String) {
-        if (viewString == "vatAdd" && vatAddEditText.text.toString() != "0" && vatAddEditText.text.toString() != "") {
-            myClip = ClipData.newPlainText("text", vatAddEditText.text.toString())
-            myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(view!!.rootView.snackbar, "${getString(R.string.copied)} ${vatAddEditText.text}", Snackbar.LENGTH_SHORT).show()
-        }
-        if (viewString == "amountInclude" && amountIncludeEditText.text.toString() != "0" && amountIncludeEditText.text.toString() != "") {
-            myClip = ClipData.newPlainText("text", amountIncludeEditText.text.toString())
-            myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(view!!.rootView.snackbar, "${getString(R.string.copied)} ${amountIncludeEditText.text}", Snackbar.LENGTH_SHORT).show()
-        }
-        if (viewString == "vatNet" && vatNetEditText.text.toString() != "0" && vatNetEditText.text.toString() != "") {
-            myClip = ClipData.newPlainText("text", vatNetEditText.text.toString())
-            myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(view!!.rootView.snackbar, "${getString(R.string.copied)} ${vatNetEditText.text}", Snackbar.LENGTH_SHORT).show()
-        }
-        if (viewString == "amountExclude" && amountExcludeEditText.text.toString() != "0" && amountExcludeEditText.text.toString() != "") {
-            myClip = ClipData.newPlainText("text", amountExcludeEditText.text.toString())
-            myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(view!!.rootView.snackbar, "${getString(R.string.copied)} ${amountExcludeEditText.text}", Snackbar.LENGTH_SHORT).show()
+    @SuppressLint("PrivateResource")
+    private fun numToWord(title: Int, s: Double) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            val moneyAsWords: String = MoneyInWords.inWords(s)
+            MaterialAlertDialogBuilder(context)
+                    .setTitle(getString(title))
+                    .setMessage(moneyAsWords)
+                    .setPositiveButton(copy) { _, _ -> copyVal(null, moneyAsWords) }
+                    .show()
         }
     }
 
-    private fun saveVal(percent: String) {
+    private fun checkToTranslate() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && Locale.getDefault().language == "ru") {
+            vatAddTextLayout!!.isEndIconVisible = true
+            amountIncludeTextLayout!!.isEndIconVisible = true
+            vatNetTextLayout!!.isEndIconVisible = true
+            amountNetTextLayout!!.isEndIconVisible = true
+        } else {
+            vatAddTextLayout!!.isEndIconVisible = false
+            amountIncludeTextLayout!!.isEndIconVisible = false
+            vatNetTextLayout!!.isEndIconVisible = false
+            amountNetTextLayout!!.isEndIconVisible = false
+        }
+    }
+
+    private fun copyVal(viewString: String?, value: String?) {
+        if (viewString == "vatAdd" && vatAddEditText.text.toString() != "0" && vatAddEditText.text.toString() != "") {
+            myClip = ClipData.newPlainText("text", vatAddEditText.text.toString())
+            myClipboard!!.setPrimaryClip(myClip!!)
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${vatAddEditText.text}", Snackbar.LENGTH_SHORT).show()
+        } else if (viewString == "amountInclude" && amountIncludeEditText.text.toString() != "0" && amountIncludeEditText.text.toString() != "") {
+            myClip = ClipData.newPlainText("text", amountIncludeEditText.text.toString())
+            myClipboard!!.setPrimaryClip(myClip!!)
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${amountIncludeEditText.text}", Snackbar.LENGTH_SHORT).show()
+        } else if (viewString == "vatNet" && vatNetEditText.text.toString() != "0" && vatNetEditText.text.toString() != "") {
+            myClip = ClipData.newPlainText("text", vatNetEditText.text.toString())
+            myClipboard!!.setPrimaryClip(myClip!!)
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${vatNetEditText.text}", Snackbar.LENGTH_SHORT).show()
+        } else if (viewString == "amountExclude" && amountExcludeEditText.text.toString() != "0" && amountExcludeEditText.text.toString() != "") {
+            myClip = ClipData.newPlainText("text", amountExcludeEditText.text.toString())
+            myClipboard!!.setPrimaryClip(myClip!!)
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${amountExcludeEditText.text}", Snackbar.LENGTH_SHORT).show()
+        } else if (viewString == null) {
+            myClip = ClipData.newPlainText("text", value)
+            myClipboard!!.setPrimaryClip(myClip!!)
+            Snackbar.make(snackbar, getString(R.string.copied), Snackbar.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun saveVal() {
         val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
         val editor = prefs?.edit()
         try {
-            editor?.putString("percent", percent)
+            editor?.putString("percent", percentEditText.text.toString())
             editor?.putString("amount", amountDouble.toString())
         } catch (e: NumberFormatException) {
         }
@@ -198,11 +280,14 @@ class VatFragment : Fragment() {
 
     private fun loadVal() {
         val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
-        view?.rootView?.percentEditText?.setText(prefs?.getString("percent", "20"))
-        try {
-            view!!.rootView.amountEditText.setText(formatter.format(prefs!!.getString("amount", "")?.toDouble()))
-            format()
-        } catch (e: NumberFormatException) {
+        percentEditText?.setText(prefs?.getString("percent", "20"))
+        val themePref = PreferenceManager.getDefaultSharedPreferences(context!!)
+        if (themePref.getBoolean("save_sum", true)) {
+            try {
+                amountEditText.setText(formatter.format(prefs!!.getString("amount", "")?.toDouble()))
+                format()
+            } catch (e: NumberFormatException) {
+            }
         }
         count()
     }
