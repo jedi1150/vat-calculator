@@ -18,6 +18,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val themePref = findPreference("theme") as ListPreference?
         val translatePref = findPreference("translate") as Preference?
         val githubPref = findPreference("github") as Preference?
+//        val ratesPref = findPreference("rates") as ListPreference?
 
         var themeEntries = arrayOf(getString(R.string.light), getString(R.string.dark), getString(R.string.battery_saver))
         val themeEntryValues = arrayOf("0", "1", "2")
@@ -46,6 +47,21 @@ class SettingsFragment : PreferenceFragmentCompat() {
         themePref?.entryValues = themeEntryValues
         if (themePref?.value == null)
             themePref?.setValueIndex(2)
+
+//        ratesPref?.setOnPreferenceClickListener {
+//            val db = Room.databaseBuilder(
+//                    context!!,
+//                    AppDatabase::class.java, "rates"
+//            ).allowMainThreadQueries().build()
+//            val newArray = emptyArray<String>()
+//            Toast.makeText(context, listRates!![0].country, Toast.LENGTH_SHORT).show()
+////            for (i in 0..listRates!!.size) {
+////                newArray[i] = listRates!![i].country
+////            }
+//            ratesPref.entries = arrayOf("0", "1")
+//            ratesPref.entryValues = arrayOf("0", "1")
+//            true
+//        }
 
         translatePref?.setOnPreferenceClickListener {
             val url = "https://lokalise.com/project/228402545e30480daadfd6.44294341/?view=multi&filter=platform_2"

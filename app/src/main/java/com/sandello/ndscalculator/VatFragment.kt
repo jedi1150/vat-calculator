@@ -20,6 +20,10 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.sandello.ndscalculator.R.string.copy
 import kotlinx.android.synthetic.main.fragment_vat.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.NumberFormat
@@ -65,6 +69,10 @@ class VatFragment : Fragment() {
         }
 
         loadVal()
+        GlobalScope.launch(Dispatchers.IO) {
+            delay(1000L)
+//            percentEditText?.setText()
+        }
 
         amountEditText!!.isFocusableInTouchMode = true
         amountEditText!!.requestFocus()
@@ -221,7 +229,7 @@ class VatFragment : Fragment() {
     private fun numToWord(title: Int, s: Double) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             val moneyAsWords: String = MoneyInWords.inWords(s)
-            MaterialAlertDialogBuilder(context)
+            MaterialAlertDialogBuilder(context!!)
                     .setTitle(getString(title))
                     .setMessage(moneyAsWords)
                     .setPositiveButton(copy) { _, _ -> copyVal(null, moneyAsWords) }

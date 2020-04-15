@@ -13,6 +13,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        GetRates().main(this)
+
         setNightMode()
         setContentView(R.layout.activity_main)
     }
