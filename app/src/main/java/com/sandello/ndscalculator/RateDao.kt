@@ -10,8 +10,8 @@ interface RateDao {
     @Query("SELECT * FROM rates")
     fun getAll(): List<Rate>
 
-    @Query("SELECT * FROM rates WHERE rate LIKE :rate LIMIT 1")
-    fun findByCountry(rate: String): Rate
+    @Query("SELECT * FROM rates WHERE code LIKE :code LIMIT 1")
+    fun findByCountry(code: String): Rate
 
     @Insert
     fun insertAll(vararg rates: Rate)

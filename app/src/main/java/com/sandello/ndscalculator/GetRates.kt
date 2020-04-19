@@ -19,20 +19,21 @@ class GetRates {
         val policy = StrictMode.ThreadPolicy.Builder()
                 .permitAll().build()
         StrictMode.setThreadPolicy(policy)
-        val url = URL("http://jedioleg.asuscomm.com:8000").readText()
-        val json = Json(JsonConfiguration.Stable.copy(isLenient = true, ignoreUnknownKeys = true))
-        listRates = json.parse(Rate.serializer().list, url)
-        val db = Room.databaseBuilder(
-                context,
-                AppDatabase::class.java, "rates"
-        ).allowMainThreadQueries().build()
-        GlobalScope.launch(Dispatchers.IO) {
-            delay(1000L)
-            db.rateDao().deleteAll()
-            db.rateDao().insertAllCountries(listRates!!)
-        }
+        try {
+            val url = URL("http://jedioleg.asuscomm.com:8000").readText()
+            val json = Json(JsonConfiguration.Stable.copy(isLenient = true, ignoreUnknownKeys = true))
+            listRates = json.parse(Rate.serializer().list, url)
+            val db = Room.databaseBuilder(
+                    context,
+                    AppDatabase::class.java, "rates"
+            ).allowMainThreadQueries().build()
+            GlobalScope.launch(Dispatchers.IO) {
+                delay(1000L)
+                db.rateDao().deleteAll()
+                db.rateDao().insertAllCountries(listRates!!)
 
-//        Toast.makeText(context, "Rates updated", Toast.LENGTH_SHORT).show()
-//        Toast.makeText(context, arrayOf(listRates).size, Toast.LENGTH_LONG).show()
+            }
+        } catch (e: Exception) {
+        }
     }
 }

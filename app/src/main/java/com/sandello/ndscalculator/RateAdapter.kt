@@ -15,8 +15,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 @Entity(tableName = "rates")
 data class Rate(
-        @PrimaryKey(autoGenerate = true) var uid: Int? = null,
-        var code: String = "",
+        @PrimaryKey var code: String = "",
         var country: String = "",
         var rate: Int = 0
 )
