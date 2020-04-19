@@ -13,8 +13,13 @@
     <string name="battery_saver">由省電模式設定</string>
     <string name="system_default">系統默認</string>
     <string name="choose_theme">主題</string>
+    <string name="cancel">由省電模式設定</string>
     <string name="improve_translation">改善翻譯</string>
     <string name="settings">設定值</string>
     <string name="other">其他</string>
     <string name="save_value">節省價值</string>
+    <string name="vat_rate">增值稅率</string>
+    <string name="rate">率</string>
+    <string name="language">語言</string>
+    <string name="rate_string">%1$s。率%2$d</string>
 </resources>

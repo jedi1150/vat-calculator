@@ -13,8 +13,13 @@
     <string name="battery_saver">Asettaa Battery Saver</string>
     <string name="system_default">Järjestelmän oletusarvo</string>
     <string name="choose_theme">Teema</string>
+    <string name="cancel">Peruutus</string>
     <string name="improve_translation">Paranna käännöstä</string>
     <string name="settings">asetukset</string>
     <string name="other">muut</string>
     <string name="save_value">Tallenna arvo</string>
+    <string name="vat_rate">ALV</string>
+    <string name="rate">nopeus</string>
+    <string name="language">Kieli</string>
+    <string name="rate_string">%1$s. Hinta %2$d</string>
 </resources>
