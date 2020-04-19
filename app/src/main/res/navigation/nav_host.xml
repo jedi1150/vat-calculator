@@ -13,10 +13,19 @@
             android:id="@+id/action_vatFragment_to_settingsFragment"
             app:destination="@id/settingsFragment"
             app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit" />
+            app:exitAnim="@anim/fragment_fade_exit"
+            tools:ignore="PrivateResource" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.sandello.ndscalculator.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment">
+        <action
+            android:id="@+id/action_settingsFragment_self"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@id/vatFragment" />
+    </fragment>
 </navigation>
