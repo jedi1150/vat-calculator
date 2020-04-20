@@ -4,6 +4,7 @@
     package="com.sandello.ndscalculator">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -32,7 +33,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme"
         android:usesCleartextTraffic="true"
-        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustResize"
