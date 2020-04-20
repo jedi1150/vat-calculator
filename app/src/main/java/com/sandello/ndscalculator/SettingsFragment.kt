@@ -1,5 +1,6 @@
 package com.sandello.ndscalculator
 
+import android.content.Context
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -124,6 +125,13 @@ class SettingsFragment : PreferenceFragmentCompat() {
         fun rateSummary(newValue: String) {
             val data = db.rateDao().findByCountry(newValue)
             ratesPref?.summary = getString(R.string.rate_string, Locale("", data.code).displayCountry, data.rate) + "%%"
+            val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
+            val editor = prefs?.edit()
+            try {
+                editor?.putString("rate", data.rate.toString())
+            } catch (e: NumberFormatException) {
+            }
+            editor?.apply()
         }
 
         if (ratesPref?.value != null)

@@ -279,7 +279,7 @@ class VatFragment : Fragment() {
         val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
         val editor = prefs?.edit()
         try {
-            editor?.putString("percent", percentEditText.text.toString())
+            editor?.putString("rate", percentEditText.text.toString())
             editor?.putString("amount", amountDouble.toString())
         } catch (e: NumberFormatException) {
         }
@@ -288,7 +288,7 @@ class VatFragment : Fragment() {
 
     private fun loadVal() {
         val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
-        percentEditText?.setText(prefs?.getString("percent", "20"))
+        percentEditText?.setText(prefs?.getString("rate", ""))
         val themePref = PreferenceManager.getDefaultSharedPreferences(context!!)
         if (themePref.getBoolean("save_sum", true)) {
             try {
