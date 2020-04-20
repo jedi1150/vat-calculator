@@ -3,16 +3,17 @@ package com.sandello.ndscalculator
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.room.Room
 import java.util.*
-
 
 @Suppress("DEPRECATION")
 @ExperimentalStdlibApi
@@ -23,9 +24,16 @@ class SettingsFragment : PreferenceFragmentCompat() {
     private val rateEntries = mutableListOf<String>()
     private val rateEntryValues = mutableListOf<String>()
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.setOnApplyWindowInsetsListener { v, insets ->
+            v.updatePadding(top = insets.systemWindowInsetTop)
+            insets
+        }
+    }
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
-
         val themePref = findPreference("theme") as ListPreference?
         val languagePref = findPreference("language") as ListPreference?
         val ratesPref = findPreference("rate") as ListPreference?
@@ -88,12 +96,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
         if (languagePref?.value != null)
             languageSummary(languagePref.value!!)
         else {
-            println(Locale.getDefault().language)
-            languagePref?.setValueIndex(resources.getStringArray(R.array.languages_code).indexOf(Locale.getDefault().language))
-            languagePref?.summary = Locale.getDefault().displayLanguage
+            languagePref?.setValueIndex(languagePref.entryValues.indexOf(Locale.getDefault().language))
+            languagePref?.summary = Locale.getDefault().displayLanguage.capitalize(Locale.ROOT)
         }
 
-        languagePref?.setOnPreferenceChangeListener { preference, newValue ->
+        languagePref?.setOnPreferenceChangeListener { _, newValue ->
             Locale.setDefault(Locale.forLanguageTag(newValue.toString()))
             resources.configuration.setLocale(Locale.forLanguageTag(newValue.toString()))
             resources.updateConfiguration(resources.configuration, resources.displayMetrics)
@@ -109,33 +116,27 @@ class SettingsFragment : PreferenceFragmentCompat() {
         ratesPref?.isVisible = db.rateDao().getAll().isNotEmpty()
         for (element in db.rateDao().getAll()) {
             rateEntryValues.add(element.code)
-            println(element.code)
-//            rateEntries.add("${Locale.forLanguageTag(element.code).getDisplayLanguage(Locale.getDefault()).capitalize(Locale.ROOT)} ${element.rate}")
-            rateEntries.add("${Locale("", element.code).displayCountry} ${element.rate}")
+            rateEntries.add(getString(R.string.rate_string, Locale("", element.code).displayCountry, element.rate) + "%")
         }
-//        val availableCountries = mutableListOf<String>()
-//        for (item in rateEntryValues)
-//        {
-//            availableCountries.add(Locale.forLanguageTag(item).getDisplayLanguage(Locale.forLanguageTag(item)).capitalize(Locale.ROOT))
-//        }
         ratesPref?.entries = rateEntries.toTypedArray()
         ratesPref?.entryValues = rateEntryValues.toTypedArray()
 
         fun rateSummary(newValue: String) {
             val data = db.rateDao().findByCountry(newValue)
-//            ratesPref?.summary = getString(R.string.rate_string, Locale.forLanguageTag(data.code).getDisplayCountry(Locale.forLanguageTag(data.code)).capitalize(Locale.ROOT), data.rate)
+            ratesPref?.summary = getString(R.string.rate_string, Locale("", data.code).displayCountry, data.rate) + "%%"
         }
 
         if (ratesPref?.value != null)
             rateSummary(ratesPref.value!!)
         else {
             if (db.rateDao().getAll().isNotEmpty()) {
-//                ratesPref?.setValueIndex(rateEntryValues.indexOf(db.rateDao().findByCountry(Locale.getDefault().isO3Country).code))
-//                rateSummary(ratesPref?.value!!)
+                val data = db.rateDao().findByCountry(Locale.getDefault().country)
+                ratesPref?.setValueIndex(rateEntryValues.indexOf(data.code))
+                rateSummary(ratesPref?.value!!)
             }
         }
 
-        ratesPref?.setOnPreferenceChangeListener { preference, newValue ->
+        ratesPref?.setOnPreferenceChangeListener { _, newValue ->
             rateSummary(newValue.toString())
             true
         }
