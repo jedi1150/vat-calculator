@@ -5,6 +5,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
+import android.content.Context.MODE_PRIVATE
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -16,14 +17,11 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
+import androidx.room.Room
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.sandello.ndscalculator.R.string.copy
 import kotlinx.android.synthetic.main.fragment_vat.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.NumberFormat
@@ -69,10 +67,8 @@ class VatFragment : Fragment() {
         }
 
         loadVal()
-        GlobalScope.launch(Dispatchers.IO) {
-            delay(1000L)
-//            percentEditText?.setText()
-        }
+
+        loadRates()
 
         amountEditText!!.isFocusableInTouchMode = true
         amountEditText!!.requestFocus()
@@ -84,6 +80,7 @@ class VatFragment : Fragment() {
                 format()
                 amountEditText.addTextChangedListener(this)
                 count()
+                saveVal()
             }
 
         })
@@ -114,6 +111,23 @@ class VatFragment : Fragment() {
         amountIncludeEditText.setOnClickListener { copyVal("amountInclude", "") }
         vatNetEditText.setOnClickListener { copyVal("vatNet", "") }
         amountExcludeEditText.setOnClickListener { copyVal("amountExclude", "") }
+    }
+
+    private fun loadRates() {
+        val db = Room.databaseBuilder(
+                requireContext(),
+                AppDatabase::class.java, "rates"
+        ).allowMainThreadQueries().build()
+        if (db.rateDao().getAll().isNotEmpty()) {
+            percentEditText.setText(db.rateDao().findByCountry(Locale.getDefault().country).rate.toString())
+            val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
+            val editor = prefs?.edit()
+            try {
+                editor?.putString("rate", db.rateDao().findByCountry(Locale.getDefault().country).rate.toString())
+            } catch (e: NumberFormatException) {
+            }
+            editor?.apply()
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -190,7 +204,6 @@ class VatFragment : Fragment() {
             } else if (string.substringAfter(".").isEmpty() || string.substringAfter(".") == "0") {
                 amountEditTextLayout.error = ""
             }
-            saveVal()
         } catch (e: NumberFormatException) {
             e.printStackTrace()
         }
@@ -276,10 +289,11 @@ class VatFragment : Fragment() {
     }
 
     private fun saveVal() {
-        val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
+        val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
         val editor = prefs?.edit()
         try {
-            editor?.putString("rate", percentEditText.text.toString())
+            if (prefs?.getString("rate", "") == percentEditText.text.toString())
+                editor?.putString("rate", percentEditText.text.toString())
             editor?.putString("amount", amountDouble.toString())
         } catch (e: NumberFormatException) {
         }
@@ -287,10 +301,10 @@ class VatFragment : Fragment() {
     }
 
     private fun loadVal() {
-        val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
+        val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
         percentEditText?.setText(prefs?.getString("rate", ""))
-        val themePref = PreferenceManager.getDefaultSharedPreferences(context!!)
-        if (themePref.getBoolean("save_sum", true)) {
+        val pref = PreferenceManager.getDefaultSharedPreferences(context!!)
+        if (pref.getBoolean("save_sum", true)) {
             try {
                 amountEditText.setText(formatter.format(prefs!!.getString("amount", "")?.toDouble()))
                 format()
@@ -298,5 +312,10 @@ class VatFragment : Fragment() {
             }
         }
         count()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadVal()
     }
 }
