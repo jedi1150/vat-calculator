@@ -14,9 +14,10 @@ android {
         applicationId "com.sandello.ndscalculator"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 79
-        versionName '5.6.2'
+        versionCode 80
+        versionName '6.0'
         signingConfig signingConfigs.config
+        versionNameSuffix 'beta'
     }
     buildTypes {
         release {
@@ -37,12 +38,12 @@ android {
 }
 dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
     implementation 'com.google.android.material:material:1.2.0-alpha06'
     implementation 'androidx.browser:browser:1.2.0'
-    implementation 'androidx.preference:preference:1.1.0'
-    testImplementation 'junit:junit:4.12'
+    implementation 'androidx.preference:preference:1.1.1'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
