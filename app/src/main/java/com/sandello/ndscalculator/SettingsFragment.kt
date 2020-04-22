@@ -41,6 +41,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val translatePref = findPreference("translate") as Preference?
         val githubPref = findPreference("github") as Preference?
 
+        checkConnection(context!!)
+
         fun themeSummary(newValue: String) {
             themePref?.summary = when (newValue) {
                 "0" -> themeEntries[0]
@@ -124,13 +126,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         fun rateSummary(newValue: String) {
             val data = db.rateDao().findByCountry(newValue)
-            ratesPref?.summary = getString(R.string.rate_string, Locale("", data.code).displayCountry, data.rate) + "%%"
+            ratesPref?.setSummaryProvider {
+                getString(R.string.rate_string, Locale("", data.code).displayCountry, data.rate) + "%"
+            }
             val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
             val editor = prefs?.edit()
-            try {
-                editor?.putString("rate", data.rate.toString())
-            } catch (e: NumberFormatException) {
-            }
+            editor?.putString("rate", data.rate.toString())
             editor?.apply()
         }
 
