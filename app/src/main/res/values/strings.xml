@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string-array name="languages_code" translatable="false">
+    <item>ru</item>
+    <item>en</item>
+    <item>fr</item>
+    <item>de</item>
+    <item>ar</item>
+    <item>az</item>
+    <item>bn</item>
+    <item>ce</item>
+    <item>fi</item>
+    <item>hi</item>
+    <item>hy</item>
+    <item>jw</item>
+    <item>ja</item>
+    <item>kk</item>
+    <item>ne</item>
+    <item>nl</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>th</item>
+    <item>uk</item>
+    <item>uz</item>
+    <item>zh</item>
+  </string-array>
   <string name="app_name">VAT</string>
   <string name="amount">Amount</string>
   <string name="without_vat">Excluding VAT</string>
@@ -24,29 +48,4 @@
   <string name="rate">Rate</string>
   <string name="language">Language</string>
   <string name="rate_string">%1$s. Rate %2$d</string>
-
-  <string-array name="languages_code">
-    <item>ru</item>
-    <item>en</item>
-    <item>fr</item>
-    <item>de</item>
-    <item>ar</item>
-    <item>az</item>
-    <item>bn</item>
-    <item>ce</item>
-    <item>fi</item>
-    <item>hi</item>
-    <item>hy</item>
-    <item>jw</item>
-    <item>ja</item>
-    <item>kk</item>
-    <item>ne</item>
-    <item>nl</item>
-    <item>pl</item>
-    <item>pt</item>
-    <item>th</item>
-    <item>uk</item>
-    <item>uz</item>
-    <item>zh</item>
-  </string-array>
 </resources>

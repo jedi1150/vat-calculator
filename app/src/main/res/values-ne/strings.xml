@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="app_name">भ्याट</string>
-  <string name="amount">रकम</string>
-  <string name="without_vat">VAT बाहेक</string>
-  <string name="include_vat">भ्याट् सहित</string>
-  <string name="vat">भ्याट</string>
-  <string name="gross_amount">कुल रकम</string>
-  <string name="net_amount">नेट रकम</string>
-  <string name="copied">प्रतिलिपि गरियो!</string>
+    <string name="app_name">भ्याट</string>
+    <string name="amount">रकम</string>
+    <string name="without_vat">VAT बाहेक</string>
+    <string name="include_vat">भ्याट् सहित</string>
+    <string name="vat">भ्याट</string>
+    <string name="gross_amount">कुल रकम</string>
+    <string name="net_amount">नेट रकम</string>
+    <string name="copied">प्रतिलिपि गरियो!</string>
     <string name="light">हल्का</string>
     <string name="dark">गाढा</string>
     <string name="battery_saver">ब्याट्री सेभर द्वारा सेट</string>
