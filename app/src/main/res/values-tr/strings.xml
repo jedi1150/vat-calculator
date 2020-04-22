@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">KDV</string>
+    <string name="amount">Miktar</string>
+    <string name="without_vat">KDV hariç</string>
+    <string name="include_vat">KDV dahil</string>
+    <string name="vat">KDV</string>
+    <string name="gross_amount">Brüt miktar</string>
+    <string name="net_amount">Net tutar</string>
+    <string name="copied">Kopyalanan!</string>
+    <string name="light">ışık</string>
+    <string name="dark">karanlık</string>
+    <string name="battery_saver">Pil Tasarrufu ile ayarlanır</string>
+    <string name="system_default">Sistem varsayılanı</string>
+    <string name="choose_theme">Tema</string>
+    <string name="cancel">İptal etmek</string>
+    <string name="improve_translation">Çeviriyi geliştirin</string>
+    <string name="settings">Ayarlar</string>
+    <string name="other">Diğer</string>
+    <string name="save_value">Değer kaydet</string>
+    <string name="vat_rate">KDV oranı</string>
+    <string name="rate">oran</string>
+    <string name="language">Dil</string>
+    <string name="rate_string">%1$s. Oranı %2$d</string>
+</resources>

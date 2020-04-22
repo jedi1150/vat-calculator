@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="app_name">BTW</string>
+  <string name="amount">bedrag</string>
+  <string name="without_vat">BTW uitgesluit</string>
+  <string name="include_vat">BTW ingesluit</string>
+  <string name="vat">BTW</string>
+  <string name="gross_amount">Bruto bedrag</string>
+  <string name="net_amount">Netto bedrag</string>
+  <string name="copied">Gekopieer!</string>
+  <string name="light">lig</string>
+  <string name="dark">donker</string>
+  <string name="battery_saver">Opgestel deur Battery Saver</string>
+  <string name="system_default">Stelsel verstek</string>
+  <string name="choose_theme">tema</string>
+  <string name="cancel">kanselleer</string>
+  <string name="improve_translation">Verbeter vertaling</string>
+  <string name="settings">instellings</string>
+  <string name="other">ander</string>
+  <string name="save_value">Stoor waarde</string>
+  <string name="vat_rate">BTW koers</string>
+  <string name="rate">Koers</string>
+  <string name="language">Taal</string>
+  <string name="rate_string">%1$s. Koers %2$d</string>
+</resources>

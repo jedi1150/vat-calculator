@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">TVA</string>
+    <string name="amount">Cantitate</string>
+    <string name="without_vat">Fără TVA</string>
+    <string name="include_vat">Cu TVA</string>
+    <string name="vat">TVA</string>
+    <string name="gross_amount">Valoarea brută</string>
+    <string name="net_amount">Cantitate netă</string>
+    <string name="copied">Copiată!</string>
+    <string name="light">Ușoară</string>
+    <string name="dark">Întuneric</string>
+    <string name="battery_saver">Setat de Battery Saver</string>
+    <string name="system_default">Defectiune de sistem</string>
+    <string name="choose_theme">Temă</string>
+    <string name="cancel">Anulare</string>
+    <string name="improve_translation">Îmbunătățirea traducerii</string>
+    <string name="settings">Setări</string>
+    <string name="other">Alte</string>
+    <string name="save_value">Salvați valoarea</string>
+    <string name="vat_rate">cota TVA</string>
+    <string name="rate">Rată</string>
+    <string name="language">Limba</string>
+    <string name="rate_string">%1$s. Rata %2$d</string>
+</resources>

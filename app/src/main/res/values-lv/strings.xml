@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">PVN</string>
+    <string name="amount">Summa</string>
+    <string name="without_vat">Bez PVN</string>
+    <string name="include_vat">Ar PVN</string>
+    <string name="vat">PVN</string>
+    <string name="gross_amount">Bruto summa</string>
+    <string name="net_amount">Neto summa</string>
+    <string name="copied">Nokopēts!</string>
+    <string name="light">Gaismas</string>
+    <string name="dark">Tumšs</string>
+    <string name="battery_saver">Iestatījis akumulatora taupītājs</string>
+    <string name="system_default">Sistēmas noklusējums</string>
+    <string name="choose_theme">Tēma</string>
+    <string name="cancel">Atcelt</string>
+    <string name="improve_translation">Uzlabot tulkošanu</string>
+    <string name="settings">Iestatījumi</string>
+    <string name="other">Cits</string>
+    <string name="save_value">Ietaupiet vērtību</string>
+    <string name="vat_rate">PVN likme</string>
+    <string name="rate">Likme</string>
+    <string name="language">Valoda</string>
+    <string name="rate_string">%1$s. Likme %2$d</string>
+</resources>

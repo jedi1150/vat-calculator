@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">ПДВ</string>
+    <string name="amount">Износ</string>
+    <string name="without_vat">Без ПДВ-а</string>
+    <string name="include_vat">Са ПДВ-ом</string>
+    <string name="vat">ПДВ</string>
+    <string name="gross_amount">Бруто износ</string>
+    <string name="net_amount">Нето износ</string>
+    <string name="copied">Копирано!</string>
+    <string name="light">Светлост</string>
+    <string name="dark">Дарк</string>
+    <string name="battery_saver">Подесио Баттери Савер</string>
+    <string name="system_default">Систем подразумевани</string>
+    <string name="choose_theme">Тема</string>
+    <string name="cancel">Поништити, отказати</string>
+    <string name="improve_translation">Побољшајте превод</string>
+    <string name="settings">Подешавања</string>
+    <string name="other">Остало</string>
+    <string name="save_value">Сачувај вредност</string>
+    <string name="vat_rate">Стопа ПДВ-а</string>
+    <string name="rate">Рате</string>
+    <string name="language">Језик</string>
+    <string name="rate_string">%1$s. Стопа %2$d</string>
+</resources>

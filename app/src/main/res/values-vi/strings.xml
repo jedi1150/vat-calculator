@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">Thuế VAT</string>
+    <string name="amount">Số tiền</string>
+    <string name="without_vat">Chưa bao gồm VAT</string>
+    <string name="include_vat">Đã bao gồm VAT</string>
+    <string name="vat">Thuế VAT</string>
+    <string name="gross_amount">Tổng tiền</string>
+    <string name="net_amount">Số lượng tịnh</string>
+    <string name="copied">Sao chép!</string>
+    <string name="light">Ánh sáng</string>
+    <string name="dark">Tối</string>
+    <string name="battery_saver">Đặt theo tiết kiệm pin</string>
+    <string name="system_default">Mặc định hệ thống</string>
+    <string name="choose_theme">Chủ đề</string>
+    <string name="cancel">Hủy bỏ</string>
+    <string name="improve_translation">Cải thiện bản dịch</string>
+    <string name="settings">Cài đặt</string>
+    <string name="other">Khác</string>
+    <string name="save_value">Tiết kiệm giá trị</string>
+    <string name="vat_rate">tỉ lệ VAT</string>
+    <string name="rate">Tỷ lệ</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="rate_string">%1$s. Tỷ lệ %2$d</string>
+</resources>

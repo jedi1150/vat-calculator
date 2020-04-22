@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">áfa</string>
+    <string name="amount">Összeg</string>
+    <string name="without_vat">ÁFA nélkül</string>
+    <string name="include_vat">ÁFA-val</string>
+    <string name="vat">áfa</string>
+    <string name="gross_amount">Bruttó összeg</string>
+    <string name="net_amount">Nettó összege</string>
+    <string name="copied">Másolt!</string>
+    <string name="light">Fény</string>
+    <string name="dark">Sötét</string>
+    <string name="battery_saver">Beállította az Energiatakarékos</string>
+    <string name="system_default">Rendszer alapértelmezés</string>
+    <string name="choose_theme">Téma</string>
+    <string name="cancel">Megszünteti</string>
+    <string name="improve_translation">Javítani kell a fordítást</string>
+    <string name="settings">Beállítások</string>
+    <string name="other">Egyéb</string>
+    <string name="save_value">Érték mentése</string>
+    <string name="vat_rate">Áfakulcs</string>
+    <string name="rate">Mérték</string>
+    <string name="language">Nyelv</string>
+    <string name="rate_string">%1$s. Ár %2$d</string>
+</resources>

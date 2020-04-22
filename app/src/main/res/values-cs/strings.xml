@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">káď</string>
+    <string name="amount">Množství</string>
+    <string name="without_vat">Bez DPH</string>
+    <string name="include_vat">Včetně DPH</string>
+    <string name="vat">káď</string>
+    <string name="gross_amount">Hrubá částka</string>
+    <string name="net_amount">Čistá částka</string>
+    <string name="copied">Zkopírováno!</string>
+    <string name="light">Světlo</string>
+    <string name="dark">Temný</string>
+    <string name="battery_saver">Nastaveno šetřičem baterie</string>
+    <string name="system_default">Výchozí systém</string>
+    <string name="choose_theme">Téma</string>
+    <string name="cancel">zrušení</string>
+    <string name="improve_translation">Vylepšete překlad</string>
+    <string name="settings">Nastavení</string>
+    <string name="other">jiný</string>
+    <string name="save_value">Uložit hodnotu</string>
+    <string name="vat_rate">Sazba DPH</string>
+    <string name="rate">Hodnotit</string>
+    <string name="language">Jazyk</string>
+    <string name="rate_string">%1$s. Ohodnoťte %2$d</string>
+</resources>

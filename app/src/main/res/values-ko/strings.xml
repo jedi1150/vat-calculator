@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">큰 통</string>
+    <string name="amount">양</string>
+    <string name="without_vat">부가가치세 별도</string>
+    <string name="include_vat">부가세 포함</string>
+    <string name="vat">큰 통</string>
+    <string name="gross_amount">총액</string>
+    <string name="net_amount">순액</string>
+    <string name="copied">복사했습니다!</string>
+    <string name="light">빛</string>
+    <string name="dark">어두운</string>
+    <string name="battery_saver">배터리 세이버로 설정</string>
+    <string name="system_default">시스템 기본값</string>
+    <string name="choose_theme">테마</string>
+    <string name="cancel">취소</string>
+    <string name="improve_translation">번역 개선</string>
+    <string name="settings">설정</string>
+    <string name="other">다른</string>
+    <string name="save_value">가치 저장</string>
+    <string name="vat_rate">부가가치 세율</string>
+    <string name="rate">율</string>
+    <string name="language">언어</string>
+    <string name="rate_string">%1$s %2$d 요율</string>
+</resources>
