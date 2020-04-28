@@ -2,6 +2,7 @@ package com.sandello.ndscalculator
 
 import android.content.Context
 import android.os.StrictMode
+import android.util.Log
 import androidx.room.Room
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -10,6 +11,7 @@ import kotlinx.serialization.builtins.list
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import java.net.URL
+import java.util.*
 
 
 var listRates: List<Rate>? = null
@@ -31,16 +33,13 @@ class GetRates {
                 ).allowMainThreadQueries().build()
                 db.rateDao().deleteAll()
                 db.rateDao().insertAllCountries(listRates!!)
+                val prefs = context.getSharedPreferences("val", Context.MODE_PRIVATE)
+                if (prefs?.getString("rate", "") == "") {
+                    val editor = prefs.edit()
+                    editor?.putString("rate", db.rateDao().findByCountry(Locale.getDefault().country).rate.toString())
+                    editor?.apply()
+                }
             }
         }
-    }
-
-    fun get(context: Context, country: String): Int {
-        main(context)
-        val db = Room.databaseBuilder(
-                context,
-                AppDatabase::class.java, "rates"
-        ).allowMainThreadQueries().build()
-        return db.rateDao().findByCountry(country).rate
     }
 }
