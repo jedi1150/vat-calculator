@@ -10,6 +10,8 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.builtins.list
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
+import java.net.HttpURLConnection
+import java.net.SocketTimeoutException
 import java.net.URL
 import java.util.*
 
@@ -24,7 +26,11 @@ class GetRates {
         StrictMode.setThreadPolicy(policy)
         if (checkConnection(context)) {
             GlobalScope.launch(Dispatchers.IO) {
-                url = URL("http://jedioleg.asuscomm.com:8000").readText()
+//                url = URL("http://jedioleg.asuscomm.com:8000").openConnection().getInputStream().bufferedReader().readText()
+                val url2 = URL("http://jedioleg.asuscomm.com:8000")
+                val con: HttpURLConnection = url2.openConnection() as HttpURLConnection
+                con.connectTimeout = 500
+                Log.d("rates", con.inputStream.bufferedReader().readText().toString())
                 val json = Json(JsonConfiguration.Stable.copy(isLenient = true, ignoreUnknownKeys = true))
                 listRates = json.parse(Rate.serializer().list, url!!)
                 val db = Room.databaseBuilder(
