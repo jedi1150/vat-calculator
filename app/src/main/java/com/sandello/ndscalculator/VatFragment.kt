@@ -17,7 +17,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
-import androidx.room.Room
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.sandello.ndscalculator.R.string.copy
@@ -28,6 +27,7 @@ import java.text.NumberFormat
 import java.util.*
 
 
+@ExperimentalStdlibApi
 class VatFragment : Fragment() {
     private var amountDouble: Double? = null
     private var myClipboard: ClipboardManager? = null
@@ -219,6 +219,7 @@ class VatFragment : Fragment() {
         }
     }
 
+    @ExperimentalStdlibApi
     @SuppressLint("PrivateResource")
     private fun numToWord(title: Int, s: Double) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
