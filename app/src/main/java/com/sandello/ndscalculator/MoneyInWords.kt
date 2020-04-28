@@ -1,5 +1,6 @@
 package com.sandello.ndscalculator
 
+import java.util.*
 import kotlin.math.floor
 
 /**
@@ -17,6 +18,7 @@ object MoneyInWords {
     private val leWord = arrayOf(arrayOf("копейка", "копейки", "копеек", "0"), arrayOf("рубль", "рубля", "рублей", "1"), arrayOf("тысяча", "тысячи", "тысяч", "0"), arrayOf("миллион", "миллиона", "миллионов", "1"), arrayOf("миллиард", "миллиарда", "миллиардов", "1"), arrayOf("триллион", "триллиона", "триллионов", "1"))
 
     //рекурсивная функция преобразования целого числа num в рубли
+    @ExperimentalStdlibApi
     private fun num2words(num: Long, level: Int): String {
         val words = StringBuilder(50)
         if (num == 0L) words.append("ноль ") //исключительный случай
@@ -48,7 +50,7 @@ object MoneyInWords {
         }
         val nextNum = num / 1000
         return if (nextNum > 0) {
-            (num2words(nextNum, level + 1) + " " + words.toString()).trim { it <= ' ' }
+            (num2words(nextNum, level + 1).capitalize(Locale.ROOT) + " " + words.toString()).trim { it <= ' ' }
         } else {
             words.toString().trim { it <= ' ' }
         }
@@ -56,6 +58,7 @@ object MoneyInWords {
 
     //функция преобразования вещественного числа в рубли-копейки
     //при значении money более 50-70 триллионов рублей начинает искажать копейки, осторожней при работе такими суммами
+    @ExperimentalStdlibApi
     fun inWords(money: Double): String {
         if (money < 0.0) return "error: отрицательное значение"
         val sm = String.format("%.2f", money)
