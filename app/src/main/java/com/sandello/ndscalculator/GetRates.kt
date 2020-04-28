@@ -34,4 +34,13 @@ class GetRates {
             }
         }
     }
+
+    fun get(context: Context, country: String): Int {
+        main(context)
+        val db = Room.databaseBuilder(
+                context,
+                AppDatabase::class.java, "rates"
+        ).allowMainThreadQueries().build()
+        return db.rateDao().findByCountry(country).rate
+    }
 }
