@@ -61,14 +61,12 @@ class VatFragment : Fragment() {
         myClipboard = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
 
         menuButton.setOnClickListener {
-            val inputMethodManager = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val inputMethodManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(vat_layout.windowToken, 0)
             findNavController().navigate(R.id.action_vatFragment_to_settingsFragment)
         }
 
         loadVal()
-
-        loadRates()
 
         amountEditText!!.isFocusableInTouchMode = true
         amountEditText!!.requestFocus()
@@ -111,23 +109,6 @@ class VatFragment : Fragment() {
         amountIncludeEditText.setOnClickListener { copyVal("amountInclude", "") }
         vatNetEditText.setOnClickListener { copyVal("vatNet", "") }
         amountExcludeEditText.setOnClickListener { copyVal("amountExclude", "") }
-    }
-
-    private fun loadRates() {
-        val db = Room.databaseBuilder(
-                requireContext(),
-                AppDatabase::class.java, "rates"
-        ).allowMainThreadQueries().build()
-        if (db.rateDao().getAll().isNotEmpty()) {
-            percentEditText.setText(db.rateDao().findByCountry(Locale.getDefault().country).rate.toString())
-            val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
-            val editor = prefs?.edit()
-            try {
-                editor?.putString("rate", db.rateDao().findByCountry(Locale.getDefault().country).rate.toString())
-            } catch (e: NumberFormatException) {
-            }
-            editor?.apply()
-        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -242,7 +223,7 @@ class VatFragment : Fragment() {
     private fun numToWord(title: Int, s: Double) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             val moneyAsWords: String = MoneyInWords.inWords(s)
-            MaterialAlertDialogBuilder(context!!)
+            MaterialAlertDialogBuilder(requireContext())
                     .setTitle(getString(title))
                     .setMessage(moneyAsWords)
                     .setPositiveButton(copy) { _, _ -> copyVal(null, moneyAsWords) }
@@ -303,7 +284,7 @@ class VatFragment : Fragment() {
     private fun loadVal() {
         val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
         percentEditText?.setText(prefs?.getString("rate", ""))
-        val pref = PreferenceManager.getDefaultSharedPreferences(context!!)
+        val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         if (pref.getBoolean("save_sum", true)) {
             try {
                 amountEditText.setText(formatter.format(prefs!!.getString("amount", "")?.toDouble()))
