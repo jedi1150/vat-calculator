@@ -41,7 +41,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val translatePref = findPreference("translate") as Preference?
         val githubPref = findPreference("github") as Preference?
 
-        checkConnection(context!!)
+        checkConnection(requireContext())
 
         fun themeSummary(newValue: String) {
             themePref?.summary = when (newValue) {
