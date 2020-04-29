@@ -3,7 +3,6 @@ package com.sandello.ndscalculator
 import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
 import android.content.Context.MODE_PRIVATE
 import android.os.Build
@@ -13,10 +12,8 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -62,11 +59,7 @@ class VatFragment : Fragment() {
 
         myClipboard = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
 
-        view.rootView.menuButton.setOnClickListener {
-            val inputMethodManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(vat_layout.windowToken, 0)
-            findNavController().navigate(R.id.action_vatFragment_to_settingsFragment)
-        }
+
 
         loadVal()
 

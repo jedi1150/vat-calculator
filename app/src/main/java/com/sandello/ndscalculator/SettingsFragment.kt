@@ -119,7 +119,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             rateEntryValues.add(element.code)
             rateEntries.add(getString(R.string.rate_string, Locale("", element.code).displayCountry, element.rate) + "%")
         }
-        db.close()
+//        db.close()
         ratesPref?.entries = rateEntries.toTypedArray()
         ratesPref?.entryValues = rateEntryValues.toTypedArray()
 

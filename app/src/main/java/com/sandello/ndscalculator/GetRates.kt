@@ -29,7 +29,6 @@ class GetRates {
                 val url = URL("http://jedioleg.asuscomm.com:8000")
                 val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
                 connection.connectTimeout = 100
-                println("connecting")
                 try {
                     if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                         val stream = BufferedInputStream(connection.inputStream)
@@ -51,6 +50,8 @@ class GetRates {
                             editor?.putString("rate", db.rateDao().findByCountry(Locale.getDefault().country).rate.toString())
                             editor?.apply()
                         }
+                        stringBuilder.clear()
+                        bufferedReader.close()
                         db.close()
                     } else {
                         println("Error ${connection.responseCode}")
@@ -61,7 +62,6 @@ class GetRates {
                     connection.disconnect()
                 }
             }
-
         }
     }
 }
