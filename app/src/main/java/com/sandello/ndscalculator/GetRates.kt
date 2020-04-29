@@ -17,7 +17,6 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.util.*
 
-
 var listRates: List<Rate>? = null
 
 class GetRates {
@@ -31,7 +30,6 @@ class GetRates {
                 val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
                 connection.connectTimeout = 100
                 try {
-
                     if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                         val stream = BufferedInputStream(connection.inputStream)
                         val bufferedReader = BufferedReader(InputStreamReader(stream))

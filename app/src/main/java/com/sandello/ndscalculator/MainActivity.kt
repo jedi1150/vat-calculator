@@ -6,8 +6,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.updatePadding
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.preference.PreferenceManager
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.bottom_fragment.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +20,28 @@ class MainActivity : AppCompatActivity() {
         GetRates().main(this)
         setNightMode()
         setContentView(R.layout.activity_main)
+
+        val navController = Navigation.findNavController(this, R.id.fragment)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.label.toString() == "VAT") {
+                toolbar.visibility = View.GONE
+                bottom_navigation.visibility = View.VISIBLE
+            }
+            if (destination.label.toString() == "Settings") {
+                toolbar.visibility = View.VISIBLE
+                bottom_navigation.visibility = View.GONE
+            }
+        }
+
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
+        main_container.setOnApplyWindowInsetsListener { v, insets ->
+            toolbar.updatePadding(top = insets.systemWindowInsetTop, right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
+            bottom_navigation.updatePadding(bottom = insets.systemWindowInsetBottom, right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
+            insets
+        }
     }
 
     override fun onSupportNavigateUp() = findNavController(R.id.fragment).navigateUp()

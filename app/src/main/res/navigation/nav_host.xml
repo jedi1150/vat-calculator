@@ -6,7 +6,7 @@
     <fragment
         android:id="@+id/vatFragment"
         android:name="com.sandello.ndscalculator.VatFragment"
-        android:label="fragment_vat"
+        android:label="VAT"
         tools:layout="@layout/fragment_vat">
         <action
             android:id="@+id/action_vatFragment_to_settingsFragment"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.sandello.ndscalculator.SettingsFragment"
-        android:label="SettingsFragment">
+        android:label="Settings">
         <action
             android:id="@+id/action_settingsFragment_self"
             app:destination="@id/settingsFragment"

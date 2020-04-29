@@ -16,8 +16,8 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.room.Room
 import java.util.*
 
-@Suppress("DEPRECATION")
 @ExperimentalStdlibApi
+@Suppress("DEPRECATION")
 class SettingsFragment : PreferenceFragmentCompat() {
 
     private var themeEntries = emptyArray<String>()
@@ -40,8 +40,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val ratesPref = findPreference("rate") as ListPreference?
         val translatePref = findPreference("translate") as Preference?
         val githubPref = findPreference("github") as Preference?
-
-        checkConnection(requireContext())
 
         fun themeSummary(newValue: String) {
             themePref?.summary = when (newValue) {
