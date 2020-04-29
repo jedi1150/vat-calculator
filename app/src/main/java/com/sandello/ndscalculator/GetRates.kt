@@ -29,9 +29,10 @@ class GetRates {
             GlobalScope.launch(Dispatchers.IO) {
                 val url = URL("http://jedioleg.asuscomm.com:8000")
                 val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
-                connection.connectTimeout = 500
-                if (connection.responseCode == HttpURLConnection.HTTP_OK) {
-                    try {
+                connection.connectTimeout = 100
+                try {
+
+                    if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                         val stream = BufferedInputStream(connection.inputStream)
                         val bufferedReader = BufferedReader(InputStreamReader(stream))
                         val stringBuilder = StringBuilder()
@@ -51,16 +52,16 @@ class GetRates {
                             editor?.putString("rate", db.rateDao().findByCountry(Locale.getDefault().country).rate.toString())
                             editor?.apply()
                         }
+                    } else {
+                        println("Error ${connection.responseCode}")
                     }
-                    catch (e: Exception) { e.printStackTrace() }
-                    finally {
-                        connection.disconnect()
-                    }
-                }
-                else {
-                    println("Error ${connection.responseCode}")
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                } finally {
+                    connection.disconnect()
                 }
             }
+
         }
     }
 }
