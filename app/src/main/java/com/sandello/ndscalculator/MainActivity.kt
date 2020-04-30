@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
                 bottom_navigation.visibility = View.VISIBLE
             }
             if (destination.label.toString() == "Settings") {
-                inputMethodManager.hideSoftInputFromWindow(vat_layout.windowToken, 0)
                 toolbar.visibility = View.VISIBLE
                 bottom_navigation.visibility = View.GONE
             }
@@ -51,7 +50,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        menuButton.setOnClickListener {
+        settingsButton.setOnClickListener {
+            inputMethodManager.hideSoftInputFromWindow(vat_layout.windowToken, 0)
             navController!!.navigate(R.id.action_vatFragment_to_settingsFragment)
         }
     }
