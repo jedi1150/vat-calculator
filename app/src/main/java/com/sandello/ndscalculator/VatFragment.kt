@@ -3,21 +3,27 @@ package com.sandello.ndscalculator
 import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
 import android.content.Context.MODE_PRIVATE
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.sandello.ndscalculator.R.string.copy
+import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.bottom_fragment.*
 import kotlinx.android.synthetic.main.bottom_fragment.view.*
 import kotlinx.android.synthetic.main.fragment_vat.*
 import java.math.RoundingMode
@@ -43,6 +49,13 @@ class VatFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        container!!.setOnApplyWindowInsetsListener { v, insets ->
+            //            v.updatePadding(top = insets.systemWindowInsetTop)
+//            view.rootView.toolbar.updatePadding(top = insets.systemWindowInsetTop)
+            vatLinear.updatePadding(top = insets.systemWindowInsetTop + requireView().rootView.appBarLayout.measuredHeight, right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
+            bottom_navigation.updatePadding(bottom = insets.systemWindowInsetBottom, right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
+            insets
+        }
         return inflater.inflate(R.layout.fragment_vat, container, false)
     }
 
@@ -59,30 +72,28 @@ class VatFragment : Fragment() {
 
         myClipboard = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
 
-
-
         loadVal()
 
-        requireView().rootView.amountEditText!!.isFocusableInTouchMode = true
-        requireView().rootView.amountEditText!!.requestFocus()
-        requireView().rootView.amountEditText!!.addTextChangedListener(object : TextWatcher {
+        amountEditText!!.isFocusableInTouchMode = true
+        amountEditText!!.requestFocus()
+        amountEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                requireView().rootView.amountEditText.removeTextChangedListener(this)
+                amountEditText.removeTextChangedListener(this)
                 format()
-                requireView().rootView.amountEditText.addTextChangedListener(this)
+                amountEditText.addTextChangedListener(this)
                 count()
                 saveVal()
             }
 
         })
-        requireView().rootView.amountEditTextLayout!!.setEndIconOnClickListener {
-            requireView().rootView.amountEditText.setText("")
+        amountEditTextLayout!!.setEndIconOnClickListener {
+            amountEditText.setText("")
             amountDouble = null
             saveVal()
         }
-        requireView().rootView.percentEditText!!.addTextChangedListener(object : TextWatcher {
+        percentEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -105,9 +116,11 @@ class VatFragment : Fragment() {
         vatNetEditText.setOnClickListener { copyVal("vatNet", "") }
         amountExcludeEditText.setOnClickListener { copyVal("amountExclude", "") }
 
-        vat_layout.setOnApplyWindowInsetsListener { _, insets ->
-            vatLinear.updatePadding(top = insets.systemWindowInsetTop, right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
-            insets
+        val inputMethodManager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+        settingsButton.setOnClickListener {
+            inputMethodManager.hideSoftInputFromWindow(vat_layout.windowToken, 0)
+            findNavController().navigate(R.id.action_vatFragment_to_settingsFragment)
         }
     }
 
@@ -115,26 +128,26 @@ class VatFragment : Fragment() {
     private fun format() {
         var string: String
         try {
-            string = requireView().rootView.amountEditText.text.toString()
-            var pos = requireView().rootView.amountEditText.selectionStart
+            string = amountEditText.text.toString()
+            var pos = amountEditText.selectionStart
 
             if (pos > 0 && (string.substring(pos - 1, pos).contains("[,.]".toRegex()))) {
                 string = string.replaceRange(pos - 1, pos, decSym.toString())
                 if (string.toCharArray().count { it.toString().contains(decSym) } < 2 && pos > 0) {
                     if (string.startsWith(decSym))
                         string = "0${string}"
-                    requireView().rootView.amountEditText.setText(string).toString()
+                    amountEditText.setText(string).toString()
                     string = string.replaceFirst(decSym.toString(), ":")
                     string = string.replace("[,.]".toRegex(), "")
 
                     string = string.replace(groupSym.toString(), "") // Убираем групповые разделители
                     string = string.replace(":", ".")
                     amountDouble = string.toDouble()
-                    requireView().rootView.amountEditText.setSelection(requireView().rootView.amountEditText.text!!.length)
+                    amountEditText.setSelection(amountEditText.text!!.length)
                 }
             }
             if (string.isNotEmpty() && string.substringAfter(",").isNotEmpty() && string.substringAfter(".").isNotEmpty()) {
-                requireView().rootView.amountEditTextLayout.error = ""
+                amountEditTextLayout.error = ""
 
                 string = string.replaceFirst(decSym.toString(), ":")
                 string = string.replace("[,.]".toRegex(), "")
@@ -163,27 +176,27 @@ class VatFragment : Fragment() {
                         amountDouble = string.toDouble()
                     }
                     if (!string.contains(".")) {
-                        requireView().rootView.amountEditText.setText(formatter.format(amountDouble!!).toString())
-                        pos = requireView().rootView.amountEditText.text!!.length
+                        amountEditText.setText(formatter.format(amountDouble!!).toString())
+                        pos = amountEditText.text!!.length
                     } else {
                         when {
                             string.substringAfter(".").isEmpty() -> {
-                                requireView().rootView.amountEditText.setText("${formatter.format(amountDouble!!)}${formatter.decimalFormatSymbols.decimalSeparator}")
+                                amountEditText.setText("${formatter.format(amountDouble!!)}${formatter.decimalFormatSymbols.decimalSeparator}")
                             }
                             else -> {
-                                requireView().rootView.amountEditText.setText(formatter.format(amountDouble!!).toString())
+                                amountEditText.setText(formatter.format(amountDouble!!).toString())
                             }
                         }
-                        if (pos > requireView().rootView.amountEditText.text!!.length) pos = requireView().rootView.amountEditText.text!!.length
+                        if (pos > amountEditText.text!!.length) pos = amountEditText.text!!.length
                     }
-                    requireView().rootView.amountEditText.setSelection(pos)
+                    amountEditText.setSelection(pos)
                 } else {
                     amountDouble = string.toDouble()
                 }
             } else if (string.isEmpty()) {
-                requireView().rootView.amountEditTextLayout.error = ""
+                amountEditTextLayout.error = ""
             } else if (string.substringAfter(".").isEmpty() || string.substringAfter(".") == "0") {
-                requireView().rootView.amountEditTextLayout.error = ""
+                amountEditTextLayout.error = ""
             }
         } catch (e: NumberFormatException) {
             e.printStackTrace()
@@ -193,9 +206,9 @@ class VatFragment : Fragment() {
     fun count() {
 
         try {
-            if (amountDouble != null && requireView().rootView.amountEditText.text.toString().isNotEmpty() && requireView().rootView.percentEditText.text.toString().isNotEmpty()) {
+            if (amountDouble != null && amountEditText.text.toString().isNotEmpty() && percentEditText.text.toString().isNotEmpty()) {
                 val amount = amountDouble!!
-                val percent = requireView().rootView.percentEditText.text.toString().toDouble()
+                val percent = percentEditText.text.toString().toDouble()
                 //Начисление НДС
                 vatAdd = amount * percent / 100
                 amountInclude = amount + amount * percent / 100
@@ -250,23 +263,23 @@ class VatFragment : Fragment() {
         if (viewString == "vatAdd" && vatAddEditText.text.toString() != "0" && vatAddEditText.text.toString() != "") {
             myClip = ClipData.newPlainText("text", vatAddEditText.text.toString())
             myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(requireView().rootView.snackbar, "${getString(R.string.copied)} ${vatAddEditText.text}", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${vatAddEditText.text}", Snackbar.LENGTH_SHORT).show()
         } else if (viewString == "amountInclude" && amountIncludeEditText.text.toString() != "0" && amountIncludeEditText.text.toString() != "") {
             myClip = ClipData.newPlainText("text", amountIncludeEditText.text.toString())
             myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(requireView().rootView.snackbar, "${getString(R.string.copied)} ${amountIncludeEditText.text}", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${amountIncludeEditText.text}", Snackbar.LENGTH_SHORT).show()
         } else if (viewString == "vatNet" && vatNetEditText.text.toString() != "0" && vatNetEditText.text.toString() != "") {
             myClip = ClipData.newPlainText("text", vatNetEditText.text.toString())
             myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(requireView().rootView.snackbar, "${getString(R.string.copied)} ${vatNetEditText.text}", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${vatNetEditText.text}", Snackbar.LENGTH_SHORT).show()
         } else if (viewString == "amountExclude" && amountExcludeEditText.text.toString() != "0" && amountExcludeEditText.text.toString() != "") {
             myClip = ClipData.newPlainText("text", amountExcludeEditText.text.toString())
             myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(requireView().rootView.snackbar, "${getString(R.string.copied)} ${amountExcludeEditText.text}", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${amountExcludeEditText.text}", Snackbar.LENGTH_SHORT).show()
         } else if (viewString == null) {
             myClip = ClipData.newPlainText("text", value)
             myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(requireView().rootView.snackbar, getString(R.string.copied), Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(snackbar, getString(R.string.copied), Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -274,8 +287,8 @@ class VatFragment : Fragment() {
         val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
         val editor = prefs?.edit()
         try {
-            if (prefs?.getString("rate", "") == requireView().rootView.percentEditText.text.toString())
-                editor?.putString("rate", requireView().rootView.percentEditText.text.toString())
+            if (prefs?.getString("rate", "") == percentEditText.text.toString())
+                editor?.putString("rate", percentEditText.text.toString())
             editor?.putString("amount", amountDouble.toString())
         } catch (e: NumberFormatException) {
         }
@@ -284,11 +297,11 @@ class VatFragment : Fragment() {
 
     private fun loadVal() {
         val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
-        requireView().rootView.percentEditText?.setText(prefs?.getString("rate", ""))
+        percentEditText?.setText(prefs?.getString("rate", ""))
         val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         if (pref.getBoolean("save_sum", true)) {
             try {
-                requireView().rootView.amountEditText.setText(formatter.format(prefs!!.getString("amount", "")?.toDouble()))
+                amountEditText.setText(formatter.format(prefs!!.getString("amount", "")?.toDouble()))
                 format()
             } catch (e: NumberFormatException) {
             }

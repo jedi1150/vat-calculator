@@ -1,20 +1,17 @@
 package com.sandello.ndscalculator
 
-import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.view.updatePadding
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import androidx.preference.PreferenceManager
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.bottom_fragment.*
-import kotlinx.android.synthetic.main.fragment_vat.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,39 +21,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         GetRates().main(this)
         setNightMode()
-        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         setContentView(R.layout.activity_main)
 
         navController = Navigation.findNavController(this, R.id.fragment)
         navController!!.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.label.toString() == "VAT") {
-                toolbar.visibility = View.GONE
-                bottom_navigation.visibility = View.VISIBLE
+                toolbar.title = getString(R.string.vat)
             }
             if (destination.label.toString() == "Settings") {
-                toolbar.visibility = View.VISIBLE
-                bottom_navigation.visibility = View.GONE
+                toolbar.title = getString(R.string.settings)
             }
         }
 
-        toolbar.setNavigationOnClickListener {
-            onBackPressed()
-        }
+        toolbar.setupWithNavController(navController!!, AppBarConfiguration(navController!!.graph))
 
-        main_container.setOnApplyWindowInsetsListener { v, insets ->
-            toolbar.updatePadding(top = insets.systemWindowInsetTop, right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
-            bottom_navigation.updatePadding(bottom = insets.systemWindowInsetBottom, right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
-            insets
-        }
 
-        settingsButton.setOnClickListener {
-            inputMethodManager.hideSoftInputFromWindow(vat_layout.windowToken, 0)
-            navController!!.navigate(R.id.action_vatFragment_to_settingsFragment)
-        }
     }
 
-//    override fun onSupportNavigateUp() = navController!!.navigateUp()
 
     private fun setNightMode() {
         val isNightMode = this.resources.configuration.uiMode

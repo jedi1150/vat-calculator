@@ -27,10 +27,13 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.setOnApplyWindowInsetsListener { v, insets ->
-            v.updatePadding(top = insets.systemWindowInsetTop)
-            insets
-        }
+//        view.setOnApplyWindowInsetsListener { v, insets ->
+//            v.updatePadding(top = insets.systemWindowInsetTop)
+//            insets
+//        }
+
+//        view.rootView.toolbar.visibility = View.VISIBLE
+
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -119,7 +122,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
             rateEntryValues.add(element.code)
             rateEntries.add(getString(R.string.rate_string, Locale("", element.code).displayCountry, element.rate) + "%")
         }
-//        db.close()
         ratesPref?.entries = rateEntries.toTypedArray()
         ratesPref?.entryValues = rateEntryValues.toTypedArray()
 
