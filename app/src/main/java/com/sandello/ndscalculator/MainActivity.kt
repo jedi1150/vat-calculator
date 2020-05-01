@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.updatePadding
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
@@ -23,19 +24,21 @@ class MainActivity : AppCompatActivity() {
         setNightMode()
 
         setContentView(R.layout.activity_main)
-
+        main_container.setOnApplyWindowInsetsListener { v, insets ->
+            appBarLayout.updatePadding(top = insets.systemWindowInsetTop)
+            insets
+        }
         navController = Navigation.findNavController(this, R.id.fragment)
         navController!!.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.label.toString() == "VAT") {
+            if (destination.id == R.id.vatFragment) {
                 toolbar.title = getString(R.string.vat)
             }
-            if (destination.label.toString() == "Settings") {
+            if (destination.id == R.id.settingsFragment) {
                 toolbar.title = getString(R.string.settings)
             }
         }
 
         toolbar.setupWithNavController(navController!!, AppBarConfiguration(navController!!.graph))
-
 
     }
 

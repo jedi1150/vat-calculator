@@ -14,6 +14,7 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.room.Room
+import kotlinx.android.synthetic.main.activity_main.view.*
 import java.util.*
 
 @ExperimentalStdlibApi
@@ -27,13 +28,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        view.setOnApplyWindowInsetsListener { v, insets ->
-//            v.updatePadding(top = insets.systemWindowInsetTop)
-//            insets
-//        }
-
-//        view.rootView.toolbar.visibility = View.VISIBLE
-
+        view.setOnApplyWindowInsetsListener { v, insets ->
+            v.updatePadding(top = insets.systemWindowInsetTop + view.rootView.toolbar.height)
+            insets
+        }
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -85,7 +83,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         themeSummary(themePref?.value.toString())
 
 
-        val availableLanguageISO = Locale.getISOLanguages().filter { it in resources.getStringArray(R.array.languages_code) }
+        val availableLanguageISO = Locale.getISOLanguages().filter { it in resources.getStringArray(R.array.languages_code).sortedArray() }
         val availableLanguages = mutableListOf<String>()
         for (item in availableLanguageISO) {
             availableLanguages.add(Locale.forLanguageTag(item).getDisplayLanguage(Locale.forLanguageTag(item)).capitalize(Locale.ROOT))

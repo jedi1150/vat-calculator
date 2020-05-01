@@ -7,7 +7,7 @@ import androidx.room.Query
 
 @Dao
 interface RateDao {
-    @Query("SELECT * FROM rates")
+    @Query("SELECT * FROM rates ORDER BY code")
     fun getAll(): List<Rate>
 
     @Query("SELECT * FROM rates WHERE code LIKE :code LIMIT 1")
