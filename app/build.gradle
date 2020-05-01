@@ -14,10 +14,9 @@ android {
         applicationId "com.sandello.ndscalculator"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 80
-        versionName '6.0'
+        versionCode 81
+        versionName '6.0.1'
         signingConfig signingConfigs.config
-        versionNameSuffix 'beta'
     }
     buildTypes {
         release {
@@ -33,6 +32,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
     }
     buildToolsVersion '30.0.0 rc1'
 }
