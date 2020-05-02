@@ -18,8 +18,8 @@ android {
         applicationId "com.sandello.ndscalculator"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 83
-        versionName '6.0.3'
+        versionCode 84
+        versionName '6.0.4'
         signingConfig signingConfigs.config
     }
     buildTypes {
