@@ -11,7 +11,7 @@ interface RateDao {
     fun getAll(): List<Rate>
 
     @Query("SELECT * FROM rates WHERE code LIKE :code LIMIT 1")
-    fun findByCountry(code: String): Rate
+    fun findByCountry(code: String): Rate?
 
     @Insert
     fun insertAll(vararg rates: Rate)

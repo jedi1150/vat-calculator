@@ -1,5 +1,6 @@
 package com.sandello.ndscalculator
 
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
@@ -22,9 +23,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         GetRates().main(this)
-        setNightMode()
         setLocale()
+        setNightMode()
         setContentView(R.layout.activity_main)
+        val prefs = getSharedPreferences("val", Context.MODE_PRIVATE)
         main_container.setOnApplyWindowInsetsListener { v, insets ->
             appBarLayout.updatePadding(top = insets.systemWindowInsetTop)
             insets
@@ -89,8 +91,10 @@ class MainActivity : AppCompatActivity() {
     private fun setLocale() {
         val localePref = PreferenceManager.getDefaultSharedPreferences(this)
         val language = localePref.getString("language", "en")
-        Locale.setDefault(Locale.forLanguageTag(language.toString()))
-        resources.configuration.setLocale(Locale.forLanguageTag(language.toString()))
-        resources.updateConfiguration(resources.configuration, resources.displayMetrics)
+        if (language.toString() != "en") {
+            Locale.setDefault(Locale.forLanguageTag(language.toString()))
+            resources.configuration.setLocale(Locale.forLanguageTag(language.toString()))
+            resources.updateConfiguration(resources.configuration, resources.displayMetrics)
+        }
     }
 }

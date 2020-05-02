@@ -130,11 +130,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
         fun rateSummary(newValue: String) {
             val data = db.rateDao().findByCountry(newValue)
             ratesPref?.setSummaryProvider {
-                getString(R.string.rate_string, Locale("", data.code).displayCountry, data.rate) + "%"
+                getString(R.string.rate_string, Locale("", data!!.code).displayCountry, data.rate) + "%"
             }
             val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
             val editor = prefs?.edit()
-            editor?.putString("rate", data.rate.toString())
+            editor?.putString("rate", data!!.rate.toString())
             editor?.apply()
         }
 
@@ -142,9 +142,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
             rateSummary(ratesPref.value!!)
         else {
             if (db.rateDao().getAll().isNotEmpty()) {
-                val data = db.rateDao().findByCountry(Locale.getDefault().country)
-                ratesPref?.setValueIndex(rateEntryValues.indexOf(data.code))
-                rateSummary(ratesPref?.value!!)
+                val currentRate = db.rateDao().findByCountry(Locale.getDefault().country)
+                if (currentRate != null) {
+                    ratesPref?.setValueIndex(rateEntryValues.indexOf(currentRate.code))
+                    rateSummary(ratesPref?.value!!)
+                }
             }
         }
 

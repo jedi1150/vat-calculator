@@ -12,7 +12,6 @@ import kotlinx.serialization.json.JsonConfiguration
 import java.io.BufferedInputStream
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.*
@@ -28,7 +27,7 @@ class GetRates {
             GlobalScope.launch(Dispatchers.IO) {
                 val url = URL("http://jedioleg.asuscomm.com:8000")
                 val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
-                connection.connectTimeout = 100
+                connection.connectTimeout = 150
                 try {
                     if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                         val stream = BufferedInputStream(connection.inputStream)
@@ -47,7 +46,10 @@ class GetRates {
                         val prefs = context.getSharedPreferences("val", Context.MODE_PRIVATE)
                         if (prefs?.getString("rate", "") == "") {
                             val editor = prefs.edit()
-                            editor?.putString("rate", db.rateDao().findByCountry(Locale.getDefault().country).rate.toString())
+                            val currentRate = db.rateDao().findByCountry(Locale.getDefault().country)
+                            if (currentRate != null) {
+                                editor?.putString("rate", currentRate.rate.toString())
+                            }
                             editor?.apply()
                         }
                         stringBuilder.clear()
