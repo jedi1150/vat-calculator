@@ -29,7 +29,9 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.setOnApplyWindowInsetsListener { v, insets ->
-            v.updatePadding(top = insets.systemWindowInsetTop + view.rootView.toolbar.height)
+            view.post {
+                v.updatePadding(top = insets.systemWindowInsetTop + view.rootView.toolbar.height)
+            }
             insets
         }
     }
@@ -93,16 +95,18 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
 
         fun languageSummary(newValue: String) {
-            languagePref?.summary = Locale.forLanguageTag(newValue).displayLanguage.capitalize(Locale.ROOT)
+            languagePref?.summary = Locale.forLanguageTag(newValue).getDisplayLanguage(Locale.forLanguageTag(newValue)).capitalize(Locale.ROOT)
+//            languagePref?.summary = Locale.forLanguageTag(newValue).displayLanguage.capitalize(Locale.ROOT)
         }
         if (languagePref?.value != null)
             languageSummary(languagePref.value!!)
         else {
             languagePref?.setValueIndex(languagePref.entryValues.indexOf(Locale.getDefault().language))
-            languagePref?.summary = Locale.getDefault().displayLanguage.capitalize(Locale.ROOT)
+//            languagePref?.summary = Locale.getDefault().displayLanguage.capitalize(Locale.ROOT)
+//            languagePref?.summary = Locale.forLanguageTag(languagePref?.value!!).displayLanguage.capitalize(Locale.ROOT)
         }
 
-        languagePref?.setOnPreferenceChangeListener { _, newValue ->
+        languagePref!!.setOnPreferenceChangeListener { _, newValue ->
             Locale.setDefault(Locale.forLanguageTag(newValue.toString()))
             resources.configuration.setLocale(Locale.forLanguageTag(newValue.toString()))
             resources.updateConfiguration(resources.configuration, resources.displayMetrics)
@@ -170,5 +174,4 @@ class SettingsFragment : PreferenceFragmentCompat() {
         (activity as AppCompatActivity).delegate.localNightMode = themeMode
         AppCompatDelegate.setDefaultNightMode(themeMode)
     }
-
 }

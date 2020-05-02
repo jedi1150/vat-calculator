@@ -13,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.preference.PreferenceManager
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         GetRates().main(this)
         setNightMode()
-
+        setLocale()
         setContentView(R.layout.activity_main)
         main_container.setOnApplyWindowInsetsListener { v, insets ->
             appBarLayout.updatePadding(top = insets.systemWindowInsetTop)
@@ -83,5 +84,13 @@ class MainActivity : AppCompatActivity() {
                 delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
             }
         }
+    }
+
+    private fun setLocale() {
+        val localePref = PreferenceManager.getDefaultSharedPreferences(this)
+        val language = localePref.getString("language", "en")
+        Locale.setDefault(Locale.forLanguageTag(language.toString()))
+        resources.configuration.setLocale(Locale.forLanguageTag(language.toString()))
+        resources.updateConfiguration(resources.configuration, resources.displayMetrics)
     }
 }

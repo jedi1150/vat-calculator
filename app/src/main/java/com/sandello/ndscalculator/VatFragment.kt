@@ -6,7 +6,6 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
 import android.content.Context.MODE_PRIVATE
-import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -18,16 +17,13 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.sandello.ndscalculator.R.string.copy
 import kotlinx.android.synthetic.main.bottom_fragment.*
 import kotlinx.android.synthetic.main.bottom_fragment.view.*
 import kotlinx.android.synthetic.main.fragment_vat.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.NumberFormat
-import java.util.*
 
 
 @ExperimentalStdlibApi
@@ -98,12 +94,12 @@ class VatFragment : Fragment() {
         })
 
         checkToTranslate()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             vatAddTextLayout!!.setEndIconOnClickListener { numToWord(R.string.vat, vatAdd!!) }
             amountIncludeTextLayout!!.setEndIconOnClickListener { numToWord(R.string.include_vat, amountInclude!!) }
             vatNetTextLayout!!.setEndIconOnClickListener { numToWord(R.string.vat, vatNet!!) }
             amountNetTextLayout!!.setEndIconOnClickListener { numToWord(R.string.without_vat, amountExclude!!) }
-        }
+        }*/
 
         // Копировать значения
         vatAddEditText.setOnClickListener { copyVal("vatAdd", "") }
@@ -227,54 +223,59 @@ class VatFragment : Fragment() {
         }
     }
 
-    @ExperimentalStdlibApi
-    @SuppressLint("PrivateResource")
-    private fun numToWord(title: Int, s: Double) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            val moneyAsWords: String = MoneyInWords.inWords(s)
-            MaterialAlertDialogBuilder(requireContext())
-                    .setTitle(getString(title))
-                    .setMessage(moneyAsWords)
-                    .setPositiveButton(copy) { _, _ -> copyVal(null, moneyAsWords) }
-                    .show()
-        }
-    }
+//    @ExperimentalStdlibApi
+//    @SuppressLint("PrivateResource")
+//    private fun numToWord(title: Int, s: Double) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+////            val moneyAsWords: String = MoneyInWords.inWords(s)
+//            val moneyAsWords: String = MoneyInWords.inWords(s)
+//            MaterialAlertDialogBuilder(requireContext())
+//                    .setTitle(getString(title))
+//                    .setMessage(moneyAsWords)
+//                    .setPositiveButton(copy) { _, _ -> copyVal(null, moneyAsWords) }
+//                    .show()
+//        }
+//    }
 
     private fun checkToTranslate() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && Locale.getDefault().language == "ru") {
-            vatAddTextLayout!!.isEndIconVisible = true
-            amountIncludeTextLayout!!.isEndIconVisible = true
-            vatNetTextLayout!!.isEndIconVisible = true
-            amountNetTextLayout!!.isEndIconVisible = true
-        } else {
-            vatAddTextLayout!!.isEndIconVisible = false
-            amountIncludeTextLayout!!.isEndIconVisible = false
-            vatNetTextLayout!!.isEndIconVisible = false
-            amountNetTextLayout!!.isEndIconVisible = false
-        }
+        vatAddTextLayout!!.isEndIconVisible = false
+        amountIncludeTextLayout!!.isEndIconVisible = false
+        vatNetTextLayout!!.isEndIconVisible = false
+        amountNetTextLayout!!.isEndIconVisible = false
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && Locale.getDefault().language == "ru") {
+//            vatAddTextLayout!!.isEndIconVisible = true
+//            amountIncludeTextLayout!!.isEndIconVisible = true
+//            vatNetTextLayout!!.isEndIconVisible = true
+//            amountNetTextLayout!!.isEndIconVisible = true
+//        } else {
+//            vatAddTextLayout!!.isEndIconVisible = false
+//            amountIncludeTextLayout!!.isEndIconVisible = false
+//            vatNetTextLayout!!.isEndIconVisible = false
+//            amountNetTextLayout!!.isEndIconVisible = false
+//        }
     }
 
     private fun copyVal(viewString: String?, value: String?) {
         if (viewString == "vatAdd" && vatAddEditText.text.toString() != "0" && vatAddEditText.text.toString() != "") {
             myClip = ClipData.newPlainText("text", vatAddEditText.text.toString())
             myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(requireView().rootView!!.snackbar, "${getString(R.string.copied)} ${vatAddEditText.text}", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${vatAddEditText.text}", Snackbar.LENGTH_SHORT).show()
         } else if (viewString == "amountInclude" && amountIncludeEditText.text.toString() != "0" && amountIncludeEditText.text.toString() != "") {
             myClip = ClipData.newPlainText("text", amountIncludeEditText.text.toString())
             myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(requireView().rootView!!.snackbar, "${getString(R.string.copied)} ${amountIncludeEditText.text}", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${amountIncludeEditText.text}", Snackbar.LENGTH_SHORT).show()
         } else if (viewString == "vatNet" && vatNetEditText.text.toString() != "0" && vatNetEditText.text.toString() != "") {
             myClip = ClipData.newPlainText("text", vatNetEditText.text.toString())
             myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(requireView().rootView!!.snackbar, "${getString(R.string.copied)} ${vatNetEditText.text}", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${vatNetEditText.text}", Snackbar.LENGTH_SHORT).show()
         } else if (viewString == "amountExclude" && amountExcludeEditText.text.toString() != "0" && amountExcludeEditText.text.toString() != "") {
             myClip = ClipData.newPlainText("text", amountExcludeEditText.text.toString())
             myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(requireView().rootView!!.snackbar, "${getString(R.string.copied)} ${amountExcludeEditText.text}", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(snackbar, "${getString(R.string.copied)} ${amountExcludeEditText.text}", Snackbar.LENGTH_SHORT).show()
         } else if (viewString == null) {
             myClip = ClipData.newPlainText("text", value)
             myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(requireView().rootView!!.snackbar, getString(R.string.copied), Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(snackbar, getString(R.string.copied), Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -282,8 +283,8 @@ class VatFragment : Fragment() {
         val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
         val editor = prefs?.edit()
         try {
-            if (prefs?.getString("rate", "") == requireView().rootView!!.percentEditText.text.toString())
-                editor?.putString("rate", requireView().rootView!!.percentEditText.text.toString())
+            if (prefs?.getString("rate", "") == percentEditText.text.toString())
+                editor?.putString("rate", percentEditText.text.toString())
             editor?.putString("amount", amountDouble.toString())
         } catch (e: NumberFormatException) {
         }
@@ -292,11 +293,11 @@ class VatFragment : Fragment() {
 
     private fun loadVal() {
         val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
-        requireView().rootView!!.percentEditText?.setText(prefs?.getString("rate", ""))
+        percentEditText?.setText(prefs?.getString("rate", ""))
         val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         if (pref.getBoolean("save_sum", true)) {
             try {
-                requireView().rootView!!.amountEditText.setText(formatter.format(prefs!!.getString("amount", "")?.toDouble()))
+                amountEditText.setText(formatter.format(prefs!!.getString("amount", "")?.toDouble()))
                 format()
             } catch (e: NumberFormatException) {
             }
