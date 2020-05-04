@@ -21,6 +21,10 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.bottom_fragment.*
 import kotlinx.android.synthetic.main.bottom_fragment.view.*
 import kotlinx.android.synthetic.main.fragment_vat.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.NumberFormat
@@ -292,14 +296,23 @@ class VatFragment : Fragment() {
     }
 
     private fun loadVal() {
-        val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
-        percentEditText?.setText(prefs?.getString("rate", ""))
-        val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
-        if (pref.getBoolean("save_sum", true)) {
-            try {
-                amountEditText.setText(formatter.format(prefs!!.getString("amount", "")?.toDouble()))
-                format()
-            } catch (e: NumberFormatException) {
+        GlobalScope.launch(Dispatchers.IO) {
+            withContext(Dispatchers.IO) { GetRates().main(requireContext()) }
+            launch(Dispatchers.Main) {
+                val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
+                val rate = prefs!!.getString("rate", "")
+                if (rate!!.substringAfter(".") == "0")
+                    percentEditText?.setText(rate.substringBefore("."))
+                else
+                    percentEditText?.setText(rate)
+                val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                if (pref.getBoolean("save_sum", true)) {
+                    try {
+                        amountEditText.setText(formatter.format(prefs.getString("amount", "")?.toDouble()))
+                        format()
+                    } catch (e: NumberFormatException) {
+                    }
+                }
             }
         }
         count()

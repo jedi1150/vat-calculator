@@ -8,5 +8,5 @@ import kotlinx.serialization.Serializable
 @Entity(tableName = "rates")
 data class Rate(
         @PrimaryKey var code: String = "",
-        var rate: Int = 0
+        var rate: Float = 0f
 )
