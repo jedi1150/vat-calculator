@@ -24,7 +24,7 @@ class GetRates {
         StrictMode.setThreadPolicy(policy)
 
         if (checkConnection(context)) {
-            val url = URL("http://jedioleg.asuscomm.com:8000")
+            val url = URL("https://jsonbase.com/sandello/vat_rates")
             val connection = url.openConnection() as HttpURLConnection
             connection.connectTimeout = 200
             try {
