@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private var navController: NavController? = null
 
+    @ExperimentalStdlibApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setLocale()
@@ -32,10 +33,10 @@ class MainActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this, R.id.fragment)
         navController!!.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.vatFragment) {
-                toolbar.title = getString(R.string.vat)
+                toolbar.title = getString(R.string.vat).capitalize(Locale.ROOT)
             }
             if (destination.id == R.id.settingsFragment) {
-                toolbar.title = getString(R.string.settings)
+                toolbar.title = getString(R.string.settings).capitalize(Locale.ROOT)
             }
         }
 
