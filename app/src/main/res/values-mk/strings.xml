@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">ДДВ</string>
+    <string name="amount">износ</string>
+    <string name="without_vat">Без ДДВ</string>
+    <string name="include_vat">Вклучува ДДВ</string>
+    <string name="vat">ДДВ</string>
+    <string name="gross_amount">Бруто износ</string>
+    <string name="net_amount">Нето износ</string>
+    <string name="copied">Копирано!</string>
+    <string name="light">Светлина</string>
+    <string name="dark">Темно</string>
+    <string name="battery_saver">Поставено од Заштеда на батерии</string>
+    <string name="system_default">Стандардно систем</string>
+    <string name="choose_theme">Тема</string>
+    <string name="cancel">Откажи</string>
+    <string name="improve_translation">Подобрете го преводот</string>
+    <string name="settings">Поставки</string>
+    <string name="other">Друго</string>
+    <string name="save_value">Зачувајте вредност</string>
+    <string name="vat_rate">Стапка на ДДВ</string>
+    <string name="rate">Оцени</string>
+    <string name="language">Јазик</string>
+    <string name="rate_string">%1$s. Оценете %2$s</string>
+</resources>

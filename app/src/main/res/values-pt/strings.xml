@@ -13,8 +13,13 @@
     <string name="battery_saver">Definido por Battery Saver</string>
     <string name="system_default">Sistema padrão</string>
     <string name="choose_theme">Tema</string>
+    <string name="cancel">Cancelar</string>
     <string name="improve_translation">Melhore a tradução</string>
     <string name="settings">Definições</string>
     <string name="other">De outros</string>
     <string name="save_value">Salvar valor</string>
+    <string name="vat_rate">taxa do IVA</string>
+    <string name="rate">Taxa</string>
+    <string name="language">Língua</string>
+    <string name="rate_string">%1$s. Taxa %2$s</string>
 </resources>

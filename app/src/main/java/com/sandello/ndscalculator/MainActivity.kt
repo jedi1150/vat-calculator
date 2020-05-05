@@ -6,18 +6,44 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.navigation.findNavController
+import androidx.core.view.updatePadding
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import androidx.preference.PreferenceManager
+import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    private var navController: NavController? = null
+
+    @ExperimentalStdlibApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setLocale()
         setNightMode()
         setContentView(R.layout.activity_main)
+
+        main_container.setOnApplyWindowInsetsListener { v, insets ->
+            appBarLayout.updatePadding(top = insets.systemWindowInsetTop)
+            insets
+        }
+        navController = Navigation.findNavController(this, R.id.fragment)
+        navController!!.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.vatFragment) {
+                toolbar.title = getString(R.string.vat).capitalize(Locale.ROOT)
+            }
+            if (destination.id == R.id.settingsFragment) {
+                toolbar.title = getString(R.string.settings).capitalize(Locale.ROOT)
+            }
+        }
+
+        toolbar.setupWithNavController(navController!!, AppBarConfiguration(navController!!.graph))
+
     }
 
-    override fun onSupportNavigateUp() = findNavController(R.id.fragment).navigateUp()
 
     private fun setNightMode() {
         val isNightMode = this.resources.configuration.uiMode
@@ -58,6 +84,17 @@ class MainActivity : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                 delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
             }
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    private fun setLocale() {
+        val localePref = PreferenceManager.getDefaultSharedPreferences(this)
+        val language = localePref.getString("language", "en")
+        if (language.toString() != "en") {
+            Locale.setDefault(Locale.forLanguageTag(language.toString()))
+            resources.configuration.setLocale(Locale.forLanguageTag(language.toString()))
+            resources.updateConfiguration(resources.configuration, resources.displayMetrics)
         }
     }
 }

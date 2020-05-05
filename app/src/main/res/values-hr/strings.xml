@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">PDV</string>
+    <string name="amount">Iznos</string>
+    <string name="without_vat">Bez PDV-a</string>
+    <string name="include_vat">Uključujući PDV</string>
+    <string name="vat">PDV</string>
+    <string name="gross_amount">Bruto iznos</string>
+    <string name="net_amount">Neto iznos</string>
+    <string name="copied">Kopirano!</string>
+    <string name="light">Svjetlo</string>
+    <string name="dark">mrak</string>
+    <string name="battery_saver">Postavio Battery Saver</string>
+    <string name="system_default">Zadani sustav</string>
+    <string name="choose_theme">Tema</string>
+    <string name="cancel">Otkazati</string>
+    <string name="improve_translation">Poboljšajte prijevod</string>
+    <string name="settings">postavke</string>
+    <string name="other">drugo</string>
+    <string name="save_value">Spremite vrijednost</string>
+    <string name="vat_rate">Stopa PDV-a</string>
+    <string name="rate">Stopa</string>
+    <string name="language">Jezik</string>
+    <string name="rate_string">%1$s. Ocijenite %2$s</string>
+</resources>

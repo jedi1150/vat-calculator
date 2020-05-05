@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">PVM</string>
+    <string name="amount">Suma</string>
+    <string name="without_vat">Be PVM</string>
+    <string name="include_vat">Su PVM</string>
+    <string name="vat">PVM</string>
+    <string name="gross_amount">Bendra suma</string>
+    <string name="net_amount">Grynoji suma</string>
+    <string name="copied">Nukopijuota!</string>
+    <string name="light">Šviesa</string>
+    <string name="dark">Tamsi</string>
+    <string name="battery_saver">Nustatė „Battery Saver“</string>
+    <string name="system_default">Numatytoji sistema</string>
+    <string name="choose_theme">Tema</string>
+    <string name="cancel">Atšaukti</string>
+    <string name="improve_translation">Patobulinkite vertimą</string>
+    <string name="settings">Nustatymai</string>
+    <string name="other">Kiti</string>
+    <string name="save_value">Taupykite vertę</string>
+    <string name="vat_rate">PVM tarifas</string>
+    <string name="rate">Įvertink</string>
+    <string name="language">Kalba</string>
+    <string name="rate_string">%1$s. Įvertinkite %2$s</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">ΔΕΞΑΜΕΝΗ</string>
+    <string name="amount">Ποσό</string>
+    <string name="without_vat">Χωρίς ΦΠΑ</string>
+    <string name="include_vat">Συμπεριλαμβάνεται ο ΦΠΑ</string>
+    <string name="vat">ΔΕΞΑΜΕΝΗ</string>
+    <string name="gross_amount">Ακαθάριστο ποσό</string>
+    <string name="net_amount">Καθαρό ποσό</string>
+    <string name="copied">Αντιγράφηκε!</string>
+    <string name="light">Φως</string>
+    <string name="dark">Σκοτάδι</string>
+    <string name="battery_saver">Ρύθμιση από Εξοικονόμηση μπαταρίας</string>
+    <string name="system_default">Προεπιλογή συστήματος</string>
+    <string name="choose_theme">Θέμα</string>
+    <string name="cancel">Ματαίωση</string>
+    <string name="improve_translation">Βελτιώστε τη μετάφραση</string>
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="other">Αλλα</string>
+    <string name="save_value">Εξοικονομήστε αξία</string>
+    <string name="vat_rate">Συντελεστή ΦΠΑ</string>
+    <string name="rate">Τιμή</string>
+    <string name="language">Γλώσσα</string>
+    <string name="rate_string">%1$s. Βαθμολογήστε %2$s</string>
+</resources>

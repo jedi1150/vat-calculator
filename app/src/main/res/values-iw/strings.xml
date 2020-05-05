@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="app_name">מע מ</string>
-  <string name="amount">כמות</string>
-  <string name="without_vat">לא כולל מע\"מ</string>
+    <string name="app_name">מע מ</string>
+    <string name="amount">כמות</string>
+    <string name="without_vat">לא כולל מע\"מ</string>
     <string name="include_vat">כולל מע\"מ</string>
     <string name="vat">מע מ</string>
     <string name="gross_amount">כמות</string>
@@ -13,8 +13,13 @@
     <string name="battery_saver">מוגדר על ידי שומר סוללות</string>
     <string name="system_default">ברירת מחדל של המערכת</string>
     <string name="choose_theme">נושא</string>
+    <string name="cancel">בטל</string>
     <string name="improve_translation">שפר את התרגום</string>
     <string name="settings">הגדרות</string>
     <string name="other">אחר</string>
     <string name="save_value">שמור ערך</string>
+    <string name="vat_rate">שיעור מע\"מ</string>
+    <string name="rate">ציון</string>
+    <string name="language">שפה</string>
+    <string name="rate_string">%1$s. דרג %2$s</string>
 </resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">VSK</string>
+    <string name="amount">Magn</string>
+    <string name="without_vat">Að undanskildum virðisaukaskatti</string>
+    <string name="include_vat">Að meðtöldum virðisaukaskatti</string>
+    <string name="vat">VSK</string>
+    <string name="gross_amount">Fjárhæð</string>
+    <string name="net_amount">Virði</string>
+    <string name="copied">Afritað!</string>
+    <string name="light">Létt</string>
+    <string name="dark">Myrkur</string>
+    <string name="battery_saver">Stillt af Battery Saver</string>
+    <string name="system_default">Sjálfgefið kerfi</string>
+    <string name="choose_theme">Þema</string>
+    <string name="cancel">Hætta við</string>
+    <string name="improve_translation">Bæta þýðingar</string>
+    <string name="settings">Stillingar</string>
+    <string name="other">Annað</string>
+    <string name="save_value">Spara gildi</string>
+    <string name="vat_rate">VSK hlutfall</string>
+    <string name="rate">Verð</string>
+    <string name="language">Tungumál</string>
+    <string name="rate_string">%1$s . Gefa %2$s</string>
+</resources>

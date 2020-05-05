@@ -13,8 +13,13 @@
     <string name="battery_saver">バッテリーセーバーで設定</string>
     <string name="system_default">システムのデフォルト</string>
     <string name="choose_theme">テーマ</string>
+    <string name="cancel">キャンセル</string>
     <string name="improve_translation">翻訳を改善する</string>
     <string name="settings">設定</string>
     <string name="other">その他の</string>
     <string name="save_value">値を保存</string>
+    <string name="vat_rate">VAT率</string>
+    <string name="rate">割合</string>
+    <string name="language">言語</string>
+    <string name="rate_string">%1$s。レート%2$s</string>
 </resources>

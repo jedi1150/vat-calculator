@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">НДС</string>
+    <string name="amount">Күләм</string>
+    <string name="without_vat">НДСны исәпкә алмаганда</string>
+    <string name="include_vat">НДС кертеп</string>
+    <string name="vat">НДС</string>
+    <string name="gross_amount">НДСны исәпләгез</string>
+    <string name="net_amount">НДС бүлеп бирү</string>
+    <string name="copied">Күчерелгән!</string>
+    <string name="light">Якты</string>
+    <string name="dark">Караңгы</string>
+    <string name="battery_saver">Энергияне саклау режимы белән көйләгез</string>
+    <string name="system_default">Системада кебек</string>
+    <string name="choose_theme">Тема</string>
+    <string name="cancel">Баш тарту</string>
+    <string name="improve_translation">Тәрҗемәне яхшырту</string>
+    <string name="settings">Параметрлары</string>
+    <string name="other">Бүтәннәр</string>
+    <string name="save_value">Кыйммәтне саклагыз</string>
+    <string name="vat_rate">НДС ставкасы</string>
+    <string name="rate">Ставкасы</string>
+    <string name="language">Тел</string>
+    <string name="rate_string">%1$s. Ставка %2$s</string>
+</resources>

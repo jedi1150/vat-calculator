@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string-array name="languages_code" translatable="false">
+    <item>en</item>
+    <item>fr</item>
+    <item>de</item>
+    <item>ar</item>
+    <item>az</item>
+    <item>bn</item>
+    <item>ce</item>
+    <item>fi</item>
+    <item>hi</item>
+    <item>af</item>
+    <item>bg</item>
+    <item>bn</item>
+    <item>be</item>
+    <item>ca</item>
+    <item>cs</item>
+    <item>da</item>
+    <item>el</item>
+    <item>es</item>
+    <item>et</item>
+    <item>hr</item>
+    <item>hu</item>
+    <item>hy</item>
+    <item>id</item>
+    <item>is</item>
+    <item>it</item>
+    <item>jw</item>
+    <item>ja</item>
+    <item>kk</item>
+    <item>ko</item>
+    <item>lt</item>
+    <item>lv</item>
+    <item>mk</item>
+    <item>ms</item>
+    <item>mt</item>
+    <item>ne</item>
+    <item>nl</item>
+    <item>no</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>ro</item>
+    <item>ru</item>
+    <item>sk</item>
+    <item>sq</item>
+    <item>sr</item>
+    <item>sv</item>
+    <item>th</item>
+    <item>tt</item>
+    <item>uk</item>
+    <item>uz</item>
+    <item>vi</item>
+    <item>zh</item>
+  </string-array>
   <string name="app_name">VAT</string>
   <string name="amount">Amount</string>
   <string name="without_vat">Excluding VAT</string>
@@ -14,9 +67,14 @@
   <string name="battery_saver">Set by Battery Saver</string>
   <string name="system_default">System default</string>
   <string name="choose_theme">Theme</string>
+  <string name="cancel">Cancel</string>
   <string name="improve_translation">Improve translation</string>
   <string name="github" translatable="false">GitHub</string>
   <string name="settings">Settings</string>
   <string name="other">Other</string>
   <string name="save_value">Save value</string>
+  <string name="vat_rate">VAT rate</string>
+  <string name="rate">Rate</string>
+  <string name="language">Language</string>
+  <string name="rate_string">%1$s. Rate %2$s</string>
 </resources>

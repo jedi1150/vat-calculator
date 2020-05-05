@@ -1,10 +1,16 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlinx-serialization'
+apply plugin: 'kotlin-kapt'
 
 android {
     signingConfigs {
         config {
+        storeFile file('/Users/jedi1150/Documents/VAT-Calculator/keystore.jks')
+            storePassword 'santand2012aT'
+            keyAlias 'S'
+            keyPassword 'santand2012aT'
         }
     }
     compileSdkVersion 29
@@ -12,8 +18,8 @@ android {
         applicationId "com.sandello.ndscalculator"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 77
-        versionName '5.6.1'
+        versionCode 89
+        versionName '6.0.9'
         signingConfig signingConfigs.config
     }
     buildTypes {
@@ -31,13 +37,26 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
     buildToolsVersion '30.0.0 rc1'
 }
 dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
-    implementation 'com.google.android.material:material:1.2.0-alpha05'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
+    implementation 'com.google.android.material:material:1.2.0-alpha06'
     implementation 'androidx.browser:browser:1.2.0'
-    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.preference:preference:1.1.1'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0"
+    implementation 'androidx.room:room-runtime:2.2.5'
+    annotationProcessor 'androidx.room:room-compiler:2.2.5'
+    implementation "androidx.room:room-ktx:2.2.5"
+    kapt 'androidx.room:room-compiler:2.2.5'
+
 }

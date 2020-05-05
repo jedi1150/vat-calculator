@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">DPH</string>
+    <string name="amount">čiastka</string>
+    <string name="without_vat">Bez DPH</string>
+    <string name="include_vat">Vrátane DPH</string>
+    <string name="vat">DPH</string>
+    <string name="gross_amount">Hrubá suma</string>
+    <string name="net_amount">Čistá čiastka</string>
+    <string name="copied">Kopírovaný!</string>
+    <string name="light">Svetlo</string>
+    <string name="dark">tmavý</string>
+    <string name="battery_saver">Nastavenie pomocou šetriča batérie</string>
+    <string name="system_default">Predvolený systém</string>
+    <string name="choose_theme">téma</string>
+    <string name="cancel">Zrušiť</string>
+    <string name="improve_translation">Vylepšiť preklad</string>
+    <string name="settings">nastavenie</string>
+    <string name="other">ostatné</string>
+    <string name="save_value">Uložiť hodnotu</string>
+    <string name="vat_rate">Sadzba DPH</string>
+    <string name="rate">rýchlosť</string>
+    <string name="language">Jazyk</string>
+    <string name="rate_string">%1$s. Ohodnoťte %2$s</string>
+</resources>

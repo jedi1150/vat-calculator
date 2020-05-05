@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">TONG</string>
+    <string name="amount">Jumlah</string>
+    <string name="without_vat">Tidak termasuk PPN</string>
+    <string name="include_vat">Termasuk PPN</string>
+    <string name="vat">TONG</string>
+    <string name="gross_amount">Jumlah bruto</string>
+    <string name="net_amount">Jumlah bersih</string>
+    <string name="copied">Disalin!</string>
+    <string name="light">Cahaya</string>
+    <string name="dark">Gelap</string>
+    <string name="battery_saver">Diatur oleh Penghemat Baterai</string>
+    <string name="system_default">Sistem standar</string>
+    <string name="choose_theme">Tema</string>
+    <string name="cancel">Membatalkan</string>
+    <string name="improve_translation">Tingkatkan terjemahan</string>
+    <string name="settings">Pengaturan</string>
+    <string name="other">Lain</string>
+    <string name="save_value">Simpan nilai</string>
+    <string name="vat_rate">Tingkat PPN</string>
+    <string name="rate">Menilai</string>
+    <string name="language">Bahasa</string>
+    <string name="rate_string">%1$s. Tingkat %2$s</string>
+</resources>

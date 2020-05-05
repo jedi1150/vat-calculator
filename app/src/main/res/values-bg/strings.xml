@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">ДДС</string>
+    <string name="amount">Количество</string>
+    <string name="without_vat">Без ДДС</string>
+    <string name="include_vat">Включително ДДС</string>
+    <string name="vat">ДДС</string>
+    <string name="gross_amount">Брутна сума</string>
+    <string name="net_amount">Нетен размер</string>
+    <string name="copied">Копирани!</string>
+    <string name="light">Светлина</string>
+    <string name="dark">тъмен</string>
+    <string name="battery_saver">Зададен от Battery Saver</string>
+    <string name="system_default">Система по подразбиране</string>
+    <string name="choose_theme">тема</string>
+    <string name="cancel">Отказ</string>
+    <string name="improve_translation">Подобрете превода</string>
+    <string name="settings">Настройки</string>
+    <string name="other">друг</string>
+    <string name="save_value">Запазване на стойността</string>
+    <string name="vat_rate">Ставка на ДДС</string>
+    <string name="rate">скорост</string>
+    <string name="language">език</string>
+    <string name="rate_string">%1$s. Оценете %2$s</string>
+</resources>

@@ -13,8 +13,13 @@
     <string name="battery_saver">Ustawiony przez Oszczędzanie baterii</string>
     <string name="system_default">Domyślne ustawienie systemowe</string>
     <string name="choose_theme">Temat</string>
+    <string name="cancel">Anuluj</string>
     <string name="improve_translation">Popraw tłumaczenie</string>
     <string name="settings">Ustawienia</string>
     <string name="other">Inny</string>
     <string name="save_value">Zapisz wartość</string>
+    <string name="vat_rate">Stawka VAT</string>
+    <string name="rate">Oceniać</string>
+    <string name="language">Język</string>
+    <string name="rate_string">%1$s. Oceń %2$s</string>
 </resources>

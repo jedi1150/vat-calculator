@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">Käibemaks</string>
+    <string name="amount">Summa</string>
+    <string name="without_vat">Ilma käibemaksuta</string>
+    <string name="include_vat">Sisaldab käibemaksu</string>
+    <string name="vat">Käibemaks</string>
+    <string name="gross_amount">Kogusumma</string>
+    <string name="net_amount">Netokogus</string>
+    <string name="copied">Kopeeritud!</string>
+    <string name="light">Valgus</string>
+    <string name="dark">Tume</string>
+    <string name="battery_saver">Seadistatud akusäästja poolt</string>
+    <string name="system_default">Süsteemi vaikeseade</string>
+    <string name="choose_theme">Teema</string>
+    <string name="cancel">Tühista</string>
+    <string name="improve_translation">Parandada tõlget</string>
+    <string name="settings">Seadistused</string>
+    <string name="other">Muud</string>
+    <string name="save_value">Salvesta väärtus</string>
+    <string name="vat_rate">Käibemaksumäär</string>
+    <string name="rate">Hinda</string>
+    <string name="language">Keel</string>
+    <string name="rate_string">%1$s. Hinda %2$s</string>
+</resources>

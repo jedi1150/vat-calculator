@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">MOMS</string>
+    <string name="amount">Belopp</string>
+    <string name="without_vat">Exklusive moms</string>
+    <string name="include_vat">Inklusive moms</string>
+    <string name="vat">MOMS</string>
+    <string name="gross_amount">Bruttobelopp</string>
+    <string name="net_amount">Nettobelopp</string>
+    <string name="copied">Kopieras!</string>
+    <string name="light">Ljus</string>
+    <string name="dark">Mörk</string>
+    <string name="battery_saver">Ställ in av Battery Saver</string>
+    <string name="system_default">Systemfel</string>
+    <string name="choose_theme">Tema</string>
+    <string name="cancel">Avbryt</string>
+    <string name="improve_translation">Förbättra översättningen</string>
+    <string name="settings">inställningar</string>
+    <string name="other">Övrig</string>
+    <string name="save_value">Spara värde</string>
+    <string name="vat_rate">skattesats</string>
+    <string name="rate">Betygsätta</string>
+    <string name="language">Språk</string>
+    <string name="rate_string">%1$s. Betyg %2$s</string>
+</resources>

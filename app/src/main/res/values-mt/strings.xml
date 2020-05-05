@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">VAT</string>
+    <string name="amount">Ammont</string>
+    <string name="without_vat">Il-VAT eskluża</string>
+    <string name="include_vat">Inkluża l-VAT</string>
+    <string name="vat">VAT</string>
+    <string name="gross_amount">Ammont Gross</string>
+    <string name="net_amount">Ammont Nett</string>
+    <string name="copied">Ikkopjat!</string>
+    <string name="light">Dawl ħafif</string>
+    <string name="dark">Dlam</string>
+    <string name="battery_saver">Issettjat minn Battery Saver</string>
+    <string name="system_default">Sistema awtomatika</string>
+    <string name="choose_theme">Tema</string>
+    <string name="cancel">Ikkanċella</string>
+    <string name="improve_translation">Ittejjeb it-traduzzjoni</string>
+    <string name="settings">Is-settings</string>
+    <string name="other">Oħrajn</string>
+    <string name="save_value">Iffranka l-valur</string>
+    <string name="vat_rate">Rata tal-VAT</string>
+    <string name="rate">Rata</string>
+    <string name="language">Lingwa</string>
+    <string name="rate_string">%1$s. Rata %2$s</string>
+</resources>
