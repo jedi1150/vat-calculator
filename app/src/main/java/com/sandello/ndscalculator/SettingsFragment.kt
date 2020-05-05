@@ -96,14 +96,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         fun languageSummary(newValue: String) {
             languagePref?.summary = Locale.forLanguageTag(newValue).getDisplayLanguage(Locale.forLanguageTag(newValue)).capitalize(Locale.ROOT)
-//            languagePref?.summary = Locale.forLanguageTag(newValue).displayLanguage.capitalize(Locale.ROOT)
         }
         if (languagePref?.value != null)
             languageSummary(languagePref.value!!)
         else {
             languagePref?.setValueIndex(languagePref.entryValues.indexOf(Locale.getDefault().language))
-//            languagePref?.summary = Locale.getDefault().displayLanguage.capitalize(Locale.ROOT)
-//            languagePref?.summary = Locale.forLanguageTag(languagePref?.value!!).displayLanguage.capitalize(Locale.ROOT)
+            languagePref?.summary = Locale.getDefault().displayLanguage.capitalize(Locale.ROOT)
         }
 
         languagePref!!.setOnPreferenceChangeListener { _, newValue ->
@@ -149,7 +147,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
             rateSummary(ratesPref.value!!)
         else {
             if (db.rateDao().getAll().isNotEmpty()) {
-                val currentRate = db.rateDao().findByCountry(Locale.getDefault().country)
+                val currentRate = if (Locale.getDefault().country != "")
+                    db.rateDao().findByCountry(Locale.getDefault().country)
+                else
+                    db.rateDao().findByCountry(Locale.getDefault().language)
                 if (currentRate != null) {
                     ratesPref?.setValueIndex(rateEntryValues.indexOf(currentRate.code))
                     rateSummary(ratesPref?.value!!)

@@ -22,11 +22,10 @@ class GetRates {
         val policy = StrictMode.ThreadPolicy.Builder()
                 .permitAll().build()
         StrictMode.setThreadPolicy(policy)
-
         if (checkConnection(context)) {
             val url = URL("https://jsonbase.com/sandello/vat_rates")
             val connection = url.openConnection() as HttpURLConnection
-            connection.connectTimeout = 200
+            connection.connectTimeout = 150
             try {
                 if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                     val stream = BufferedInputStream(connection.inputStream)
@@ -44,7 +43,10 @@ class GetRates {
                     db.rateDao().insertAllCountries(listRates!!)
                     val prefs = context.getSharedPreferences("val", Context.MODE_PRIVATE)
                     val editor = prefs.edit()
-                    val currentRate = db.rateDao().findByCountry(Locale.getDefault().country)!!
+                    val currentRate = if (Locale.getDefault().country != "")
+                        db.rateDao().findByCountry(Locale.getDefault().country)!!
+                    else
+                        db.rateDao().findByCountry(Locale.getDefault().language)!!
                     editor?.putString("rate", currentRate.rate.toString())
                     editor?.apply()
                     stringBuilder.clear()

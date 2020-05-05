@@ -296,8 +296,8 @@ class VatFragment : Fragment() {
     }
 
     private fun loadVal() {
-        GlobalScope.launch(Dispatchers.IO) {
-            withContext(Dispatchers.IO) { GetRates().main(requireContext()) }
+        GlobalScope.launch(Dispatchers.Main) {
+            withContext(Dispatchers.Main) { GetRates().main(requireContext()) }
             launch(Dispatchers.Main) {
                 val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
                 val rate = prefs!!.getString("rate", "")
