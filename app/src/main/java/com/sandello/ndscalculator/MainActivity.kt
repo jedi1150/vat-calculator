@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @Suppress("DEPRECATION")
     private fun setLocale() {
         val localePref = PreferenceManager.getDefaultSharedPreferences(this)
         val language = localePref.getString("language", "en")
