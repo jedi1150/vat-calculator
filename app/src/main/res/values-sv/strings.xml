@@ -21,5 +21,5 @@
     <string name="vat_rate">skattesats</string>
     <string name="rate">Betygsätta</string>
     <string name="language">Språk</string>
-    <string name="rate_string">%1$s. Betyg %2$d</string>
+    <string name="rate_string">%1$s. Betyg %2$s</string>
 </resources>

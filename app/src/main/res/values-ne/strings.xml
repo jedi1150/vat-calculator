@@ -21,5 +21,5 @@
     <string name="vat_rate">VAT दर</string>
     <string name="rate">दर</string>
     <string name="language">भाषा</string>
-    <string name="rate_string">%1$s दर %2$d</string>
+    <string name="rate_string">%1$s दर %2$s</string>
 </resources>

@@ -21,5 +21,5 @@
     <string name="vat_rate">taxa do IVA</string>
     <string name="rate">Taxa</string>
     <string name="language">Língua</string>
-    <string name="rate_string">%1$s. Taxa %2$d</string>
+    <string name="rate_string">%1$s. Taxa %2$s</string>
 </resources>

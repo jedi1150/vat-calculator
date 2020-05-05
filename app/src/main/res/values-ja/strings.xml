@@ -21,5 +21,5 @@
     <string name="vat_rate">VAT率</string>
     <string name="rate">割合</string>
     <string name="language">言語</string>
-    <string name="rate_string">%1$s。レート%2$d</string>
+    <string name="rate_string">%1$s。レート%2$s</string>
 </resources>

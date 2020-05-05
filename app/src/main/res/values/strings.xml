@@ -76,5 +76,5 @@
   <string name="vat_rate">VAT rate</string>
   <string name="rate">Rate</string>
   <string name="language">Language</string>
-  <string name="rate_string">%1$s. Rate %2$d</string>
+  <string name="rate_string">%1$s. Rate %2$s</string>
 </resources>
