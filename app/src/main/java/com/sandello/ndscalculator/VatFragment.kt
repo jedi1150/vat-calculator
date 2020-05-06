@@ -6,7 +6,6 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
 import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences.Editor
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -340,7 +339,7 @@ class VatFragment : Fragment() {
                     Log.d("rates get retrievedRate", retrievedRate)
 
 
-                    if (selectedRate != "") {
+                    if (selectedRate != "" && db.rateDao().getAll().isNotEmpty()) {
                         val daoRate = db.rateDao().findByCountry(selectedRate!!)!!.rate.toString()
                         Log.d("rates set daoRate", daoRate)
                         if (daoRate.substringAfter(".") == "0")
@@ -349,9 +348,8 @@ class VatFragment : Fragment() {
                             rateEditText?.setText(daoRate)
                     } else if (customRate != "") {
                         Log.d("rates customRate", customRate.toString())
-                            rateEditText?.setText(customRate)
-                    }
-                     else {
+                        rateEditText?.setText(customRate)
+                    } else {
                         Log.d("rates set retrievedRate", retrievedRate)
                         Log.d("rates country", Locale.getDefault().country)
                         Log.d("rates language", Locale.getDefault().language)
@@ -370,7 +368,8 @@ class VatFragment : Fragment() {
                         try {
                             amountEditText.setText(formatter.format(amount?.toDouble()))
                             format()
-                        } catch (e: NumberFormatException) { }
+                        } catch (e: NumberFormatException) {
+                        }
 
 //                        if (rate?.substringAfter(".") == "0") // Remove decimal places
 //                            rateEditText?.setText(rate.substringBefore("."))

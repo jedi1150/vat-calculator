@@ -54,7 +54,7 @@ class GetRates {
 //                    editor?.apply()
                     stringBuilder.clear()
                     bufferedReader.close()
-                    db.close()
+//                    db.close()
                 } else {
                     println("Error ${connection.responseCode}")
                 }
