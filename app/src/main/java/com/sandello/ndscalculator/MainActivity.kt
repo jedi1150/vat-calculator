@@ -15,6 +15,8 @@ import androidx.preference.PreferenceManager
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
+var ratesReceived: Boolean = false
+
 class MainActivity : AppCompatActivity() {
 
     private var navController: NavController? = null
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setNightMode()
         setContentView(R.layout.activity_main)
 
-        main_container.setOnApplyWindowInsetsListener { v, insets ->
+        main_container.setOnApplyWindowInsetsListener { _, insets ->
             appBarLayout.updatePadding(top = insets.systemWindowInsetTop)
             insets
         }
