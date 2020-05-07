@@ -12,13 +12,13 @@
         <SwitchPreference
             android:defaultValue="true"
             app:icon="@drawable/save"
-            app:key="save_sum"
+            app:key="save_value"
             app:title="@string/save_value" />
 
         <ListPreference
             app:icon="@drawable/language"
             app:key="language"
-            app:title="@string/language" />
+            app:title="@string/language"/>
 
         <ListPreference
             app:icon="@drawable/percent"

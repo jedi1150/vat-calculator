@@ -9,6 +9,7 @@ import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +18,9 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
+import androidx.room.Room
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.bottom_fragment.*
-import kotlinx.android.synthetic.main.bottom_fragment.view.*
 import kotlinx.android.synthetic.main.fragment_vat.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -28,6 +29,7 @@ import kotlinx.coroutines.withContext
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.NumberFormat
+import java.util.*
 
 
 @ExperimentalStdlibApi
@@ -52,7 +54,7 @@ class VatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        vat_layout.setOnApplyWindowInsetsListener { v, insets ->
+        vat_layout.setOnApplyWindowInsetsListener { _, insets ->
             vatLinear.updatePadding(top = 220, bottom = (insets.systemWindowInsetBottom + bottom_navigation.measuredHeight + 200), right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
             insets
         }
@@ -69,31 +71,37 @@ class VatFragment : Fragment() {
 
         loadVal()
 
-        requireView().rootView!!.amountEditText!!.isFocusableInTouchMode = true
-        requireView().rootView!!.amountEditText!!.requestFocus()
-        requireView().rootView!!.amountEditText!!.addTextChangedListener(object : TextWatcher {
+        amountEditText!!.isFocusableInTouchMode = true
+        amountEditText!!.requestFocus()
+        amountEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                requireView().rootView!!.amountEditText.removeTextChangedListener(this)
+                amountEditText.removeTextChangedListener(this)
                 format()
-                requireView().rootView!!.amountEditText.addTextChangedListener(this)
+                amountEditText.addTextChangedListener(this)
                 count()
                 saveVal()
             }
 
         })
-        requireView().rootView!!.amountEditTextLayout!!.setEndIconOnClickListener {
-            requireView().rootView!!.amountEditText.setText("")
+        amountEditTextLayout!!.setEndIconOnClickListener {
+            amountEditText.setText("")
             amountDouble = null
             saveVal()
         }
-        requireView().rootView!!.percentEditText!!.addTextChangedListener(object : TextWatcher {
+        rateEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                count()
-                saveVal()
+                if (rateEditText.hasFocus()) {
+                    count()
+                    saveVal()
+
+                    val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                    pref.edit().putString("rate", null).apply()
+                    pref.edit().putString("customRate", s.toString()).apply()
+                }
             }
         })
 
@@ -113,7 +121,7 @@ class VatFragment : Fragment() {
 
         val inputMethodManager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
-        requireView().rootView!!.settingsButton.setOnClickListener {
+        settingsButton.setOnClickListener {
             inputMethodManager.hideSoftInputFromWindow(vat_layout.windowToken, 0)
             findNavController().navigate(R.id.action_vatFragment_to_settingsFragment)
         }
@@ -123,37 +131,37 @@ class VatFragment : Fragment() {
     private fun format() {
         var string: String
         try {
-            string = requireView().rootView!!.amountEditText.text.toString()
-            var pos = requireView().rootView!!.amountEditText.selectionStart
+            string = amountEditText?.text.toString()
+            var pos = amountEditText.selectionStart
 
             if (pos > 0 && (string.substring(pos - 1, pos).contains("[,.]".toRegex()))) {
                 string = string.replaceRange(pos - 1, pos, decSym.toString())
                 if (string.toCharArray().count { it.toString().contains(decSym) } < 2 && pos > 0) {
                     if (string.startsWith(decSym))
                         string = "0${string}"
-                    requireView().rootView!!.amountEditText.setText(string).toString()
+                    amountEditText.setText(string).toString()
                     string = string.replaceFirst(decSym.toString(), ":")
                     string = string.replace("[,.]".toRegex(), "")
 
-                    string = string.replace(groupSym.toString(), "") // Убираем групповые разделители
+                    string = string.replace(groupSym.toString(), "") // Remove digit separator
                     string = string.replace(":", ".")
                     amountDouble = string.toDouble()
-                    requireView().rootView!!.amountEditText.setSelection(requireView().rootView!!.amountEditText.text!!.length)
+                    amountEditText.setSelection(amountEditText.text!!.length)
                 }
             }
             if (string.isNotEmpty() && string.substringAfter(",").isNotEmpty() && string.substringAfter(".").isNotEmpty()) {
-                requireView().rootView!!.amountEditTextLayout.error = ""
+                amountEditTextLayout.error = ""
 
                 string = string.replaceFirst(decSym.toString(), ":")
                 string = string.replace("[,.]".toRegex(), "")
-                string = string.replace(groupSym.toString(), "") // Убираем групповые разделители
+                string = string.replace(groupSym.toString(), "") // Remove decimal placesRemove decimal places
                 string = string.replace(":", ".")
                 if (string.startsWith(".")) {
                     string = string.replaceRange(0, 0, "0")
                 }
 
 
-                //Количество символов после запятой в результатах
+                //Number of decimal places in the results
                 if (string.contains(".")) {
                     if (string.substringAfter(".").length <= 2) {
                         formatterCount.minimumFractionDigits = 2
@@ -171,27 +179,27 @@ class VatFragment : Fragment() {
                         amountDouble = string.toDouble()
                     }
                     if (!string.contains(".")) {
-                        requireView().rootView!!.amountEditText.setText(formatter.format(amountDouble!!).toString())
-                        pos = requireView().rootView!!.amountEditText.text!!.length
+                        amountEditText.setText(formatter.format(amountDouble!!).toString())
+                        pos = amountEditText.text!!.length
                     } else {
                         when {
                             string.substringAfter(".").isEmpty() -> {
-                                requireView().rootView!!.amountEditText.setText("${formatter.format(amountDouble!!)}${formatter.decimalFormatSymbols.decimalSeparator}")
+                                amountEditText.setText("${formatter.format(amountDouble!!)}${formatter.decimalFormatSymbols.decimalSeparator}")
                             }
                             else -> {
-                                requireView().rootView!!.amountEditText.setText(formatter.format(amountDouble!!).toString())
+                                amountEditText.setText(formatter.format(amountDouble!!).toString())
                             }
                         }
-                        if (pos > requireView().rootView!!.amountEditText.text!!.length) pos = requireView().rootView!!.amountEditText.text!!.length
+                        if (pos > amountEditText.text!!.length) pos = amountEditText.text!!.length
                     }
-                    requireView().rootView!!.amountEditText.setSelection(pos)
+                    amountEditText.setSelection(pos)
                 } else {
                     amountDouble = string.toDouble()
                 }
             } else if (string.isEmpty()) {
-                requireView().rootView!!.amountEditTextLayout.error = ""
+                amountEditTextLayout.error = ""
             } else if (string.substringAfter(".").isEmpty() || string.substringAfter(".") == "0") {
-                requireView().rootView!!.amountEditTextLayout.error = ""
+                amountEditTextLayout.error = ""
             }
         } catch (e: NumberFormatException) {
             e.printStackTrace()
@@ -201,9 +209,9 @@ class VatFragment : Fragment() {
     fun count() {
 
         try {
-            if (amountDouble != null && requireView().rootView!!.amountEditText.text.toString().isNotEmpty() && requireView().rootView!!.percentEditText.text.toString().isNotEmpty()) {
+            if (amountDouble != null && amountEditText.text.toString().isNotEmpty() && rateEditText.text.toString().isNotEmpty()) {
                 val amount = amountDouble!!
-                val percent = requireView().rootView!!.percentEditText.text.toString().toDouble()
+                val percent = rateEditText.text.toString().toDouble()
                 //Начисление НДС
                 vatAdd = amount * percent / 100
                 amountInclude = amount + amount * percent / 100
@@ -276,46 +284,83 @@ class VatFragment : Fragment() {
             myClip = ClipData.newPlainText("text", amountExcludeEditText.text.toString())
             myClipboard!!.setPrimaryClip(myClip!!)
             Snackbar.make(snackbar, "${getString(R.string.copied)} ${amountExcludeEditText.text}", Snackbar.LENGTH_SHORT).show()
-        } else if (viewString == null) {
-            myClip = ClipData.newPlainText("text", value)
-            myClipboard!!.setPrimaryClip(myClip!!)
-            Snackbar.make(snackbar, getString(R.string.copied), Snackbar.LENGTH_SHORT).show()
         }
+//        else if (viewString == null) {
+//            myClip = ClipData.newPlainText("text", value)
+//            myClipboard!!.setPrimaryClip(myClip!!)
+//            Snackbar.make(snackbar, getString(R.string.copied), Snackbar.LENGTH_SHORT).show()
+//        }
     }
 
     private fun saveVal() {
         val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
         val editor = prefs?.edit()
         try {
-            if (prefs?.getString("rate", "") == percentEditText.text.toString())
-                editor?.putString("rate", percentEditText.text.toString())
-            editor?.putString("amount", amountDouble.toString())
+//            if (prefs?.getString("rate", "") == rateEditText.text.toString())
+//                editor?.putString("rate", rateEditText.text.toString())
+            if (amountDouble != null)
+                editor?.putString("amount", amountDouble.toString())
+            else
+                editor?.putString("amount", "")
         } catch (e: NumberFormatException) {
         }
         editor?.apply()
     }
 
     private fun loadVal() {
-        GlobalScope.launch(Dispatchers.Main) {
-            withContext(Dispatchers.Main) { GetRates().main(requireContext()) }
-            launch(Dispatchers.Main) {
-                val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
-                val rate = prefs!!.getString("rate", "")
-                if (rate!!.substringAfter(".") == "0")
-                    percentEditText?.setText(rate.substringBefore("."))
-                else
-                    percentEditText?.setText(rate)
-                val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
-                if (pref.getBoolean("save_sum", true)) {
-                    try {
-                        amountEditText.setText(formatter.format(prefs.getString("amount", "")?.toDouble()))
-                        format()
-                    } catch (e: NumberFormatException) {
-                    }
-                }
+        val prefsVal = context?.getSharedPreferences("val", MODE_PRIVATE)
+        val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+
+        val db = Room.databaseBuilder(
+                requireContext(),
+                AppDatabase::class.java, "rates"
+        ).allowMainThreadQueries().build()
+
+        val rate = prefsVal?.getString("rate", "")
+        val amount = prefsVal?.getString("amount", "")
+        val saveValue = pref.getBoolean("save_value", true)
+        val selectedRate = pref.getString("rate", "") // Country code. Ex: ru
+        val customRate = pref.getString("customRate", "")
+
+        if (saveValue && amount != null) { // If save values parameter is true set amount value
+            try {
+                amountEditText.setText(formatter.format(amount.toDouble()))
+                format()
+            } catch (e: NumberFormatException) {
             }
         }
+
+
+        var retrievedRate = ""
+
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                if (!ratesReceived) withContext(Dispatchers.IO) { retrievedRate = GetRates().main(requireContext()) } // Initialize receive rates only at launch
+                launch(Dispatchers.Main) {
+                    if (selectedRate != "" && db.rateDao().getAll().isNotEmpty()) {
+                        val daoRate = db.rateDao().findByCountry(selectedRate!!)!!.rate.toString()
+                        if (daoRate != "") {
+                            if (daoRate.substringAfter(".") == "0")
+                                rateEditText?.setText(daoRate.substringBefore("."))
+                            else
+                                rateEditText?.setText(daoRate)
+                        }
+                    } else if (customRate != "") {
+                        rateEditText?.setText(customRate)
+                    } else {
+                        if (retrievedRate != "") {
+                            pref.edit().putString("rate", Locale.getDefault().language).apply()
+                            if (retrievedRate.substringAfter(".") == "0")
+                                rateEditText?.setText(retrievedRate.substringBefore("."))
+                            else
+                                rateEditText?.setText(retrievedRate)
+                        }
+                    }
+                }
+            } catch (e: Exception) { }
+        }
         count()
+        ratesReceived = true
     }
 
     override fun onResume() {

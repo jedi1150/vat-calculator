@@ -18,9 +18,11 @@ import java.util.*
 var listRates: List<Rate>? = null
 
 class GetRates {
-    suspend fun main(context: Context) = withContext(Dispatchers.IO) {
+    suspend fun main(context: Context): String = withContext(Dispatchers.IO) {
         val policy = StrictMode.ThreadPolicy.Builder()
                 .permitAll().build()
+        var result: String? = ""
+
         StrictMode.setThreadPolicy(policy)
         if (checkConnection(context)) {
             val url = URL("https://jsonbase.com/sandello/vat_rates")
@@ -41,17 +43,13 @@ class GetRates {
                     ).allowMainThreadQueries().build()
                     db.rateDao().deleteAll()
                     db.rateDao().insertAllCountries(listRates!!)
-                    val prefs = context.getSharedPreferences("val", Context.MODE_PRIVATE)
-                    val editor = prefs.edit()
                     val currentRate = if (Locale.getDefault().country != "")
                         db.rateDao().findByCountry(Locale.getDefault().country)!!
                     else
                         db.rateDao().findByCountry(Locale.getDefault().language)!!
-                    editor?.putString("rate", currentRate.rate.toString())
-                    editor?.apply()
+                    result = currentRate.rate.toString()
                     stringBuilder.clear()
                     bufferedReader.close()
-                    db.close()
                 } else {
                     println("Error ${connection.responseCode}")
                 }
@@ -61,5 +59,6 @@ class GetRates {
                 connection.disconnect()
             }
         }
+        return@withContext result.toString()
     }
 }

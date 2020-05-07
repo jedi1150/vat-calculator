@@ -7,10 +7,15 @@ apply plugin: 'kotlin-kapt'
 android {
     signingConfigs {
         config {
-        storeFile file('/Users/jedi1150/Documents/VAT-Calculator/keystore.jks')
+        storeFile file('/home/omyakovlev/Загрузки/Telegram Desktop/keystore.jks')
             storePassword 'santand2012aT'
             keyAlias 'S'
             keyPassword 'santand2012aT'
+        }
+    }
+    bundle {
+        language {
+            enableSplit = false
         }
     }
     compileSdkVersion 29
@@ -18,8 +23,8 @@ android {
         applicationId "com.sandello.ndscalculator"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 89
-        versionName '6.0.9'
+        versionCode 91
+        versionName '6.0.11'
         signingConfig signingConfigs.config
     }
     buildTypes {
@@ -39,6 +44,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8
+    }
+    bundle {
+        language {
+            enableSplit = false
+        }
     }
     buildToolsVersion '30.0.0 rc1'
 }

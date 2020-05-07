@@ -69,20 +69,20 @@ object MoneyInWords {
 
     //функция преобразования вещественного числа в рубли-копейки
     //при значении money более 50-70 триллионов рублей начинает искажать копейки, осторожней при работе такими суммами
-    @ExperimentalStdlibApi
-    fun inWords(money: Double): String {
-        var token = String.format("%.2f", money)
-        token = token.substring(token.length - 2, token.length) //значение копеек в строке
-        val iw: Int
-        iw = when (token.substring(1)) {
-            "1" -> 0
-            "2", "3", "4" -> 1
-            else -> 2
-        }
-        val num = floor(money).toLong()
-        return if (num < 1000000000000L) {
-            return num2words(num, 1).capitalize(Locale.ROOT) + " " + num2words(token.toLong(), 0)
-        } else "Слишком длинное число"
-    }
+//    @ExperimentalStdlibApi
+//    fun inWords(money: Double): String {
+//        var token = String.format("%.2f", money)
+//        token = token.substring(token.length - 2, token.length) //значение копеек в строке
+//        val iw: Int
+//        iw = when (token.substring(1)) {
+//            "1" -> 0
+//            "2", "3", "4" -> 1
+//            else -> 2
+//        }
+//        val num = floor(money).toLong()
+//        return if (num < 1000000000000L) {
+//            return num2words(num, 1).capitalize(Locale.ROOT) + " " + num2words(token.toLong(), 0)
+//        } else "Слишком длинное число"
+//    }
 
 }
