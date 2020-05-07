@@ -3,7 +3,6 @@ package com.sandello.ndscalculator
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -137,27 +136,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 else
                     getString(R.string.rate_string, Locale("", data.code).displayCountry, data.rate.toString()) + "%"
             }
-//            val prefs = context?.getSharedPreferences("val", Context.MODE_PRIVATE)
-//            val editor = prefs?.edit()
-//            editor?.putString("rate", data!!.rate.toString())
-//            editor?.apply()
         }
-//        Log.d("rates2", ratesPref!!.value!!)
 
-        if (ratesPref?.value != null && ratesPref?.value != "") // TODO может убрать "" если в VatFragment изменить pref.edit().putString("rate", "").apply()
-            rateSummary(ratesPref!!.value!!)
-        else {
-            if (db.rateDao().getAll().isNotEmpty()) {
-                val currentRate = if (Locale.getDefault().country != "")
-                    db.rateDao().findByCountry(Locale.getDefault().country)
-                else
-                    db.rateDao().findByCountry(Locale.getDefault().language)
-                if (currentRate != null) {
-//                    ratesPref?.setValueIndex(rateEntryValues.indexOf(currentRate.code))
-//                    rateSummary(ratesPref?.value!!)
-                }
-            }
-        }
+        if (ratesPref?.value != null)
+            rateSummary(ratesPref.value!!)
 
         ratesPref?.setOnPreferenceChangeListener { _, newValue ->
             rateSummary(newValue.toString())

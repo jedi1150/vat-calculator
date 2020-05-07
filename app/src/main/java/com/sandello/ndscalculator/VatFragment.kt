@@ -99,10 +99,8 @@ class VatFragment : Fragment() {
                     saveVal()
 
                     val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
-                    Log.d("rates99", pref.getString("rate", "").toString())
-                    pref.edit().putString("rate", "").apply()
+                    pref.edit().putString("rate", null).apply()
                     pref.edit().putString("customRate", s.toString()).apply()
-                    Log.d("rates99", pref.getString("rate", "").toString())
                 }
             }
         })
@@ -133,7 +131,7 @@ class VatFragment : Fragment() {
     private fun format() {
         var string: String
         try {
-            string = amountEditText.text.toString()
+            string = amountEditText?.text.toString()
             var pos = amountEditText.selectionStart
 
             if (pos > 0 && (string.substring(pos - 1, pos).contains("[,.]".toRegex()))) {
@@ -145,7 +143,7 @@ class VatFragment : Fragment() {
                     string = string.replaceFirst(decSym.toString(), ":")
                     string = string.replace("[,.]".toRegex(), "")
 
-                    string = string.replace(groupSym.toString(), "") // Убираем групповые разделители
+                    string = string.replace(groupSym.toString(), "") // Remove digit separator
                     string = string.replace(":", ".")
                     amountDouble = string.toDouble()
                     amountEditText.setSelection(amountEditText.text!!.length)
@@ -156,14 +154,14 @@ class VatFragment : Fragment() {
 
                 string = string.replaceFirst(decSym.toString(), ":")
                 string = string.replace("[,.]".toRegex(), "")
-                string = string.replace(groupSym.toString(), "") // Убираем групповые разделители
+                string = string.replace(groupSym.toString(), "") // Remove decimal placesRemove decimal places
                 string = string.replace(":", ".")
                 if (string.startsWith(".")) {
                     string = string.replaceRange(0, 0, "0")
                 }
 
 
-                //Количество символов после запятой в результатах
+                //Number of decimal places in the results
                 if (string.contains(".")) {
                     if (string.substringAfter(".").length <= 2) {
                         formatterCount.minimumFractionDigits = 2
@@ -302,6 +300,8 @@ class VatFragment : Fragment() {
 //                editor?.putString("rate", rateEditText.text.toString())
             if (amountDouble != null)
                 editor?.putString("amount", amountDouble.toString())
+            else
+                editor?.putString("amount", "")
         } catch (e: NumberFormatException) {
         }
         editor?.apply()
@@ -320,15 +320,16 @@ class VatFragment : Fragment() {
         val amount = prefsVal?.getString("amount", "")
         val saveValue = pref.getBoolean("save_value", true)
         val selectedRate = pref.getString("rate", "") // Country code. Ex: ru
-        val customRate = pref.getString("customRate", "") // Country code. Ex: ru
-        Log.d("rates rate", selectedRate.toString())
-        Log.d("rates amount", amount.toString())
-        Log.d("rates saveValue", saveValue.toString())
-        Log.d("rates selectedRate", selectedRate.toString())
-        Log.d("rates customRate", customRate.toString())
+        val customRate = pref.getString("customRate", "")
 
-//        if (saveValue) {
-//        }
+        if (saveValue && amount != null) { // If save values parameter is true set amount value
+            try {
+                amountEditText.setText(formatter.format(amount.toDouble()))
+                format()
+            } catch (e: NumberFormatException) {
+            }
+        }
+
 
         var retrievedRate = ""
 
@@ -336,68 +337,27 @@ class VatFragment : Fragment() {
             try {
                 if (!ratesReceived) withContext(Dispatchers.IO) { retrievedRate = GetRates().main(requireContext()) } // Initialize receive rates only at launch
                 launch(Dispatchers.Main) {
-                    Log.d("rates get retrievedRate", retrievedRate)
-
-
                     if (selectedRate != "" && db.rateDao().getAll().isNotEmpty()) {
                         val daoRate = db.rateDao().findByCountry(selectedRate!!)!!.rate.toString()
-                        Log.d("rates set daoRate", daoRate)
-                        if (daoRate.substringAfter(".") == "0")
-                            rateEditText?.setText(daoRate.substringBefore("."))
-                        else
-                            rateEditText?.setText(daoRate)
+                        if (daoRate != "") {
+                            if (daoRate.substringAfter(".") == "0")
+                                rateEditText?.setText(daoRate.substringBefore("."))
+                            else
+                                rateEditText?.setText(daoRate)
+                        }
                     } else if (customRate != "") {
-                        Log.d("rates customRate", customRate.toString())
                         rateEditText?.setText(customRate)
                     } else {
-                        Log.d("rates set retrievedRate", retrievedRate)
-                        Log.d("rates country", Locale.getDefault().country)
-                        Log.d("rates language", Locale.getDefault().language)
-                        pref.edit().putString("rate", Locale.getDefault().language).apply() //TODO language если нет country
-                        if (retrievedRate.substringAfter(".") == "0")
-                            rateEditText?.setText(retrievedRate.substringBefore("."))
-                        else
-                            rateEditText?.setText(retrievedRate)
-                    }
-                }
-
-
-
-                if (saveValue) { //TODO If save values parameter is true
-                    launch(Dispatchers.Main) {
-                        try {
-                            amountEditText.setText(formatter.format(amount?.toDouble()))
-                            format()
-                        } catch (e: NumberFormatException) {
+                        if (retrievedRate != "") {
+                            pref.edit().putString("rate", Locale.getDefault().language).apply()
+                            if (retrievedRate.substringAfter(".") == "0")
+                                rateEditText?.setText(retrievedRate.substringBefore("."))
+                            else
+                                rateEditText?.setText(retrievedRate)
                         }
-
-//                        if (rate?.substringAfter(".") == "0") // Remove decimal places
-//                            rateEditText?.setText(rate.substringBefore("."))
-//                        else
-//                            rateEditText?.setText(rate)
-                        format()
                     }
                 }
-//                else {
-//                    val db = Room.databaseBuilder(
-//                            requireContext(),
-//                            AppDatabase::class.java, "rates"
-//                    ).allowMainThreadQueries().build()
-//                    val daoRate = db.rateDao().findByCountry(selectedRate!!)!!.rate.toString()
-//                    Log.d("rates daoRate", daoRate)
-//                    if (daoRate.substringAfter(".") == "0")
-//                        rateEditText?.setText(daoRate.substringBefore("."))
-//                    else
-//                        rateEditText?.setText(daoRate)
-//                }
-
-//                if (rateEditText.text.toString() != "") {
-//                    rateEditText.isFocusableInTouchMode = true // Request for focus if empty
-//                    rateEditText.requestFocus()
-//                }
-            } catch (e: Exception) {
-                Log.e("loadval", e.message.toString())
-            }
+            } catch (e: Exception) { }
         }
         count()
         ratesReceived = true

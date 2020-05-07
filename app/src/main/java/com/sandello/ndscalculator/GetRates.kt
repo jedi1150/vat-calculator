@@ -21,7 +21,7 @@ class GetRates {
     suspend fun main(context: Context): String = withContext(Dispatchers.IO) {
         val policy = StrictMode.ThreadPolicy.Builder()
                 .permitAll().build()
-        var result: String? = null
+        var result: String? = ""
 
         StrictMode.setThreadPolicy(policy)
         if (checkConnection(context)) {
@@ -43,18 +43,13 @@ class GetRates {
                     ).allowMainThreadQueries().build()
                     db.rateDao().deleteAll()
                     db.rateDao().insertAllCountries(listRates!!)
-//                    val prefs = context.getSharedPreferences("val", Context.MODE_PRIVATE)
-//                    val editor = prefs.edit()
                     val currentRate = if (Locale.getDefault().country != "")
                         db.rateDao().findByCountry(Locale.getDefault().country)!!
                     else
                         db.rateDao().findByCountry(Locale.getDefault().language)!!
                     result = currentRate.rate.toString()
-//                    editor?.putString("rate", currentRate.rate.toString())
-//                    editor?.apply()
                     stringBuilder.clear()
                     bufferedReader.close()
-//                    db.close()
                 } else {
                     println("Error ${connection.responseCode}")
                 }
