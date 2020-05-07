@@ -21,12 +21,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:background="@android:color/transparent">
+            app:elevation="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorBottomNavigation"
                 app:elevation="0dp">
 
                 <com.google.android.material.textfield.TextInputLayout
