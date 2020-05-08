@@ -53,6 +53,19 @@
     <item>vi</item>
     <item>zh</item>
   </string-array>
+
+  <string-array name="currency_code" translatable="false">
+    <item>RUB</item>
+    <item>USD</item>
+    <item>EUR</item>
+    <item>UAH</item>
+  </string-array>
+
+  <string-array name="pennies_type">
+    <item>Text</item>
+    <item>Number</item>
+  </string-array>
+
   <string name="app_name">VAT</string>
   <string name="amount">Amount</string>
   <string name="without_vat">Excluding VAT</string>
