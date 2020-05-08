@@ -6,10 +6,10 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
 import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +19,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import androidx.room.Room
+import com.github.moneytostr.MoneyToStr
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.bottom_fragment.*
 import kotlinx.android.synthetic.main.fragment_vat.*
@@ -34,6 +36,8 @@ import java.util.*
 
 @ExperimentalStdlibApi
 class VatFragment : Fragment() {
+    private var pref: SharedPreferences? = null
+
     private var amountDouble: Double? = null
     private var myClipboard: ClipboardManager? = null
     private var myClip: ClipData? = null
@@ -54,6 +58,7 @@ class VatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         vat_layout.setOnApplyWindowInsetsListener { _, insets ->
             vatLinear.updatePadding(top = 220, bottom = (insets.systemWindowInsetBottom + bottom_navigation.measuredHeight + 200), right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
             insets
@@ -106,14 +111,12 @@ class VatFragment : Fragment() {
         })
 
         checkToTranslate()
-/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            vatAddTextLayout!!.setEndIconOnClickListener { numToWord(R.string.vat, vatAdd!!) }
-            amountIncludeTextLayout!!.setEndIconOnClickListener { numToWord(R.string.include_vat, amountInclude!!) }
-            vatNetTextLayout!!.setEndIconOnClickListener { numToWord(R.string.vat, vatNet!!) }
-            amountNetTextLayout!!.setEndIconOnClickListener { numToWord(R.string.without_vat, amountExclude!!) }
-        }*/
+        vatAddTextLayout!!.setEndIconOnClickListener { numToWord(R.string.vat, vatAdd!!) }
+        amountIncludeTextLayout!!.setEndIconOnClickListener { numToWord(R.string.include_vat, amountInclude!!) }
+        vatNetTextLayout!!.setEndIconOnClickListener { numToWord(R.string.vat, vatNet!!) }
+        amountNetTextLayout!!.setEndIconOnClickListener { numToWord(R.string.without_vat, amountExclude!!) }
 
-        // Копировать значения
+        // Copy values
         vatAddEditText.setOnClickListener { copyVal("vatAdd", "") }
         amountIncludeEditText.setOnClickListener { copyVal("amountInclude", "") }
         vatNetEditText.setOnClickListener { copyVal("vatNet", "") }
@@ -235,36 +238,45 @@ class VatFragment : Fragment() {
         }
     }
 
-//    @ExperimentalStdlibApi
-//    @SuppressLint("PrivateResource")
-//    private fun numToWord(title: Int, s: Double) {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-////            val moneyAsWords: String = MoneyInWords.inWords(s)
-//            val moneyAsWords: String = MoneyInWords.inWords(s)
-//            MaterialAlertDialogBuilder(requireContext())
-//                    .setTitle(getString(title))
-//                    .setMessage(moneyAsWords)
-//                    .setPositiveButton(copy) { _, _ -> copyVal(null, moneyAsWords) }
-//                    .show()
-//        }
-//    }
+    private fun numToWord(title: Int, s: Double) {
+        val currency = pref?.getString("currency", "") // Currency code. Ex: USD
+        val currencyLanguage = pref?.getString("currency_language", "") // Currency code. Ex: USD
+        val penny = pref?.getString("penny", "") // Penny type. Ex: Text
+
+        val currencySelected = when (currency) {
+            "RUB" -> { MoneyToStr.Currency.RUR }
+            "USD" -> { MoneyToStr.Currency.USD }
+            "EUR" -> { MoneyToStr.Currency.EUR }
+            "UAH" -> { MoneyToStr.Currency.UAH }
+            else -> { MoneyToStr.Currency.USD }
+        }
+
+        val currencyLanguageSelected = when (currencyLanguage) {
+            "RUS" -> { MoneyToStr.Language.RUS }
+            "UKR" -> { MoneyToStr.Language.UKR }
+            "ENG" -> { MoneyToStr.Language.ENG }
+            else -> { MoneyToStr.Language.ENG }
+        }
+
+        val pennySelected = when (penny) {
+            "Text" -> { MoneyToStr.Pennies.TEXT }
+            "Number" -> { MoneyToStr.Pennies.NUMBER }
+            else -> { MoneyToStr.Pennies.TEXT }
+        }
+
+        val moneyAsWords: String = MoneyToStr(currencySelected, currencyLanguageSelected, pennySelected).convert(s)
+        MaterialAlertDialogBuilder(requireContext())
+                .setTitle(getString(title))
+                .setMessage(moneyAsWords)
+                .setPositiveButton(android.R.string.copy) { _, _ -> copyVal(null, moneyAsWords) }
+                .show()
+    }
 
     private fun checkToTranslate() {
-        vatAddTextLayout!!.isEndIconVisible = false
-        amountIncludeTextLayout!!.isEndIconVisible = false
-        vatNetTextLayout!!.isEndIconVisible = false
-        amountNetTextLayout!!.isEndIconVisible = false
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && Locale.getDefault().language == "ru") {
-//            vatAddTextLayout!!.isEndIconVisible = true
-//            amountIncludeTextLayout!!.isEndIconVisible = true
-//            vatNetTextLayout!!.isEndIconVisible = true
-//            amountNetTextLayout!!.isEndIconVisible = true
-//        } else {
-//            vatAddTextLayout!!.isEndIconVisible = false
-//            amountIncludeTextLayout!!.isEndIconVisible = false
-//            vatNetTextLayout!!.isEndIconVisible = false
-//            amountNetTextLayout!!.isEndIconVisible = false
-//        }
+        vatAddTextLayout!!.isEndIconVisible = true
+        amountIncludeTextLayout!!.isEndIconVisible = true
+        vatNetTextLayout!!.isEndIconVisible = true
+        amountNetTextLayout!!.isEndIconVisible = true
     }
 
     private fun copyVal(viewString: String?, value: String?) {
@@ -284,20 +296,17 @@ class VatFragment : Fragment() {
             myClip = ClipData.newPlainText("text", amountExcludeEditText.text.toString())
             myClipboard!!.setPrimaryClip(myClip!!)
             Snackbar.make(snackbar, "${getString(R.string.copied)} ${amountExcludeEditText.text}", Snackbar.LENGTH_SHORT).show()
+        } else if (viewString == null) {
+            myClip = ClipData.newPlainText("text", value)
+            myClipboard!!.setPrimaryClip(myClip!!)
+            Snackbar.make(snackbar, getString(R.string.copied), Snackbar.LENGTH_SHORT).show()
         }
-//        else if (viewString == null) {
-//            myClip = ClipData.newPlainText("text", value)
-//            myClipboard!!.setPrimaryClip(myClip!!)
-//            Snackbar.make(snackbar, getString(R.string.copied), Snackbar.LENGTH_SHORT).show()
-//        }
     }
 
     private fun saveVal() {
         val prefs = context?.getSharedPreferences("val", MODE_PRIVATE)
         val editor = prefs?.edit()
         try {
-//            if (prefs?.getString("rate", "") == rateEditText.text.toString())
-//                editor?.putString("rate", rateEditText.text.toString())
             if (amountDouble != null)
                 editor?.putString("amount", amountDouble.toString())
             else
@@ -309,20 +318,17 @@ class VatFragment : Fragment() {
 
     private fun loadVal() {
         val prefsVal = context?.getSharedPreferences("val", MODE_PRIVATE)
-        val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
-
         val db = Room.databaseBuilder(
                 requireContext(),
                 AppDatabase::class.java, "rates"
         ).allowMainThreadQueries().build()
 
-        val rate = prefsVal?.getString("rate", "")
         val amount = prefsVal?.getString("amount", "")
-        val saveValue = pref.getBoolean("save_value", true)
-        val selectedRate = pref.getString("rate", "") // Country code. Ex: ru
-        val customRate = pref.getString("customRate", "")
+        val saveValue = pref?.getBoolean("save_value", true)
+        val selectedRate = pref?.getString("rate", "") // Country code. Ex: ru
+        val customRate = pref?.getString("customRate", "")
 
-        if (saveValue && amount != null) { // If save values parameter is true set amount value
+        if (saveValue!! && amount != null) { // If save values parameter is true set amount value
             try {
                 amountEditText.setText(formatter.format(amount.toDouble()))
                 format()
@@ -349,7 +355,7 @@ class VatFragment : Fragment() {
                         rateEditText?.setText(customRate)
                     } else {
                         if (retrievedRate != "") {
-                            pref.edit().putString("rate", Locale.getDefault().language).apply()
+                            pref?.edit()?.putString("rate", Locale.getDefault().language)?.apply()
                             if (retrievedRate.substringAfter(".") == "0")
                                 rateEditText?.setText(retrievedRate.substringBefore("."))
                             else
@@ -357,7 +363,8 @@ class VatFragment : Fragment() {
                         }
                     }
                 }
-            } catch (e: Exception) { }
+            } catch (e: Exception) {
+            }
         }
         count()
         ratesReceived = true
