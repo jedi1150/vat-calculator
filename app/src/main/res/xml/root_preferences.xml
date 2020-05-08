@@ -1,12 +1,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory>
+    <PreferenceCategory app:title="Основные">
 
         <ListPreference
             app:icon="@drawable/brightness"
             app:key="theme"
-            app:summary="@string/system_default"
+            android:summary="%s"
             app:title="@string/choose_theme" />
 
         <SwitchPreference
@@ -18,12 +18,33 @@
         <ListPreference
             app:icon="@drawable/language"
             app:key="language"
-            app:title="@string/language"/>
+            app:title="@string/language"
+            android:summary="%s"/>
 
         <ListPreference
             app:icon="@drawable/percent"
             app:key="rate"
-            app:title="@string/rate" />
+            app:title="@string/rate"
+            android:summary="%s"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Amount to words">
+
+        <ListPreference
+            android:icon="@drawable/text_fields"
+            android:key="currency"
+            android:title="Currency"
+            android:summary="%s"/>
+
+        <ListPreference
+            android:defaultValue="true"
+            android:entries="@array/pennies_type"
+            android:entryValues="@array/pennies_type"
+            android:icon="@drawable/text_fields"
+            android:key="penny"
+            android:summary="%s"
+            android:title="Pennies" />
 
     </PreferenceCategory>
 
