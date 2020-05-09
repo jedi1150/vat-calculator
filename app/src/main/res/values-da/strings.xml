@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="app_name">moms</string>
-    <string name="amount">Beløb</string>
-    <string name="without_vat">Ekskl. Moms</string>
-    <string name="include_vat">Inkl. Moms</string>
-    <string name="vat">moms</string>
-    <string name="gross_amount">Bruttobeløb</string>
-    <string name="net_amount">Netto beløb</string>
-    <string name="copied">Kopieret!</string>
-    <string name="light">Lys</string>
-    <string name="dark">Mørk</string>
-    <string name="battery_saver">Indstillet af Battery Saver</string>
-    <string name="system_default">System standard</string>
-    <string name="choose_theme">Tema</string>
-    <string name="cancel">Afbestille</string>
-    <string name="improve_translation">Forbedre oversættelse</string>
-    <string name="settings">Indstillinger</string>
-    <string name="other">Andet</string>
-    <string name="save_value">Gem værdi</string>
-    <string name="vat_rate">Momssats</string>
-    <string name="rate">Sats</string>
-    <string name="language">Sprog</string>
-    <string name="rate_string">%1$s. Pris %2$s</string>
+  <string-array name="penny_type">
+    <item>Tekst</item>
+    <item>Nummer</item>
+  </string-array>
+  <string name="app_name">Moms</string>
+  <string name="amount">Beløb</string>
+  <string name="without_vat">Ekskl. Moms</string>
+  <string name="include_vat">Inkl. Moms</string>
+  <string name="vat">Moms</string>
+  <string name="gross_amount">Bruttobeløb</string>
+  <string name="net_amount">Netto beløb</string>
+  <string name="copied">Kopieret!</string>
+  <string name="light">Lys</string>
+  <string name="dark">Mørk</string>
+  <string name="battery_saver">Indstillet af Battery Saver</string>
+  <string name="system_default">System standard</string>
+  <string name="choose_theme">Tema</string>
+  <string name="cancel">Afbestille</string>
+  <string name="improve_translation">Forbedre oversættelse</string>
+  <string name="settings">Indstillinger</string>
+  <string name="other">Andet</string>
+  <string name="save_value">Gem værdi</string>
+  <string name="vat_rate">Momssats</string>
+  <string name="rate">Sats</string>
+  <string name="language">Sprog</string>
+  <string name="rate_string">%1$s. Pris %2$s</string>
+  <string name="general_settings">Generel</string>
+  <string name="amount_to_words">Mængde til ord</string>
+  <string name="Currency">Betalingsmiddel</string>
+  <string name="penny_type">Penny type</string>
 </resources>

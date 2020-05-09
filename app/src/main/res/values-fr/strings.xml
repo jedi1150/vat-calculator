@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="app_name">T.V.A.</string>
+    <string-array name="penny_type">
+        <item>Texte</item>
+        <item>Nombre</item>
+    </string-array>
+    <string name="app_name">TVA</string>
     <string name="amount">Montant</string>
     <string name="without_vat">Sans TVA</string>
     <string name="include_vat">Y compris la TVA</string>
-    <string name="vat">T.V.A.</string>
+    <string name="vat">TVA</string>
     <string name="gross_amount">Montant net</string>
     <string name="net_amount">Montant net</string>
     <string name="copied">Copié!</string>
@@ -22,4 +26,8 @@
     <string name="rate">Taux</string>
     <string name="language">Langue</string>
     <string name="rate_string">%1$s. Taux %2$s</string>
+    <string name="general_settings">Général</string>
+    <string name="amount_to_words">Montant en mots</string>
+    <string name="Currency">Devise</string>
+    <string name="penny_type">Type de sou</string>
 </resources>

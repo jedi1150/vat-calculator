@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Tekst</item>
+        <item>Antall</item>
+    </string-array>
     <string name="app_name">MVA</string>
     <string name="amount">Beløp</string>
     <string name="without_vat">Eksklusiv merverdiavgift</string>
@@ -22,4 +26,8 @@
     <string name="rate">Vurdere</string>
     <string name="language">Språk</string>
     <string name="rate_string">%1$s. Pris %2$s</string>
+    <string name="general_settings">Generell</string>
+    <string name="amount_to_words">Beløp til ord</string>
+    <string name="Currency">Valuta</string>
+    <string name="penny_type">Penny type</string>
 </resources>

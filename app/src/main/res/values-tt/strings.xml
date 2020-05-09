@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Text</item>
+        <item>Сан</item>
+    </string-array>
     <string name="app_name">НДС</string>
     <string name="amount">Күләм</string>
     <string name="without_vat">НДСны исәпкә алмаганда</string>
@@ -22,4 +26,8 @@
     <string name="rate">Ставкасы</string>
     <string name="language">Тел</string>
     <string name="rate_string">%1$s. Ставка %2$s</string>
+    <string name="general_settings">Генерал</string>
+    <string name="amount_to_words">Сүзләр күләме</string>
+    <string name="Currency">Валюта</string>
+    <string name="penny_type">Каләм тибы</string>
 </resources>

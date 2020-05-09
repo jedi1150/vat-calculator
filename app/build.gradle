@@ -3,16 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlinx-serialization'
 apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
 
 android {
-    signingConfigs {
-        config {
-        storeFile file('/home/omyakovlev/Загрузки/Telegram Desktop/keystore.jks')
-            storePassword 'santand2012aT'
-            keyAlias 'S'
-            keyPassword 'santand2012aT'
-        }
-    }
     bundle {
         language {
             enableSplit = false
@@ -23,15 +17,13 @@ android {
         applicationId "com.sandello.ndscalculator"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 91
-        versionName '6.0.11'
-        signingConfig signingConfigs.config
+        versionCode 92
+        versionName '6.0.12'
     }
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
-            signingConfig signingConfigs.config
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -53,7 +45,7 @@ android {
     buildToolsVersion '30.0.0 rc1'
 }
 dependencies {
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta5'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
     implementation 'com.google.android.material:material:1.2.0-alpha06'

@@ -1,7 +1,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="Основные">
+    <PreferenceCategory app:title="@string/general_settings">
 
         <ListPreference
             app:icon="@drawable/brightness"
@@ -13,6 +13,8 @@
             android:defaultValue="true"
             app:icon="@drawable/save"
             app:key="save_value"
+            android:summaryOff="@string/do_not_save_amount_on_exit"
+            android:summaryOn="@string/save_amount_on_exit"
             app:title="@string/save_value" />
 
         <ListPreference
@@ -22,29 +24,30 @@
             android:summary="%s"/>
 
         <ListPreference
+            android:summary="%s"
             app:icon="@drawable/percent"
             app:key="rate"
-            app:title="@string/rate"
-            android:summary="%s"/>
+            app:title="@string/rate" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Amount to words">
+    <PreferenceCategory app:title="@string/amount_to_words">
 
         <ListPreference
             android:icon="@drawable/text_fields"
             android:key="currency"
-            android:title="Currency"
-            android:summary="%s"/>
+            android:defaultValue="USD"
+            android:title="@string/Currency"
+            android:summary="%s" />
 
         <ListPreference
-            android:defaultValue="true"
-            android:entries="@array/pennies_type"
-            android:entryValues="@array/pennies_type"
+            android:defaultValue="penny_type_text"
+            android:entries="@array/penny_type"
+            android:entryValues="@array/penny_type_code"
             android:icon="@drawable/text_fields"
             android:key="penny"
             android:summary="%s"
-            android:title="Pennies" />
+            android:title="@string/penny_type" />
 
     </PreferenceCategory>
 

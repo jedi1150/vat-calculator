@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Teksti</item>
+        <item>Määrä</item>
+    </string-array>
     <string name="app_name">ALV</string>
     <string name="amount">Määrä</string>
     <string name="without_vat">Ilman ALV</string>
@@ -22,4 +26,8 @@
     <string name="rate">nopeus</string>
     <string name="language">Kieli</string>
     <string name="rate_string">%1$s. Hinta %2$s</string>
+    <string name="general_settings">yleinen</string>
+    <string name="amount_to_words">Määrä sanoihin</string>
+    <string name="Currency">valuutta</string>
+    <string name="penny_type">Penny tyyppi</string>
 </resources>

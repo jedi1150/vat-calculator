@@ -14,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.core.os.bundleOf
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -74,10 +75,9 @@ class VatFragment : Fragment() {
 
         myClipboard = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
 
-        loadVal()
-
         amountEditText!!.isFocusableInTouchMode = true
         amountEditText!!.requestFocus()
+
         amountEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
@@ -110,7 +110,6 @@ class VatFragment : Fragment() {
             }
         })
 
-        checkToTranslate()
         vatAddTextLayout!!.setEndIconOnClickListener { numToWord(R.string.vat, vatAdd!!) }
         amountIncludeTextLayout!!.setEndIconOnClickListener { numToWord(R.string.include_vat, amountInclude!!) }
         vatNetTextLayout!!.setEndIconOnClickListener { numToWord(R.string.vat, vatNet!!) }
@@ -210,7 +209,6 @@ class VatFragment : Fragment() {
     }
 
     fun count() {
-
         try {
             if (amountDouble != null && amountEditText.text.toString().isNotEmpty() && rateEditText.text.toString().isNotEmpty()) {
                 val amount = amountDouble!!
@@ -232,7 +230,6 @@ class VatFragment : Fragment() {
                 vatNetEditText.setText("")
                 amountExcludeEditText.setText("")
             }
-            checkToTranslate()
         } catch (e: NumberFormatException) {
             e.printStackTrace()
         }
@@ -240,28 +237,51 @@ class VatFragment : Fragment() {
 
     private fun numToWord(title: Int, s: Double) {
         val currency = pref?.getString("currency", "") // Currency code. Ex: USD
-        val currencyLanguage = pref?.getString("currency_language", "") // Currency code. Ex: USD
         val penny = pref?.getString("penny", "") // Penny type. Ex: Text
 
         val currencySelected = when (currency) {
-            "RUB" -> { MoneyToStr.Currency.RUR }
-            "USD" -> { MoneyToStr.Currency.USD }
-            "EUR" -> { MoneyToStr.Currency.EUR }
-            "UAH" -> { MoneyToStr.Currency.UAH }
-            else -> { MoneyToStr.Currency.USD }
+            "RUB" -> {
+                MoneyToStr.Currency.RUR
+            }
+            "USD" -> {
+                MoneyToStr.Currency.USD
+            }
+            "EUR" -> {
+                MoneyToStr.Currency.EUR
+            }
+            "UAH" -> {
+                MoneyToStr.Currency.UAH
+            }
+            else -> {
+                MoneyToStr.Currency.USD
+            }
         }
 
-        val currencyLanguageSelected = when (currencyLanguage) {
-            "RUS" -> { MoneyToStr.Language.RUS }
-            "UKR" -> { MoneyToStr.Language.UKR }
-            "ENG" -> { MoneyToStr.Language.ENG }
-            else -> { MoneyToStr.Language.ENG }
+        val currencyLanguageSelected = when (Locale.getDefault()) {
+            Locale.forLanguageTag("ru") -> {
+                MoneyToStr.Language.RUS
+            }
+            Locale.forLanguageTag("uk") -> {
+                MoneyToStr.Language.UKR
+            }
+            Locale.forLanguageTag("en") -> {
+                MoneyToStr.Language.ENG
+            }
+            else -> {
+                MoneyToStr.Language.ENG
+            }
         }
 
         val pennySelected = when (penny) {
-            "Text" -> { MoneyToStr.Pennies.TEXT }
-            "Number" -> { MoneyToStr.Pennies.NUMBER }
-            else -> { MoneyToStr.Pennies.TEXT }
+            "Text" -> {
+                MoneyToStr.Pennies.TEXT
+            }
+            "Number" -> {
+                MoneyToStr.Pennies.NUMBER
+            }
+            else -> {
+                MoneyToStr.Pennies.TEXT
+            }
         }
 
         val moneyAsWords: String = MoneyToStr(currencySelected, currencyLanguageSelected, pennySelected).convert(s)
@@ -362,12 +382,25 @@ class VatFragment : Fragment() {
                                 rateEditText?.setText(retrievedRate)
                         }
                     }
+
                 }
             } catch (e: Exception) {
             }
         }
         count()
+        checkToTranslate()
         ratesReceived = true
+        if (selectedRate == "" && customRate == "") {
+            Snackbar.make(snackbar, "Необходимо задать ставку", Snackbar.LENGTH_LONG).setAction("Задать") {
+                val inputMethodManager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(vat_layout.windowToken, 0)
+                val bundle = bundleOf("setRate" to true)
+                findNavController().navigate(R.id.action_vatFragment_to_settingsFragment, bundle)
+
+            }.show()
+            amountEditText!!.isFocusableInTouchMode = true
+            amountEditText!!.requestFocus()
+        }
     }
 
     override fun onResume() {

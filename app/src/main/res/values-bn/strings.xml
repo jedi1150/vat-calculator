@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>পাঠ</item>
+        <item>সংখ্যা</item>
+    </string-array>
     <string name="app_name">ভ্যাট</string>
     <string name="amount">পরিমাণ</string>
     <string name="without_vat">ভ্যাট</string>
@@ -22,4 +26,8 @@
     <string name="rate">হার</string>
     <string name="language">ভাষা</string>
     <string name="rate_string">%1$s হার %2$s</string>
+    <string name="general_settings">সাধারণ</string>
+    <string name="amount_to_words">শব্দের পরিমাণ</string>
+    <string name="Currency">মুদ্রা</string>
+    <string name="penny_type">পেনি টাইপ</string>
 </resources>

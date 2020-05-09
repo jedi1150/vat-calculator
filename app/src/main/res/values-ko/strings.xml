@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>본문</item>
+        <item>번호</item>
+    </string-array>
     <string name="app_name">큰 통</string>
     <string name="amount">양</string>
     <string name="without_vat">부가가치세 별도</string>
@@ -22,4 +26,8 @@
     <string name="rate">율</string>
     <string name="language">언어</string>
     <string name="rate_string">%1$s %2$s 요율</string>
+    <string name="general_settings">일반</string>
+    <string name="amount_to_words">단어 금액</string>
+    <string name="Currency">통화</string>
+    <string name="penny_type">페니 타입</string>
 </resources>

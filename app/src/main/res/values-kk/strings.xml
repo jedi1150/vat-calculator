@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Мәтін</item>
+        <item>Сан</item>
+    </string-array>
     <string name="app_name">ҚҚС</string>
     <string name="amount">Сома</string>
     <string name="without_vat">ҚҚС-сыз</string>
@@ -22,4 +26,8 @@
     <string name="rate">Бағалау</string>
     <string name="language">Тіл</string>
     <string name="rate_string">%1$s. %2$s бағамы</string>
+    <string name="general_settings">Жалпы</string>
+    <string name="amount_to_words">Сөздердің саны</string>
+    <string name="Currency">Валюта</string>
+    <string name="penny_type">Пенни түрі</string>
 </resources>

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Text</item>
+        <item>Číslo</item>
+    </string-array>
     <string name="app_name">DPH</string>
-    <string name="amount">čiastka</string>
+    <string name="amount">Čiastka</string>
     <string name="without_vat">Bez DPH</string>
     <string name="include_vat">Vrátane DPH</string>
     <string name="vat">DPH</string>
@@ -9,17 +13,21 @@
     <string name="net_amount">Čistá čiastka</string>
     <string name="copied">Kopírovaný!</string>
     <string name="light">Svetlo</string>
-    <string name="dark">tmavý</string>
+    <string name="dark">Tmavý</string>
     <string name="battery_saver">Nastavenie pomocou šetriča batérie</string>
     <string name="system_default">Predvolený systém</string>
-    <string name="choose_theme">téma</string>
+    <string name="choose_theme">Téma</string>
     <string name="cancel">Zrušiť</string>
     <string name="improve_translation">Vylepšiť preklad</string>
-    <string name="settings">nastavenie</string>
-    <string name="other">ostatné</string>
+    <string name="settings">Nastavenie</string>
+    <string name="other">Ostatné</string>
     <string name="save_value">Uložiť hodnotu</string>
     <string name="vat_rate">Sadzba DPH</string>
-    <string name="rate">rýchlosť</string>
+    <string name="rate">Rýchlosť</string>
     <string name="language">Jazyk</string>
     <string name="rate_string">%1$s. Ohodnoťte %2$s</string>
+    <string name="general_settings">Všeobecné</string>
+    <string name="amount_to_words">Počet slov</string>
+    <string name="Currency">Mena</string>
+    <string name="penny_type">Penny type</string>
 </resources>

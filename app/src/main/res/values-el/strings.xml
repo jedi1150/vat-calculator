@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Κείμενο</item>
+        <item>Αριθμός</item>
+    </string-array>
     <string name="app_name">ΔΕΞΑΜΕΝΗ</string>
     <string name="amount">Ποσό</string>
     <string name="without_vat">Χωρίς ΦΠΑ</string>
@@ -7,7 +11,7 @@
     <string name="vat">ΔΕΞΑΜΕΝΗ</string>
     <string name="gross_amount">Ακαθάριστο ποσό</string>
     <string name="net_amount">Καθαρό ποσό</string>
-    <string name="copied">Αντιγράφηκε!</string>
+    <string name="copied">Αντιγράφτηκε!</string>
     <string name="light">Φως</string>
     <string name="dark">Σκοτάδι</string>
     <string name="battery_saver">Ρύθμιση από Εξοικονόμηση μπαταρίας</string>
@@ -16,10 +20,14 @@
     <string name="cancel">Ματαίωση</string>
     <string name="improve_translation">Βελτιώστε τη μετάφραση</string>
     <string name="settings">Ρυθμίσεις</string>
-    <string name="other">Αλλα</string>
+    <string name="other">Άλλα</string>
     <string name="save_value">Εξοικονομήστε αξία</string>
     <string name="vat_rate">Συντελεστή ΦΠΑ</string>
     <string name="rate">Τιμή</string>
     <string name="language">Γλώσσα</string>
     <string name="rate_string">%1$s. Βαθμολογήστε %2$s</string>
+    <string name="general_settings">Γενικός</string>
+    <string name="amount_to_words">Ποσό σε λέξεις</string>
+    <string name="Currency">Νόμισμα</string>
+    <string name="penny_type">Τύπος πένας</string>
 </resources>

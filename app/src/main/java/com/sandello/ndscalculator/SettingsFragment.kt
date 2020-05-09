@@ -1,5 +1,6 @@
 package com.sandello.ndscalculator
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -29,7 +30,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         super.onViewCreated(view, savedInstanceState)
         view.setOnApplyWindowInsetsListener { v, insets ->
             view.post {
-                v.updatePadding(top = insets.systemWindowInsetTop + view.rootView.toolbar.height)
+                v.updatePadding(top = insets.systemWindowInsetTop + view.rootView.toolbar.height, bottom = insets.systemWindowInsetBottom)
             }
             insets
         }
@@ -105,8 +106,24 @@ class SettingsFragment : PreferenceFragmentCompat() {
             else
                 rateEntries.add(getString(R.string.rate_string, Locale("", element.code).displayCountry, element.rate.toString()) + "%")
         }
+
         ratesPref?.entries = rateEntries.toTypedArray()
         ratesPref?.entryValues = rateEntryValues.toTypedArray()
+
+        fun checkRate() {
+            if (ratesPref!!.value != null)
+                ratesPref.summary = "%s"
+            else
+                ratesPref.setSummaryProvider { getString(R.string.arbitrary_rate_set) }
+        }
+
+        checkRate()
+
+        ratesPref?.setOnPreferenceChangeListener { _, _ ->
+            checkRate()
+            true
+        }
+
 
         val availableCurrency = mutableListOf<String>()
         val availableCurrencyCode = mutableListOf<String>()
@@ -139,5 +156,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
     private fun setTheme(themeMode: Int) {
         (activity as AppCompatActivity).delegate.localNightMode = themeMode
         AppCompatDelegate.setDefaultNightMode(themeMode)
+    }
+
+    @SuppressLint("RestrictedApi")
+    override fun onResume() {
+        super.onResume()
+        if (arguments?.getBoolean("setRate")!!) {
+            val ratesPref = findPreference("rate") as ListPreference?
+            ratesPref?.performClick()
+        }
     }
 }

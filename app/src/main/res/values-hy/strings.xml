@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Տեքստ</item>
+        <item>Թիվ</item>
+    </string-array>
     <string name="app_name">ԱԱՀ</string>
     <string name="amount">Գումարը</string>
     <string name="without_vat">Առանց ԱԱՀ-ի</string>
@@ -22,4 +26,8 @@
     <string name="rate">Գնահատեք</string>
     <string name="language">Լեզու</string>
     <string name="rate_string">%1$s: Գնահատեք %2$s</string>
+    <string name="general_settings">Գեներալ</string>
+    <string name="amount_to_words">Գումարը բառերին</string>
+    <string name="Currency">Արժույթ</string>
+    <string name="penny_type">Penny տեսակը</string>
 </resources>

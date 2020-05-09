@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Tekstas</item>
+        <item>Skaičius</item>
+    </string-array>
     <string name="app_name">PVM</string>
     <string name="amount">Suma</string>
     <string name="without_vat">Be PVM</string>
@@ -22,4 +26,8 @@
     <string name="rate">Įvertink</string>
     <string name="language">Kalba</string>
     <string name="rate_string">%1$s. Įvertinkite %2$s</string>
+    <string name="general_settings">Generolas</string>
+    <string name="amount_to_words">Suma prie žodžių</string>
+    <string name="Currency">Valiuta</string>
+    <string name="penny_type">Peno tipas</string>
 </resources>

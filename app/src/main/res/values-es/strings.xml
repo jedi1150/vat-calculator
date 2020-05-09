@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Texto</item>
+        <item>Número</item>
+    </string-array>
     <string name="app_name">IVA</string>
     <string name="amount">Cantidad</string>
     <string name="without_vat">IVA no incluido</string>
@@ -10,7 +14,7 @@
     <string name="copied">Copiado!</string>
     <string name="light">Ligero</string>
     <string name="dark">Oscuro</string>
-    <string name="battery_saver">Establecido por Battery Saver</string>
+    <string name="battery_saver">Establecido por Batiera Saber</string>
     <string name="system_default">Sistema por defecto</string>
     <string name="choose_theme">Tema</string>
     <string name="cancel">Cancelar</string>
@@ -18,8 +22,12 @@
     <string name="settings">Configuraciones</string>
     <string name="other">Otro</string>
     <string name="save_value">Ahorrar valor</string>
-    <string name="vat_rate">tipo de IVA</string>
+    <string name="vat_rate">Tipo de IVA</string>
     <string name="rate">Velocidad</string>
     <string name="language">Idioma</string>
     <string name="rate_string">%1$s. Tasa %2$s</string>
+    <string name="general_settings">General</string>
+    <string name="amount_to_words">Cantidad de palabras</string>
+    <string name="Currency">Moneda</string>
+    <string name="penny_type">Tipo centavo</string>
 </resources>

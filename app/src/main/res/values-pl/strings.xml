@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="app_name">faktura VAT</string>
+    <string-array name="penny_type">
+        <item>Tekst</item>
+        <item>Numer</item>
+    </string-array>
+    <string name="app_name">Faktura VAT</string>
     <string name="amount">Ilość</string>
     <string name="without_vat">Bez VAT</string>
     <string name="include_vat">W tym podatek VAT</string>
@@ -22,4 +26,8 @@
     <string name="rate">Oceniać</string>
     <string name="language">Język</string>
     <string name="rate_string">%1$s. Oceń %2$s</string>
+    <string name="general_settings">Generał</string>
+    <string name="amount_to_words">Ilość słów</string>
+    <string name="Currency">Waluta</string>
+    <string name="penny_type">Rodzaj grosza</string>
 </resources>

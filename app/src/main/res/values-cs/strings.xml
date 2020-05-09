@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Text</item>
+        <item>Číslo</item>
+    </string-array>
     <string name="app_name">káď</string>
     <string name="amount">Množství</string>
     <string name="without_vat">Bez DPH</string>
@@ -22,4 +26,8 @@
     <string name="rate">Hodnotit</string>
     <string name="language">Jazyk</string>
     <string name="rate_string">%1$s. Ohodnoťte %2$s</string>
+    <string name="general_settings">Všeobecné</string>
+    <string name="amount_to_words">Částka na slova</string>
+    <string name="Currency">Měna</string>
+    <string name="penny_type">Penny typ</string>
 </resources>

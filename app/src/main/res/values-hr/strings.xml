@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Tekst</item>
+        <item>Broj</item>
+    </string-array>
     <string name="app_name">PDV</string>
     <string name="amount">Iznos</string>
     <string name="without_vat">Bez PDV-a</string>
@@ -22,4 +26,8 @@
     <string name="rate">Stopa</string>
     <string name="language">Jezik</string>
     <string name="rate_string">%1$s. Ocijenite %2$s</string>
+    <string name="general_settings">Općenito</string>
+    <string name="amount_to_words">Količina riječi</string>
+    <string name="Currency">Valuta</string>
+    <string name="penny_type">Peni tip</string>
 </resources>

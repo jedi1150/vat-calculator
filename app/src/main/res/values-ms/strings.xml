@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Teks</item>
+        <item>Nombor</item>
+    </string-array>
     <string name="app_name">PPN</string>
     <string name="amount">Jumlah</string>
     <string name="without_vat">Tidak termasuk PPN</string>
@@ -22,4 +26,8 @@
     <string name="rate">Nilaikan</string>
     <string name="language">Bahasa</string>
     <string name="rate_string">%1$s. Nilai %2$s</string>
+    <string name="general_settings">Am</string>
+    <string name="amount_to_words">Jumlah perkataan</string>
+    <string name="Currency">Mata Wang</string>
+    <string name="penny_type">Jenis sen</string>
 </resources>

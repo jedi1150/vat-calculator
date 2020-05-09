@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Text</item>
+        <item>Número</item>
+    </string-array>
     <string name="app_name">IVA</string>
     <string name="amount">Import</string>
     <string name="without_vat">IVA exclòs</string>
@@ -22,4 +26,8 @@
     <string name="rate">Valorar</string>
     <string name="language">Llenguatge</string>
     <string name="rate_string">%1$s. Taxa %2$s</string>
+    <string name="general_settings">General</string>
+    <string name="amount_to_words">Quantitat de paraules</string>
+    <string name="Currency">Moneda</string>
+    <string name="penny_type">Tipus Penny</string>
 </resources>

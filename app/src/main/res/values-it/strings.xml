@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Testo</item>
+        <item>Numero</item>
+    </string-array>
     <string name="app_name">I.V.A.</string>
     <string name="amount">Quantità</string>
     <string name="without_vat">IVA esclusa</string>
@@ -15,11 +19,15 @@
     <string name="choose_theme">Tema</string>
     <string name="cancel">Annulla</string>
     <string name="improve_translation">Migliora la traduzione</string>
-    <string name="settings">impostazioni</string>
+    <string name="settings">Impostazioni</string>
     <string name="other">Altro</string>
     <string name="save_value">Salva valore</string>
     <string name="vat_rate">Aliquota IVA</string>
     <string name="rate">Vota</string>
-    <string name="language">linguaggio</string>
+    <string name="language">Linguaggio</string>
     <string name="rate_string">%1$s. Tasso %2$s</string>
+    <string name="general_settings">Generale</string>
+    <string name="amount_to_words">Importo in parole</string>
+    <string name="Currency">Moneta</string>
+    <string name="penny_type">Tipo Penny</string>
 </resources>

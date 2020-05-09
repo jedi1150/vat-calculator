@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Test</item>
+        <item>Numru</item>
+    </string-array>
     <string name="app_name">VAT</string>
     <string name="amount">Ammont</string>
     <string name="without_vat">Il-VAT eskluża</string>
@@ -22,4 +26,8 @@
     <string name="rate">Rata</string>
     <string name="language">Lingwa</string>
     <string name="rate_string">%1$s. Rata %2$s</string>
+    <string name="general_settings">Ġenerali</string>
+    <string name="amount_to_words">Ammont għall-kliem</string>
+    <string name="Currency">Munita</string>
+    <string name="penny_type">Tip Penny</string>
 </resources>

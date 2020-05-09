@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Text</item>
+        <item>Siffra</item>
+    </string-array>
     <string name="app_name">MOMS</string>
     <string name="amount">Belopp</string>
     <string name="without_vat">Exklusive moms</string>
@@ -10,16 +14,20 @@
     <string name="copied">Kopieras!</string>
     <string name="light">Ljus</string>
     <string name="dark">Mörk</string>
-    <string name="battery_saver">Ställ in av Battery Saver</string>
+    <string name="battery_saver">Ställ in av Batteri Haver</string>
     <string name="system_default">Systemfel</string>
     <string name="choose_theme">Tema</string>
     <string name="cancel">Avbryt</string>
     <string name="improve_translation">Förbättra översättningen</string>
-    <string name="settings">inställningar</string>
+    <string name="settings">Inställningar</string>
     <string name="other">Övrig</string>
     <string name="save_value">Spara värde</string>
-    <string name="vat_rate">skattesats</string>
+    <string name="vat_rate">Skattesats</string>
     <string name="rate">Betygsätta</string>
     <string name="language">Språk</string>
     <string name="rate_string">%1$s. Betyg %2$s</string>
+    <string name="general_settings">Allmän</string>
+    <string name="amount_to_words">Belopp till ord</string>
+    <string name="Currency">Valuta</string>
+    <string name="penny_type">Penny typ</string>
 </resources>

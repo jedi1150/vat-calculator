@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>टेक्स्ट</item>
+        <item>संख्या</item>
+    </string-array>
     <string name="app_name">वैट</string>
     <string name="amount">रकम</string>
     <string name="without_vat">वैट को छोड़कर</string>
@@ -22,4 +26,8 @@
     <string name="rate">मूल्यांकन करें</string>
     <string name="language">भाषा: हिन्दी</string>
     <string name="rate_string">%1$s दर %2$s</string>
+    <string name="general_settings">सामान्य</string>
+    <string name="amount_to_words">शब्दों को राशि</string>
+    <string name="Currency">मुद्रा</string>
+    <string name="penny_type">पेनी प्रकार</string>
 </resources>
