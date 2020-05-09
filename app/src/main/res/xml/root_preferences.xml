@@ -25,7 +25,7 @@
 
         <ListPreference
             android:summary="%s"
-            app:icon="@drawable/percent"
+            app:icon="@drawable/percentage"
             app:key="rate"
             app:title="@string/rate" />
 
@@ -34,7 +34,7 @@
     <PreferenceCategory app:title="@string/amount_to_words">
 
         <ListPreference
-            android:icon="@drawable/text_fields"
+            android:icon="@drawable/monetization"
             android:key="currency"
             android:defaultValue="USD"
             android:title="@string/Currency"
