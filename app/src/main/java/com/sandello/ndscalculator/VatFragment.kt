@@ -391,13 +391,15 @@ class VatFragment : Fragment() {
         checkToTranslate()
         ratesReceived = true
         if (selectedRate == "" && customRate == "") {
-            Snackbar.make(snackbar, "Необходимо задать ставку", Snackbar.LENGTH_LONG).setAction("Задать") {
-                val inputMethodManager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                inputMethodManager.hideSoftInputFromWindow(vat_layout.windowToken, 0)
-                val bundle = bundleOf("setRate" to true)
-                findNavController().navigate(R.id.action_vatFragment_to_settingsFragment, bundle)
-
-            }.show()
+            if (db.rateDao().getAll().isNotEmpty())
+                Snackbar.make(snackbar, getString(R.string.set_vat_rate), Snackbar.LENGTH_LONG).setAction(getString(R.string.set)) {
+                    val inputMethodManager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    inputMethodManager.hideSoftInputFromWindow(vat_layout.windowToken, 0)
+                    val bundle = bundleOf("setRate" to true)
+                    findNavController().navigate(R.id.action_vatFragment_to_settingsFragment, bundle)
+                }.show()
+            else
+                Snackbar.make(snackbar, getString(R.string.set_vat_rate), Snackbar.LENGTH_LONG).show()
             amountEditText!!.isFocusableInTouchMode = true
             amountEditText!!.requestFocus()
         }
