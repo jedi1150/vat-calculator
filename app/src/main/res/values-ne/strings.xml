@@ -25,9 +25,14 @@
     <string name="vat_rate">VAT दर</string>
     <string name="rate">दर</string>
     <string name="language">भाषा</string>
-    <string name="rate_string">%1$s दर %2$s</string>
+    <string name="rate_string">%1$s दर %2$d</string>
     <string name="general_settings">सामान्य</string>
     <string name="amount_to_words">शब्दहरूको मात्रा</string>
     <string name="Currency">मुद्रा</string>
     <string name="penny_type">पैसाको प्रकार</string>
+    <string name="save_amount_on_exit">निकासमा रकम बचत गर्नुहोस्</string>
+    <string name="do_not_save_amount_on_exit">निकासमा रकम बचत नगर्नुहोस्</string>
+    <string name="arbitrary_rate_set">मनमानी VAT दर सेट</string>
+    <string name="set_vat_rate">VAT दर सेट गर्न आवश्यक छ</string>
+    <string name="set">सेट</string>
 </resources>

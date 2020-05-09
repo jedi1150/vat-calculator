@@ -25,9 +25,14 @@
     <string name="vat_rate">মূসক হার</string>
     <string name="rate">হার</string>
     <string name="language">ভাষা</string>
-    <string name="rate_string">%1$s হার %2$s</string>
+    <string name="rate_string">%1$s হার %2$d</string>
     <string name="general_settings">সাধারণ</string>
     <string name="amount_to_words">শব্দের পরিমাণ</string>
     <string name="Currency">মুদ্রা</string>
     <string name="penny_type">পেনি টাইপ</string>
+    <string name="save_amount_on_exit">প্রস্থান করার সময় পরিমাণ সঞ্চয় করুন</string>
+    <string name="do_not_save_amount_on_exit">প্রস্থান করার সময় অর্থ সঞ্চয় করবেন না</string>
+    <string name="arbitrary_rate_set">নির্বিচারে ভ্যাট রেট সেট</string>
+    <string name="set_vat_rate">ভ্যাট হার নির্ধারণ করা দরকার</string>
+    <string name="set">সেট</string>
 </resources>

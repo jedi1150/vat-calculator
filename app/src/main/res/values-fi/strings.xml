@@ -25,9 +25,14 @@
     <string name="vat_rate">ALV</string>
     <string name="rate">nopeus</string>
     <string name="language">Kieli</string>
-    <string name="rate_string">%1$s. Hinta %2$s</string>
+    <string name="rate_string">%1$s. Hinta %2$d</string>
     <string name="general_settings">yleinen</string>
     <string name="amount_to_words">Määrä sanoihin</string>
     <string name="Currency">valuutta</string>
     <string name="penny_type">Penny tyyppi</string>
+    <string name="save_amount_on_exit">Säästä summa poistuttaessa</string>
+    <string name="do_not_save_amount_on_exit">Älä säästä määrää poistumisen yhteydessä</string>
+    <string name="arbitrary_rate_set">Mielivaltainen arvonlisäveroaste asetettu</string>
+    <string name="set_vat_rate">ALV-taso on asetettava</string>
+    <string name="set">Aseta</string>
 </resources>

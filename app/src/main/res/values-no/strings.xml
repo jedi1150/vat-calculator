@@ -25,9 +25,14 @@
     <string name="vat_rate">Momssats</string>
     <string name="rate">Vurdere</string>
     <string name="language">Språk</string>
-    <string name="rate_string">%1$s. Pris %2$s</string>
+    <string name="rate_string">%1$s. Pris %2$d</string>
     <string name="general_settings">Generell</string>
     <string name="amount_to_words">Beløp til ord</string>
     <string name="Currency">Valuta</string>
     <string name="penny_type">Penny type</string>
+    <string name="save_amount_on_exit">Spar beløp ved avkjørsel</string>
+    <string name="do_not_save_amount_on_exit">Ikke lag beløp ved avkjørsel</string>
+    <string name="arbitrary_rate_set">Vilkårlig momssats er satt</string>
+    <string name="set_vat_rate">Trenger å sette momssats</string>
+    <string name="set">Sett</string>
 </resources>

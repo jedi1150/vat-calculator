@@ -25,9 +25,14 @@
     <string name="vat_rate">Shkalla e TVSH-së</string>
     <string name="rate">normë</string>
     <string name="language">Gjuhe</string>
-    <string name="rate_string">%1$s. Vlerësoni %2$s</string>
+    <string name="rate_string">%1$s. Vlerësoni %2$d</string>
     <string name="general_settings">i përgjithshëm</string>
     <string name="amount_to_words">Shuma e fjalëve</string>
     <string name="Currency">monedhë</string>
     <string name="penny_type">Lloj peni</string>
+    <string name="save_amount_on_exit">Kurseni shumën në dalje</string>
+    <string name="do_not_save_amount_on_exit">Mos kurseni shumën në dalje</string>
+    <string name="arbitrary_rate_set">Rateshtë vendosur norma arbitrare e TVSH-së</string>
+    <string name="set_vat_rate">Duhet të përcaktoni nivelin e TVSH-së</string>
+    <string name="set">i vendosur</string>
 </resources>

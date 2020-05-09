@@ -25,9 +25,14 @@
     <string name="vat_rate">Ставка ПДВ</string>
     <string name="rate">Ставка</string>
     <string name="language">Мова</string>
-    <string name="rate_string">%1$s. Ставка %2$s</string>
+    <string name="rate_string">%1$s. Ставка %2$d</string>
     <string name="general_settings">Загальні</string>
     <string name="amount_to_words">Сума прописом</string>
     <string name="Currency">Валюта</string>
     <string name="penny_type">Тип Пенні</string>
+    <string name="save_amount_on_exit">Збережіть суму на виході</string>
+    <string name="do_not_save_amount_on_exit">Не економте суму на виході</string>
+    <string name="arbitrary_rate_set">Встановлено довільну ставку ПДВ</string>
+    <string name="set_vat_rate">Потрібно встановити ставку ПДВ</string>
+    <string name="set">Встановити</string>
 </resources>

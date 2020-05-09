@@ -25,9 +25,14 @@
     <string name="vat_rate">Taxa do IVA</string>
     <string name="rate">Taxa</string>
     <string name="language">Língua</string>
-    <string name="rate_string">%1$s. Taxa %2$s</string>
+    <string name="rate_string">%1$s. Taxa %2$d</string>
     <string name="general_settings">Geral</string>
     <string name="amount_to_words">Quantidade de palavras</string>
     <string name="Currency">Moeda</string>
     <string name="penny_type">Tipo de moeda de um centavo</string>
+    <string name="save_amount_on_exit">Economize quantia na saída</string>
+    <string name="do_not_save_amount_on_exit">Não economize quantia na saída</string>
+    <string name="arbitrary_rate_set">Conjunto de taxas arbitrárias de IVA</string>
+    <string name="set_vat_rate">Precisa definir a taxa de IVA</string>
+    <string name="set">Conjunto</string>
 </resources>

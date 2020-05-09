@@ -25,9 +25,14 @@
     <string name="vat_rate">ԱԱՀ-ի դրույքաչափը</string>
     <string name="rate">Գնահատեք</string>
     <string name="language">Լեզու</string>
-    <string name="rate_string">%1$s: Գնահատեք %2$s</string>
+    <string name="rate_string">%1$s: Գնահատեք %2$d</string>
     <string name="general_settings">Գեներալ</string>
     <string name="amount_to_words">Գումարը բառերին</string>
     <string name="Currency">Արժույթ</string>
     <string name="penny_type">Penny տեսակը</string>
+    <string name="save_amount_on_exit">Ելքի գումարը խնայեք</string>
+    <string name="do_not_save_amount_on_exit">Մի պահեք գումարը ելքի վրա</string>
+    <string name="arbitrary_rate_set">Կամայական ԱԱՀ-ի դրույքաչափը սահմանված է</string>
+    <string name="set_vat_rate">Պետք է սահմանել ԱԱՀ-ի դրույքաչափը</string>
+    <string name="set">Սահմանել</string>
 </resources>

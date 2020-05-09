@@ -25,9 +25,14 @@
     <string name="vat_rate">Taux de TVA</string>
     <string name="rate">Taux</string>
     <string name="language">Langue</string>
-    <string name="rate_string">%1$s. Taux %2$s</string>
+    <string name="rate_string">%1$s. Taux %2$d</string>
     <string name="general_settings">Général</string>
     <string name="amount_to_words">Montant en mots</string>
     <string name="Currency">Devise</string>
     <string name="penny_type">Type de sou</string>
+    <string name="save_amount_on_exit">Économisez le montant à la sortie</string>
+    <string name="do_not_save_amount_on_exit">Ne pas enregistrer le montant à la sortie</string>
+    <string name="arbitrary_rate_set">Ensemble de taux de TVA arbitraire</string>
+    <string name="set_vat_rate">Besoin de fixer le taux de TVA</string>
+    <string name="set">Ensemble</string>
 </resources>

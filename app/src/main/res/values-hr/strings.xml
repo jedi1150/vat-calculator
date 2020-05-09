@@ -25,9 +25,14 @@
     <string name="vat_rate">Stopa PDV-a</string>
     <string name="rate">Stopa</string>
     <string name="language">Jezik</string>
-    <string name="rate_string">%1$s. Ocijenite %2$s</string>
+    <string name="rate_string">%1$s. Ocijenite %2$d</string>
     <string name="general_settings">Općenito</string>
     <string name="amount_to_words">Količina riječi</string>
     <string name="Currency">Valuta</string>
     <string name="penny_type">Peni tip</string>
+    <string name="save_amount_on_exit">Uštedite iznos na izlasku</string>
+    <string name="do_not_save_amount_on_exit">Ne štedite iznos na izlasku</string>
+    <string name="arbitrary_rate_set">Postavljena proizvoljna stopa PDV-a</string>
+    <string name="set_vat_rate">Trebate postaviti stopu PDV-a</string>
+    <string name="set">set</string>
 </resources>
