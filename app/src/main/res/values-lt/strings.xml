@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Tekstas</item>
+        <item>Skaičius</item>
+    </string-array>
     <string name="app_name">PVM</string>
     <string name="amount">Suma</string>
     <string name="without_vat">Be PVM</string>
@@ -21,5 +25,14 @@
     <string name="vat_rate">PVM tarifas</string>
     <string name="rate">Įvertink</string>
     <string name="language">Kalba</string>
-    <string name="rate_string">%1$s. Įvertinkite %2$s</string>
+    <string name="rate_string">%1$s. Įvertinkite %2$d</string>
+    <string name="general_settings">Generolas</string>
+    <string name="amount_to_words">Suma prie žodžių</string>
+    <string name="Currency">Valiuta</string>
+    <string name="penny_type">Peno tipas</string>
+    <string name="save_amount_on_exit">Sutaupykite sumos išvykdami</string>
+    <string name="do_not_save_amount_on_exit">Netaupykite sumos išvykdami</string>
+    <string name="arbitrary_rate_set">Nustatytas savavališkas PVM tarifas</string>
+    <string name="set_vat_rate">Reikia nustatyti PVM tarifą</string>
+    <string name="set">Rinkinys</string>
 </resources>

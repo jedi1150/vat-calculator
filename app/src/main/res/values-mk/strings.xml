@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Текст</item>
+        <item>Број</item>
+    </string-array>
     <string name="app_name">ДДВ</string>
     <string name="amount">износ</string>
     <string name="without_vat">Без ДДВ</string>
@@ -21,5 +25,14 @@
     <string name="vat_rate">Стапка на ДДВ</string>
     <string name="rate">Оцени</string>
     <string name="language">Јазик</string>
-    <string name="rate_string">%1$s. Оценете %2$s</string>
+    <string name="rate_string">%1$s. Оценете %2$d</string>
+    <string name="general_settings">Општо</string>
+    <string name="amount_to_words">Износ на зборови</string>
+    <string name="Currency">Валута</string>
+    <string name="penny_type">Тип на денар</string>
+    <string name="save_amount_on_exit">Заштедете сума на излез</string>
+    <string name="do_not_save_amount_on_exit">Не штедете сума на излез</string>
+    <string name="arbitrary_rate_set">Поставено арбитрарна стапка на ДДВ</string>
+    <string name="set_vat_rate">Треба да поставите стапка на ДДВ</string>
+    <string name="set">Постави</string>
 </resources>

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string-array name="currency_code" translatable="false">
+    <item>RUB</item>
+    <item>USD</item>
+    <item>EUR</item>
+    <item>UAH</item>
+  </string-array>
   <string-array name="languages_code" translatable="false">
+    <item>ru</item>
     <item>en</item>
     <item>fr</item>
     <item>de</item>
@@ -10,19 +17,18 @@
     <item>ce</item>
     <item>fi</item>
     <item>hi</item>
-    <item>af</item>
-    <item>bg</item>
-    <item>bn</item>
-    <item>be</item>
-    <item>ca</item>
-    <item>cs</item>
-    <item>da</item>
-    <item>el</item>
-    <item>es</item>
-    <item>et</item>
-    <item>hr</item>
-    <item>hu</item>
     <item>hy</item>
+    <item>jw</item>
+    <item>ja</item>
+    <item>kk</item>
+    <item>ne</item>
+    <item>nl</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>th</item>
+    <item>uk</item>
+    <item>uz</item>
+    <item>zh</item>
     <item>id</item>
     <item>is</item>
     <item>it</item>
@@ -53,6 +59,14 @@
     <item>vi</item>
     <item>zh</item>
   </string-array>
+  <string-array name="penny_type">
+    <item>Text</item>
+    <item>Number</item>
+  </string-array>
+  <string-array name="penny_type_code" translatable="false">
+    <item>penny_type_text</item>
+    <item>penny_type_number</item>
+  </string-array>
   <string name="app_name">VAT</string>
   <string name="amount">Amount</string>
   <string name="without_vat">Excluding VAT</string>
@@ -76,5 +90,14 @@
   <string name="vat_rate">VAT rate</string>
   <string name="rate">Rate</string>
   <string name="language">Language</string>
-  <string name="rate_string">%1$s. Rate %2$s</string>
+  <string name="rate_string">%1$s. Rate %2$d</string>
+  <string name="general_settings">General</string>
+  <string name="amount_to_words">Amount to words</string>
+  <string name="Currency">Currency</string>
+  <string name="penny_type">Penny type</string>
+  <string name="save_amount_on_exit">Save amount on exit</string>
+  <string name="do_not_save_amount_on_exit">Do not save amount on exit</string>
+  <string name="arbitrary_rate_set">Arbitrary VAT rate set</string>
+  <string name="set_vat_rate">Need to set VAT rate</string>
+  <string name="set">Set</string>
 </resources>

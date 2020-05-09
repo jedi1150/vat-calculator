@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Tekst</item>
+        <item>Aantal</item>
+    </string-array>
     <string name="app_name">BTW</string>
     <string name="amount">Bedrag</string>
     <string name="without_vat">Exclusief BTW</string>
@@ -21,5 +25,14 @@
     <string name="vat_rate">BTW-tarief</string>
     <string name="rate">Tarief</string>
     <string name="language">Taal</string>
-    <string name="rate_string">%1$s. Beoordeel %2$s</string>
+    <string name="rate_string">%1$s. Beoordeel %2$d</string>
+    <string name="general_settings">Algemeen</string>
+    <string name="amount_to_words">Bedrag aan woorden</string>
+    <string name="Currency">Valuta</string>
+    <string name="penny_type">Penny type</string>
+    <string name="save_amount_on_exit">Bespaar bedrag bij het verlaten</string>
+    <string name="do_not_save_amount_on_exit">Bespaar geen bedrag bij het verlaten</string>
+    <string name="arbitrary_rate_set">Willekeurig btw-tarief vastgesteld</string>
+    <string name="set_vat_rate">Het btw-tarief moet worden ingesteld</string>
+    <string name="set">Stel</string>
 </resources>

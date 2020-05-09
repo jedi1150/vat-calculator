@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Текст</item>
+        <item>Число</item>
+    </string-array>
     <string name="app_name">НДС</string>
     <string name="amount">Сумма</string>
     <string name="without_vat">Сумма без учета НДС</string>
@@ -21,5 +25,14 @@
     <string name="vat_rate">Ставка НДС</string>
     <string name="rate">Ставка</string>
     <string name="language">Язык</string>
-    <string name="rate_string">%1$s. Ставка %2$s</string>
+    <string name="rate_string">%1$s. Ставка %2$d</string>
+    <string name="general_settings">Общие</string>
+    <string name="amount_to_words">Сумма прописью</string>
+    <string name="Currency">Валюта</string>
+    <string name="penny_type">Тип копейки</string>
+    <string name="save_amount_on_exit">Сохранить сумму на выходе</string>
+    <string name="do_not_save_amount_on_exit">Не экономьте на выходе</string>
+    <string name="arbitrary_rate_set">Произвольная ставка НДС установлена</string>
+    <string name="set_vat_rate">Нужно установить ставку НДС</string>
+    <string name="set">Набор</string>
 </resources>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string-array name="penny_type">
+        <item>Texti</item>
+        <item>Fjöldi</item>
+    </string-array>
     <string name="app_name">VSK</string>
     <string name="amount">Magn</string>
     <string name="without_vat">Að undanskildum virðisaukaskatti</string>
@@ -21,5 +25,14 @@
     <string name="vat_rate">VSK hlutfall</string>
     <string name="rate">Verð</string>
     <string name="language">Tungumál</string>
-    <string name="rate_string">%1$s . Gefa %2$s</string>
+    <string name="rate_string">%1$s . Gefa %2$d</string>
+    <string name="general_settings">Almennt</string>
+    <string name="amount_to_words">Upphæð orð</string>
+    <string name="Currency">Gjaldmiðill</string>
+    <string name="penny_type">Penny gerð</string>
+    <string name="save_amount_on_exit">Sparaðu upphæð við útgönguleið</string>
+    <string name="do_not_save_amount_on_exit">Ekki vista upphæð við útgönguleið</string>
+    <string name="arbitrary_rate_set">Handahófskennt VSK hlutfall sett</string>
+    <string name="set_vat_rate">Þarftu að stilla virðisaukaskattshlutfall</string>
+    <string name="set">Setja</string>
 </resources>

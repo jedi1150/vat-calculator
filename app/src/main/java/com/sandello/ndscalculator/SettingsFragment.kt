@@ -1,5 +1,6 @@
 package com.sandello.ndscalculator
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -29,7 +30,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         super.onViewCreated(view, savedInstanceState)
         view.setOnApplyWindowInsetsListener { v, insets ->
             view.post {
-                v.updatePadding(top = insets.systemWindowInsetTop + view.rootView.toolbar.height)
+                v.updatePadding(top = insets.systemWindowInsetTop + view.rootView.toolbar.height, bottom = insets.systemWindowInsetBottom)
             }
             insets
         }
@@ -40,17 +41,9 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val themePref = findPreference("theme") as ListPreference?
         val languagePref = findPreference("language") as ListPreference?
         val ratesPref = findPreference("rate") as ListPreference?
+        val currencyPref = findPreference("currency") as ListPreference?
         val translatePref = findPreference("translate") as Preference?
         val githubPref = findPreference("github") as Preference?
-
-        fun themeSummary(newValue: String) {
-            themePref?.summary = when (newValue) {
-                "0" -> themeEntries[0]
-                "1" -> themeEntries[1]
-                "2" -> themeEntries[2]
-                else -> themeEntries[2]
-            }
-        }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
             themeEntries = arrayOf(getString(R.string.light), getString(R.string.dark), getString(R.string.battery_saver))
@@ -60,7 +53,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     "1" -> setTheme(AppCompatDelegate.MODE_NIGHT_YES)
                     "2" -> setTheme(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
                 }
-                themeSummary(newValue.toString())
                 true
             }
         }
@@ -72,7 +64,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     "1" -> setTheme(AppCompatDelegate.MODE_NIGHT_YES)
                     "2" -> setTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                 }
-                themeSummary(newValue.toString())
                 true
             }
         }
@@ -80,9 +71,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
         themePref?.entryValues = themeEntryValues
         if (themePref?.value == null)
             themePref?.setValueIndex(2)
-
-        themeSummary(themePref?.value.toString())
-
 
         val availableLanguageISO = Locale.getISOLanguages().filter { it in resources.getStringArray(R.array.languages_code).sortedArray() }
         val availableLanguages = mutableListOf<String>()
@@ -92,15 +80,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
         languagePref?.entries = availableLanguages.toTypedArray()
         languagePref?.entryValues = availableLanguageISO.toTypedArray()
 
-
-        fun languageSummary(newValue: String) {
-            languagePref?.summary = Locale.forLanguageTag(newValue).getDisplayLanguage(Locale.forLanguageTag(newValue)).capitalize(Locale.ROOT)
-        }
-        if (languagePref?.value != null)
-            languageSummary(languagePref.value!!)
-        else {
+        if (languagePref?.value == null) {
             languagePref?.setValueIndex(languagePref.entryValues.indexOf(Locale.getDefault().language))
-            languagePref?.summary = Locale.getDefault().displayLanguage.capitalize(Locale.ROOT)
         }
 
         languagePref!!.setOnPreferenceChangeListener { _, newValue ->
@@ -125,26 +106,35 @@ class SettingsFragment : PreferenceFragmentCompat() {
             else
                 rateEntries.add(getString(R.string.rate_string, Locale("", element.code).displayCountry, element.rate.toString()) + "%")
         }
+
         ratesPref?.entries = rateEntries.toTypedArray()
         ratesPref?.entryValues = rateEntryValues.toTypedArray()
 
-        fun rateSummary(countryCode: String) {
-            val data = db.rateDao().findByCountry(countryCode)
-            ratesPref?.setSummaryProvider {
-                if (data!!.rate.toString().substringAfter(".") == "0")
-                    getString(R.string.rate_string, Locale("", data.code).displayCountry, data.rate.toString().substringBefore(".")) + "%"
-                else
-                    getString(R.string.rate_string, Locale("", data.code).displayCountry, data.rate.toString()) + "%"
-            }
+        fun checkRate() {
+            if (ratesPref!!.value != null)
+                ratesPref.summary = "%s"
+            else
+                ratesPref.setSummaryProvider { getString(R.string.arbitrary_rate_set) }
         }
 
-        if (ratesPref?.value != null)
-            rateSummary(ratesPref.value!!)
+        checkRate()
 
-        ratesPref?.setOnPreferenceChangeListener { _, newValue ->
-            rateSummary(newValue.toString())
+        ratesPref?.setOnPreferenceChangeListener { _, _ ->
+            checkRate()
             true
         }
+
+
+        val availableCurrency = mutableListOf<String>()
+        val availableCurrencyCode = mutableListOf<String>()
+        val availableCurrencies = Currency.getAvailableCurrencies().filter { it.currencyCode in resources.getStringArray(R.array.currency_code).sortedArray() }
+        for (item in availableCurrencies) {
+            availableCurrency.add(item.displayName.capitalize(Locale.ROOT))
+            availableCurrencyCode.add(item.currencyCode.capitalize(Locale.ROOT))
+        }
+
+        currencyPref?.entries = availableCurrency.toTypedArray()
+        currencyPref?.entryValues = availableCurrencyCode.toTypedArray()
 
         translatePref?.setOnPreferenceClickListener {
             val url = "https://lokalise.com/project/228402545e30480daadfd6.44294341/?view=multi&filter=platform_2"
@@ -166,5 +156,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
     private fun setTheme(themeMode: Int) {
         (activity as AppCompatActivity).delegate.localNightMode = themeMode
         AppCompatDelegate.setDefaultNightMode(themeMode)
+    }
+
+    @SuppressLint("RestrictedApi")
+    override fun onResume() {
+        super.onResume()
+        if (arguments?.getBoolean("setRate")!!) {
+            val ratesPref = findPreference("rate") as ListPreference?
+            ratesPref?.performClick()
+        }
     }
 }
