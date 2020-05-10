@@ -25,7 +25,7 @@
     <string name="vat_rate">Rata tal-VAT</string>
     <string name="rate">Rata</string>
     <string name="language">Lingwa</string>
-    <string name="rate_string">%1$s. Rata %2$d</string>
+    <string name="rate_string">%1$s. Rata %2$s</string>
     <string name="general_settings">Ġenerali</string>
     <string name="amount_to_words">Ammont għall-kliem</string>
     <string name="Currency">Munita</string>

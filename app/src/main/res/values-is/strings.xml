@@ -25,7 +25,7 @@
     <string name="vat_rate">VSK hlutfall</string>
     <string name="rate">Verð</string>
     <string name="language">Tungumál</string>
-    <string name="rate_string">%1$s . Gefa %2$d</string>
+    <string name="rate_string">%1$s . Gefa %2$s</string>
     <string name="general_settings">Almennt</string>
     <string name="amount_to_words">Upphæð orð</string>
     <string name="Currency">Gjaldmiðill</string>

@@ -25,7 +25,7 @@
     <string name="vat_rate">Tipo de IVA</string>
     <string name="rate">Velocidad</string>
     <string name="language">Idioma</string>
-    <string name="rate_string">%1$s. Tasa %2$d</string>
+    <string name="rate_string">%1$s. Tasa %2$s</string>
     <string name="general_settings">General</string>
     <string name="amount_to_words">Cantidad de palabras</string>
     <string name="Currency">Moneda</string>

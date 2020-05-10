@@ -25,7 +25,7 @@
     <string name="vat_rate">Стаўка ПДВ</string>
     <string name="rate">Стаўка</string>
     <string name="language">Мова</string>
-    <string name="rate_string">%1$s. Стаўка %2$d</string>
+    <string name="rate_string">%1$s. Стаўка %2$s</string>
     <string name="general_settings">Генерал</string>
     <string name="amount_to_words">Сума пропіссю</string>
     <string name="Currency">Валюта</string>

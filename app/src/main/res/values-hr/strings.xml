@@ -25,7 +25,7 @@
     <string name="vat_rate">Stopa PDV-a</string>
     <string name="rate">Stopa</string>
     <string name="language">Jezik</string>
-    <string name="rate_string">%1$s. Ocijenite %2$d</string>
+    <string name="rate_string">%1$s. Ocijenite %2$s</string>
     <string name="general_settings">Općenito</string>
     <string name="amount_to_words">Količina riječi</string>
     <string name="Currency">Valuta</string>

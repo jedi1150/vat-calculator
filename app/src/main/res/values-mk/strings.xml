@@ -25,7 +25,7 @@
     <string name="vat_rate">Стапка на ДДВ</string>
     <string name="rate">Оцени</string>
     <string name="language">Јазик</string>
-    <string name="rate_string">%1$s. Оценете %2$d</string>
+    <string name="rate_string">%1$s. Оценете %2$s</string>
     <string name="general_settings">Општо</string>
     <string name="amount_to_words">Износ на зборови</string>
     <string name="Currency">Валута</string>

@@ -25,7 +25,7 @@
     <string name="vat_rate">Стопа ПДВ-а</string>
     <string name="rate">Рате</string>
     <string name="language">Језик</string>
-    <string name="rate_string">%1$s. Стопа %2$d</string>
+    <string name="rate_string">%1$s. Стопа %2$s</string>
     <string name="general_settings">Општи</string>
     <string name="amount_to_words">Количина речи</string>
     <string name="Currency">Валута</string>

@@ -25,7 +25,7 @@
     <string name="vat_rate">Skattesats</string>
     <string name="rate">Betygsätta</string>
     <string name="language">Språk</string>
-    <string name="rate_string">%1$s. Betyg %2$d</string>
+    <string name="rate_string">%1$s. Betyg %2$s</string>
     <string name="general_settings">Allmän</string>
     <string name="amount_to_words">Belopp till ord</string>
     <string name="Currency">Valuta</string>

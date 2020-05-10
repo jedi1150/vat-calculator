@@ -25,7 +25,7 @@
     <string name="vat_rate">Sazba DPH</string>
     <string name="rate">Sazba</string>
     <string name="language">Jazyk</string>
-    <string name="rate_string">%1$s. Hodnotit%2$d</string>
+    <string name="rate_string">%1$s. Hodnotit%2$s</string>
     <string name="general_settings">Číslo</string>
     <string name="amount_to_words">Částka slovy</string>
     <string name="Currency">Měna</string>

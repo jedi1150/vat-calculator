@@ -25,7 +25,7 @@
     <string name="vat_rate">Sadzba DPH</string>
     <string name="rate">Rýchlosť</string>
     <string name="language">Jazyk</string>
-    <string name="rate_string">%1$s. Ohodnoťte %2$d</string>
+    <string name="rate_string">%1$s. Ohodnoťte %2$s</string>
     <string name="general_settings">Všeobecné</string>
     <string name="amount_to_words">Počet slov</string>
     <string name="Currency">Mena</string>

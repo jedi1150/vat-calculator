@@ -25,7 +25,7 @@
     <string name="vat_rate">ƏDV dərəcəsi</string>
     <string name="rate">Qiymətləndirin</string>
     <string name="language">Dil</string>
-    <string name="rate_string">%1$s. Qiymət %2$d</string>
+    <string name="rate_string">%1$s. Qiymət %2$s</string>
     <string name="general_settings">Ümumi</string>
     <string name="amount_to_words">Sözlərin miqdarı</string>
     <string name="Currency">Valyuta</string>

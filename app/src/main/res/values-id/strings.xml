@@ -25,7 +25,7 @@
     <string name="vat_rate">Tingkat PPN</string>
     <string name="rate">Menilai</string>
     <string name="language">Bahasa</string>
-    <string name="rate_string">%1$s. Tingkat %2$d</string>
+    <string name="rate_string">%1$s. Tingkat %2$s</string>
     <string name="general_settings">Umum</string>
     <string name="amount_to_words">Jumlah kata-kata</string>
     <string name="Currency">Mata uang</string>

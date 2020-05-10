@@ -25,7 +25,7 @@
     <string name="vat_rate">KDV oranı</string>
     <string name="rate">oran</string>
     <string name="language">Dil</string>
-    <string name="rate_string">%1$s. Oranı %2$d</string>
+    <string name="rate_string">%1$s. Oranı %2$s</string>
     <string name="general_settings">Genel</string>
     <string name="amount_to_words">Kelimelerin miktarı</string>
     <string name="Currency">Para birimi</string>

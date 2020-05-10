@@ -25,7 +25,7 @@
     <string name="vat_rate">Kadar VAT</string>
     <string name="rate">Nilaikan</string>
     <string name="language">Bahasa</string>
-    <string name="rate_string">%1$s. Nilai %2$d</string>
+    <string name="rate_string">%1$s. Nilai %2$s</string>
     <string name="general_settings">Am</string>
     <string name="amount_to_words">Jumlah perkataan</string>
     <string name="Currency">Mata Wang</string>

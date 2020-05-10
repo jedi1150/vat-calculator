@@ -25,7 +25,7 @@
     <string name="vat_rate">BTW-tarief</string>
     <string name="rate">Tarief</string>
     <string name="language">Taal</string>
-    <string name="rate_string">%1$s. Beoordeel %2$d</string>
+    <string name="rate_string">%1$s. Beoordeel %2$s</string>
     <string name="general_settings">Algemeen</string>
     <string name="amount_to_words">Bedrag aan woorden</string>
     <string name="Currency">Valuta</string>

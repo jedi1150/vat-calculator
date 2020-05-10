@@ -25,7 +25,7 @@
     <string name="vat_rate">Mehrwertsteuersatz</string>
     <string name="rate">Bewertung</string>
     <string name="language">Sprache</string>
-    <string name="rate_string">%1$s. Rate %2$d</string>
+    <string name="rate_string">%1$s. Rate %2$s</string>
     <string name="general_settings">Allgemeines</string>
     <string name="amount_to_words">Menge an Wörtern</string>
     <string name="Currency">Währung</string>

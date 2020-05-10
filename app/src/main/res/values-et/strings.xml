@@ -25,7 +25,7 @@
     <string name="vat_rate">Käibemaksumäär</string>
     <string name="rate">Hinda</string>
     <string name="language">Keel</string>
-    <string name="rate_string">%1$s. Hinda %2$d</string>
+    <string name="rate_string">%1$s. Hinda %2$s</string>
     <string name="general_settings">Üldine</string>
     <string name="amount_to_words">Summa sõnadesse</string>
     <string name="Currency">Valuuta</string>

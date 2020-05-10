@@ -25,7 +25,7 @@
     <string name="vat_rate">Συντελεστή ΦΠΑ</string>
     <string name="rate">Τιμή</string>
     <string name="language">Γλώσσα</string>
-    <string name="rate_string">%1$s. Βαθμολογήστε %2$d</string>
+    <string name="rate_string">%1$s. Βαθμολογήστε %2$s</string>
     <string name="general_settings">Γενικός</string>
     <string name="amount_to_words">Ποσό σε λέξεις</string>
     <string name="Currency">Νόμισμα</string>

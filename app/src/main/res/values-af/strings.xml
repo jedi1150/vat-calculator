@@ -25,7 +25,7 @@
     <string name="vat_rate">BTW koers</string>
     <string name="rate">Koers</string>
     <string name="language">Taal</string>
-    <string name="rate_string">%1$s. Koers %2$d</string>
+    <string name="rate_string">%1$s. Koers %2$s</string>
     <string name="general_settings">algemene</string>
     <string name="amount_to_words">Bedrag aan woorde</string>
     <string name="Currency">geldeenheid</string>

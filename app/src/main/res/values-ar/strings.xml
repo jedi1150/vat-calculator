@@ -25,7 +25,7 @@
     <string name="vat_rate">قيمة الضريبة</string>
     <string name="rate">معدل</string>
     <string name="language">لغة</string>
-    <string name="rate_string">%1$s. تقييم %2$d</string>
+    <string name="rate_string">%1$s. تقييم %2$s</string>
     <string name="general_settings">جنرال لواء</string>
     <string name="amount_to_words">كمية الكلمات</string>
     <string name="Currency">عملة</string>

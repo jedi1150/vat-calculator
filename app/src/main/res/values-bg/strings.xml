@@ -25,7 +25,7 @@
     <string name="vat_rate">Ставка на ДДС</string>
     <string name="rate">скорост</string>
     <string name="language">език</string>
-    <string name="rate_string">%1$s. Оценете %2$d</string>
+    <string name="rate_string">%1$s. Оценете %2$s</string>
     <string name="general_settings">Общ</string>
     <string name="amount_to_words">Количество на думи</string>
     <string name="Currency">Валута</string>

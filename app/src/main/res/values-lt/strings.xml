@@ -25,7 +25,7 @@
     <string name="vat_rate">PVM tarifas</string>
     <string name="rate">Įvertink</string>
     <string name="language">Kalba</string>
-    <string name="rate_string">%1$s. Įvertinkite %2$d</string>
+    <string name="rate_string">%1$s. Įvertinkite %2$s</string>
     <string name="general_settings">Generolas</string>
     <string name="amount_to_words">Suma prie žodžių</string>
     <string name="Currency">Valiuta</string>

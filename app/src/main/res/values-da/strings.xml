@@ -25,7 +25,7 @@
     <string name="vat_rate">Momssats</string>
     <string name="rate">Sats</string>
     <string name="language">Sprog</string>
-    <string name="rate_string">%1$s. Pris %2$d</string>
+    <string name="rate_string">%1$s. Pris %2$s</string>
     <string name="general_settings">Generel</string>
     <string name="amount_to_words">Mængde til ord</string>
     <string name="Currency">Betalingsmiddel</string>

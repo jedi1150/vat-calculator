@@ -25,7 +25,7 @@
     <string name="vat_rate">Ставка НДС</string>
     <string name="rate">Ставка</string>
     <string name="language">Язык</string>
-    <string name="rate_string">%1$s. Ставка %2$d</string>
+    <string name="rate_string">%1$s. Ставка %2$s</string>
     <string name="general_settings">Общие</string>
     <string name="amount_to_words">Сумма прописью</string>
     <string name="Currency">Валюта</string>

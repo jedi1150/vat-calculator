@@ -25,7 +25,7 @@
     <string name="vat_rate">增值稅率</string>
     <string name="rate">率</string>
     <string name="language">語言</string>
-    <string name="rate_string">%1$s。率%2$d</string>
+    <string name="rate_string">%1$s。率%2$s</string>
     <string name="general_settings">一般</string>
     <string name="amount_to_words">字數</string>
     <string name="Currency">貨幣</string>

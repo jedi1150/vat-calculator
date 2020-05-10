@@ -25,7 +25,7 @@
     <string name="vat_rate">Cota TVA</string>
     <string name="rate">Rată</string>
     <string name="language">Limba</string>
-    <string name="rate_string">%1$s. Rata %2$d</string>
+    <string name="rate_string">%1$s. Rata %2$s</string>
     <string name="general_settings">General</string>
     <string name="amount_to_words">Suma cuvintelor</string>
     <string name="Currency">Valută</string>

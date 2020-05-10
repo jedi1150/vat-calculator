@@ -25,7 +25,7 @@
     <string name="vat_rate">Taux de TVA</string>
     <string name="rate">Taux</string>
     <string name="language">Langue</string>
-    <string name="rate_string">%1$s. Taux %2$d</string>
+    <string name="rate_string">%1$s. Taux %2$s</string>
     <string name="general_settings">Général</string>
     <string name="amount_to_words">Montant en mots</string>
     <string name="Currency">Devise</string>

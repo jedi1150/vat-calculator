@@ -25,7 +25,7 @@
     <string name="vat_rate">Áfakulcs</string>
     <string name="rate">Mérték</string>
     <string name="language">Nyelv</string>
-    <string name="rate_string">%1$s. Ár %2$d</string>
+    <string name="rate_string">%1$s. Ár %2$s</string>
     <string name="general_settings">Tábornok</string>
     <string name="amount_to_words">Összeg szavakkal</string>
     <string name="Currency">Valuta</string>

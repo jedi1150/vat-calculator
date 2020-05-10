@@ -25,7 +25,7 @@
     <string name="vat_rate">ҚҚС ставкасы</string>
     <string name="rate">Бағалау</string>
     <string name="language">Тіл</string>
-    <string name="rate_string">%1$s. %2$d бағамы</string>
+    <string name="rate_string">%1$s. %2$s бағамы</string>
     <string name="general_settings">Жалпы</string>
     <string name="amount_to_words">Сөздердің саны</string>
     <string name="Currency">Валюта</string>

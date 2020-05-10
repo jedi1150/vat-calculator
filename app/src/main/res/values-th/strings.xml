@@ -25,7 +25,7 @@
     <string name="vat_rate">อัตราภาษีมูลค่าเพิ่ม</string>
     <string name="rate">ประเมินค่า</string>
     <string name="language">ภาษา</string>
-    <string name="rate_string">%1$s อัตรา %2$d</string>
+    <string name="rate_string">%1$s อัตรา %2$s</string>
     <string name="general_settings">ทั่วไป</string>
     <string name="amount_to_words">จำนวนคำ</string>
     <string name="Currency">เงินตรา</string>

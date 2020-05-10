@@ -25,7 +25,7 @@
     <string name="vat_rate">Taxa d’IVA</string>
     <string name="rate">Valorar</string>
     <string name="language">Llenguatge</string>
-    <string name="rate_string">%1$s. Taxa %2$d</string>
+    <string name="rate_string">%1$s. Taxa %2$s</string>
     <string name="general_settings">General</string>
     <string name="amount_to_words">Quantitat de paraules</string>
     <string name="Currency">Moneda</string>

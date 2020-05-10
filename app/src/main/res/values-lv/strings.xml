@@ -25,7 +25,7 @@
   <string name="vat_rate">PVN likme</string>
   <string name="rate">Likme</string>
   <string name="language">Valoda</string>
-  <string name="rate_string">%1$s. Likme %2$d</string>
+  <string name="rate_string">%1$s. Likme %2$s</string>
   <string name="general_settings">Vispārīgi</string>
   <string name="amount_to_words">Summa vārdiem</string>
   <string name="Currency">Valūta</string>

@@ -25,7 +25,7 @@
     <string name="vat_rate">НДС ставкасы</string>
     <string name="rate">Ставкасы</string>
     <string name="language">Тел</string>
-    <string name="rate_string">%1$s. Ставка %2$d</string>
+    <string name="rate_string">%1$s. Ставка %2$s</string>
     <string name="general_settings">Генерал</string>
     <string name="amount_to_words">Сүзләр күләме</string>
     <string name="Currency">Валюта</string>
