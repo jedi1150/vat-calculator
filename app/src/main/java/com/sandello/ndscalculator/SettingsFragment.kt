@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.view.updatePadding
-import androidx.navigation.fragment.findNavController
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -17,7 +16,6 @@ import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_main.view.*
 import java.util.*
 
-@ExperimentalStdlibApi
 @Suppress("DEPRECATION")
 class SettingsFragment : PreferenceFragmentCompat() {
 
@@ -36,6 +34,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
+    @ExperimentalStdlibApi
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
         val themePref = findPreference("theme") as ListPreference?
@@ -88,7 +87,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             Locale.setDefault(Locale.forLanguageTag(newValue.toString()))
             resources.configuration.setLocale(Locale.forLanguageTag(newValue.toString()))
             resources.updateConfiguration(resources.configuration, resources.displayMetrics)
-            findNavController().navigate(R.id.action_settingsFragment_self)
+            requireActivity().recreate()
             true
         }
 

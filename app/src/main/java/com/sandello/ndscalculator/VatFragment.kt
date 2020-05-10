@@ -23,6 +23,7 @@ import androidx.room.Room
 import com.github.moneytostr.MoneyToStr
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.bottom_fragment.*
 import kotlinx.android.synthetic.main.fragment_vat.*
 import kotlinx.coroutines.Dispatchers
@@ -44,8 +45,8 @@ class VatFragment : Fragment() {
     private var myClip: ClipData? = null
     private var formatter: DecimalFormat = NumberFormat.getNumberInstance() as DecimalFormat
     private var formatterCount: DecimalFormat = NumberFormat.getNumberInstance() as DecimalFormat
-    private val groupSym = formatter.decimalFormatSymbols.groupingSeparator
-    private val decSym = formatter.decimalFormatSymbols.decimalSeparator
+    private val groupSymb = formatter.decimalFormatSymbols.groupingSeparator
+    private val decSymb = formatter.decimalFormatSymbols.decimalSeparator
 
     private var vatAdd: Double? = null
     private var amountInclude: Double? = null
@@ -61,7 +62,9 @@ class VatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         vat_layout.setOnApplyWindowInsetsListener { _, insets ->
-            vatLinear.updatePadding(top = 220, bottom = (insets.systemWindowInsetBottom + bottom_navigation.measuredHeight + 200), right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
+            vatLinear.post {
+                vatLinear.updatePadding(top = view.rootView.toolbar.height + insets.systemWindowInsetTop, bottom = (insets.systemWindowInsetBottom + bottom_navigation.measuredHeight + 200), right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
+            }
             insets
         }
         formatter.roundingMode = RoundingMode.FLOOR
@@ -133,19 +136,18 @@ class VatFragment : Fragment() {
     private fun format() {
         var string: String
         try {
-            string = amountEditText?.text.toString()
+            string = amountEditText.text.toString()
             var pos = amountEditText.selectionStart
 
             if (pos > 0 && (string.substring(pos - 1, pos).contains("[,.]".toRegex()))) {
-                string = string.replaceRange(pos - 1, pos, decSym.toString())
-                if (string.toCharArray().count { it.toString().contains(decSym) } < 2 && pos > 0) {
-                    if (string.startsWith(decSym))
+                string = string.replaceRange(pos - 1, pos, decSymb.toString())
+                if (string.toCharArray().count { it.toString().contains(decSymb) } < 2 && pos > 0) {
+                    if (string.startsWith(decSymb))
                         string = "0${string}"
                     amountEditText.setText(string).toString()
-                    string = string.replaceFirst(decSym.toString(), ":")
+                    string = string.replaceFirst(decSymb.toString(), ":")
                     string = string.replace("[,.]".toRegex(), "")
-
-                    string = string.replace(groupSym.toString(), "") // Remove digit separator
+                    string = string.replace(groupSymb.toString(), "") // Remove digit separator
                     string = string.replace(":", ".")
                     amountDouble = string.toDouble()
                     amountEditText.setSelection(amountEditText.text!!.length)
@@ -154,9 +156,9 @@ class VatFragment : Fragment() {
             if (string.isNotEmpty() && string.substringAfter(",").isNotEmpty() && string.substringAfter(".").isNotEmpty()) {
                 amountEditTextLayout.error = ""
 
-                string = string.replaceFirst(decSym.toString(), ":")
+                string = string.replaceFirst(decSymb.toString(), ":")
                 string = string.replace("[,.]".toRegex(), "")
-                string = string.replace(groupSym.toString(), "") // Remove decimal placesRemove decimal places
+                string = string.replace(groupSymb.toString(), "") // Remove digit separator
                 string = string.replace(":", ".")
                 if (string.startsWith(".")) {
                     string = string.replaceRange(0, 0, "0")
@@ -348,10 +350,10 @@ class VatFragment : Fragment() {
         val selectedRate = pref?.getString("rate", "") // Country code. Ex: ru
         val customRate = pref?.getString("customRate", "")
 
+
         if (saveValue!! && amount != null) { // If save values parameter is true set amount value
             try {
                 amountEditText.setText(formatter.format(amount.toDouble()))
-                format()
             } catch (e: NumberFormatException) {
             }
         }
@@ -408,5 +410,10 @@ class VatFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         loadVal()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        amountEditText.setText("")
     }
 }
