@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Ne takarítson meg összeget kilépéskor</string>
     <string name="arbitrary_rate_set">Tetszőleges HÉA-kulcs beállítva</string>
     <string name="set_vat_rate">Be kell állítani az áfakulcsot</string>
-    <string name="set">Készlet</string>
+    <string name="set">Érték beállítása</string>
 </resources>

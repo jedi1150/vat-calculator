@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Nie oszczędzaj kwoty przy wyjściu</string>
     <string name="arbitrary_rate_set">Ustawiona arbitralna stawka VAT</string>
     <string name="set_vat_rate">Musisz ustawić stawkę VAT</string>
-    <string name="set">Zestaw</string>
+    <string name="set">Ustalić wartość</string>
 </resources>

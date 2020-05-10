@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Не эканоміце суму пры выхадзе</string>
     <string name="arbitrary_rate_set">Усталёўваецца адвольная стаўка ПДВ</string>
     <string name="set_vat_rate">Трэба ўсталяваць стаўку ПДВ</string>
-    <string name="set">Набор</string>
+    <string name="set">Задаць</string>
 </resources>

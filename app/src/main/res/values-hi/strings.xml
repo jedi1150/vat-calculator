@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">बाहर निकलने पर राशि न बचाएं</string>
     <string name="arbitrary_rate_set">मनमाना वैट दर सेट</string>
     <string name="set_vat_rate">वैट दर निर्धारित करने की आवश्यकता है</string>
-    <string name="set">सेट</string>
+    <string name="set">मूल्य ते करना</string>
 </resources>

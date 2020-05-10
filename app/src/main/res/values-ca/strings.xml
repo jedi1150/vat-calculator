@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">No estalvieu la quantitat a la sortida</string>
     <string name="arbitrary_rate_set">Taxa d\'IVA arbitrari establerta</string>
     <string name="set_vat_rate">Necessitat definir el tipus d’IVA</string>
-    <string name="set">Conjunt</string>
+    <string name="set">Set</string>
 </resources>

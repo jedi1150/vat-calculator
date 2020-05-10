@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Μην αποθηκεύετε το ποσό κατά την έξοδο</string>
     <string name="arbitrary_rate_set">Ορίστηκε αυθαίρετος συντελεστής ΦΠΑ</string>
     <string name="set_vat_rate">Πρέπει να ορίσετε συντελεστή ΦΠΑ</string>
-    <string name="set">Σειρά</string>
+    <string name="set">Ορίστε τιμή</string>
 </resources>

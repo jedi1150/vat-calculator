@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Spara inte belopp vid utgång</string>
     <string name="arbitrary_rate_set">Valfri momssats inställd</string>
     <string name="set_vat_rate">Behöver ställa in momssats</string>
-    <string name="set">Uppsättning</string>
+    <string name="set">Satt värde</string>
 </resources>

@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Ne štedite iznos na izlasku</string>
     <string name="arbitrary_rate_set">Postavljena proizvoljna stopa PDV-a</string>
     <string name="set_vat_rate">Trebate postaviti stopu PDV-a</string>
-    <string name="set">set</string>
+    <string name="set">Postavite</string>
 </resources>

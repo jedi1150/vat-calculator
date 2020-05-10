@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Tiffranka l-ammont fil-ħruġ</string>
     <string name="arbitrary_rate_set">Rata tal-VAT arbitrarja stabbilita</string>
     <string name="set_vat_rate">Jeħtieġ li tiġi stabbilita r-rata tal-VAT</string>
-    <string name="set">Issettja</string>
+    <string name="set">Valur issettjat</string>
 </resources>

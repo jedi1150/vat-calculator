@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">不保存退出金額</string>
     <string name="arbitrary_rate_set">設定任意增值稅率</string>
     <string name="set_vat_rate">需要設置增值稅率</string>
-    <string name="set">組</string>
+    <string name="set">設定值</string>
 </resources>

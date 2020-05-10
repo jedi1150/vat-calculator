@@ -32,7 +32,7 @@
     <string name="penny_type">Тип копейки</string>
     <string name="save_amount_on_exit">Сохранить сумму на выходе</string>
     <string name="do_not_save_amount_on_exit">Не экономьте на выходе</string>
-    <string name="arbitrary_rate_set">Произвольная ставка НДС установлена</string>
+    <string name="arbitrary_rate_set">Установлена произвольная ставка НДС</string>
     <string name="set_vat_rate">Нужно установить ставку НДС</string>
-    <string name="set">Набор</string>
+    <string name="set">Установить</string>
 </resources>

@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Netaupykite sumos išvykdami</string>
     <string name="arbitrary_rate_set">Nustatytas savavališkas PVM tarifas</string>
     <string name="set_vat_rate">Reikia nustatyti PVM tarifą</string>
-    <string name="set">Rinkinys</string>
+    <string name="set">Nustatyta vertė</string>
 </resources>

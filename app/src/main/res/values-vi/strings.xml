@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Không tiết kiệm số tiền khi thoát</string>
     <string name="arbitrary_rate_set">Thuế suất VAT tùy ý được đặt</string>
     <string name="set_vat_rate">Cần đặt thuế suất VAT</string>
-    <string name="set">Bộ</string>
+    <string name="set">Đặt giá trị</string>
 </resources>

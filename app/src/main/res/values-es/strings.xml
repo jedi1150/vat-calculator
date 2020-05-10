@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">No ahorre cantidad al salir</string>
     <string name="arbitrary_rate_set">Conjunto arbitrario de tasas de IVA</string>
     <string name="set_vat_rate">Necesidad de establecer la tasa de IVA</string>
-    <string name="set">Conjunto</string>
+    <string name="set">Valor</string>
 </resources>

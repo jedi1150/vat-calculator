@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">출구에 금액을 저장하지 마십시오</string>
     <string name="arbitrary_rate_set">임의 VAT 세율 설정</string>
     <string name="set_vat_rate">부가가치 세율 설정 필요</string>
-    <string name="set">세트</string>
+    <string name="set">설정 값</string>
 </resources>

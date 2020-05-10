@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Ne pas enregistrer le montant à la sortie</string>
     <string name="arbitrary_rate_set">Ensemble de taux de TVA arbitraire</string>
     <string name="set_vat_rate">Besoin de fixer le taux de TVA</string>
-    <string name="set">Ensemble</string>
+    <string name="set">Définir</string>
 </resources>
