@@ -25,7 +25,7 @@
     <string name="vat_rate">মূসক হার</string>
     <string name="rate">হার</string>
     <string name="language">ভাষা</string>
-    <string name="rate_string">%1$s হার %2$d</string>
+    <string name="rate_string">%1$s হার %2$s</string>
     <string name="general_settings">সাধারণ</string>
     <string name="amount_to_words">শব্দের পরিমাণ</string>
     <string name="Currency">মুদ্রা</string>

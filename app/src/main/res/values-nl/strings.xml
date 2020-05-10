@@ -25,7 +25,7 @@
     <string name="vat_rate">BTW-tarief</string>
     <string name="rate">Tarief</string>
     <string name="language">Taal</string>
-    <string name="rate_string">%1$s. Beoordeel %2$d</string>
+    <string name="rate_string">%1$s. Beoordeel %2$s</string>
     <string name="general_settings">Algemeen</string>
     <string name="amount_to_words">Bedrag aan woorden</string>
     <string name="Currency">Valuta</string>
@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Bespaar geen bedrag bij het verlaten</string>
     <string name="arbitrary_rate_set">Willekeurig btw-tarief vastgesteld</string>
     <string name="set_vat_rate">Het btw-tarief moet worden ingesteld</string>
-    <string name="set">Stel</string>
+    <string name="set">Indstil</string>
 </resources>

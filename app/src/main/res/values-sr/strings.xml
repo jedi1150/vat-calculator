@@ -25,7 +25,7 @@
     <string name="vat_rate">Стопа ПДВ-а</string>
     <string name="rate">Рате</string>
     <string name="language">Језик</string>
-    <string name="rate_string">%1$s. Стопа %2$d</string>
+    <string name="rate_string">%1$s. Стопа %2$s</string>
     <string name="general_settings">Општи</string>
     <string name="amount_to_words">Количина речи</string>
     <string name="Currency">Валута</string>
@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Не штедите износ при изласку</string>
     <string name="arbitrary_rate_set">Постављена произвољна стопа ПДВ-а</string>
     <string name="set_vat_rate">Потребно је подесити стопу ПДВ-а</string>
-    <string name="set">Комплет</string>
+    <string name="set">Подешена</string>
 </resources>

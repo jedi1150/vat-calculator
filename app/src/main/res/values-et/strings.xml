@@ -25,7 +25,7 @@
     <string name="vat_rate">Käibemaksumäär</string>
     <string name="rate">Hinda</string>
     <string name="language">Keel</string>
-    <string name="rate_string">%1$s. Hinda %2$d</string>
+    <string name="rate_string">%1$s. Hinda %2$s</string>
     <string name="general_settings">Üldine</string>
     <string name="amount_to_words">Summa sõnadesse</string>
     <string name="Currency">Valuuta</string>
@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Ära säästa väljumisel summat</string>
     <string name="arbitrary_rate_set">Määratud meelevaldne käibemaksumäär</string>
     <string name="set_vat_rate">Peate määrama käibemaksumäära</string>
-    <string name="set">Komplekt</string>
+    <string name="set">Määra</string>
 </resources>

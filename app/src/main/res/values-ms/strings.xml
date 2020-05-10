@@ -25,7 +25,7 @@
     <string name="vat_rate">Kadar VAT</string>
     <string name="rate">Nilaikan</string>
     <string name="language">Bahasa</string>
-    <string name="rate_string">%1$s. Nilai %2$d</string>
+    <string name="rate_string">%1$s. Nilai %2$s</string>
     <string name="general_settings">Am</string>
     <string name="amount_to_words">Jumlah perkataan</string>
     <string name="Currency">Mata Wang</string>
@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Jangan simpan jumlah semasa keluar</string>
     <string name="arbitrary_rate_set">Kadar VAT sewenang-wenangnya ditetapkan</string>
     <string name="set_vat_rate">Perlu menetapkan kadar VAT</string>
-    <string name="set">Tetapkan</string>
+    <string name="set">Tetapkan nilai</string>
 </resources>

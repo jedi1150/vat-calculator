@@ -25,7 +25,7 @@
     <string name="vat_rate">ԱԱՀ-ի դրույքաչափը</string>
     <string name="rate">Գնահատեք</string>
     <string name="language">Լեզու</string>
-    <string name="rate_string">%1$s: Գնահատեք %2$d</string>
+    <string name="rate_string">%1$s: Գնահատեք %2$s</string>
     <string name="general_settings">Գեներալ</string>
     <string name="amount_to_words">Գումարը բառերին</string>
     <string name="Currency">Արժույթ</string>

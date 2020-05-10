@@ -25,7 +25,7 @@
     <string name="vat_rate">वैट दर</string>
     <string name="rate">मूल्यांकन करें</string>
     <string name="language">भाषा: हिन्दी</string>
-    <string name="rate_string">%1$s दर %2$d</string>
+    <string name="rate_string">%1$s दर %2$s</string>
     <string name="general_settings">सामान्य</string>
     <string name="amount_to_words">शब्दों को राशि</string>
     <string name="Currency">मुद्रा</string>
@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">बाहर निकलने पर राशि न बचाएं</string>
     <string name="arbitrary_rate_set">मनमाना वैट दर सेट</string>
     <string name="set_vat_rate">वैट दर निर्धारित करने की आवश्यकता है</string>
-    <string name="set">सेट</string>
+    <string name="set">मूल्य ते करना</string>
 </resources>

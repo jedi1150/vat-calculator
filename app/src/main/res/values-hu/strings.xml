@@ -25,7 +25,7 @@
     <string name="vat_rate">Áfakulcs</string>
     <string name="rate">Mérték</string>
     <string name="language">Nyelv</string>
-    <string name="rate_string">%1$s. Ár %2$d</string>
+    <string name="rate_string">%1$s. Ár %2$s</string>
     <string name="general_settings">Tábornok</string>
     <string name="amount_to_words">Összeg szavakkal</string>
     <string name="Currency">Valuta</string>
@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Ne takarítson meg összeget kilépéskor</string>
     <string name="arbitrary_rate_set">Tetszőleges HÉA-kulcs beállítva</string>
     <string name="set_vat_rate">Be kell állítani az áfakulcsot</string>
-    <string name="set">Készlet</string>
+    <string name="set">Érték beállítása</string>
 </resources>

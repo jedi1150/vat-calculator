@@ -25,7 +25,7 @@
     <string name="vat_rate">Aliquota IVA</string>
     <string name="rate">Vota</string>
     <string name="language">Linguaggio</string>
-    <string name="rate_string">%1$s. Tasso %2$d</string>
+    <string name="rate_string">%1$s. Tasso %2$s</string>
     <string name="general_settings">Generale</string>
     <string name="amount_to_words">Importo in parole</string>
     <string name="Currency">Moneta</string>
@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Non salvare l\'importo all\'uscita</string>
     <string name="arbitrary_rate_set">Aliquota IVA arbitraria impostata</string>
     <string name="set_vat_rate">È necessario impostare l\'aliquota IVA</string>
-    <string name="set">Impostato</string>
+    <string name="set">Valore impostato</string>
 </resources>

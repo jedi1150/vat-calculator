@@ -25,7 +25,7 @@
     <string name="vat_rate">Rata tal-VAT</string>
     <string name="rate">Rata</string>
     <string name="language">Lingwa</string>
-    <string name="rate_string">%1$s. Rata %2$d</string>
+    <string name="rate_string">%1$s. Rata %2$s</string>
     <string name="general_settings">Ġenerali</string>
     <string name="amount_to_words">Ammont għall-kliem</string>
     <string name="Currency">Munita</string>
@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Tiffranka l-ammont fil-ħruġ</string>
     <string name="arbitrary_rate_set">Rata tal-VAT arbitrarja stabbilita</string>
     <string name="set_vat_rate">Jeħtieġ li tiġi stabbilita r-rata tal-VAT</string>
-    <string name="set">Issettja</string>
+    <string name="set">Valur issettjat</string>
 </resources>

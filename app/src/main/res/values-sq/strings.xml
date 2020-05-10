@@ -25,7 +25,7 @@
     <string name="vat_rate">Shkalla e TVSH-së</string>
     <string name="rate">normë</string>
     <string name="language">Gjuhe</string>
-    <string name="rate_string">%1$s. Vlerësoni %2$d</string>
+    <string name="rate_string">%1$s. Vlerësoni %2$s</string>
     <string name="general_settings">i përgjithshëm</string>
     <string name="amount_to_words">Shuma e fjalëve</string>
     <string name="Currency">monedhë</string>

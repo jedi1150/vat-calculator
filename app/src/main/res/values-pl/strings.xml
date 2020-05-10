@@ -25,7 +25,7 @@
     <string name="vat_rate">Stawka VAT</string>
     <string name="rate">Oceniać</string>
     <string name="language">Język</string>
-    <string name="rate_string">%1$s. Oceń %2$d</string>
+    <string name="rate_string">%1$s. Oceń %2$s</string>
     <string name="general_settings">Generał</string>
     <string name="amount_to_words">Ilość słów</string>
     <string name="Currency">Waluta</string>
@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">Nie oszczędzaj kwoty przy wyjściu</string>
     <string name="arbitrary_rate_set">Ustawiona arbitralna stawka VAT</string>
     <string name="set_vat_rate">Musisz ustawić stawkę VAT</string>
-    <string name="set">Zestaw</string>
+    <string name="set">Ustalić wartość</string>
 </resources>

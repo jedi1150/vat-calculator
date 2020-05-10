@@ -25,7 +25,7 @@
     <string name="vat_rate">增值稅率</string>
     <string name="rate">率</string>
     <string name="language">語言</string>
-    <string name="rate_string">%1$s。率%2$d</string>
+    <string name="rate_string">%1$s。率%2$s</string>
     <string name="general_settings">一般</string>
     <string name="amount_to_words">字數</string>
     <string name="Currency">貨幣</string>
@@ -34,5 +34,5 @@
     <string name="do_not_save_amount_on_exit">不保存退出金額</string>
     <string name="arbitrary_rate_set">設定任意增值稅率</string>
     <string name="set_vat_rate">需要設置增值稅率</string>
-    <string name="set">組</string>
+    <string name="set">設定值</string>
 </resources>
