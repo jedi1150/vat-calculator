@@ -18,6 +18,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
+        android:background="?attr/transparentSurface"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="false"
