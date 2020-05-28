@@ -25,14 +25,20 @@
     <string name="vat_rate">Tipo de IVA</string>
     <string name="rate">Velocidad</string>
     <string name="language">Idioma</string>
-    <string name="rate_string">%1$s. Tasa %2$s</string>
+    <string name="rate_string">%1$s\n%3$s tasa %2$s</string>
     <string name="general_settings">General</string>
     <string name="amount_to_words">Cantidad de palabras</string>
-    <string name="Currency">Moneda</string>
+    <string name="currency">Moneda</string>
     <string name="penny_type">Tipo centavo</string>
     <string name="save_amount_on_exit">Ahorre cantidad al salir</string>
     <string name="do_not_save_amount_on_exit">No ahorre cantidad al salir</string>
     <string name="arbitrary_rate_set">Conjunto arbitrario de tasas de IVA</string>
     <string name="set_vat_rate">Necesidad de establecer la tasa de IVA</string>
     <string name="set">Valor</string>
+    <string name="type_standard">estándar</string>
+    <string name="type_higher">mayor</string>
+    <string name="type_reduced">reducido</string>
+    <string name="compact_view">Vista compacta</string>
+    <string name="horizontal_layout">Diseño horizontal</string>
+    <string name="vertical_layout">Diseño vertical</string>
 </resources>

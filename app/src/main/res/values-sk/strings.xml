@@ -25,14 +25,20 @@
     <string name="vat_rate">Sadzba DPH</string>
     <string name="rate">Rýchlosť</string>
     <string name="language">Jazyk</string>
-    <string name="rate_string">%1$s. Ohodnoťte %2$s</string>
+    <string name="rate_string">%1$s\nSadzba %3$s %2$s</string>
     <string name="general_settings">Všeobecné</string>
     <string name="amount_to_words">Počet slov</string>
-    <string name="Currency">Mena</string>
+    <string name="currency">Mena</string>
     <string name="penny_type">Penny type</string>
     <string name="save_amount_on_exit">Ušetrite sumu pri odchode</string>
     <string name="do_not_save_amount_on_exit">Na výstupe neukladajte množstvo</string>
     <string name="arbitrary_rate_set">Ľubovoľná sadzba DPH</string>
     <string name="set_vat_rate">Potreba stanoviť sadzbu DPH</string>
     <string name="set">Nastavená</string>
+    <string name="type_standard">standard</string>
+    <string name="type_higher">vyššia</string>
+    <string name="type_reduced">znížený</string>
+    <string name="compact_view">Kompaktné zobrazenie</string>
+    <string name="horizontal_layout">Horizontálne rozloženie</string>
+    <string name="vertical_layout">Vertikálne rozloženie</string>
 </resources>

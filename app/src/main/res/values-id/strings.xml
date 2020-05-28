@@ -25,14 +25,20 @@
     <string name="vat_rate">Tingkat PPN</string>
     <string name="rate">Menilai</string>
     <string name="language">Bahasa</string>
-    <string name="rate_string">%1$s. Tingkat %2$s</string>
+    <string name="rate_string">%1$s\n%3$s tingkat %2$s</string>
     <string name="general_settings">Umum</string>
     <string name="amount_to_words">Jumlah kata-kata</string>
-    <string name="Currency">Mata uang</string>
+    <string name="currency">Mata uang</string>
     <string name="penny_type">Jenis sen</string>
     <string name="save_amount_on_exit">Simpan jumlah saat keluar</string>
     <string name="do_not_save_amount_on_exit">Jangan menyimpan jumlah saat keluar</string>
     <string name="arbitrary_rate_set">Tarif PPN sewenang-wenang</string>
     <string name="set_vat_rate">Harus menetapkan tingkat PPN</string>
     <string name="set">Tetapkan nilai</string>
+    <string name="type_standard">standar</string>
+    <string name="type_higher">lebih tinggi</string>
+    <string name="type_reduced">berkurang</string>
+    <string name="compact_view">Tampilan ringkas</string>
+    <string name="horizontal_layout">Tata letak horizontal</string>
+    <string name="vertical_layout">Tata letak vertikal</string>
 </resources>

@@ -25,14 +25,20 @@
     <string name="vat_rate">שיעור מע\"מ</string>
     <string name="rate">ציון</string>
     <string name="language">שפה</string>
-    <string name="rate_string">%1$s. דרג %2$s</string>
+    <string name="rate_string">%1$s\n%3$s שיעור %2$s</string>
     <string name="general_settings">כללי</string>
     <string name="amount_to_words">כמות למילים</string>
-    <string name="Currency">מטבע</string>
+    <string name="currency">מטבע</string>
     <string name="penny_type">טיפוס פני</string>
     <string name="save_amount_on_exit">חסוך סכום ביציאה</string>
     <string name="do_not_save_amount_on_exit">אל תחסוך סכום ביציאה</string>
     <string name="arbitrary_rate_set">נקבע שיעור מע\"מ שרירותי</string>
     <string name="set_vat_rate">צריך להגדיר שיעור מע\"מ</string>
     <string name="set">הגדר ערך</string>
+    <string name="type_standard">סטנדרטית</string>
+    <string name="type_higher">גבוה יותר</string>
+    <string name="type_reduced">מופחת</string>
+    <string name="compact_view">תצוגה קומפקטית</string>
+    <string name="horizontal_layout">פריסה אופקית</string>
+    <string name="vertical_layout">פריסה אנכית</string>
 </resources>
