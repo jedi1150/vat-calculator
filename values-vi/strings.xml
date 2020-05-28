@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Bản văn</item>
+    <item>Con số</item>
+  </string-array>
+  <string name="app_name">Thuế VAT</string>
+  <string name="amount">Số tiền</string>
+  <string name="without_vat">Chưa bao gồm VAT</string>
+  <string name="include_vat">Đã bao gồm VAT</string>
+  <string name="vat">Thuế VAT</string>
+  <string name="gross_amount">Tổng tiền</string>
+  <string name="net_amount">Số lượng tịnh</string>
+  <string name="copied">Sao chép!</string>
+  <string name="light">Ánh sáng</string>
+  <string name="dark">Tối</string>
+  <string name="battery_saver">Đặt theo tiết kiệm pin</string>
+  <string name="system_default">Mặc định hệ thống</string>
+  <string name="choose_theme">Chủ đề</string>
+  <string name="cancel">Hủy bỏ</string>
+  <string name="improve_translation">Cải thiện bản dịch</string>
+  <string name="settings">Cài đặt</string>
+  <string name="other">Khác</string>
+  <string name="save_value">Tiết kiệm giá trị</string>
+  <string name="vat_rate">tỉ lệ VAT</string>
+  <string name="rate">Tỷ lệ</string>
+  <string name="language">Ngôn ngữ</string>
+  <string name="rate_string">%1$s. Tỷ lệ %3$s %2$s</string>
+  <string name="general_settings">Chung</string>
+  <string name="amount_to_words">Số lượng từ</string>
+  <string name="currency">Tiền tệ</string>
+  <string name="penny_type">Loại đồng xu</string>
+  <string name="save_amount_on_exit">Tiết kiệm số tiền khi thoát</string>
+  <string name="do_not_save_amount_on_exit">Không tiết kiệm số tiền khi thoát</string>
+  <string name="arbitrary_rate_set">Thuế suất VAT tùy ý được đặt</string>
+  <string name="set_vat_rate">Cần đặt thuế suất VAT</string>
+  <string name="set">Đặt giá trị</string>
+  <string name="type_standard">Tiêu chuẩn</string>
+  <string name="type_higher">cao hơn</string>
+  <string name="type_reduced">giảm</string>
+  <string name="compact_view">Chế độ xem nhỏ gọn</string>
+</resources>

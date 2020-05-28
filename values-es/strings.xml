@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Texto</item>
+    <item>Número</item>
+  </string-array>
+  <string name="app_name">IVA</string>
+  <string name="amount">Cantidad</string>
+  <string name="without_vat">IVA no incluido</string>
+  <string name="include_vat">Incluye IVA</string>
+  <string name="vat">IVA</string>
+  <string name="gross_amount">Cantidad bruta</string>
+  <string name="net_amount">Importe neto</string>
+  <string name="copied">Copiado!</string>
+  <string name="light">Ligero</string>
+  <string name="dark">Oscuro</string>
+  <string name="battery_saver">Establecido por Batiera Saber</string>
+  <string name="system_default">Sistema por defecto</string>
+  <string name="choose_theme">Tema</string>
+  <string name="cancel">Cancelar</string>
+  <string name="improve_translation">Mejora la traducción</string>
+  <string name="settings">Configuraciones</string>
+  <string name="other">Otro</string>
+  <string name="save_value">Ahorrar valor</string>
+  <string name="vat_rate">Tipo de IVA</string>
+  <string name="rate">Velocidad</string>
+  <string name="language">Idioma</string>
+  <string name="rate_string">%1$s. %3$s tasa %2$s</string>
+  <string name="general_settings">General</string>
+  <string name="amount_to_words">Cantidad de palabras</string>
+  <string name="currency">Moneda</string>
+  <string name="penny_type">Tipo centavo</string>
+  <string name="save_amount_on_exit">Ahorre cantidad al salir</string>
+  <string name="do_not_save_amount_on_exit">No ahorre cantidad al salir</string>
+  <string name="arbitrary_rate_set">Conjunto arbitrario de tasas de IVA</string>
+  <string name="set_vat_rate">Necesidad de establecer la tasa de IVA</string>
+  <string name="set">Valor</string>
+  <string name="type_standard">estándar</string>
+  <string name="type_higher">mayor</string>
+  <string name="type_reduced">reducido</string>
+  <string name="compact_view">Vista compacta</string>
+</resources>

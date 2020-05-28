@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Test</item>
+    <item>Numru</item>
+  </string-array>
+  <string name="app_name">VAT</string>
+  <string name="amount">Ammont</string>
+  <string name="without_vat">Il-VAT eskluża</string>
+  <string name="include_vat">Inkluża l-VAT</string>
+  <string name="vat">VAT</string>
+  <string name="gross_amount">Ammont Gross</string>
+  <string name="net_amount">Ammont Nett</string>
+  <string name="copied">Ikkopjat!</string>
+  <string name="light">Dawl ħafif</string>
+  <string name="dark">Dlam</string>
+  <string name="battery_saver">Issettjat minn Battery Saver</string>
+  <string name="system_default">Sistema awtomatika</string>
+  <string name="choose_theme">Tema</string>
+  <string name="cancel">Ikkanċella</string>
+  <string name="improve_translation">Ittejjeb it-traduzzjoni</string>
+  <string name="settings">Is-settings</string>
+  <string name="other">Oħrajn</string>
+  <string name="save_value">Iffranka l-valur</string>
+  <string name="vat_rate">Rata tal-VAT</string>
+  <string name="rate">Rata</string>
+  <string name="language">Lingwa</string>
+  <string name="rate_string">%1$s. %3$s rata %2$s</string>
+  <string name="general_settings">Ġenerali</string>
+  <string name="amount_to_words">Ammont għall-kliem</string>
+  <string name="currency">Munita</string>
+  <string name="penny_type">Tip Penny</string>
+  <string name="save_amount_on_exit">Iffranka l-ammont fil-ħruġ</string>
+  <string name="do_not_save_amount_on_exit">Tiffranka l-ammont fil-ħruġ</string>
+  <string name="arbitrary_rate_set">Rata tal-VAT arbitrarja stabbilita</string>
+  <string name="set_vat_rate">Jeħtieġ li tiġi stabbilita r-rata tal-VAT</string>
+  <string name="set">Valur issettjat</string>
+  <string name="type_standard">standard</string>
+  <string name="type_higher">ogħla</string>
+  <string name="type_reduced">imnaqqas</string>
+  <string name="compact_view">Veduta kumpatta</string>
+</resources>
