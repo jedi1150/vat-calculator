@@ -25,14 +25,20 @@
     <string name="vat_rate">قيمة الضريبة</string>
     <string name="rate">معدل</string>
     <string name="language">لغة</string>
-    <string name="rate_string">%1$s. تقييم %2$s</string>
+    <string name="rate_string">%1$s\n %3$s %2$s</string>
     <string name="general_settings">جنرال لواء</string>
     <string name="amount_to_words">كمية الكلمات</string>
-    <string name="Currency">عملة</string>
+    <string name="currency">عملة</string>
     <string name="penny_type">نوع بيني</string>
     <string name="save_amount_on_exit">وفر المبلغ عند الخروج</string>
     <string name="do_not_save_amount_on_exit">لا تحفظ المبلغ عند الخروج</string>
     <string name="arbitrary_rate_set">مجموعة معدل ضريبة القيمة المضافة التعسفي</string>
     <string name="set_vat_rate">تحتاج إلى تعيين معدل ضريبة القيمة المضافة</string>
     <string name="set">جلس</string>
+    <string name="type_standard">اساسي</string>
+    <string name="type_higher">أعلى</string>
+    <string name="type_reduced">انخفاض</string>
+    <string name="compact_view">عرض مضغوط</string>
+    <string name="horizontal_layout">تخطيط أفقي</string>
+    <string name="vertical_layout">تخطيط عمودي</string>
 </resources>

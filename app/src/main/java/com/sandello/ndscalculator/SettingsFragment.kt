@@ -39,7 +39,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
         val themePref = findPreference("theme") as ListPreference?
         val languagePref = findPreference("language") as ListPreference?
-        val ratesPref = findPreference("rate") as ListPreference?
+        val ratesPref = findPreference("rate_id") as ListPreference?
         val currencyPref = findPreference("currency") as ListPreference?
         val translatePref = findPreference("translate") as Preference?
         val githubPref = findPreference("github") as Preference?
@@ -95,15 +95,20 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val db = Room.databaseBuilder(
                 requireContext(),
                 AppDatabase::class.java, "rates"
-        ).allowMainThreadQueries().build()
+        ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
         ratesPref?.isVisible = db.rateDao().getAll().isNotEmpty()
-        for (element in db.rateDao().getAll()) {
-            rateEntryValues.add(element.code)
-            val rate = element.rate
-            if (rate.toString().substringAfter(".") == "0")
-                rateEntries.add(getString(R.string.rate_string, Locale("", element.code).displayCountry, rate.toString().substringBefore(".")) + "%")
+        for (element in db.rateDao().getAll().sortedBy { Locale("", it.code).displayCountry }) {
+            rateEntryValues.add(element.id.toString())
+            val type = when (element.type) {
+                "standard" -> getString(R.string.type_standard)
+                "higher" -> getString(R.string.type_higher)
+                "reduced" -> getString(R.string.type_reduced)
+                else -> element.type
+            }
+            if (element.rate.toString().substringAfter(".") == "0")
+                rateEntries.add(getString(R.string.rate_string, Locale("", element.code).displayCountry, element.rate.toString().substringBefore("."), type.capitalize(Locale.ROOT)) + "%")
             else
-                rateEntries.add(getString(R.string.rate_string, Locale("", element.code).displayCountry, element.rate.toString()) + "%")
+                rateEntries.add(getString(R.string.rate_string, Locale("", element.code).displayCountry, element.rate.toString(), type.capitalize(Locale.ROOT)) + "%")
         }
 
         ratesPref?.entries = rateEntries.toTypedArray()
@@ -161,7 +166,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onResume() {
         super.onResume()
         if (arguments?.getBoolean("setRate")!!) {
-            val ratesPref = findPreference("rate") as ListPreference?
+            val ratesPref = findPreference("rate_id") as ListPreference?
             ratesPref?.performClick()
         }
     }

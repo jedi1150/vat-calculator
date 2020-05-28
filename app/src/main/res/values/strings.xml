@@ -90,14 +90,20 @@
   <string name="vat_rate">VAT rate</string>
   <string name="rate">Rate</string>
   <string name="language">Language</string>
-  <string name="rate_string">%1$s. Rate %2$s</string>
+  <string name="rate_string">%1$s\n%3$s rate %2$s</string>
   <string name="general_settings">General</string>
   <string name="amount_to_words">Amount to words</string>
-  <string name="Currency">Currency</string>
+  <string name="currency">Currency</string>
   <string name="penny_type">Penny type</string>
   <string name="save_amount_on_exit">Save amount on exit</string>
   <string name="do_not_save_amount_on_exit">Do not save amount on exit</string>
   <string name="arbitrary_rate_set">Arbitrary VAT rate set</string>
   <string name="set_vat_rate">Need to set VAT rate</string>
   <string name="set">Set</string>
+  <string name="type_standard">standard</string>
+  <string name="type_higher">higher</string>
+  <string name="type_reduced">reduced</string>
+  <string name="compact_view">Compact view</string>
+  <string name="horizontal_layout">Horizontal layout</string>
+  <string name="vertical_layout">Vertical layout</string>
 </resources>

@@ -25,14 +25,20 @@
     <string name="vat_rate">Cota TVA</string>
     <string name="rate">Rată</string>
     <string name="language">Limba</string>
-    <string name="rate_string">%1$s. Rata %2$s</string>
+    <string name="rate_string">%1$s\n%3$s rata %2$s</string>
     <string name="general_settings">General</string>
     <string name="amount_to_words">Suma cuvintelor</string>
-    <string name="Currency">Valută</string>
+    <string name="currency">Valută</string>
     <string name="penny_type">Tip Penny</string>
     <string name="save_amount_on_exit">Economisiți suma la ieșire</string>
     <string name="do_not_save_amount_on_exit">Nu economisiți suma la ieșire</string>
     <string name="arbitrary_rate_set">Set de TVA arbitrar</string>
     <string name="set_vat_rate">Trebuie să setați TVA</string>
     <string name="set">Valoare setată</string>
+    <string name="type_standard">standard</string>
+    <string name="type_higher">superior</string>
+    <string name="type_reduced">redus</string>
+    <string name="compact_view">Vizualizare compactă</string>
+    <string name="horizontal_layout">Aspect orizontal</string>
+    <string name="vertical_layout">Aspect vertical</string>
 </resources>

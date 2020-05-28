@@ -25,14 +25,20 @@
     <string name="vat_rate">ҚҚС ставкасы</string>
     <string name="rate">Бағалау</string>
     <string name="language">Тіл</string>
-    <string name="rate_string">%1$s. %2$s бағамы</string>
+    <string name="rate_string">%1$s\n%3$s бағамы %2$s</string>
     <string name="general_settings">Жалпы</string>
     <string name="amount_to_words">Сөздердің саны</string>
-    <string name="Currency">Валюта</string>
+    <string name="currency">Валюта</string>
     <string name="penny_type">Пенни түрі</string>
     <string name="save_amount_on_exit">Шығу кезінде соманы үнемдеңіз</string>
     <string name="do_not_save_amount_on_exit">Шығу кезінде соманы сақтамаңыз</string>
     <string name="arbitrary_rate_set">Ерікті ҚҚС мөлшерлемесі</string>
     <string name="set_vat_rate">ҚҚС мөлшерлемесін белгілеу қажет</string>
     <string name="set">Мәнді орнатыңыз</string>
+    <string name="type_standard">стандартты</string>
+    <string name="type_higher">жоғарырақ</string>
+    <string name="type_reduced">азайды</string>
+    <string name="compact_view">Ықшам көрініс</string>
+    <string name="horizontal_layout">Көлденең орналасу</string>
+    <string name="vertical_layout">Тік орналасу</string>
 </resources>

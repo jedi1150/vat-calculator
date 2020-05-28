@@ -25,14 +25,20 @@
     <string name="vat_rate">НДС ставкасы</string>
     <string name="rate">Ставкасы</string>
     <string name="language">Тел</string>
-    <string name="rate_string">%1$s. Ставка %2$s</string>
+    <string name="rate_string">%1$s\n%3$s нисбәт %2$s</string>
     <string name="general_settings">Генерал</string>
     <string name="amount_to_words">Сүзләр күләме</string>
-    <string name="Currency">Валюта</string>
+    <string name="currency">Валюта</string>
     <string name="penny_type">Каләм тибы</string>
     <string name="save_amount_on_exit">Чыгышта сумманы саклагыз</string>
     <string name="do_not_save_amount_on_exit">Чыгып киткәч сумманы сакламагыз</string>
     <string name="arbitrary_rate_set">Бушлай коймак</string>
     <string name="set_vat_rate">Сез заявка куярга тиеш</string>
     <string name="set">Кыйммәт</string>
+    <string name="type_standard">стандартная</string>
+    <string name="type_higher">югарырак</string>
+    <string name="type_reduced">кимеде</string>
+    <string name="compact_view">Компакт күренеш</string>
+    <string name="horizontal_layout">Горизонталь урнашу</string>
+    <string name="vertical_layout">Вертикаль макет</string>
 </resources>

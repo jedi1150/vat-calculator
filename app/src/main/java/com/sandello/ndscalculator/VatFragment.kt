@@ -14,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.LinearLayout
 import androidx.core.os.bundleOf
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
@@ -107,7 +108,7 @@ class VatFragment : Fragment() {
                     saveVal()
 
                     val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
-                    pref.edit().putString("rate", null).apply()
+                    pref.edit().putString("rate_id", null).apply()
                     pref.edit().putString("customRate", s.toString()).apply()
                 }
             }
@@ -275,10 +276,10 @@ class VatFragment : Fragment() {
         }
 
         val pennySelected = when (penny) {
-            "Text" -> {
+            "penny_type_text" -> {
                 MoneyToStr.Pennies.TEXT
             }
-            "Number" -> {
+            "penny_type_number" -> {
                 MoneyToStr.Pennies.NUMBER
             }
             else -> {
@@ -343,11 +344,11 @@ class VatFragment : Fragment() {
         val db = Room.databaseBuilder(
                 requireContext(),
                 AppDatabase::class.java, "rates"
-        ).allowMainThreadQueries().build()
+        ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
 
         val amount = prefsVal?.getString("amount", "")
         val saveValue = pref?.getBoolean("save_value", true)
-        val selectedRate = pref?.getString("rate", "") // Country code. Ex: ru
+        val selectedRate = pref?.getString("rate_id", "") // Country code. Ex: ru
         val customRate = pref?.getString("customRate", "")
 
 
@@ -366,7 +367,7 @@ class VatFragment : Fragment() {
                 if (!ratesReceived) withContext(Dispatchers.IO) { retrievedRate = GetRates().main(requireContext()) } // Initialize receive rates only at launch
                 launch(Dispatchers.Main) {
                     if (selectedRate != "" && db.rateDao().getAll().isNotEmpty()) {
-                        val daoRate = db.rateDao().findByCountry(selectedRate!!)!!.rate.toString()
+                        val daoRate = db.rateDao().findById(selectedRate!!.toInt())!!.rate.toString()
                         if (daoRate != "") {
                             if (daoRate.substringAfter(".") == "0")
                                 rateEditText?.setText(daoRate.substringBefore("."))
@@ -409,6 +410,17 @@ class VatFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        val compactView = pref?.getBoolean("compact_view", true) // Linear Layout orientation
+        ll1.orientation = when (compactView) {
+            true -> LinearLayout.HORIZONTAL
+            false -> LinearLayout.VERTICAL
+            else -> LinearLayout.HORIZONTAL
+        }
+        ll2.orientation = when (compactView) {
+            true -> LinearLayout.HORIZONTAL
+            false -> LinearLayout.VERTICAL
+            else -> LinearLayout.HORIZONTAL
+        }
         loadVal()
     }
 

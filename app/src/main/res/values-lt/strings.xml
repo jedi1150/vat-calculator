@@ -25,14 +25,20 @@
     <string name="vat_rate">PVM tarifas</string>
     <string name="rate">Įvertink</string>
     <string name="language">Kalba</string>
-    <string name="rate_string">%1$s. Įvertinkite %2$s</string>
+    <string name="rate_string">%1$s\n%3$s norma %2$s</string>
     <string name="general_settings">Generolas</string>
     <string name="amount_to_words">Suma prie žodžių</string>
-    <string name="Currency">Valiuta</string>
+    <string name="currency">Valiuta</string>
     <string name="penny_type">Peno tipas</string>
     <string name="save_amount_on_exit">Sutaupykite sumos išvykdami</string>
     <string name="do_not_save_amount_on_exit">Netaupykite sumos išvykdami</string>
     <string name="arbitrary_rate_set">Nustatytas savavališkas PVM tarifas</string>
     <string name="set_vat_rate">Reikia nustatyti PVM tarifą</string>
     <string name="set">Nustatyta vertė</string>
+    <string name="type_standard">standartinis</string>
+    <string name="type_higher">aukštesnis</string>
+    <string name="type_reduced">sumažinta</string>
+    <string name="compact_view">Kompaktiškas vaizdas</string>
+    <string name="horizontal_layout">Horizontalus išdėstymas</string>
+    <string name="vertical_layout">Vertikalus išdėstymas</string>
 </resources>

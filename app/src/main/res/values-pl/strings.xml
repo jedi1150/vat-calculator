@@ -25,14 +25,20 @@
     <string name="vat_rate">Stawka VAT</string>
     <string name="rate">Oceniać</string>
     <string name="language">Język</string>
-    <string name="rate_string">%1$s. Oceń %2$s</string>
+    <string name="rate_string">%1$s\n%3$s stopa %2$s</string>
     <string name="general_settings">Generał</string>
     <string name="amount_to_words">Ilość słów</string>
-    <string name="Currency">Waluta</string>
+    <string name="currency">Waluta</string>
     <string name="penny_type">Rodzaj grosza</string>
     <string name="save_amount_on_exit">Zaoszczędź przy wyjściu</string>
     <string name="do_not_save_amount_on_exit">Nie oszczędzaj kwoty przy wyjściu</string>
     <string name="arbitrary_rate_set">Ustawiona arbitralna stawka VAT</string>
     <string name="set_vat_rate">Musisz ustawić stawkę VAT</string>
     <string name="set">Ustalić wartość</string>
+    <string name="type_standard">standard</string>
+    <string name="type_higher">wyższy</string>
+    <string name="type_reduced">zredukowany</string>
+    <string name="compact_view">Widok kompaktowy</string>
+    <string name="horizontal_layout">Układ poziomy</string>
+    <string name="vertical_layout">Układ pionowy</string>
 </resources>

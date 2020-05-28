@@ -1,43 +1,50 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory app:title="@string/general_settings">
+    <PreferenceCategory android:title="@string/general_settings">
 
         <ListPreference
-            app:icon="@drawable/brightness"
-            app:key="theme"
+            android:icon="@drawable/brightness"
+            android:key="theme"
             android:summary="%s"
-            app:title="@string/choose_theme" />
+            android:title="@string/choose_theme" />
+
+        <ListPreference
+            android:icon="@drawable/language"
+            android:key="language"
+            android:summary="%s"
+            android:title="@string/language" />
 
         <SwitchPreference
             android:defaultValue="true"
-            app:icon="@drawable/save"
-            app:key="save_value"
+            android:icon="@drawable/view_compact"
+            android:key="compact_view"
+            android:summaryOff="@string/vertical_layout"
+            android:summaryOn="@string/horizontal_layout"
+            android:title="@string/compact_view" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:icon="@drawable/save"
+            android:key="save_value"
             android:summaryOff="@string/do_not_save_amount_on_exit"
             android:summaryOn="@string/save_amount_on_exit"
-            app:title="@string/save_value" />
-
-        <ListPreference
-            app:icon="@drawable/language"
-            app:key="language"
-            app:title="@string/language"
-            android:summary="%s"/>
+            android:title="@string/save_value" />
 
         <ListPreference
             android:summary="%s"
-            app:icon="@drawable/percentage"
-            app:key="rate"
-            app:title="@string/rate" />
+            android:icon="@drawable/percentage"
+            android:key="rate_id"
+            android:title="@string/rate" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/amount_to_words">
+    <PreferenceCategory android:title="@string/amount_to_words">
 
         <ListPreference
             android:icon="@drawable/monetization"
             android:key="currency"
             android:defaultValue="USD"
-            android:title="@string/Currency"
+            android:title="@string/currency"
             android:summary="%s" />
 
         <ListPreference
@@ -51,17 +58,17 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/other">
+    <PreferenceCategory android:title="@string/other">
 
         <Preference
-            app:icon="@drawable/translate"
-            app:key="translate"
-            app:title="@string/improve_translation" />
+            android:icon="@drawable/translate"
+            android:key="translate"
+            android:title="@string/improve_translation" />
 
         <Preference
-            app:icon="@drawable/github"
-            app:key="github"
-            app:title="@string/github" />
+            android:icon="@drawable/github"
+            android:key="github"
+            android:title="@string/github" />
 
     </PreferenceCategory>
 </PreferenceScreen>

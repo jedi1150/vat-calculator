@@ -3,7 +3,8 @@
 
     <style name="Theme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:colorBackground">@color/colorDark</item>
-        <item name="colorSurface">@color/transparentDark</item>
+        <item name="colorSurface">@color/colorDark</item>
+        <item name="transparentSurface">@color/transparentDark</item>
         <item name="colorOnSurface">@color/grayLight</item>
         <item name="colorPrimary">@color/grayLight</item>
         <item name="colorOnPrimary">@color/colorDark</item>
