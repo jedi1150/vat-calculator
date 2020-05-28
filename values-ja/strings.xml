@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>テキスト</item>
+    <item>数</item>
+  </string-array>
+  <string name="app_name">バット</string>
+  <string name="amount">量</string>
+  <string name="without_vat">VATを除く</string>
+  <string name="include_vat">付加価値税込み</string>
+  <string name="vat">バット</string>
+  <string name="gross_amount">量</string>
+  <string name="net_amount">正味金額</string>
+  <string name="copied">コピー！</string>
+  <string name="light">ライトテーマ</string>
+  <string name="dark">暗いテーマ</string>
+  <string name="battery_saver">バッテリーセーバーで設定</string>
+  <string name="system_default">システムのデフォルト</string>
+  <string name="choose_theme">テーマ</string>
+  <string name="cancel">キャンセル</string>
+  <string name="improve_translation">翻訳を改善する</string>
+  <string name="settings">設定</string>
+  <string name="other">その他の</string>
+  <string name="save_value">値を保存</string>
+  <string name="vat_rate">VAT率</string>
+  <string name="rate">割合</string>
+  <string name="language">言語</string>
+  <string name="rate_string">%1$s\n%3$sレート%2$s</string>
+  <string name="general_settings">一般的な</string>
+  <string name="amount_to_words">言葉の量</string>
+  <string name="currency">通貨</string>
+  <string name="penny_type">ペニータイプ</string>
+  <string name="save_amount_on_exit">終了時に金額を節約</string>
+  <string name="do_not_save_amount_on_exit">終了時に金額を保存しない</string>
+  <string name="arbitrary_rate_set">任意のVATレートセット</string>
+  <string name="set_vat_rate">VATレートを設定する必要があります</string>
+  <string name="set">設定値</string>
+  <string name="type_standard">標準</string>
+  <string name="type_higher">より高い</string>
+  <string name="type_reduced">減少</string>
+  <string name="compact_view">コンパクト表示</string>
+  <string name="horizontal_layout">横型レイアウト</string>
+  <string name="vertical_layout">縦型レイアウト</string>
+</resources>

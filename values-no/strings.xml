@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Tekst</item>
+    <item>Antall</item>
+  </string-array>
+  <string name="app_name">MVA</string>
+  <string name="amount">Beløp</string>
+  <string name="without_vat">Eksklusiv merverdiavgift</string>
+  <string name="include_vat">Inkludert merverdiavgift</string>
+  <string name="vat">MVA</string>
+  <string name="gross_amount">Bruttobeløp</string>
+  <string name="net_amount">Nettobeløp</string>
+  <string name="copied">Kopiert!</string>
+  <string name="light">Lys</string>
+  <string name="dark">Mørk</string>
+  <string name="battery_saver">Innstilt av Battery Saver</string>
+  <string name="system_default">System standard</string>
+  <string name="choose_theme">Tema</string>
+  <string name="cancel">Avbryt</string>
+  <string name="improve_translation">Forbedre oversettelse</string>
+  <string name="settings">innstillinger</string>
+  <string name="other">Annen</string>
+  <string name="save_value">Lagre verdi</string>
+  <string name="vat_rate">Momssats</string>
+  <string name="rate">Vurdere</string>
+  <string name="language">Språk</string>
+  <string name="rate_string">%1$s\n%3$s rate %2$s</string>
+  <string name="general_settings">Generell</string>
+  <string name="amount_to_words">Beløp til ord</string>
+  <string name="currency">Valuta</string>
+  <string name="penny_type">Penny type</string>
+  <string name="save_amount_on_exit">Spar beløp ved avkjørsel</string>
+  <string name="do_not_save_amount_on_exit">Ikke lag beløp ved avkjørsel</string>
+  <string name="arbitrary_rate_set">Vilkårlig momssats er satt</string>
+  <string name="set_vat_rate">Trenger å sette momssats</string>
+  <string name="set">Angi verdi</string>
+  <string name="type_standard">standard</string>
+  <string name="type_higher">høyere</string>
+  <string name="type_reduced">redusert</string>
+  <string name="compact_view">Kompakt syn</string>
+  <string name="horizontal_layout">Horisontal utforming</string>
+  <string name="vertical_layout">Vertikal layout</string>
+</resources>

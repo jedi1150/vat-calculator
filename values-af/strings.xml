@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>teks</item>
+    <item>aantal</item>
+  </string-array>
+  <string name="app_name">BTW</string>
+  <string name="amount">bedrag</string>
+  <string name="without_vat">BTW uitgesluit</string>
+  <string name="include_vat">BTW ingesluit</string>
+  <string name="vat">BTW</string>
+  <string name="gross_amount">Bruto bedrag</string>
+  <string name="net_amount">Netto bedrag</string>
+  <string name="copied">Gekopieer!</string>
+  <string name="light">lig</string>
+  <string name="dark">donker</string>
+  <string name="battery_saver">Opgestel deur Battery Saver</string>
+  <string name="system_default">Stelsel verstek</string>
+  <string name="choose_theme">tema</string>
+  <string name="cancel">kanselleer</string>
+  <string name="improve_translation">Verbeter vertaling</string>
+  <string name="settings">instellings</string>
+  <string name="other">ander</string>
+  <string name="save_value">Stoor waarde</string>
+  <string name="vat_rate">BTW koers</string>
+  <string name="rate">Koers</string>
+  <string name="language">Taal</string>
+  <string name="rate_string">%1$s\n%3$s koers %2$s</string>
+  <string name="general_settings">algemene</string>
+  <string name="amount_to_words">Bedrag aan woorde</string>
+  <string name="currency">geldeenheid</string>
+  <string name="penny_type">Penny tipe</string>
+  <string name="save_amount_on_exit">Bespaar bedrag by uitgang</string>
+  <string name="do_not_save_amount_on_exit">Bespaar nie die bedrag by uitgang nie</string>
+  <string name="arbitrary_rate_set">Arbitrêre BTW-koers vasgestel</string>
+  <string name="set_vat_rate">Moet BTW-koers instel</string>
+  <string name="set">Stel</string>
+  <string name="type_standard">standaard</string>
+  <string name="type_higher">hoër</string>
+  <string name="type_reduced">verminder</string>
+  <string name="compact_view">Kompakte aansig</string>
+  <string name="horizontal_layout">Horisontale uitleg</string>
+  <string name="vertical_layout">Vertikale uitleg</string>
+</resources>
