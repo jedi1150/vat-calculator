@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Тэкст</item>
+    <item>Нумар</item>
+  </string-array>
+  <string name="app_name">ПДВ</string>
+  <string name="amount">Сума</string>
+  <string name="without_vat">Без ПДВ</string>
+  <string name="include_vat">Уключаючы ПДВ</string>
+  <string name="vat">ПДВ</string>
+  <string name="gross_amount">Валавая сума</string>
+  <string name="net_amount">Чыстая сума</string>
+  <string name="copied">Скапіявана!</string>
+  <string name="light">Лёгкая тэма</string>
+  <string name="dark">Цёмная</string>
+  <string name="battery_saver">Ўлічваць рэжым энергазберажэння</string>
+  <string name="system_default">Сістэма па змаўчанні</string>
+  <string name="choose_theme">Тэма</string>
+  <string name="cancel">Адмяніць</string>
+  <string name="improve_translation">Палепшыць пераклад</string>
+  <string name="settings">Налады</string>
+  <string name="other">Іншыя</string>
+  <string name="save_value">Захаваць значэнне</string>
+  <string name="vat_rate">Стаўка ПДВ</string>
+  <string name="rate">Стаўка</string>
+  <string name="language">Мова</string>
+  <string name="rate_string">%1$s\n%3$s стаўка %2$s</string>
+  <string name="general_settings">Генерал</string>
+  <string name="amount_to_words">Сума пропіссю</string>
+  <string name="currency">Валюта</string>
+  <string name="penny_type">Пені тыпу</string>
+  <string name="save_amount_on_exit">Захавайце суму пры выхадзе</string>
+  <string name="do_not_save_amount_on_exit">Не захоўваць суму пры выхадзе</string>
+  <string name="arbitrary_rate_set">Усталёўваецца адвольная стаўка ПДВ</string>
+  <string name="set_vat_rate">Трэба ўсталяваць стаўку ПДВ</string>
+  <string name="set">Задаць</string>
+  <string name="type_standard">стандартны</string>
+  <string name="type_higher">вышэй</string>
+  <string name="type_reduced">зніжана</string>
+  <string name="compact_view">Кампактны выгляд</string>
+  <string name="horizontal_layout">Гарызантальная планіроўка</string>
+  <string name="vertical_layout">Вертыкальная планіроўка</string>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Տեքստ</item>
+    <item>Թիվ</item>
+  </string-array>
+  <string name="app_name">ԱԱՀ</string>
+  <string name="amount">Գումարը</string>
+  <string name="without_vat">Առանց ԱԱՀ-ի</string>
+  <string name="include_vat">Ներառյալ ԱԱՀ-ն</string>
+  <string name="vat">ԱԱՀ</string>
+  <string name="gross_amount">Գումարը</string>
+  <string name="net_amount">Զուտ գումարը</string>
+  <string name="copied">Պատճեն:</string>
+  <string name="light">Թեթև թեման</string>
+  <string name="dark">Թեման</string>
+  <string name="battery_saver">Սահմանված է մարտկոցի խնայարարի միջոցով</string>
+  <string name="system_default">Համակարգը լռելյայն է</string>
+  <string name="choose_theme">Թեման</string>
+  <string name="cancel">Չեղարկել</string>
+  <string name="improve_translation">Բարելավել թարգմանությունը</string>
+  <string name="settings">Կարգավորումներ</string>
+  <string name="other">Այլ</string>
+  <string name="save_value">Պահպանել արժեքը</string>
+  <string name="vat_rate">ԱԱՀ-ի դրույքաչափը</string>
+  <string name="rate">Գնահատեք</string>
+  <string name="language">Լեզու</string>
+  <string name="rate_string">%1$s\n%3$s փոխարժեքը %2$s</string>
+  <string name="general_settings">Գեներալ</string>
+  <string name="amount_to_words">Գումարը բառերին</string>
+  <string name="currency">Արժույթ</string>
+  <string name="penny_type">Penny տեսակը</string>
+  <string name="save_amount_on_exit">Ելքի գումարը խնայեք</string>
+  <string name="do_not_save_amount_on_exit">Մի պահեք գումարը ելքի վրա</string>
+  <string name="arbitrary_rate_set">Կամայական ԱԱՀ-ի դրույքաչափը սահմանված է</string>
+  <string name="set_vat_rate">Պետք է սահմանել ԱԱՀ-ի դրույքաչափը</string>
+  <string name="set">Սահմանել</string>
+  <string name="type_standard">ստանդարտ</string>
+  <string name="type_higher">ավելի բարձր</string>
+  <string name="type_reduced">կրճատվել է</string>
+  <string name="compact_view">Կոմպակտ տեսք</string>
+  <string name="horizontal_layout">Հորիզոնական դասավորություն</string>
+  <string name="vertical_layout">Ուղղահայաց դասավորություն</string>
+</resources>

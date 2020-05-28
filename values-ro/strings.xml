@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Text</item>
+    <item>Număr</item>
+  </string-array>
+  <string name="app_name">TVA</string>
+  <string name="amount">Cantitate</string>
+  <string name="without_vat">Fără TVA</string>
+  <string name="include_vat">Cu TVA</string>
+  <string name="vat">TVA</string>
+  <string name="gross_amount">Valoarea brută</string>
+  <string name="net_amount">Cantitate netă</string>
+  <string name="copied">Copiată!</string>
+  <string name="light">Ușoară</string>
+  <string name="dark">Întuneric</string>
+  <string name="battery_saver">Setat de Batere Sauer</string>
+  <string name="system_default">Defecțiune de sistem</string>
+  <string name="choose_theme">Temă</string>
+  <string name="cancel">Anulare</string>
+  <string name="improve_translation">Îmbunătățirea traducerii</string>
+  <string name="settings">Setări</string>
+  <string name="other">Alte</string>
+  <string name="save_value">Salvați valoarea</string>
+  <string name="vat_rate">Cota TVA</string>
+  <string name="rate">Rată</string>
+  <string name="language">Limba</string>
+  <string name="rate_string">%1$s\n%3$s rata %2$s</string>
+  <string name="general_settings">General</string>
+  <string name="amount_to_words">Suma cuvintelor</string>
+  <string name="currency">Valută</string>
+  <string name="penny_type">Tip Penny</string>
+  <string name="save_amount_on_exit">Economisiți suma la ieșire</string>
+  <string name="do_not_save_amount_on_exit">Nu economisiți suma la ieșire</string>
+  <string name="arbitrary_rate_set">Set de TVA arbitrar</string>
+  <string name="set_vat_rate">Trebuie să setați TVA</string>
+  <string name="set">Valoare setată</string>
+  <string name="type_standard">standard</string>
+  <string name="type_higher">superior</string>
+  <string name="type_reduced">redus</string>
+  <string name="compact_view">Vizualizare compactă</string>
+  <string name="horizontal_layout">Aspect orizontal</string>
+  <string name="vertical_layout">Aspect vertical</string>
+</resources>

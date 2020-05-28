@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Текст</item>
+    <item>Број</item>
+  </string-array>
+  <string name="app_name">ПДВ</string>
+  <string name="amount">Износ</string>
+  <string name="without_vat">Без ПДВ-а</string>
+  <string name="include_vat">Са ПДВ-ом</string>
+  <string name="vat">ПДВ</string>
+  <string name="gross_amount">Бруто износ</string>
+  <string name="net_amount">Нето износ</string>
+  <string name="copied">Копирано!</string>
+  <string name="light">Светлост</string>
+  <string name="dark">Дарк</string>
+  <string name="battery_saver">Подесио Баттери Савер</string>
+  <string name="system_default">Систем подразумевани</string>
+  <string name="choose_theme">Тема</string>
+  <string name="cancel">Поништити, отказати</string>
+  <string name="improve_translation">Побољшајте превод</string>
+  <string name="settings">Подешавања</string>
+  <string name="other">Остало</string>
+  <string name="save_value">Сачувај вредност</string>
+  <string name="vat_rate">Стопа ПДВ-а</string>
+  <string name="rate">Рате</string>
+  <string name="language">Језик</string>
+  <string name="rate_string">%1$s\n%3$s стопа %2$s</string>
+  <string name="general_settings">Општи</string>
+  <string name="amount_to_words">Количина речи</string>
+  <string name="currency">Валута</string>
+  <string name="penny_type">Пенни типе</string>
+  <string name="save_amount_on_exit">Уштедите износ при изласку</string>
+  <string name="do_not_save_amount_on_exit">Не штедите износ при изласку</string>
+  <string name="arbitrary_rate_set">Постављена произвољна стопа ПДВ-а</string>
+  <string name="set_vat_rate">Потребно је подесити стопу ПДВ-а</string>
+  <string name="set">Подешена</string>
+  <string name="type_standard">стандардно</string>
+  <string name="type_higher">виши</string>
+  <string name="type_reduced">умањено</string>
+  <string name="compact_view">Компактан приказ</string>
+  <string name="horizontal_layout">Хоризонтални распоред</string>
+  <string name="vertical_layout">Вертикални распоред</string>
+</resources>

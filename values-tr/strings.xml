@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Metin</item>
+    <item>Numara</item>
+  </string-array>
+  <string name="app_name">KDV</string>
+  <string name="amount">Miktar</string>
+  <string name="without_vat">KDV hariç</string>
+  <string name="include_vat">KDV dahil</string>
+  <string name="vat">KDV</string>
+  <string name="gross_amount">Brüt miktar</string>
+  <string name="net_amount">Net tutar</string>
+  <string name="copied">Kopyalanan!</string>
+  <string name="light">ışık</string>
+  <string name="dark">karanlık</string>
+  <string name="battery_saver">Pil Tasarrufu ile ayarlanır</string>
+  <string name="system_default">Sistem varsayılanı</string>
+  <string name="choose_theme">Tema</string>
+  <string name="cancel">İptal etmek</string>
+  <string name="improve_translation">Çeviriyi geliştirin</string>
+  <string name="settings">Ayarlar</string>
+  <string name="other">Diğer</string>
+  <string name="save_value">Değer kaydet</string>
+  <string name="vat_rate">KDV oranı</string>
+  <string name="rate">oran</string>
+  <string name="language">Dil</string>
+  <string name="rate_string">%1$s\n%3$s oranı %2$s</string>
+  <string name="general_settings">Genel</string>
+  <string name="amount_to_words">Kelimelerin miktarı</string>
+  <string name="currency">Para birimi</string>
+  <string name="penny_type">Penny türü</string>
+  <string name="save_amount_on_exit">Çıkışta tutarı kaydedin</string>
+  <string name="do_not_save_amount_on_exit">Çıkışta tutarı kaydetme</string>
+  <string name="arbitrary_rate_set">Keyfi KDV oranı ayarlandı</string>
+  <string name="set_vat_rate">KDV oranını ayarlamanız gerekiyor</string>
+  <string name="set">Set</string>
+  <string name="type_standard">standart</string>
+  <string name="type_higher">daha yüksek</string>
+  <string name="type_reduced">indirimli</string>
+  <string name="compact_view">Kompakt görünüm</string>
+  <string name="horizontal_layout">Yatay düzen</string>
+  <string name="vertical_layout">Dikey düzen</string>
+</resources>
