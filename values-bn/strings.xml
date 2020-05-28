@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>পাঠ</item>
+    <item>সংখ্যা</item>
+  </string-array>
+  <string name="app_name">ভ্যাট</string>
+  <string name="amount">পরিমাণ</string>
+  <string name="without_vat">ভ্যাট</string>
+  <string name="include_vat">ভ্যাটসহ</string>
+  <string name="vat">ভ্যাট</string>
+  <string name="gross_amount">থোক</string>
+  <string name="net_amount">থোক</string>
+  <string name="copied">অনুলিপি করা হয়েছে!</string>
+  <string name="light">আলো</string>
+  <string name="dark">অন্ধকার</string>
+  <string name="battery_saver">ব্যাটারি সেভার দ্বারা সেট</string>
+  <string name="system_default">সিস্টেমের ডিফল্ট</string>
+  <string name="choose_theme">বিষয়</string>
+  <string name="cancel">বাতিল</string>
+  <string name="improve_translation">অনুবাদ উন্নত করুন</string>
+  <string name="settings">সেটিংস</string>
+  <string name="other">অন্যান্য</string>
+  <string name="save_value">মান সংরক্ষণ করুন</string>
+  <string name="vat_rate">মূসক হার</string>
+  <string name="rate">হার</string>
+  <string name="language">ভাষা</string>
+  <string name="rate_string">%1$s %3$s হার %2$s</string>
+  <string name="general_settings">সাধারণ</string>
+  <string name="amount_to_words">শব্দের পরিমাণ</string>
+  <string name="currency">মুদ্রা</string>
+  <string name="penny_type">পেনি টাইপ</string>
+  <string name="save_amount_on_exit">প্রস্থান করার সময় পরিমাণ সঞ্চয় করুন</string>
+  <string name="do_not_save_amount_on_exit">প্রস্থান করার সময় অর্থ সঞ্চয় করবেন না</string>
+  <string name="arbitrary_rate_set">নির্বিচারে ভ্যাট রেট সেট</string>
+  <string name="set_vat_rate">ভ্যাট হার নির্ধারণ করা দরকার</string>
+  <string name="set">সেট</string>
+  <string name="type_standard">মান</string>
+  <string name="type_higher">ঊর্ধ্বতন</string>
+  <string name="type_reduced">হ্রাসপ্রাপ্ত</string>
+  <string name="compact_view">কমপ্যাক্ট ভিউ</string>
+  <string name="horizontal_layout">অনুভূমিক বিন্যাস</string>
+  <string name="vertical_layout">উল্লম্ব বিন্যাস</string>
+</resources>

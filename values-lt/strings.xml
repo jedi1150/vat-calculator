@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Tekstas</item>
+    <item>Skaičius</item>
+  </string-array>
+  <string name="app_name">PVM</string>
+  <string name="amount">Suma</string>
+  <string name="without_vat">Be PVM</string>
+  <string name="include_vat">Su PVM</string>
+  <string name="vat">PVM</string>
+  <string name="gross_amount">Bendra suma</string>
+  <string name="net_amount">Grynoji suma</string>
+  <string name="copied">Nukopijuota!</string>
+  <string name="light">Šviesa</string>
+  <string name="dark">Tamsi</string>
+  <string name="battery_saver">Nustatė „Battery Saver“</string>
+  <string name="system_default">Numatytoji sistema</string>
+  <string name="choose_theme">Tema</string>
+  <string name="cancel">Atšaukti</string>
+  <string name="improve_translation">Patobulinkite vertimą</string>
+  <string name="settings">Nustatymai</string>
+  <string name="other">Kiti</string>
+  <string name="save_value">Taupykite vertę</string>
+  <string name="vat_rate">PVM tarifas</string>
+  <string name="rate">Įvertink</string>
+  <string name="language">Kalba</string>
+  <string name="rate_string">%1$s. %3$s norma %2$s</string>
+  <string name="general_settings">Generolas</string>
+  <string name="amount_to_words">Suma prie žodžių</string>
+  <string name="currency">Valiuta</string>
+  <string name="penny_type">Peno tipas</string>
+  <string name="save_amount_on_exit">Sutaupykite sumos išvykdami</string>
+  <string name="do_not_save_amount_on_exit">Netaupykite sumos išvykdami</string>
+  <string name="arbitrary_rate_set">Nustatytas savavališkas PVM tarifas</string>
+  <string name="set_vat_rate">Reikia nustatyti PVM tarifą</string>
+  <string name="set">Nustatyta vertė</string>
+  <string name="type_standard">standartinis</string>
+  <string name="type_higher">aukštesnis</string>
+  <string name="type_reduced">sumažinta</string>
+  <string name="compact_view">Kompaktiškas vaizdas</string>
+  <string name="horizontal_layout">Horizontalus išdėstymas</string>
+  <string name="vertical_layout">Vertikalus išdėstymas</string>
+</resources>

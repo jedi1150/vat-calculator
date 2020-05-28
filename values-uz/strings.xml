@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Matn</item>
+    <item>Raqam</item>
+  </string-array>
+  <string name="app_name">QQS</string>
+  <string name="amount">Miqdor</string>
+  <string name="without_vat">QQSsiz</string>
+  <string name="include_vat">QQS bilan</string>
+  <string name="vat">QQS</string>
+  <string name="gross_amount">Yalpi miqdor</string>
+  <string name="net_amount">Sof miqdor</string>
+  <string name="copied">Nusxalangan!</string>
+  <string name="light">Engil mavzu</string>
+  <string name="dark">Qorong\'i mavzu</string>
+  <string name="battery_saver">Batareya quvvatini tejash vositasi</string>
+  <string name="system_default">Tizim birlamchi</string>
+  <string name="choose_theme">Mavzu</string>
+  <string name="cancel">Bekor qilish</string>
+  <string name="improve_translation">Tarjimani yaxshilang</string>
+  <string name="settings">Sozlamalar</string>
+  <string name="other">Boshqalar</string>
+  <string name="save_value">Qiymatni tejash</string>
+  <string name="vat_rate">QQS stavkasi</string>
+  <string name="rate">Baholash</string>
+  <string name="language">Til</string>
+  <string name="rate_string">%1$s. %3$s darajasi %2$s</string>
+  <string name="general_settings">Umumiy</string>
+  <string name="amount_to_words">So\'zlarning miqdori</string>
+  <string name="currency">Pul birligi</string>
+  <string name="penny_type">Tennis turi</string>
+  <string name="save_amount_on_exit">Chiqishda summani tejang</string>
+  <string name="do_not_save_amount_on_exit">Chiqishda summani tejamang</string>
+  <string name="arbitrary_rate_set">O\'zboshimchalik bilan QQS stavkasi</string>
+  <string name="set_vat_rate">QQS stavkasini belgilash kerak</string>
+  <string name="set">Qiymatni</string>
+  <string name="type_standard">standart</string>
+  <string name="type_higher">yuqori</string>
+  <string name="type_reduced">kamaygan</string>
+  <string name="compact_view">Ixcham ko\'rinishi</string>
+  <string name="horizontal_layout">Landshaft tartib</string>
+  <string name="vertical_layout">Vertikal tartib</string>
+</resources>
