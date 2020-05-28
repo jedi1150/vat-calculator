@@ -7,11 +7,14 @@ import androidx.room.Query
 
 @Dao
 interface RateDao {
-    @Query("SELECT * FROM rates ORDER BY code")
+    @Query("SELECT * FROM rates ORDER BY code, rate DESC")
     fun getAll(): List<Rate>
 
     @Query("SELECT * FROM rates WHERE code LIKE :code LIMIT 1")
     fun findByCountry(code: String): Rate?
+
+    @Query("SELECT * FROM rates WHERE id = :id")
+    fun findById(id: Int): Rate?
 
     @Insert
     fun insertAll(vararg rates: Rate)

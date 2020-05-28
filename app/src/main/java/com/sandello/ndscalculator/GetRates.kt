@@ -2,6 +2,7 @@ package com.sandello.ndscalculator
 
 import android.content.Context
 import android.os.StrictMode
+import android.util.Log
 import androidx.room.Room
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -40,7 +41,7 @@ class GetRates {
                     val db = Room.databaseBuilder(
                             context,
                             AppDatabase::class.java, "rates"
-                    ).allowMainThreadQueries().build()
+                    ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
                     db.rateDao().deleteAll()
                     db.rateDao().insertAllCountries(listRates!!)
                     val currentRate = if (Locale.getDefault().country != "")
@@ -49,6 +50,7 @@ class GetRates {
                         db.rateDao().findByCountry(Locale.getDefault().language)!!
                     result = currentRate.rate.toString()
                     stringBuilder.clear()
+                    Log.d("dao", db.rateDao().findByCountry("ru").toString())
                     bufferedReader.close()
                 } else {
                     println("Error ${connection.responseCode}")
