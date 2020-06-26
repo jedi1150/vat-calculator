@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>ข้อความ</item>
+    <item>จำนวน</item>
+  </string-array>
+  <string name="app_name">ภาษีมูลค่าเพิ่ม</string>
+  <string name="amount">จำนวน</string>
+  <string name="without_vat">ไม่รวมภาษีมูลค่าเพิ่ม</string>
+  <string name="include_vat">รวมภาษีมูลค่าเพิ่มแล้ว</string>
+  <string name="vat">ภาษีมูลค่าเพิ่ม</string>
+  <string name="gross_amount">ยอดรวม</string>
+  <string name="net_amount">ปริมาณสุทธิ</string>
+  <string name="copied">คัดลอก!</string>
+  <string name="light">เบา</string>
+  <string name="dark">มืด</string>
+  <string name="battery_saver">กำหนดโดย Battery Saver</string>
+  <string name="system_default">ระบบเริ่มต้น</string>
+  <string name="choose_theme">กระทู้</string>
+  <string name="cancel">ยกเลิก</string>
+  <string name="improve_translation">ปรับปรุงการแปล</string>
+  <string name="settings">การตั้งค่า</string>
+  <string name="other">อื่น ๆ</string>
+  <string name="save_value">ประหยัดค่า</string>
+  <string name="vat_rate">อัตราภาษีมูลค่าเพิ่ม</string>
+  <string name="rate">ประเมินค่า</string>
+  <string name="language">ภาษา</string>
+  <string name="rate_string">%1$s\n%3$s อัตรา %2$s</string>
+  <string name="general_settings">ทั่วไป</string>
+  <string name="amount_to_words">จำนวนคำ</string>
+  <string name="currency">เงินตรา</string>
+  <string name="penny_type">ประเภทเพนนี</string>
+  <string name="save_amount_on_exit">ประหยัดจำนวนเมื่อออกจาก</string>
+  <string name="do_not_save_amount_on_exit">อย่าบันทึกจำนวนเงินเมื่อออก</string>
+  <string name="arbitrary_rate_set">กำหนดอัตรา VAT ตามอำเภอใจ</string>
+  <string name="set_vat_rate">จำเป็นต้องกำหนดอัตราภาษีมูลค่าเพิ่ม</string>
+  <string name="set">ตั้งค่า</string>
+  <string name="type_standard">มาตรฐาน</string>
+  <string name="type_higher">สูงกว่า</string>
+  <string name="type_reduced">ที่ลดลง</string>
+  <string name="compact_view">มุมมองกะทัดรัด</string>
+  <string name="horizontal_layout">เค้าโครงแนวนอน</string>
+  <string name="vertical_layout">เค้าโครงแนวตั้ง</string>
+  <string name="back">กลับ</string>
+</resources>

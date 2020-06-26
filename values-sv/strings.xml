@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Text</item>
+    <item>Siffra</item>
+  </string-array>
+  <string name="app_name">MOMS</string>
+  <string name="amount">Belopp</string>
+  <string name="without_vat">Exklusive moms</string>
+  <string name="include_vat">Inklusive moms</string>
+  <string name="vat">MOMS</string>
+  <string name="gross_amount">Bruttobelopp</string>
+  <string name="net_amount">Nettobelopp</string>
+  <string name="copied">Kopieras!</string>
+  <string name="light">Ljus</string>
+  <string name="dark">Mörk</string>
+  <string name="battery_saver">Ställ in av Batteri Haver</string>
+  <string name="system_default">Systemfel</string>
+  <string name="choose_theme">Tema</string>
+  <string name="cancel">Avbryt</string>
+  <string name="improve_translation">Förbättra översättningen</string>
+  <string name="settings">Inställningar</string>
+  <string name="other">Övrig</string>
+  <string name="save_value">Spara värde</string>
+  <string name="vat_rate">Skattesats</string>
+  <string name="rate">Betygsätta</string>
+  <string name="language">Språk</string>
+  <string name="rate_string">%1$s\n%3$s ränta %2$s</string>
+  <string name="general_settings">Allmän</string>
+  <string name="amount_to_words">Belopp till ord</string>
+  <string name="currency">Valuta</string>
+  <string name="penny_type">Penny typ</string>
+  <string name="save_amount_on_exit">Spara belopp vid utgång</string>
+  <string name="do_not_save_amount_on_exit">Spara inte belopp vid utgång</string>
+  <string name="arbitrary_rate_set">Valfri momssats inställd</string>
+  <string name="set_vat_rate">Behöver ställa in momssats</string>
+  <string name="set">Satt värde</string>
+  <string name="type_standard">standard</string>
+  <string name="type_higher">högre</string>
+  <string name="type_reduced">nedsatt</string>
+  <string name="compact_view">Kompakt vy</string>
+  <string name="horizontal_layout">Horisontell layout</string>
+  <string name="vertical_layout">Vertikal layout</string>
+  <string name="back">Tillbaka</string>
+</resources>

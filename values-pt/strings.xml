@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Texto</item>
+    <item>Número</item>
+  </string-array>
+  <string name="app_name">IVA</string>
+  <string name="amount">Montante</string>
+  <string name="without_vat">Excluindo VAT</string>
+  <string name="include_vat">Incluindo taxas</string>
+  <string name="vat">IVA</string>
+  <string name="gross_amount">Montante bruto</string>
+  <string name="net_amount">Valor líquido</string>
+  <string name="copied">Copiado!</string>
+  <string name="light">Luz</string>
+  <string name="dark">Escuro</string>
+  <string name="battery_saver">Definido por Bater Sever</string>
+  <string name="system_default">Sistema padrão</string>
+  <string name="choose_theme">Tema</string>
+  <string name="cancel">Cancelar</string>
+  <string name="improve_translation">Melhore a tradução</string>
+  <string name="settings">Definições</string>
+  <string name="other">De outros</string>
+  <string name="save_value">Salvar valor</string>
+  <string name="vat_rate">Taxa do IVA</string>
+  <string name="rate">Taxa</string>
+  <string name="language">Língua</string>
+  <string name="rate_string">%1$s\n%3$s taxa %2$s</string>
+  <string name="general_settings">Geral</string>
+  <string name="amount_to_words">Quantidade de palavras</string>
+  <string name="currency">Moeda</string>
+  <string name="penny_type">Tipo de moeda de um centavo</string>
+  <string name="save_amount_on_exit">Economize quantia na saída</string>
+  <string name="do_not_save_amount_on_exit">Não economize quantia na saída</string>
+  <string name="arbitrary_rate_set">Conjunto de taxas arbitrárias de IVA</string>
+  <string name="set_vat_rate">Precisa definir a taxa de IVA</string>
+  <string name="set">Definir valor</string>
+  <string name="type_standard">padrão</string>
+  <string name="type_higher">superior</string>
+  <string name="type_reduced">reduzido</string>
+  <string name="compact_view">Visualização compacta</string>
+  <string name="horizontal_layout">Layout horizontal</string>
+  <string name="vertical_layout">Layout vertical</string>
+  <string name="back">Costas</string>
+</resources>

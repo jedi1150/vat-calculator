@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Текст</item>
+    <item>номер</item>
+  </string-array>
+  <string name="app_name">ДДС</string>
+  <string name="amount">Количество</string>
+  <string name="without_vat">Без ДДС</string>
+  <string name="include_vat">Включително ДДС</string>
+  <string name="vat">ДДС</string>
+  <string name="gross_amount">Брутна сума</string>
+  <string name="net_amount">Нетен размер</string>
+  <string name="copied">Копирани!</string>
+  <string name="light">Светлина</string>
+  <string name="dark">тъмен</string>
+  <string name="battery_saver">Зададен от Battery Saver</string>
+  <string name="system_default">Система по подразбиране</string>
+  <string name="choose_theme">тема</string>
+  <string name="cancel">Отказ</string>
+  <string name="improve_translation">Подобрете превода</string>
+  <string name="settings">Настройки</string>
+  <string name="other">друг</string>
+  <string name="save_value">Запазване на стойността</string>
+  <string name="vat_rate">Ставка на ДДС</string>
+  <string name="rate">скорост</string>
+  <string name="language">език</string>
+  <string name="rate_string">%1$s\n%3$s процент %2$s</string>
+  <string name="general_settings">Общ</string>
+  <string name="amount_to_words">Количество на думи</string>
+  <string name="currency">Валута</string>
+  <string name="penny_type">Тип Пени</string>
+  <string name="save_amount_on_exit">Спестете сума при изход</string>
+  <string name="do_not_save_amount_on_exit">Не спестявайте сума при излизане</string>
+  <string name="arbitrary_rate_set">Зададена произволна ставка на ДДС</string>
+  <string name="set_vat_rate">Необходимо е да зададете ставка на ДДС</string>
+  <string name="set">Задайте</string>
+  <string name="type_standard">стандарт</string>
+  <string name="type_higher">по-висок</string>
+  <string name="type_reduced">намален</string>
+  <string name="compact_view">Компактен изглед</string>
+  <string name="horizontal_layout">Хоризонтално оформление</string>
+  <string name="vertical_layout">Вертикално оформление</string>
+  <string name="back">обратно</string>
+</resources>

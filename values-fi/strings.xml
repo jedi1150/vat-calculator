@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Teksti</item>
+    <item>Määrä</item>
+  </string-array>
+  <string name="app_name">ALV</string>
+  <string name="amount">Määrä</string>
+  <string name="without_vat">Ilman ALV</string>
+  <string name="include_vat">Sisältää arvonlisäveron</string>
+  <string name="vat">Arvonlisäveroa</string>
+  <string name="gross_amount">Bruttomäärä</string>
+  <string name="net_amount">Nettomäärä</string>
+  <string name="copied">Kopioitu!</string>
+  <string name="light">valo</string>
+  <string name="dark">Tumma</string>
+  <string name="battery_saver">Asettaa Battery Saver</string>
+  <string name="system_default">Järjestelmän oletusarvo</string>
+  <string name="choose_theme">Teema</string>
+  <string name="cancel">Peruutus</string>
+  <string name="improve_translation">Paranna käännöstä</string>
+  <string name="settings">asetukset</string>
+  <string name="other">muut</string>
+  <string name="save_value">Tallenna arvo</string>
+  <string name="vat_rate">ALV</string>
+  <string name="rate">nopeus</string>
+  <string name="language">Kieli</string>
+  <string name="rate_string">%1$s\n%3$s korko %2$s</string>
+  <string name="general_settings">yleinen</string>
+  <string name="amount_to_words">Määrä sanoihin</string>
+  <string name="currency">valuutta</string>
+  <string name="penny_type">Penny tyyppi</string>
+  <string name="save_amount_on_exit">Säästä summa poistuttaessa</string>
+  <string name="do_not_save_amount_on_exit">Älä säästä määrää poistumisen yhteydessä</string>
+  <string name="arbitrary_rate_set">Mielivaltainen arvonlisäveroaste asetettu</string>
+  <string name="set_vat_rate">ALV-taso on asetettava</string>
+  <string name="set">Aseta</string>
+  <string name="type_standard">standardi</string>
+  <string name="type_higher">korkeampi</string>
+  <string name="type_reduced">pelkistetty</string>
+  <string name="compact_view">Kompakti näkymä</string>
+  <string name="horizontal_layout">Vaakasuuntainen asettelu</string>
+  <string name="vertical_layout">Pystyasettelu</string>
+  <string name="back">Takaisin</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>tekst</item>
+    <item>numër</item>
+  </string-array>
+  <string name="app_name">TVSH</string>
+  <string name="amount">sasi</string>
+  <string name="without_vat">Duke përjashtuar TVSH-në</string>
+  <string name="include_vat">Përfshirë TVSH-në</string>
+  <string name="vat">TVSH</string>
+  <string name="gross_amount">Shuma bruto</string>
+  <string name="net_amount">Shuma neto</string>
+  <string name="copied">Kopjuar!</string>
+  <string name="light">dritë</string>
+  <string name="dark">i errët</string>
+  <string name="battery_saver">Vendosur nga Saver Battery</string>
+  <string name="system_default">Paraqitja e sistemit</string>
+  <string name="choose_theme">temë</string>
+  <string name="cancel">anuloj</string>
+  <string name="improve_translation">Përmirësimi i përkthimit</string>
+  <string name="settings">Cilësimet</string>
+  <string name="other">tjetër</string>
+  <string name="save_value">Ruani vlerën</string>
+  <string name="vat_rate">Shkalla e TVSH-së</string>
+  <string name="rate">normë</string>
+  <string name="language">Gjuhe</string>
+  <string name="rate_string">%1$s\nShkalla e %3$s %2$s</string>
+  <string name="general_settings">i përgjithshëm</string>
+  <string name="amount_to_words">Shuma e fjalëve</string>
+  <string name="currency">monedhë</string>
+  <string name="penny_type">Lloj peni</string>
+  <string name="save_amount_on_exit">Kurseni shumën në dalje</string>
+  <string name="do_not_save_amount_on_exit">Mos kurseni shumën në dalje</string>
+  <string name="arbitrary_rate_set">Rateshtë vendosur norma arbitrare e TVSH-së</string>
+  <string name="set_vat_rate">Duhet të përcaktoni nivelin e TVSH-së</string>
+  <string name="set">i vendosur</string>
+  <string name="type_standard">standard</string>
+  <string name="type_higher">më i lartë</string>
+  <string name="type_reduced">reduktuar</string>
+  <string name="compact_view">Pamje kompakte</string>
+  <string name="horizontal_layout">Paraqitja horizontale</string>
+  <string name="vertical_layout">Paraqitja vertikale</string>
+  <string name="back">prapa</string>
+</resources>
