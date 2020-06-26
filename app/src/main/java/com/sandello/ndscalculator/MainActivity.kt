@@ -3,17 +3,17 @@ package com.sandello.ndscalculator
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.view.updatePadding
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
 import androidx.preference.PreferenceManager
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+
 
 var ratesReceived: Boolean = false
 
@@ -29,21 +29,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         main_container.setOnApplyWindowInsetsListener { _, insets ->
-            appBarLayout.updatePadding(top = insets.systemWindowInsetTop)
+            val params = CoordinatorLayout.LayoutParams(
+                    CoordinatorLayout.LayoutParams.WRAP_CONTENT,
+                    CoordinatorLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.setMargins(16, 0, 0, 16 + insets.systemWindowInsetBottom)
+            params.gravity = Gravity.BOTTOM
+            backFAB.layoutParams = params
             insets
         }
         navController = Navigation.findNavController(this, R.id.fragment)
         navController!!.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.vatFragment) {
-                toolbar.title = getString(R.string.vat).capitalize(Locale.ROOT)
+                backFAB.hide()
             }
             if (destination.id == R.id.settingsFragment) {
-                toolbar.title = getString(R.string.settings).capitalize(Locale.ROOT)
+                backFAB.show()
             }
         }
 
-        toolbar.setupWithNavController(navController!!, AppBarConfiguration(navController!!.graph))
-
+        backFAB.setOnClickListener { onBackPressed() }
     }
 
 

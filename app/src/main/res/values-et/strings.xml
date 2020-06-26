@@ -41,4 +41,5 @@
     <string name="compact_view">Kompaktne vaade</string>
     <string name="horizontal_layout">Horisontaalne paigutus</string>
     <string name="vertical_layout">Vertikaalne paigutus</string>
+    <string name="back">tagasi</string>
 </resources>

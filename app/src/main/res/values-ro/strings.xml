@@ -41,4 +41,5 @@
     <string name="compact_view">Vizualizare compactă</string>
     <string name="horizontal_layout">Aspect orizontal</string>
     <string name="vertical_layout">Aspect vertical</string>
+    <string name="back">Înapoi</string>
 </resources>

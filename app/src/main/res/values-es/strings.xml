@@ -41,4 +41,5 @@
     <string name="compact_view">Vista compacta</string>
     <string name="horizontal_layout">Diseño horizontal</string>
     <string name="vertical_layout">Diseño vertical</string>
+    <string name="back">Espalda</string>
 </resources>

@@ -15,16 +15,16 @@
   <string name="light">lig</string>
   <string name="dark">donker</string>
   <string name="battery_saver">Opgestel deur Battery Saver</string>
-  <string name="system_default">Stelsel verstek</string>
-  <string name="choose_theme">tema</string>
-  <string name="cancel">kanselleer</string>
-  <string name="improve_translation">Verbeter vertaling</string>
-  <string name="settings">instellings</string>
-  <string name="other">ander</string>
-  <string name="save_value">Stoor waarde</string>
-  <string name="vat_rate">BTW koers</string>
-  <string name="rate">Koers</string>
-  <string name="language">Taal</string>
+    <string name="system_default">Stelsel verstek</string>
+    <string name="choose_theme">tema</string>
+    <string name="cancel">kanselleer</string>
+    <string name="improve_translation">Verbeter vertaling</string>
+    <string name="settings">instellings</string>
+    <string name="other">ander</string>
+    <string name="save_value">Stoor waarde</string>
+    <string name="vat_rate">BTW koers</string>
+    <string name="rate">Koers</string>
+    <string name="language">Taal</string>
     <string name="rate_string">%1$s\n%3$s koers %2$s</string>
     <string name="general_settings">algemene</string>
     <string name="amount_to_words">Bedrag aan woorde</string>
@@ -41,4 +41,5 @@
     <string name="compact_view">Kompakte aansig</string>
     <string name="horizontal_layout">Horisontale uitleg</string>
     <string name="vertical_layout">Vertikale uitleg</string>
+    <string name="back">terug</string>
 </resources>

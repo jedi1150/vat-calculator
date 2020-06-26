@@ -41,4 +41,5 @@
     <string name="compact_view">Կոմպակտ տեսք</string>
     <string name="horizontal_layout">Հորիզոնական դասավորություն</string>
     <string name="vertical_layout">Ուղղահայաց դասավորություն</string>
+    <string name="back">Ետ</string>
 </resources>

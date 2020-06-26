@@ -41,4 +41,5 @@
     <string name="compact_view">Vue compacte</string>
     <string name="horizontal_layout">Disposition horizontale</string>
     <string name="vertical_layout">Disposition verticale</string>
+    <string name="back">Arrière</string>
 </resources>

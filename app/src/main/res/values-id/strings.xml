@@ -41,4 +41,5 @@
     <string name="compact_view">Tampilan ringkas</string>
     <string name="horizontal_layout">Tata letak horizontal</string>
     <string name="vertical_layout">Tata letak vertikal</string>
+    <string name="back">Kembali</string>
 </resources>

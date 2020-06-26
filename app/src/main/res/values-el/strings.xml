@@ -41,4 +41,5 @@
     <string name="compact_view">Συμπαγής προβολή</string>
     <string name="horizontal_layout">Οριζόντια διάταξη</string>
     <string name="vertical_layout">Κάθετη διάταξη</string>
+    <string name="back">Πίσω</string>
 </resources>

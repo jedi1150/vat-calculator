@@ -15,16 +15,16 @@
   <string name="light">ışık</string>
   <string name="dark">karanlık</string>
   <string name="battery_saver">Pil Tasarrufu ile ayarlanır</string>
-  <string name="system_default">Sistem varsayılanı</string>
-  <string name="choose_theme">Tema</string>
-  <string name="cancel">İptal etmek</string>
-  <string name="improve_translation">Çeviriyi geliştirin</string>
-  <string name="settings">Ayarlar</string>
-  <string name="other">Diğer</string>
-  <string name="save_value">Değer kaydet</string>
-  <string name="vat_rate">KDV oranı</string>
-  <string name="rate">oran</string>
-  <string name="language">Dil</string>
+    <string name="system_default">Sistem varsayılanı</string>
+    <string name="choose_theme">Tema</string>
+    <string name="cancel">İptal etmek</string>
+    <string name="improve_translation">Çeviriyi geliştirin</string>
+    <string name="settings">Ayarlar</string>
+    <string name="other">Diğer</string>
+    <string name="save_value">Değer kaydet</string>
+    <string name="vat_rate">KDV oranı</string>
+    <string name="rate">oran</string>
+    <string name="language">Dil</string>
     <string name="rate_string">%1$s\n%3$s oranı %2$s</string>
     <string name="general_settings">Genel</string>
     <string name="amount_to_words">Kelimelerin miktarı</string>
@@ -41,4 +41,5 @@
     <string name="compact_view">Kompakt görünüm</string>
     <string name="horizontal_layout">Yatay düzen</string>
     <string name="vertical_layout">Dikey düzen</string>
+    <string name="back">Geri</string>
 </resources>

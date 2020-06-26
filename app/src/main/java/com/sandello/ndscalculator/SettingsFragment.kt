@@ -13,8 +13,8 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.room.Room
-import kotlinx.android.synthetic.main.activity_main.view.*
 import java.util.*
+
 
 @Suppress("DEPRECATION")
 class SettingsFragment : PreferenceFragmentCompat() {
@@ -27,9 +27,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.setOnApplyWindowInsetsListener { v, insets ->
-            view.post {
-                v.updatePadding(top = insets.systemWindowInsetTop + view.rootView.toolbar.height, bottom = insets.systemWindowInsetBottom)
-            }
+            v.updatePadding(top = insets.systemWindowInsetTop, bottom = insets.systemWindowInsetBottom)
             insets
         }
     }

@@ -15,16 +15,16 @@
   <string name="light">Engil mavzu</string>
   <string name="dark">Qorong\'i mavzu</string>
   <string name="battery_saver">Batareya quvvatini tejash vositasi</string>
-  <string name="system_default">Tizim birlamchi</string>
-  <string name="choose_theme">Mavzu</string>
-  <string name="cancel">Bekor qilish</string>
-  <string name="improve_translation">Tarjimani yaxshilang</string>
-  <string name="settings">Sozlamalar</string>
-  <string name="other">Boshqalar</string>
-  <string name="save_value">Qiymatni tejash</string>
-  <string name="vat_rate">QQS stavkasi</string>
-  <string name="rate">Baholash</string>
-  <string name="language">Til</string>
+    <string name="system_default">Tizim birlamchi</string>
+    <string name="choose_theme">Mavzu</string>
+    <string name="cancel">Bekor qilish</string>
+    <string name="improve_translation">Tarjimani yaxshilang</string>
+    <string name="settings">Sozlamalar</string>
+    <string name="other">Boshqalar</string>
+    <string name="save_value">Qiymatni tejash</string>
+    <string name="vat_rate">QQS stavkasi</string>
+    <string name="rate">Baholash</string>
+    <string name="language">Til</string>
     <string name="rate_string">%1$s\n%3$s darajasi %2$s</string>
     <string name="general_settings">Umumiy</string>
     <string name="amount_to_words">So\'zlarning miqdori</string>
@@ -41,4 +41,5 @@
     <string name="compact_view">Ixcham ko\'rinishi</string>
     <string name="horizontal_layout">Landshaft tartib</string>
     <string name="vertical_layout">Vertikal tartib</string>
+    <string name="back">Orqaga</string>
 </resources>

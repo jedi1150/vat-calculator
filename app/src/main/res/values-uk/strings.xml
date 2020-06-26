@@ -41,4 +41,5 @@
     <string name="compact_view">Компактний вигляд</string>
     <string name="horizontal_layout">Горизонтальний макет</string>
     <string name="vertical_layout">Вертикальний макет</string>
+    <string name="back">Назад</string>
 </resources>

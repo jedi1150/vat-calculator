@@ -24,7 +24,6 @@ import androidx.room.Room
 import com.github.moneytostr.MoneyToStr
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.bottom_fragment.*
 import kotlinx.android.synthetic.main.fragment_vat.*
 import kotlinx.coroutines.Dispatchers
@@ -63,9 +62,7 @@ class VatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         vat_layout.setOnApplyWindowInsetsListener { _, insets ->
-            vatLinear.post {
-                vatLinear.updatePadding(top = view.rootView.toolbar.height + insets.systemWindowInsetTop, bottom = (insets.systemWindowInsetBottom + bottom_navigation.measuredHeight + 200), right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
-            }
+            vatLinear.updatePadding(top = insets.systemWindowInsetTop, bottom = (insets.systemWindowInsetBottom + bottom_navigation.measuredHeight + 200), right = insets.systemWindowInsetRight, left = insets.systemWindowInsetLeft)
             insets
         }
         formatter.roundingMode = RoundingMode.FLOOR
@@ -340,6 +337,8 @@ class VatFragment : Fragment() {
     }
 
     private fun loadVal() {
+        checkToTranslate()
+
         val prefsVal = context?.getSharedPreferences("val", MODE_PRIVATE)
         val db = Room.databaseBuilder(
                 requireContext(),
@@ -385,7 +384,7 @@ class VatFragment : Fragment() {
                                 rateEditText?.setText(retrievedRate)
                         }
                     }
-
+                    count()
                 }
             } catch (e: Exception) {
             }

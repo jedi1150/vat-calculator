@@ -41,4 +41,5 @@
     <string name="compact_view">Widok kompaktowy</string>
     <string name="horizontal_layout">Układ poziomy</string>
     <string name="vertical_layout">Układ pionowy</string>
+    <string name="back">Plecy</string>
 </resources>

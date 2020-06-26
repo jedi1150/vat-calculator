@@ -41,4 +41,5 @@
     <string name="compact_view">Vista compacta</string>
     <string name="horizontal_layout">Disposició horitzontal</string>
     <string name="vertical_layout">Disposició vertical</string>
+    <string name="back">esquena</string>
 </resources>

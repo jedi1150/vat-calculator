@@ -41,4 +41,5 @@
     <string name="compact_view">Samningur</string>
     <string name="horizontal_layout">Lárétt skipulag</string>
     <string name="vertical_layout">Lóðrétt skipulag</string>
+    <string name="back">Til baka</string>
 </resources>

@@ -41,4 +41,5 @@
     <string name="compact_view">컴팩트 한 시야</string>
     <string name="horizontal_layout">가로 레이아웃</string>
     <string name="vertical_layout">세로 레이아웃</string>
+    <string name="back">뒤</string>
 </resources>

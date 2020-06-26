@@ -41,4 +41,5 @@
     <string name="compact_view">コンパクト表示</string>
     <string name="horizontal_layout">横型レイアウト</string>
     <string name="vertical_layout">縦型レイアウト</string>
+    <string name="back">バック</string>
 </resources>

@@ -41,4 +41,5 @@
     <string name="compact_view">Kompaktní pohled</string>
     <string name="horizontal_layout">Horizontální rozvržení</string>
     <string name="vertical_layout">Vertikální rozvržení</string>
+    <string name="back">Zadní</string>
 </resources>

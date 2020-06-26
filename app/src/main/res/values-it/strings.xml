@@ -41,4 +41,5 @@
     <string name="compact_view">Vista compatta</string>
     <string name="horizontal_layout">Layout orizzontale</string>
     <string name="vertical_layout">Layout verticale</string>
+    <string name="back">Indietro</string>
 </resources>

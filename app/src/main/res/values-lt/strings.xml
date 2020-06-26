@@ -41,4 +41,5 @@
     <string name="compact_view">Kompaktiškas vaizdas</string>
     <string name="horizontal_layout">Horizontalus išdėstymas</string>
     <string name="vertical_layout">Vertikalus išdėstymas</string>
+    <string name="back">Atgal</string>
 </resources>

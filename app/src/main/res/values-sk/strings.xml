@@ -41,4 +41,5 @@
     <string name="compact_view">Kompaktné zobrazenie</string>
     <string name="horizontal_layout">Horizontálne rozloženie</string>
     <string name="vertical_layout">Vertikálne rozloženie</string>
+    <string name="back">Späť</string>
 </resources>

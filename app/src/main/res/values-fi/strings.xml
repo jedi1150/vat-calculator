@@ -41,4 +41,5 @@
     <string name="compact_view">Kompakti näkymä</string>
     <string name="horizontal_layout">Vaakasuuntainen asettelu</string>
     <string name="vertical_layout">Pystyasettelu</string>
+    <string name="back">Takaisin</string>
 </resources>

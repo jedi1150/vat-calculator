@@ -41,4 +41,5 @@
     <string name="compact_view">संक्षिप्त दृश्य</string>
     <string name="horizontal_layout">तेर्सो लेआउट</string>
     <string name="vertical_layout">ठाडो लेआउट</string>
+    <string name="back">पछाडि</string>
 </resources>

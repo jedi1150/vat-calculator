@@ -41,4 +41,5 @@
     <string name="compact_view">มุมมองกะทัดรัด</string>
     <string name="horizontal_layout">เค้าโครงแนวนอน</string>
     <string name="vertical_layout">เค้าโครงแนวตั้ง</string>
+    <string name="back">กลับ</string>
 </resources>

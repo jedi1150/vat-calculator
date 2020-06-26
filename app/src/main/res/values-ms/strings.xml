@@ -41,4 +41,5 @@
     <string name="compact_view">Pandangan padat</string>
     <string name="horizontal_layout">Susun atur mendatar</string>
     <string name="vertical_layout">Susun atur menegak</string>
+    <string name="back">Belakang</string>
 </resources>

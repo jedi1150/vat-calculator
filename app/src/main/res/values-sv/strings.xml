@@ -41,4 +41,5 @@
     <string name="compact_view">Kompakt vy</string>
     <string name="horizontal_layout">Horisontell layout</string>
     <string name="vertical_layout">Vertikal layout</string>
+    <string name="back">Tillbaka</string>
 </resources>

@@ -41,4 +41,5 @@
     <string name="compact_view">Компакт күренеш</string>
     <string name="horizontal_layout">Горизонталь урнашу</string>
     <string name="vertical_layout">Вертикаль макет</string>
+    <string name="back">Кире</string>
 </resources>

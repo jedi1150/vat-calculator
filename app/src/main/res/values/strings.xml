@@ -106,4 +106,5 @@
   <string name="compact_view">Compact view</string>
   <string name="horizontal_layout">Horizontal layout</string>
   <string name="vertical_layout">Vertical layout</string>
+  <string name="back">Back</string>
 </resources>

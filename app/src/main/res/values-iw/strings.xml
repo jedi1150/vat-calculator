@@ -41,4 +41,5 @@
     <string name="compact_view">תצוגה קומפקטית</string>
     <string name="horizontal_layout">פריסה אופקית</string>
     <string name="vertical_layout">פריסה אנכית</string>
+    <string name="back">חזור</string>
 </resources>

@@ -41,4 +41,5 @@
     <string name="compact_view">Компактен преглед</string>
     <string name="horizontal_layout">Хоризонтален распоред</string>
     <string name="vertical_layout">Вертикален распоред</string>
+    <string name="back">Назад</string>
 </resources>

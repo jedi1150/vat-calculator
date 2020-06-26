@@ -41,4 +41,5 @@
     <string name="compact_view">Kompakte Ansicht</string>
     <string name="horizontal_layout">Horizontales Layout</string>
     <string name="vertical_layout">Vertikales Layout</string>
+    <string name="back">Zurück</string>
 </resources>

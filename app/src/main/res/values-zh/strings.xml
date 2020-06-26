@@ -41,4 +41,5 @@
     <string name="compact_view">緊湊型視圖</string>
     <string name="horizontal_layout">水平佈局</string>
     <string name="vertical_layout">垂直佈局</string>
+    <string name="back">背部</string>
 </resources>

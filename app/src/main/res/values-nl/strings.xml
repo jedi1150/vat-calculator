@@ -41,4 +41,5 @@
     <string name="compact_view">Compact zicht</string>
     <string name="horizontal_layout">Horizontale indeling</string>
     <string name="vertical_layout">Verticale indeling</string>
+    <string name="back">Terug</string>
 </resources>

@@ -41,4 +41,5 @@
     <string name="compact_view">কমপ্যাক্ট ভিউ</string>
     <string name="horizontal_layout">অনুভূমিক বিন্যাস</string>
     <string name="vertical_layout">উল্লম্ব বিন্যাস</string>
+    <string name="back">পেছনে</string>
 </resources>

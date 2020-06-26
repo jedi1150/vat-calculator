@@ -41,4 +41,5 @@
     <string name="compact_view">Компактный вид</string>
     <string name="horizontal_layout">Горизонтальное расположение</string>
     <string name="vertical_layout">Вертикальное расположение</string>
+    <string name="back">Назад</string>
 </resources>

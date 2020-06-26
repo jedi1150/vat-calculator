@@ -41,4 +41,5 @@
     <string name="compact_view">عرض مضغوط</string>
     <string name="horizontal_layout">تخطيط أفقي</string>
     <string name="vertical_layout">تخطيط عمودي</string>
+    <string name="back">عودة</string>
 </resources>

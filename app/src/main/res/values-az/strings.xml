@@ -15,16 +15,16 @@
   <string name="light">İşıq mövzusu</string>
   <string name="dark">Qaranlıq mövzu</string>
   <string name="battery_saver">Batareya qənaətçisi tərəfindən təyin edilmişdir</string>
-  <string name="system_default">Sistem default</string>
-  <string name="choose_theme">Mövzu</string>
-  <string name="cancel">Ləğv et</string>
-  <string name="improve_translation">Tərcümə təkmilləşdirin</string>
-  <string name="settings">Parametrlər</string>
-  <string name="other">Digərləri</string>
-  <string name="save_value">Dəyər qazanın</string>
-  <string name="vat_rate">ƏDV dərəcəsi</string>
-  <string name="rate">Qiymətləndirin</string>
-  <string name="language">Dil</string>
+    <string name="system_default">Sistem default</string>
+    <string name="choose_theme">Mövzu</string>
+    <string name="cancel">Ləğv et</string>
+    <string name="improve_translation">Tərcümə təkmilləşdirin</string>
+    <string name="settings">Parametrlər</string>
+    <string name="other">Digərləri</string>
+    <string name="save_value">Dəyər qazanın</string>
+    <string name="vat_rate">ƏDV dərəcəsi</string>
+    <string name="rate">Qiymətləndirin</string>
+    <string name="language">Dil</string>
     <string name="rate_string">%1$s\n%3$s dərəcəsi %2$s</string>
     <string name="general_settings">Ümumi</string>
     <string name="amount_to_words">Sözlərin miqdarı</string>
@@ -41,4 +41,5 @@
     <string name="compact_view">Kompakt görünüş</string>
     <string name="horizontal_layout">Üfüqi layout</string>
     <string name="vertical_layout">Şaquli düzülmə</string>
+    <string name="back">Geri</string>
 </resources>

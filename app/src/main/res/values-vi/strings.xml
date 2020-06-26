@@ -41,4 +41,5 @@
     <string name="compact_view">Chế độ xem nhỏ gọn</string>
     <string name="horizontal_layout">Bố trí ngang</string>
     <string name="vertical_layout">Bố cục dọc</string>
+    <string name="back">Trở lại</string>
 </resources>
