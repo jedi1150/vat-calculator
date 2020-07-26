@@ -17,12 +17,10 @@
     <string name="battery_saver">Beállította az Energiatakarékos</string>
     <string name="system_default">Rendszer alapértelmezés</string>
     <string name="choose_theme">Téma</string>
-    <string name="cancel">Megszünteti</string>
     <string name="improve_translation">Javítani kell a fordítást</string>
     <string name="settings">Beállítások</string>
     <string name="other">Egyéb</string>
     <string name="save_value">Érték mentése</string>
-    <string name="vat_rate">Áfakulcs</string>
     <string name="rate">Mérték</string>
     <string name="language">Nyelv</string>
     <string name="rate_string">%1$s\n%3$s ár %2$s</string>

@@ -17,12 +17,10 @@
     <string name="battery_saver">Vendosur nga Saver Battery</string>
     <string name="system_default">Paraqitja e sistemit</string>
     <string name="choose_theme">temë</string>
-    <string name="cancel">anuloj</string>
     <string name="improve_translation">Përmirësimi i përkthimit</string>
     <string name="settings">Cilësimet</string>
     <string name="other">tjetër</string>
     <string name="save_value">Ruani vlerën</string>
-    <string name="vat_rate">Shkalla e TVSH-së</string>
     <string name="rate">normë</string>
     <string name="language">Gjuhe</string>
     <string name="rate_string">%1$s\nShkalla e %3$s %2$s</string>

@@ -17,12 +17,10 @@
     <string name="battery_saver">מוגדר על ידי שומר סוללות</string>
     <string name="system_default">ברירת מחדל של המערכת</string>
     <string name="choose_theme">נושא</string>
-    <string name="cancel">בטל</string>
     <string name="improve_translation">שפר את התרגום</string>
     <string name="settings">הגדרות</string>
     <string name="other">אחר</string>
     <string name="save_value">שמור ערך</string>
-    <string name="vat_rate">שיעור מע\"מ</string>
     <string name="rate">ציון</string>
     <string name="language">שפה</string>
     <string name="rate_string">%1$s\n%3$s שיעור %2$s</string>

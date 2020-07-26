@@ -20,7 +20,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/addVatTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -97,7 +96,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/netAmountTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

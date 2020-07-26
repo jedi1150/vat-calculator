@@ -17,12 +17,10 @@
     <string name="battery_saver">Ρύθμιση από Εξοικονόμηση μπαταρίας</string>
     <string name="system_default">Προεπιλογή συστήματος</string>
     <string name="choose_theme">Θέμα</string>
-    <string name="cancel">Ματαίωση</string>
     <string name="improve_translation">Βελτιώστε τη μετάφραση</string>
     <string name="settings">Ρυθμίσεις</string>
     <string name="other">Άλλα</string>
     <string name="save_value">Εξοικονομήστε αξία</string>
-    <string name="vat_rate">Συντελεστή ΦΠΑ</string>
     <string name="rate">Τιμή</string>
     <string name="language">Γλώσσα</string>
     <string name="rate_string">%1$s\n%3$s %2$s</string>

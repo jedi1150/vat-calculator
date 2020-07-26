@@ -17,12 +17,10 @@
     <string name="battery_saver">배터리 세이버로 설정</string>
     <string name="system_default">시스템 기본값</string>
     <string name="choose_theme">테마</string>
-    <string name="cancel">취소</string>
     <string name="improve_translation">번역 개선</string>
     <string name="settings">설정</string>
     <string name="other">다른</string>
     <string name="save_value">가치 저장</string>
-    <string name="vat_rate">부가가치 세율</string>
     <string name="rate">율</string>
     <string name="language">언어</string>
     <string name="rate_string">%1$s\n%3$s 요금 %2$s</string>

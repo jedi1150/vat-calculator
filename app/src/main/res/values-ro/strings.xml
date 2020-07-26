@@ -17,12 +17,10 @@
     <string name="battery_saver">Setat de Batere Sauer</string>
     <string name="system_default">Defecțiune de sistem</string>
     <string name="choose_theme">Temă</string>
-    <string name="cancel">Anulare</string>
     <string name="improve_translation">Îmbunătățirea traducerii</string>
     <string name="settings">Setări</string>
     <string name="other">Alte</string>
     <string name="save_value">Salvați valoarea</string>
-    <string name="vat_rate">Cota TVA</string>
     <string name="rate">Rată</string>
     <string name="language">Limba</string>
     <string name="rate_string">%1$s\n%3$s rata %2$s</string>

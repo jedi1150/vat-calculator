@@ -17,12 +17,10 @@
     <string name="battery_saver">Батареяны үнемдегіш арқылы орнатылады</string>
     <string name="system_default">Жүйе әдепкі</string>
     <string name="choose_theme">Тақырып</string>
-    <string name="cancel">Болдырмау</string>
     <string name="improve_translation">Аударманы жақсарту</string>
     <string name="settings">Параметрлер</string>
     <string name="other">Басқа</string>
     <string name="save_value">Құнды сақтау</string>
-    <string name="vat_rate">ҚҚС ставкасы</string>
     <string name="rate">Бағалау</string>
     <string name="language">Тіл</string>
     <string name="rate_string">%1$s\n%3$s бағамы %2$s</string>

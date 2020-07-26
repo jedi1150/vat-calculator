@@ -17,12 +17,10 @@
     <string name="battery_saver">Սահմանված է մարտկոցի խնայարարի միջոցով</string>
     <string name="system_default">Համակարգը լռելյայն է</string>
     <string name="choose_theme">Թեման</string>
-    <string name="cancel">Չեղարկել</string>
     <string name="improve_translation">Բարելավել թարգմանությունը</string>
     <string name="settings">Կարգավորումներ</string>
     <string name="other">Այլ</string>
     <string name="save_value">Պահպանել արժեքը</string>
-    <string name="vat_rate">ԱԱՀ-ի դրույքաչափը</string>
     <string name="rate">Գնահատեք</string>
     <string name="language">Լեզու</string>
     <string name="rate_string">%1$s\n%3$s փոխարժեքը %2$s</string>

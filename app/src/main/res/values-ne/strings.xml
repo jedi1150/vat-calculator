@@ -17,12 +17,10 @@
     <string name="battery_saver">ब्याट्री सेभर द्वारा सेट</string>
     <string name="system_default">प्रणाली पूर्वनिर्धारित</string>
     <string name="choose_theme">विषयवस्तु</string>
-    <string name="cancel">रद्द गर्नुहोस्</string>
     <string name="improve_translation">अनुवाद सुधार गर्नुहोस्</string>
     <string name="settings">सेटिंग्स</string>
     <string name="other">अन्य</string>
     <string name="save_value">मूल्य बचत गर्नुहोस्</string>
-    <string name="vat_rate">VAT दर</string>
     <string name="rate">दर</string>
     <string name="language">भाषा</string>
     <string name="rate_string">%1$s\n%3$s दर %2$s</string>

@@ -17,12 +17,10 @@
     <string name="battery_saver">Đặt theo tiết kiệm pin</string>
     <string name="system_default">Mặc định hệ thống</string>
     <string name="choose_theme">Chủ đề</string>
-    <string name="cancel">Hủy bỏ</string>
     <string name="improve_translation">Cải thiện bản dịch</string>
     <string name="settings">Cài đặt</string>
     <string name="other">Khác</string>
     <string name="save_value">Tiết kiệm giá trị</string>
-    <string name="vat_rate">tỉ lệ VAT</string>
     <string name="rate">Tỷ lệ</string>
     <string name="language">Ngôn ngữ</string>
     <string name="rate_string">%1$s\nTỷ lệ %3$s %2$s</string>

@@ -17,12 +17,10 @@
   <string name="battery_saver">Opgestel deur Battery Saver</string>
     <string name="system_default">Stelsel verstek</string>
     <string name="choose_theme">tema</string>
-    <string name="cancel">kanselleer</string>
     <string name="improve_translation">Verbeter vertaling</string>
     <string name="settings">instellings</string>
     <string name="other">ander</string>
     <string name="save_value">Stoor waarde</string>
-    <string name="vat_rate">BTW koers</string>
     <string name="rate">Koers</string>
     <string name="language">Taal</string>
     <string name="rate_string">%1$s\n%3$s koers %2$s</string>

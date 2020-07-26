@@ -17,12 +17,10 @@
   <string name="battery_saver">Iestatījis akumulatora taupītājs</string>
     <string name="system_default">Sistēmas noklusējums</string>
     <string name="choose_theme">Tēma</string>
-    <string name="cancel">Atcelt</string>
     <string name="improve_translation">Uzlabot tulkošanu</string>
     <string name="settings">Iestatījumi</string>
     <string name="other">Cits</string>
     <string name="save_value">Ietaupiet vērtību</string>
-    <string name="vat_rate">PVN likme</string>
     <string name="rate">Likme</string>
     <string name="language">Valoda</string>
     <string name="rate_string">%1$s\n%3$s likme %2$s</string>

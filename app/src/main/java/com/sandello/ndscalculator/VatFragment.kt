@@ -172,7 +172,7 @@ class VatFragment : Fragment() {
                 }
 
 
-                if (string.substringAfter(".") != "0" && string.substringAfter(".") != "." && string[string.lastIndex].toString() != "0") {
+                if (string.substringAfter(".") != "0" && string.substringAfter(".") != ".") {
                     if (string.contains(".")) {
                         if (string.substringAfter(".").length <= 2) {
                             amountDouble = string.toDouble()

@@ -17,12 +17,10 @@
     <string name="battery_saver">Seadistatud akusäästja poolt</string>
     <string name="system_default">Süsteemi vaikeseade</string>
     <string name="choose_theme">Teema</string>
-    <string name="cancel">Tühista</string>
     <string name="improve_translation">Parandada tõlget</string>
     <string name="settings">Seadistused</string>
     <string name="other">Muud</string>
     <string name="save_value">Salvesta väärtus</string>
-    <string name="vat_rate">Käibemaksumäär</string>
     <string name="rate">Hinda</string>
     <string name="language">Keel</string>
     <string name="rate_string">%1$s\n%3$s määr %2$s</string>

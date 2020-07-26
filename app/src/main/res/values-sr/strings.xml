@@ -17,12 +17,10 @@
     <string name="battery_saver">Подесио Баттери Савер</string>
     <string name="system_default">Систем подразумевани</string>
     <string name="choose_theme">Тема</string>
-    <string name="cancel">Поништити, отказати</string>
     <string name="improve_translation">Побољшајте превод</string>
     <string name="settings">Подешавања</string>
     <string name="other">Остало</string>
     <string name="save_value">Сачувај вредност</string>
-    <string name="vat_rate">Стопа ПДВ-а</string>
     <string name="rate">Рате</string>
     <string name="language">Језик</string>
     <string name="rate_string">%1$s\n%3$s стопа %2$s</string>

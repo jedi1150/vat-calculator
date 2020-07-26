@@ -17,12 +17,10 @@
     <string name="battery_saver">Nastaveno šetřičem baterie</string>
     <string name="system_default">Výchozí systém</string>
     <string name="choose_theme">Téma</string>
-    <string name="cancel">zrušení</string>
     <string name="improve_translation">Vylepšete překlad</string>
     <string name="settings">Nastavení</string>
     <string name="other">jiný</string>
     <string name="save_value">Uložit hodnotu</string>
-    <string name="vat_rate">Sazba DPH</string>
     <string name="rate">Hodnotit</string>
     <string name="language">Jazyk</string>
     <string name="rate_string">%1$s\nSazba %3$s %2$s</string>

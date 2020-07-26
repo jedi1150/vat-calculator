@@ -17,12 +17,10 @@
     <string name="battery_saver">Innstilt av Battery Saver</string>
     <string name="system_default">System standard</string>
     <string name="choose_theme">Tema</string>
-    <string name="cancel">Avbryt</string>
     <string name="improve_translation">Forbedre oversettelse</string>
     <string name="settings">innstillinger</string>
     <string name="other">Annen</string>
     <string name="save_value">Lagre verdi</string>
-    <string name="vat_rate">Momssats</string>
     <string name="rate">Vurdere</string>
     <string name="language">Språk</string>
     <string name="rate_string">%1$s\n%3$s rate %2$s</string>

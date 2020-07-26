@@ -17,12 +17,10 @@
     <string name="battery_saver">Establecido por Batiera Saber</string>
     <string name="system_default">Sistema por defecto</string>
     <string name="choose_theme">Tema</string>
-    <string name="cancel">Cancelar</string>
     <string name="improve_translation">Mejora la traducción</string>
     <string name="settings">Configuraciones</string>
     <string name="other">Otro</string>
     <string name="save_value">Ahorrar valor</string>
-    <string name="vat_rate">Tipo de IVA</string>
     <string name="rate">Velocidad</string>
     <string name="language">Idioma</string>
     <string name="rate_string">%1$s\n%3$s tasa %2$s</string>

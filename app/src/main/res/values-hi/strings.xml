@@ -17,12 +17,10 @@
     <string name="battery_saver">बैटरी सेवर द्वारा सेट करें</string>
     <string name="system_default">सिस्टम डिफ़ॉल्ट</string>
     <string name="choose_theme">विषय</string>
-    <string name="cancel">रद्द करना</string>
     <string name="improve_translation">अनुवाद में सुधार करें</string>
     <string name="settings">समायोजन</string>
     <string name="other">अन्य</string>
     <string name="save_value">मान बचाओ</string>
-    <string name="vat_rate">वैट दर</string>
     <string name="rate">मूल्यांकन करें</string>
     <string name="language">भाषा: हिन्दी</string>
     <string name="rate_string">%1$s\n%3$s दर %2$s</string>

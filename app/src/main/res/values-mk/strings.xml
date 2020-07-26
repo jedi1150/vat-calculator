@@ -17,12 +17,10 @@
     <string name="battery_saver">Поставено од Заштеда на батерии</string>
     <string name="system_default">Стандардно систем</string>
     <string name="choose_theme">Тема</string>
-    <string name="cancel">Откажи</string>
     <string name="improve_translation">Подобрете го преводот</string>
     <string name="settings">Поставки</string>
     <string name="other">Друго</string>
     <string name="save_value">Зачувајте вредност</string>
-    <string name="vat_rate">Стапка на ДДВ</string>
     <string name="rate">Оцени</string>
     <string name="language">Јазик</string>
     <string name="rate_string">%1$s\nСтапка %3$s %2$s</string>

@@ -17,12 +17,10 @@
     <string name="battery_saver">Зададен от Battery Saver</string>
     <string name="system_default">Система по подразбиране</string>
     <string name="choose_theme">тема</string>
-    <string name="cancel">Отказ</string>
     <string name="improve_translation">Подобрете превода</string>
     <string name="settings">Настройки</string>
     <string name="other">друг</string>
     <string name="save_value">Запазване на стойността</string>
-    <string name="vat_rate">Ставка на ДДС</string>
     <string name="rate">скорост</string>
     <string name="language">език</string>
     <string name="rate_string">%1$s\n%3$s процент %2$s</string>

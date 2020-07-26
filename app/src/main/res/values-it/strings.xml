@@ -17,12 +17,10 @@
     <string name="battery_saver">Impostato da Risparmio batteria</string>
     <string name="system_default">Default del sistema</string>
     <string name="choose_theme">Tema</string>
-    <string name="cancel">Annulla</string>
     <string name="improve_translation">Migliora la traduzione</string>
     <string name="settings">Impostazioni</string>
     <string name="other">Altro</string>
     <string name="save_value">Salva valore</string>
-    <string name="vat_rate">Aliquota IVA</string>
     <string name="rate">Vota</string>
     <string name="language">Linguaggio</string>
     <string name="rate_string">%1$s\n%3$s tasso %2$s</string>

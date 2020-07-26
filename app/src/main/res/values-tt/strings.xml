@@ -17,12 +17,10 @@
     <string name="battery_saver">Энергияне саклау режимы белән көйләгез</string>
     <string name="system_default">Системада кебек</string>
     <string name="choose_theme">Тема</string>
-    <string name="cancel">Баш тарту</string>
     <string name="improve_translation">Тәрҗемәне яхшырту</string>
     <string name="settings">Параметрлары</string>
     <string name="other">Бүтәннәр</string>
     <string name="save_value">Кыйммәтне саклагыз</string>
-    <string name="vat_rate">НДС ставкасы</string>
     <string name="rate">Ставкасы</string>
     <string name="language">Тел</string>
     <string name="rate_string">%1$s\n%3$s нисбәт %2$s</string>

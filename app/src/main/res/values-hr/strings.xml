@@ -17,12 +17,10 @@
     <string name="battery_saver">Postavio Battery Saver</string>
     <string name="system_default">Zadani sustav</string>
     <string name="choose_theme">Tema</string>
-    <string name="cancel">Otkazati</string>
     <string name="improve_translation">Poboljšajte prijevod</string>
     <string name="settings">postavke</string>
     <string name="other">drugo</string>
     <string name="save_value">Spremite vrijednost</string>
-    <string name="vat_rate">Stopa PDV-a</string>
     <string name="rate">Stopa</string>
     <string name="language">Jezik</string>
     <string name="rate_string">%1$s\n%3$s stopa %2$s</string>
