@@ -35,7 +35,6 @@ class GetRates {
                     val stringBuilder = StringBuilder()
                     bufferedReader.forEachLine { stringBuilder.append(it) }
                     val data: String = stringBuilder.toString()
-//                    val json = Json(JsonConfiguration.Stable.copy(isLenient = true, ignoreUnknownKeys = true))
                     val json = Json { isLenient = true }
                     listRates = json.decodeFromString(ListSerializer(Rate.serializer()), data)
                     val db = Room.databaseBuilder(
