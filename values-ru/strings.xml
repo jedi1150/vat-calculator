@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Текст</item>
+    <item>Число</item>
+  </string-array>
+  <string name="app_name">НДС</string>
+  <string name="amount">Сумма</string>
+  <string name="without_vat">Сумма без учета НДС</string>
+  <string name="include_vat">Сумма с учетом НДС</string>
+  <string name="vat">НДС</string>
+  <string name="gross_amount">Начислить НДС</string>
+  <string name="net_amount">Выделить НДС</string>
+  <string name="copied">Скопировано!</string>
+  <string name="light">Светлая</string>
+  <string name="dark">Темная</string>
+  <string name="battery_saver">Устанавливается режимом энергосбережения</string>
+  <string name="system_default">Как в системе</string>
+  <string name="choose_theme">Тема</string>
+  <string name="cancel">Отмена</string>
+  <string name="improve_translation">Улучшить перевод</string>
+  <string name="settings">Настройки</string>
+  <string name="other">Прочее</string>
+  <string name="save_value">Сохранить значение</string>
+  <string name="vat_rate">Ставка НДС</string>
+  <string name="rate">Ставка</string>
+  <string name="language">Язык</string>
+  <string name="rate_string">%1$s\n%3$s ставка %2$s</string>
+  <string name="general_settings">Общие</string>
+  <string name="amount_to_words">Сумма прописью</string>
+  <string name="currency">Валюта</string>
+  <string name="penny_type">Тип копейки</string>
+  <string name="save_amount_on_exit">Сохранять сумму на выходе</string>
+  <string name="do_not_save_amount_on_exit">Не сохранять сумму при выходе</string>
+  <string name="arbitrary_rate_set">Установлена произвольная ставка НДС</string>
+  <string name="set_vat_rate">Нужно установить ставку НДС</string>
+  <string name="set">Установить</string>
+  <string name="type_standard">стандартная</string>
+  <string name="type_higher">выше</string>
+  <string name="type_reduced">сниженная</string>
+  <string name="compact_view">Компактный вид</string>
+  <string name="horizontal_layout">Горизонтальное расположение</string>
+  <string name="vertical_layout">Вертикальное расположение</string>
+  <string name="back">Назад</string>
+  <string name="review">Оценить приложение и оставить отзыв</string>
+</resources>

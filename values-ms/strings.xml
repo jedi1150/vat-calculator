@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Teks</item>
+    <item>Nombor</item>
+  </string-array>
+  <string name="app_name">PPN</string>
+  <string name="amount">Jumlah</string>
+  <string name="without_vat">Tidak termasuk PPN</string>
+  <string name="include_vat">Termasuk PPN</string>
+  <string name="vat">PPN</string>
+  <string name="gross_amount">Jumlah kasar</string>
+  <string name="net_amount">Jumlah bersih</string>
+  <string name="copied">Disalin!</string>
+  <string name="light">Cahaya</string>
+  <string name="dark">Gelap</string>
+  <string name="battery_saver">Tetapkan dengan Penjimat Bateri</string>
+  <string name="system_default">Lalai sistem</string>
+  <string name="choose_theme">Tema</string>
+  <string name="cancel">Batal</string>
+  <string name="improve_translation">Tingkatkan terjemahan</string>
+  <string name="settings">Tetapan</string>
+  <string name="other">Yang lain</string>
+  <string name="save_value">Jimat nilai</string>
+  <string name="vat_rate">Kadar VAT</string>
+  <string name="rate">Nilaikan</string>
+  <string name="language">Bahasa</string>
+  <string name="rate_string">%1$s\n%3$s kadar %2$s</string>
+  <string name="general_settings">Am</string>
+  <string name="amount_to_words">Jumlah perkataan</string>
+  <string name="currency">Mata Wang</string>
+  <string name="penny_type">Jenis sen</string>
+  <string name="save_amount_on_exit">Jimat jumlah semasa keluar</string>
+  <string name="do_not_save_amount_on_exit">Jangan simpan jumlah semasa keluar</string>
+  <string name="arbitrary_rate_set">Kadar VAT sewenang-wenangnya ditetapkan</string>
+  <string name="set_vat_rate">Perlu menetapkan kadar VAT</string>
+  <string name="set">Tetapkan nilai</string>
+  <string name="type_standard">standard</string>
+  <string name="type_higher">lebih tinggi</string>
+  <string name="type_reduced">dikurangkan</string>
+  <string name="compact_view">Pandangan padat</string>
+  <string name="horizontal_layout">Susun atur mendatar</string>
+  <string name="vertical_layout">Susun atur menegak</string>
+  <string name="back">Belakang</string>
+  <string name="review">Nilai aplikasi dan ulasan</string>
+</resources>

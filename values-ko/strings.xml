@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>본문</item>
+    <item>번호</item>
+  </string-array>
+  <string name="app_name">큰 통</string>
+  <string name="amount">양</string>
+  <string name="without_vat">부가가치세 별도</string>
+  <string name="include_vat">부가세 포함</string>
+  <string name="vat">큰 통</string>
+  <string name="gross_amount">총액</string>
+  <string name="net_amount">순액</string>
+  <string name="copied">복사했습니다!</string>
+  <string name="light">빛</string>
+  <string name="dark">어두운</string>
+  <string name="battery_saver">배터리 세이버로 설정</string>
+  <string name="system_default">시스템 기본값</string>
+  <string name="choose_theme">테마</string>
+  <string name="cancel">취소</string>
+  <string name="improve_translation">번역 개선</string>
+  <string name="settings">설정</string>
+  <string name="other">다른</string>
+  <string name="save_value">가치 저장</string>
+  <string name="vat_rate">부가가치 세율</string>
+  <string name="rate">율</string>
+  <string name="language">언어</string>
+  <string name="rate_string">%1$s\n%3$s 요금 %2$s</string>
+  <string name="general_settings">일반</string>
+  <string name="amount_to_words">단어 금액</string>
+  <string name="currency">통화</string>
+  <string name="penny_type">페니 타입</string>
+  <string name="save_amount_on_exit">종료시 금액 저장</string>
+  <string name="do_not_save_amount_on_exit">출구에 금액을 저장하지 마십시오</string>
+  <string name="arbitrary_rate_set">임의 VAT 세율 설정</string>
+  <string name="set_vat_rate">부가가치 세율 설정 필요</string>
+  <string name="set">설정 값</string>
+  <string name="type_standard">표준</string>
+  <string name="type_higher">더 높은</string>
+  <string name="type_reduced">줄인</string>
+  <string name="compact_view">컴팩트 한 시야</string>
+  <string name="horizontal_layout">가로 레이아웃</string>
+  <string name="vertical_layout">세로 레이아웃</string>
+  <string name="back">뒤</string>
+  <string name="review">앱 평가 및 리뷰</string>
+</resources>

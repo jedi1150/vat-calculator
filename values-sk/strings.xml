@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Text</item>
+    <item>Číslo</item>
+  </string-array>
+  <string name="app_name">DPH</string>
+  <string name="amount">Čiastka</string>
+  <string name="without_vat">Bez DPH</string>
+  <string name="include_vat">Vrátane DPH</string>
+  <string name="vat">DPH</string>
+  <string name="gross_amount">Hrubá suma</string>
+  <string name="net_amount">Čistá čiastka</string>
+  <string name="copied">Kopírovaný!</string>
+  <string name="light">Svetlo</string>
+  <string name="dark">Tmavý</string>
+  <string name="battery_saver">Nastavenie pomocou šetriča batérie</string>
+  <string name="system_default">Predvolený systém</string>
+  <string name="choose_theme">Téma</string>
+  <string name="cancel">Zrušiť</string>
+  <string name="improve_translation">Vylepšiť preklad</string>
+  <string name="settings">Nastavenie</string>
+  <string name="other">Ostatné</string>
+  <string name="save_value">Uložiť hodnotu</string>
+  <string name="vat_rate">Sadzba DPH</string>
+  <string name="rate">Rýchlosť</string>
+  <string name="language">Jazyk</string>
+  <string name="rate_string">%1$s\nSadzba %3$s %2$s</string>
+  <string name="general_settings">Všeobecné</string>
+  <string name="amount_to_words">Počet slov</string>
+  <string name="currency">Mena</string>
+  <string name="penny_type">Penny type</string>
+  <string name="save_amount_on_exit">Ušetrite sumu pri odchode</string>
+  <string name="do_not_save_amount_on_exit">Na výstupe neukladajte množstvo</string>
+  <string name="arbitrary_rate_set">Ľubovoľná sadzba DPH</string>
+  <string name="set_vat_rate">Potreba stanoviť sadzbu DPH</string>
+  <string name="set">Nastavená</string>
+  <string name="type_standard">standard</string>
+  <string name="type_higher">vyššia</string>
+  <string name="type_reduced">znížený</string>
+  <string name="compact_view">Kompaktné zobrazenie</string>
+  <string name="horizontal_layout">Horizontálne rozloženie</string>
+  <string name="vertical_layout">Vertikálne rozloženie</string>
+  <string name="back">Späť</string>
+  <string name="review">Ohodnoťte aplikáciu a recenziu</string>
+</resources>

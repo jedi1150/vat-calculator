@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Текст</item>
+    <item>Номер</item>
+  </string-array>
+  <string name="app_name">ПДВ</string>
+  <string name="amount">Сума</string>
+  <string name="without_vat">Без ПДВ</string>
+  <string name="include_vat">Включаючи ПДВ</string>
+  <string name="vat">ПДВ</string>
+  <string name="gross_amount">Валова сума</string>
+  <string name="net_amount">Чиста сума</string>
+  <string name="copied">Скопійовані!</string>
+  <string name="light">Світла</string>
+  <string name="dark">Темна</string>
+  <string name="battery_saver">Враховувати режим енергозбереження</string>
+  <string name="system_default">Система за замовчуванням</string>
+  <string name="choose_theme">Тема</string>
+  <string name="cancel">Скасувати</string>
+  <string name="improve_translation">Поліпшення перекладу</string>
+  <string name="settings">Налаштування</string>
+  <string name="other">Інший</string>
+  <string name="save_value">Зберегти значення</string>
+  <string name="vat_rate">Ставка ПДВ</string>
+  <string name="rate">Ставка</string>
+  <string name="language">Мова</string>
+  <string name="rate_string">%1$s\n%3$s швидкість %2$s</string>
+  <string name="general_settings">Загальні</string>
+  <string name="amount_to_words">Сума прописом</string>
+  <string name="currency">Валюта</string>
+  <string name="penny_type">Тип Пенні</string>
+  <string name="save_amount_on_exit">Збережіть суму на виході</string>
+  <string name="do_not_save_amount_on_exit">Не закріпляти суму при виході</string>
+  <string name="arbitrary_rate_set">Встановлено довільну ставку ПДВ</string>
+  <string name="set_vat_rate">Потрібно встановити ставку ПДВ</string>
+  <string name="set">Встановити</string>
+  <string name="type_standard">стандартний</string>
+  <string name="type_higher">вище</string>
+  <string name="type_reduced">зменшено</string>
+  <string name="compact_view">Компактний вигляд</string>
+  <string name="horizontal_layout">Горизонтальний макет</string>
+  <string name="vertical_layout">Вертикальний макет</string>
+  <string name="back">Назад</string>
+  <string name="review">Оцініть додаток та огляд</string>
+</resources>

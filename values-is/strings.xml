@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Texti</item>
+    <item>Fjöldi</item>
+  </string-array>
+  <string name="app_name">VSK</string>
+  <string name="amount">Magn</string>
+  <string name="without_vat">Að undanskildum virðisaukaskatti</string>
+  <string name="include_vat">Að meðtöldum virðisaukaskatti</string>
+  <string name="vat">VSK</string>
+  <string name="gross_amount">Fjárhæð</string>
+  <string name="net_amount">Virði</string>
+  <string name="copied">Afritað!</string>
+  <string name="light">Létt</string>
+  <string name="dark">Myrkur</string>
+  <string name="battery_saver">Stillt af Battery Saver</string>
+  <string name="system_default">Sjálfgefið kerfi</string>
+  <string name="choose_theme">Þema</string>
+  <string name="cancel">Hætta við</string>
+  <string name="improve_translation">Bæta þýðingar</string>
+  <string name="settings">Stillingar</string>
+  <string name="other">Annað</string>
+  <string name="save_value">Spara gildi</string>
+  <string name="vat_rate">VSK hlutfall</string>
+  <string name="rate">Verð</string>
+  <string name="language">Tungumál</string>
+  <string name="rate_string">%1$s\n%3$s  hlutfall %2$s</string>
+  <string name="general_settings">Almennt</string>
+  <string name="amount_to_words">Upphæð orð</string>
+  <string name="currency">Gjaldmiðill</string>
+  <string name="penny_type">Penny gerð</string>
+  <string name="save_amount_on_exit">Sparaðu upphæð við útgönguleið</string>
+  <string name="do_not_save_amount_on_exit">Ekki vista upphæð við útgönguleið</string>
+  <string name="arbitrary_rate_set">Handahófskennt VSK hlutfall sett</string>
+  <string name="set_vat_rate">Þarftu að stilla virðisaukaskattshlutfall</string>
+  <string name="set">Stilla gildi</string>
+  <string name="type_standard">staðlað</string>
+  <string name="type_higher">hærra</string>
+  <string name="type_reduced">minnkað</string>
+  <string name="compact_view">Samningur</string>
+  <string name="horizontal_layout">Lárétt skipulag</string>
+  <string name="vertical_layout">Lóðrétt skipulag</string>
+  <string name="back">Til baka</string>
+  <string name="review">Gefa appinu umsögn og fara yfir</string>
+</resources>

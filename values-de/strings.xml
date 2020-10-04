@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Text</item>
+    <item>Nummer</item>
+  </string-array>
+  <string name="app_name">MwSt.</string>
+  <string name="amount">Menge</string>
+  <string name="without_vat">Ohne MwSt.</string>
+  <string name="include_vat">Einschließlich Mehrwertsteuer</string>
+  <string name="vat">MwSt.</string>
+  <string name="gross_amount">Netto-Betrag</string>
+  <string name="net_amount">Netto-Betrag</string>
+  <string name="copied">Kopiert!</string>
+  <string name="light">Licht</string>
+  <string name="dark">Dunkles Thema</string>
+  <string name="battery_saver">Wird vom Batterie Käfer eingestellt</string>
+  <string name="system_default">Systemfehler</string>
+  <string name="choose_theme">Thema</string>
+  <string name="cancel">Abbrechen</string>
+  <string name="improve_translation">Übersetzung verbessern</string>
+  <string name="settings">Die Einstellungen</string>
+  <string name="other">Andere</string>
+  <string name="save_value">Wert speichern</string>
+  <string name="vat_rate">Mehrwertsteuersatz</string>
+  <string name="rate">Bewertung</string>
+  <string name="language">Sprache</string>
+  <string name="rate_string">%1$s\n%3$s rate %2$s</string>
+  <string name="general_settings">Allgemeines</string>
+  <string name="amount_to_words">Menge an Wörtern</string>
+  <string name="currency">Währung</string>
+  <string name="penny_type">Penny Typ</string>
+  <string name="save_amount_on_exit">Sparen Sie beim Beenden den Betrag</string>
+  <string name="do_not_save_amount_on_exit">Sparen Sie beim Verlassen keinen Betrag</string>
+  <string name="arbitrary_rate_set">Beliebiger Mehrwertsteuersatz festgelegt</string>
+  <string name="set_vat_rate">Müssen Mehrwertsteuersatz einstellen</string>
+  <string name="set">Wert einstellen</string>
+  <string name="type_standard">Standard</string>
+  <string name="type_higher">höher</string>
+  <string name="type_reduced">reduziert</string>
+  <string name="compact_view">Kompakte Ansicht</string>
+  <string name="horizontal_layout">Horizontales Layout</string>
+  <string name="vertical_layout">Vertikales Layout</string>
+  <string name="back">Zurück</string>
+  <string name="review">Bewerten Sie die App und bewerten Sie sie</string>
+</resources>
