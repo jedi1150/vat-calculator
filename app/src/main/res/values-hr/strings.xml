@@ -41,4 +41,9 @@
     <string name="compact_view">Kompaktan prikaz</string>
     <string name="horizontal_layout">Vodoravni izgled</string>
     <string name="vertical_layout">Okomiti izgled</string>
+    <string name="back">leđa</string>
+    <string name="review">Ocijenite aplikaciju i recenziju</string>
+    <string name="ad">Oglas</string>
+    <string name="adWatch">gledati oglas</string>
+    <string name="adMessage">Bok!\nZaista nismo željeli dodavati oglase, ali potrebna nam je financijska podrška. Tako možete gledati oglase ili se odjaviti.\nHvala na pažnji!</string>
 </resources>

@@ -15,16 +15,16 @@
   <string name="light">Lys</string>
   <string name="dark">Mørk</string>
   <string name="battery_saver">Indstillet af Battery Saver</string>
-  <string name="system_default">System standard</string>
-  <string name="choose_theme">Tema</string>
-  <string name="cancel">Afbestille</string>
-  <string name="improve_translation">Forbedre oversættelse</string>
-  <string name="settings">Indstillinger</string>
-  <string name="other">Andet</string>
-  <string name="save_value">Gem værdi</string>
-  <string name="vat_rate">Momssats</string>
-  <string name="rate">Sats</string>
-  <string name="language">Sprog</string>
+    <string name="system_default">System standard</string>
+    <string name="choose_theme">Tema</string>
+    <string name="cancel">Afbestille</string>
+    <string name="improve_translation">Forbedre oversættelse</string>
+    <string name="settings">Indstillinger</string>
+    <string name="other">Andet</string>
+    <string name="save_value">Gem værdi</string>
+    <string name="vat_rate">Momssats</string>
+    <string name="rate">Sats</string>
+    <string name="language">Sprog</string>
     <string name="rate_string">%1$s\n%3$s sats %2$s</string>
     <string name="general_settings">Generel</string>
     <string name="amount_to_words">Mængde til ord</string>
@@ -41,4 +41,9 @@
     <string name="compact_view">Kompakt udsigt</string>
     <string name="horizontal_layout">Horisontalt layout</string>
     <string name="vertical_layout">Lodret layout</string>
+    <string name="back">Tilbage</string>
+    <string name="review">Bedøm app og anmeld</string>
+    <string name="ad">Annonce</string>
+    <string name="adWatch">se annonce</string>
+    <string name="adMessage">Hej!\nVi ville virkelig ikke tilføje annoncer, men vi har brug for økonomisk støtte. Så du kan se annoncer eller fravælge.\nTak for opmærksomheden!</string>
 </resources>

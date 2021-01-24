@@ -41,4 +41,9 @@
     <string name="compact_view">Компактан приказ</string>
     <string name="horizontal_layout">Хоризонтални распоред</string>
     <string name="vertical_layout">Вертикални распоред</string>
+    <string name="back">Назад</string>
+    <string name="review">Оцените апликацију и прегледајте је</string>
+    <string name="ad">Ад</string>
+    <string name="adWatch">гледати оглас</string>
+    <string name="adMessage">Здраво!\nЗаиста нисмо желели да додајемо огласе, али потребна нам је финансијска подршка. Тако да можете гледати огласе или онемогућити.\nХвала на пажњи!</string>
 </resources>

@@ -41,4 +41,9 @@
     <string name="compact_view">Kompakt nézet</string>
     <string name="horizontal_layout">Vízszintes elrendezés</string>
     <string name="vertical_layout">Függőleges elrendezés</string>
+    <string name="back">Vissza</string>
+    <string name="review">Értékeld az alkalmazást és az értékelést</string>
+    <string name="ad">Hirdetés</string>
+    <string name="adWatch">figyeli a hirdetést</string>
+    <string name="adMessage">Szia!\nValóban nem akartunk hirdetéseket felvenni, de pénzügyi támogatásra van szükségünk. Tehát megnézheti a hirdetéseket vagy leiratkozhat.\nKöszönöm a figyelmet!</string>
 </resources>

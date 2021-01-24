@@ -41,4 +41,9 @@
     <string name="compact_view">תצוגה קומפקטית</string>
     <string name="horizontal_layout">פריסה אופקית</string>
     <string name="vertical_layout">פריסה אנכית</string>
+    <string name="back">חזור</string>
+    <string name="review">דרג אפליקציה וסקור</string>
+    <string name="ad">מוֹדָעָה</string>
+    <string name="adWatch">צפה במודעה</string>
+    <string name="adMessage">היי!\nבאמת לא רצינו להוסיף מודעות, אך אנו זקוקים לתמיכה כספית. כדי שתוכל לצפות במודעות או לבטל את הסכמתך. \nתודה על תשומת הלב!</string>
 </resources>

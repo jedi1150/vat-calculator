@@ -41,4 +41,9 @@
     <string name="compact_view">Samningur</string>
     <string name="horizontal_layout">Lárétt skipulag</string>
     <string name="vertical_layout">Lóðrétt skipulag</string>
+    <string name="back">Til baka</string>
+    <string name="review">Gefa appinu umsögn og fara yfir</string>
+    <string name="ad">Auglýsing</string>
+    <string name="adWatch">horfa á auglýsingu</string>
+    <string name="adMessage">Hæ!\nVið vildum virkilega ekki bæta við auglýsingum en við þurfum fjárhagslegan stuðning. Svo þú getir horft á auglýsingar eða afþakkað.\nTakk fyrir athyglina!</string>
 </resources>

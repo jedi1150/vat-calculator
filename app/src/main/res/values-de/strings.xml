@@ -41,4 +41,9 @@
     <string name="compact_view">Kompakte Ansicht</string>
     <string name="horizontal_layout">Horizontales Layout</string>
     <string name="vertical_layout">Vertikales Layout</string>
+    <string name="back">Zurück</string>
+    <string name="review">Bewerten Sie die App und bewerten Sie sie</string>
+    <string name="ad">Anzeige</string>
+    <string name="adWatch">Anzeige ansehen</string>
+    <string name="adMessage">Hallo!\nWir wollten wirklich keine Anzeigen hinzufügen, aber wir brauchen finanzielle Unterstützung. So können Sie Anzeigen sehen oder sich abmelden.\nDanke für die Aufmerksamkeit!</string>
 </resources>

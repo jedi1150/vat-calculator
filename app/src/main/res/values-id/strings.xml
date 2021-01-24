@@ -41,4 +41,9 @@
     <string name="compact_view">Tampilan ringkas</string>
     <string name="horizontal_layout">Tata letak horizontal</string>
     <string name="vertical_layout">Tata letak vertikal</string>
+    <string name="back">Kembali</string>
+    <string name="review">Beri nilai aplikasi dan ulasan</string>
+    <string name="ad">Iklan</string>
+    <string name="adWatch">menonton iklan</string>
+    <string name="adMessage">Hai!\nKami benar-benar tidak ingin menambahkan iklan, tetapi kami membutuhkan dukungan finansial. Jadi, Anda dapat menonton iklan atau memilih keluar.\nTerima kasih atas perhatiannya!</string>
 </resources>

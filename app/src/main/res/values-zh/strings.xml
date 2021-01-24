@@ -41,4 +41,9 @@
     <string name="compact_view">緊湊型視圖</string>
     <string name="horizontal_layout">水平佈局</string>
     <string name="vertical_layout">垂直佈局</string>
+    <string name="back">背部</string>
+    <string name="review">為應用評分並進行評論</string>
+    <string name="ad">廣告</string>
+    <string name="adWatch">觀看廣告</string>
+    <string name="adMessage">嗨！\n我們確實不想添加廣告，但是我們需要財務支持。因此，您可以觀看廣告或選擇退出。\n感謝您的關注！</string>
 </resources>

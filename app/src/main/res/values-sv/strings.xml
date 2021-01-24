@@ -41,4 +41,9 @@
     <string name="compact_view">Kompakt vy</string>
     <string name="horizontal_layout">Horisontell layout</string>
     <string name="vertical_layout">Vertikal layout</string>
+    <string name="back">Tillbaka</string>
+    <string name="review">Betygsätt app och recensera</string>
+    <string name="ad">Annons</string>
+    <string name="adWatch">titta på annons</string>
+    <string name="adMessage">Hej!\nVi ville verkligen inte lägga till annonser, men vi behöver ekonomiskt stöd. Så du kan titta på annonser eller välja bort.\nTack för uppmärksamheten!</string>
 </resources>

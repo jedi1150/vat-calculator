@@ -41,4 +41,9 @@
     <string name="compact_view">Kompakt syn</string>
     <string name="horizontal_layout">Horisontal utforming</string>
     <string name="vertical_layout">Vertikal layout</string>
+    <string name="back">Tilbake</string>
+    <string name="review">Vurder app og gjennomgang</string>
+    <string name="ad">Annonse</string>
+    <string name="adWatch">se annonse</string>
+    <string name="adMessage">Hei!\nVi ønsket virkelig ikke å legge til annonser, men vi trenger økonomisk støtte. Så du kan se annonser eller velge bort.\nTakk for oppmerksomheten!</string>
 </resources>

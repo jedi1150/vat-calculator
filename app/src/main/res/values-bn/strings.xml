@@ -41,4 +41,9 @@
     <string name="compact_view">কমপ্যাক্ট ভিউ</string>
     <string name="horizontal_layout">অনুভূমিক বিন্যাস</string>
     <string name="vertical_layout">উল্লম্ব বিন্যাস</string>
+    <string name="back">পেছনে</string>
+    <string name="review">অ্যাপ্লিকেশন এবং পর্যালোচনা রেট</string>
+    <string name="ad">বিজ্ঞাপন</string>
+    <string name="adWatch">বিজ্ঞাপন দেখুন</string>
+    <string name="adMessage">ওহে!\nআমরা সত্যিই বিজ্ঞাপনগুলি যুক্ত করতে চাইনি, তবে আমাদের আর্থিক সহায়তা প্রয়োজন। সুতরাং আপনি বিজ্ঞাপন দেখতে বা অপ্ট আউট করতে পারেন। attention\nমনোযোগ দেওয়ার জন্য ধন্যবাদ!</string>
 </resources>

@@ -41,4 +41,9 @@
     <string name="compact_view">Кампактны выгляд</string>
     <string name="horizontal_layout">Гарызантальная планіроўка</string>
     <string name="vertical_layout">Вертыкальная планіроўка</string>
+    <string name="back">Вярнуцца</string>
+    <string name="review">Ацаніце прыкладанне і агляд</string>
+    <string name="ad">Рэклама</string>
+    <string name="adWatch">глядзець рэкламу</string>
+    <string name="adMessage">Прывітанне!\nМы сапраўды не хацелі дадаваць рэкламу, але нам патрэбна фінансавая падтрымка. Такім чынам, вы можаце глядзець рэкламу альбо адмовіцца ад яе.\nДзякуй за ўвагу!</string>
 </resources>

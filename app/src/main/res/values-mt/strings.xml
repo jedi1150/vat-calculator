@@ -41,4 +41,9 @@
     <string name="compact_view">Veduta kumpatta</string>
     <string name="horizontal_layout">Tqassim orizzontali</string>
     <string name="vertical_layout">Tqassim vertikali</string>
+    <string name="back">Lura</string>
+    <string name="review">Rata app u reviżjoni</string>
+    <string name="ad">Ad</string>
+    <string name="adWatch">għassa ad</string>
+    <string name="adMessage">Hello!\nVerament ma ridniex inżidu reklami, imma għandna bżonn appoġġ finanzjarju. Allura tista \'tara reklami jew tiddeċiedi barra.\nGrazzi għall-attenzjoni!</string>
 </resources>

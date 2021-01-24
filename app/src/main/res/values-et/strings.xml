@@ -41,4 +41,9 @@
     <string name="compact_view">Kompaktne vaade</string>
     <string name="horizontal_layout">Horisontaalne paigutus</string>
     <string name="vertical_layout">Vertikaalne paigutus</string>
+    <string name="back">tagasi</string>
+    <string name="review">Hinnake rakendust ja arvustust</string>
+    <string name="ad">Reklaam</string>
+    <string name="adWatch">vaatamisreklaam</string>
+    <string name="adMessage">Tere!\nMe ei tahtnud tõesti reklaame lisada, kuid vajame rahalist tuge. Nii saate reklaame vaadata või sellest loobuda.\nTäname tähelepanu eest!</string>
 </resources>

@@ -41,4 +41,9 @@
     <string name="compact_view">Ықшам көрініс</string>
     <string name="horizontal_layout">Көлденең орналасу</string>
     <string name="vertical_layout">Тік орналасу</string>
+    <string name="back">Артқа</string>
+    <string name="review">Қолданбаға баға беріңіз және шолыңыз</string>
+    <string name="ad">Жарнама</string>
+    <string name="adWatch">қарау Ad</string>
+    <string name="adMessage">Сәлем!\nБіз шынымен де жарнама қосқымыз келмеді, бірақ бізге қаржылық қолдау қажет. Сонымен, сіз жарнамаларды көре аласыз немесе одан бас тарта аласыз.\nНазар аударғаныңызға рақмет!</string>
 </resources>

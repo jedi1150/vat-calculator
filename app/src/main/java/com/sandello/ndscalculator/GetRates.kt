@@ -6,9 +6,8 @@ import android.util.Log
 import androidx.room.Room
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import kotlinx.serialization.builtins.list
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
 import java.io.BufferedInputStream
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -36,8 +35,7 @@ class GetRates {
                     val stringBuilder = StringBuilder()
                     bufferedReader.forEachLine { stringBuilder.append(it) }
                     val data: String = stringBuilder.toString()
-                    val json = Json(JsonConfiguration.Stable.copy(isLenient = true, ignoreUnknownKeys = true))
-                    listRates = json.parse(Rate.serializer().list, data)
+                    listRates = Json.decodeFromString(data)
                     val db = Room.databaseBuilder(
                             context,
                             AppDatabase::class.java, "rates"

@@ -41,4 +41,9 @@
     <string name="compact_view">Widok kompaktowy</string>
     <string name="horizontal_layout">Układ poziomy</string>
     <string name="vertical_layout">Układ pionowy</string>
+    <string name="back">Plecy</string>
+    <string name="review">Oceń aplikację i opisz</string>
+    <string name="ad">Ogłoszenie</string>
+    <string name="adWatch">obejrzyj reklamę</string>
+    <string name="adMessage">Cześć!\nNaprawdę nie chcieliśmy dodawać reklam, ale potrzebujemy wsparcia finansowego. Możesz więc oglądać reklamy lub zrezygnować.\nDzięki za uwagę!</string>
 </resources>

@@ -41,4 +41,9 @@
     <string name="compact_view">Kompaktiškas vaizdas</string>
     <string name="horizontal_layout">Horizontalus išdėstymas</string>
     <string name="vertical_layout">Vertikalus išdėstymas</string>
+    <string name="back">Atgal</string>
+    <string name="review">Įvertinkite programą ir peržiūrėkite</string>
+    <string name="ad">Reklama</string>
+    <string name="adWatch">žiūrėti skelbimą</string>
+    <string name="adMessage">Sveiki!\nMes tikrai nenorėjome pridėti skelbimų, bet mums reikia finansinės paramos. Taigi galite žiūrėti skelbimus arba jų atsisakyti.\nDėkojame už dėmesį!</string>
 </resources>

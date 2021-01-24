@@ -50,6 +50,10 @@
         <meta-data
             android:name="android.allow_multiple_resumed_activities"
             android:value="true" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3591700046184217~1295729920" />
     </application>
 
 </manifest>

@@ -41,4 +41,9 @@
     <string name="compact_view">Compact zicht</string>
     <string name="horizontal_layout">Horizontale indeling</string>
     <string name="vertical_layout">Verticale indeling</string>
+    <string name="back">Terug</string>
+    <string name="review">Beoordeel app en beoordeel</string>
+    <string name="ad">Advertentie</string>
+    <string name="adWatch">bekijk Ad</string>
+    <string name="adMessage">Hoi!\nWe wilden echt geen advertenties toevoegen, maar we hebben financiële steun nodig. U kunt dus advertenties bekijken of u afmelden.\nBedankt voor de aandacht!</string>
 </resources>

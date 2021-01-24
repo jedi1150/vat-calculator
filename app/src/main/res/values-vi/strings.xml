@@ -41,4 +41,9 @@
     <string name="compact_view">Chế độ xem nhỏ gọn</string>
     <string name="horizontal_layout">Bố trí ngang</string>
     <string name="vertical_layout">Bố cục dọc</string>
+    <string name="back">Trở lại</string>
+    <string name="review">Xếp hạng ứng dụng và đánh giá</string>
+    <string name="ad">Ad</string>
+    <string name="adWatch">xem quảng cáo</string>
+    <string name="adMessage">Chào!\nChúng tôi thực sự không muốn thêm quảng cáo, nhưng chúng tôi cần hỗ trợ tài chính. Vì vậy, bạn có thể xem quảng cáo hoặc chọn không tham gia.\nCảm ơn vì sự chú ý!</string>
 </resources>

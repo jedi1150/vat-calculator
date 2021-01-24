@@ -41,4 +41,9 @@
     <string name="compact_view">มุมมองกะทัดรัด</string>
     <string name="horizontal_layout">เค้าโครงแนวนอน</string>
     <string name="vertical_layout">เค้าโครงแนวตั้ง</string>
+    <string name="back">กลับ</string>
+    <string name="review">ให้คะแนนแอปและรีวิว</string>
+    <string name="ad">โฆษณา</string>
+    <string name="adWatch">ดูโฆษณา</string>
+    <string name="adMessage">ไฮ!\nเราไม่ต้องการเพิ่มโฆษณา แต่เราต้องการการสนับสนุนทางการเงิน คุณจึงสามารถดูโฆษณาหรือเลือกไม่รับได้\nขอบคุณสำหรับความสนใจ!</string>
 </resources>

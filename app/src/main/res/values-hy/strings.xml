@@ -41,4 +41,9 @@
     <string name="compact_view">Կոմպակտ տեսք</string>
     <string name="horizontal_layout">Հորիզոնական դասավորություն</string>
     <string name="vertical_layout">Ուղղահայաց դասավորություն</string>
+    <string name="back">Ետ</string>
+    <string name="review">Գնահատեք հավելվածը և դիտեք</string>
+    <string name="ad">Հայտարարություն</string>
+    <string name="adWatch">դիտել գովազդը</string>
+    <string name="adMessage">Ողջու՜յն!\nՄենք իսկապես չէինք ցանկանում գովազդներ ավելացնել, բայց մեզ ֆինանսական աջակցություն է պետք: Այսպիսով, դուք կարող եք դիտել գովազդներ կամ հրաժարվել դրանից:\nՇնորհակալություն ուշադրության համար:</string>
 </resources>

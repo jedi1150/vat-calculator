@@ -41,4 +41,9 @@
     <string name="compact_view">Kompaktní pohled</string>
     <string name="horizontal_layout">Horizontální rozvržení</string>
     <string name="vertical_layout">Vertikální rozvržení</string>
+    <string name="back">Zadní</string>
+    <string name="review">Ohodnoťte aplikaci a recenzi</string>
+    <string name="ad">Inzerát</string>
+    <string name="adWatch">sledovat reklamu</string>
+    <string name="adMessage">Ahoj!\nOpravdu jsme nechtěli přidávat reklamy, ale potřebujeme finanční podporu. Můžete tedy sledovat reklamy nebo se odhlásit.\nDíky za pozornost!</string>
 </resources>

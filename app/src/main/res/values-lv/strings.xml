@@ -15,16 +15,16 @@
   <string name="light">Gaismas</string>
   <string name="dark">Tumšs</string>
   <string name="battery_saver">Iestatījis akumulatora taupītājs</string>
-  <string name="system_default">Sistēmas noklusējums</string>
-  <string name="choose_theme">Tēma</string>
-  <string name="cancel">Atcelt</string>
-  <string name="improve_translation">Uzlabot tulkošanu</string>
-  <string name="settings">Iestatījumi</string>
-  <string name="other">Cits</string>
-  <string name="save_value">Ietaupiet vērtību</string>
-  <string name="vat_rate">PVN likme</string>
-  <string name="rate">Likme</string>
-  <string name="language">Valoda</string>
+    <string name="system_default">Sistēmas noklusējums</string>
+    <string name="choose_theme">Tēma</string>
+    <string name="cancel">Atcelt</string>
+    <string name="improve_translation">Uzlabot tulkošanu</string>
+    <string name="settings">Iestatījumi</string>
+    <string name="other">Cits</string>
+    <string name="save_value">Ietaupiet vērtību</string>
+    <string name="vat_rate">PVN likme</string>
+    <string name="rate">Likme</string>
+    <string name="language">Valoda</string>
     <string name="rate_string">%1$s\n%3$s likme %2$s</string>
     <string name="general_settings">Vispārīgi</string>
     <string name="amount_to_words">Summa vārdiem</string>
@@ -41,4 +41,9 @@
     <string name="compact_view">Kompakts skats</string>
     <string name="horizontal_layout">Horizontālais izkārtojums</string>
     <string name="vertical_layout">Vertikālais izkārtojums</string>
+    <string name="back">Atpakaļ</string>
+    <string name="review">Novērtējiet lietotni un atsauksmi</string>
+    <string name="ad">Rekl</string>
+    <string name="adWatch">skatīties reklāmu</string>
+    <string name="adMessage">Sveiki!\nMēs tiešām nevēlējāmies pievienot reklāmas, taču mums ir nepieciešams finansiāls atbalsts. Tātad jūs varat skatīties reklāmas vai atteikties.\nPaldies par uzmanību!</string>
 </resources>

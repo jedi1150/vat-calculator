@@ -41,4 +41,9 @@
     <string name="compact_view">Visualização compacta</string>
     <string name="horizontal_layout">Layout horizontal</string>
     <string name="vertical_layout">Layout vertical</string>
+    <string name="back">Costas</string>
+    <string name="review">Avalie o aplicativo e avalie</string>
+    <string name="ad">de Anúncios</string>
+    <string name="adWatch">assistir anúncio</string>
+    <string name="adMessage">Oi!\nNós realmente não queríamos adicionar anúncios, mas precisamos de suporte financeiro. Assim, você pode assistir a anúncios ou cancelar.\nObrigado pela atenção!</string>
 </resources>

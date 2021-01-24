@@ -41,4 +41,9 @@
     <string name="compact_view">عرض مضغوط</string>
     <string name="horizontal_layout">تخطيط أفقي</string>
     <string name="vertical_layout">تخطيط عمودي</string>
+    <string name="back">عودة</string>
+    <string name="review">تقييم التطبيق والمراجعة</string>
+    <string name="ad">ميلادي</string>
+    <string name="adWatch">مشاهدة الإعلان</string>
+    <string name="adMessage">مرحبا!\nلم نرغب حقًا في إضافة إعلانات ، لكننا بحاجة إلى دعم مالي. حتى تتمكن من مشاهدة الإعلانات أو إلغاء الاشتراك.\nشكرا لاهتمامكم!</string>
 </resources>

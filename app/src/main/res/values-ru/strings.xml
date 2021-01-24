@@ -41,4 +41,9 @@
     <string name="compact_view">Компактный вид</string>
     <string name="horizontal_layout">Горизонтальное расположение</string>
     <string name="vertical_layout">Вертикальное расположение</string>
+    <string name="back">Назад</string>
+    <string name="review">Оценить приложение и оставить отзыв</string>
+    <string name="ad">Объявление</string>
+    <string name="adWatch">смотреть рекламу</string>
+    <string name="adMessage">Привет!\nМы действительно не хотели добавлять рекламу, но нам нужна финансовая поддержка. Так что вы можете смотреть рекламу или отказаться от нее.\nСпасибо за внимание!</string>
 </resources>

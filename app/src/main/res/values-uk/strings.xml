@@ -41,4 +41,9 @@
     <string name="compact_view">Компактний вигляд</string>
     <string name="horizontal_layout">Горизонтальний макет</string>
     <string name="vertical_layout">Вертикальний макет</string>
+    <string name="back">Назад</string>
+    <string name="review">Оцініть додаток та огляд</string>
+    <string name="ad">Оголошення</string>
+    <string name="adWatch">дивитися рекламу</string>
+    <string name="adMessage">Привіт!\nМи дійсно не хотіли додавати рекламу, але нам потрібна фінансова підтримка. Тож ви можете переглядати рекламу або відмовитись.\nДякую за увагу!</string>
 </resources>

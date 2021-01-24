@@ -41,4 +41,9 @@
     <string name="compact_view">コンパクト表示</string>
     <string name="horizontal_layout">横型レイアウト</string>
     <string name="vertical_layout">縦型レイアウト</string>
+    <string name="back">バック</string>
+    <string name="review">アプリを評価してレビューする</string>
+    <string name="ad">広告</string>
+    <string name="adWatch">広告を見る</string>
+    <string name="adMessage">こんにちは！\n本当に広告を追加したくありませんでしたが、財政的支援が必要です。そのため、広告を視聴したり、オプトアウトしたりできます。\n清聴ありがとうございました！</string>
 </resources>

@@ -41,4 +41,9 @@
     <string name="compact_view">Vista compacta</string>
     <string name="horizontal_layout">Disposició horitzontal</string>
     <string name="vertical_layout">Disposició vertical</string>
+    <string name="back">esquena</string>
+    <string name="review">Valora l\'aplicació i revisa</string>
+    <string name="ad">Anunci</string>
+    <string name="adWatch">veure l\'anunci</string>
+    <string name="adMessage">Hola!\nRealment no volíem afegir anuncis, però necessitem assistència financera. Per tant, podeu veure anuncis o desactivar-los.\nGràcies per l\'atenció.</string>
 </resources>

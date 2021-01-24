@@ -41,4 +41,9 @@
     <string name="compact_view">Pamje kompakte</string>
     <string name="horizontal_layout">Paraqitja horizontale</string>
     <string name="vertical_layout">Paraqitja vertikale</string>
+    <string name="back">prapa</string>
+    <string name="review">Vlerëso aplikacionin dhe rishiko</string>
+    <string name="ad">Ad</string>
+    <string name="adWatch">reklama e shikimit</string>
+    <string name="adMessage">Pershendetje!\nNe vërtet nuk dëshironim të shtonim reklama, por kemi nevojë për mbështetje financiare. Kështu që ju mund të shikoni reklama ose të hiqni dorë.\nFaleminderit për vëmendjen!</string>
 </resources>

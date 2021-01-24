@@ -41,4 +41,9 @@
     <string name="compact_view">Συμπαγής προβολή</string>
     <string name="horizontal_layout">Οριζόντια διάταξη</string>
     <string name="vertical_layout">Κάθετη διάταξη</string>
+    <string name="back">Πίσω</string>
+    <string name="review">Αξιολογήστε την εφαρμογή και την κριτική</string>
+    <string name="ad">Ενα δ</string>
+    <string name="adWatch">παρακολουθήστε τη διαφήμιση</string>
+    <string name="adMessage">Γεια!\nΠραγματικά δεν θέλαμε να προσθέσουμε διαφημίσεις, αλλά χρειαζόμαστε οικονομική υποστήριξη. Έτσι, μπορείτε να παρακολουθείτε διαφημίσεις ή να εξαιρεθείτε.\nΕυχαριστώ για την προσοχή!</string>
 </resources>

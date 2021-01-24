@@ -41,4 +41,9 @@
     <string name="compact_view">कॉम्पैक्ट दृश्य</string>
     <string name="horizontal_layout">क्षैतिज लेआउट</string>
     <string name="vertical_layout">ऊर्ध्वाधर लेआउट</string>
+    <string name="back">वापस</string>
+    <string name="review">एप्लिकेशन और समीक्षा करें</string>
+    <string name="ad">विज्ञापन</string>
+    <string name="adWatch">विज्ञापन देखें</string>
+    <string name="adMessage">नमस्ते!\nहम वास्तव में विज्ञापन नहीं जोड़ना चाहते थे, लेकिन हमें वित्तीय सहायता की आवश्यकता है। तो आप विज्ञापन देख सकते हैं या बाहर निकल सकते हैं।\nध्यान देने के लिए धन्यवाद!</string>
 </resources>

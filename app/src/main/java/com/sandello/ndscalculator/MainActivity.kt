@@ -3,16 +3,30 @@ package com.sandello.ndscalculator
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.compose.ui.unit.Duration
+import androidx.compose.ui.unit.inMilliseconds
 import androidx.core.view.updatePadding
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.preference.PreferenceManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.util.*
 
 var ratesReceived: Boolean = false
@@ -20,6 +34,7 @@ var ratesReceived: Boolean = false
 class MainActivity : AppCompatActivity() {
 
     private var navController: NavController? = null
+    private lateinit var mInterstitialAd: InterstitialAd
 
     @ExperimentalStdlibApi
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +59,34 @@ class MainActivity : AppCompatActivity() {
 
         toolbar.setupWithNavController(navController!!, AppBarConfiguration(navController!!.graph))
 
+        val adDialog = AlertDialog.Builder(this)
+        adDialog.setTitle(getString(R.string.ad))
+        adDialog.setMessage(getString(R.string.adMessage))
+        adDialog.setCancelable(false)
+        adDialog.setPositiveButton(getString(R.string.adWatch)) { _, _ ->
+            mInterstitialAd.show(this)
+        }
+        adDialog.setNeutralButton(android.R.string.cancel) { _, _ ->
+        }
+
+        val adRequest = AdRequest.Builder().build()
+
+        MobileAds.setRequestConfiguration(RequestConfiguration.Builder().setTestDeviceIds(listOf("E391F97E4B9B64A011FDEE11C58AEECF")).build())
+        InterstitialAd.load(this, "ca-app-pub-3591700046184217/4372540618", adRequest, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                Log.d("adMob", adError.message)
+                mInterstitialAd
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                Log.d("adMob", "Ad was loaded.")
+                mInterstitialAd = interstitialAd
+                GlobalScope.launch(Dispatchers.Main) {
+                    delay(Duration(seconds = 30).inMilliseconds())
+                    adDialog.show()
+                }
+            }
+        })
     }
 
 

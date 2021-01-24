@@ -41,4 +41,9 @@
     <string name="compact_view">Pandangan padat</string>
     <string name="horizontal_layout">Susun atur mendatar</string>
     <string name="vertical_layout">Susun atur menegak</string>
+    <string name="back">Belakang</string>
+    <string name="review">Nilai aplikasi dan ulasan</string>
+    <string name="ad">Iklan</string>
+    <string name="adWatch">menonton iklan</string>
+    <string name="adMessage">Hai!\nKami sebenarnya tidak mahu menambahkan iklan, tetapi kami memerlukan sokongan kewangan. Oleh itu, anda boleh menonton iklan atau tidak ikut serta.\nTerima kasih atas perhatian!</string>
 </resources>

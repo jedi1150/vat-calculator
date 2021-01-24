@@ -41,4 +41,9 @@
     <string name="compact_view">Vista compatta</string>
     <string name="horizontal_layout">Layout orizzontale</string>
     <string name="vertical_layout">Layout verticale</string>
+    <string name="back">Indietro</string>
+    <string name="review">Valuta l\'app e recensisci</string>
+    <string name="ad">Anno Domini</string>
+    <string name="adWatch">guarda l\'annuncio</string>
+    <string name="adMessage">Ciao!\nNon volevamo davvero aggiungere annunci, ma abbiamo bisogno di supporto finanziario. Quindi puoi guardare gli annunci o disattivarli.\nGrazie per l\'attenzione!</string>
 </resources>

@@ -41,4 +41,9 @@
     <string name="compact_view">Vue compacte</string>
     <string name="horizontal_layout">Disposition horizontale</string>
     <string name="vertical_layout">Disposition verticale</string>
+    <string name="back">Arrière</string>
+    <string name="review">Évaluer l\'application et évaluer</string>
+    <string name="ad">Un d</string>
+    <string name="adWatch">regarder l\'annonce</string>
+    <string name="adMessage">Salut!\nNous ne voulions vraiment pas ajouter d\'annonces, mais nous avons besoin d\'un soutien financier. Vous pouvez donc regarder des publicités ou vous désinscrire.\nMerci pour votre attention!</string>
 </resources>

@@ -41,4 +41,9 @@
     <string name="compact_view">Компакт күренеш</string>
     <string name="horizontal_layout">Горизонталь урнашу</string>
     <string name="vertical_layout">Вертикаль макет</string>
+    <string name="back">Кире</string>
+    <string name="review">Кушымта бәяләү һәм карау</string>
+    <string name="ad">Реклама</string>
+    <string name="adWatch">реклама карау</string>
+    <string name="adMessage">Сәлам!\nБез чыннан да реклама өстәргә теләмәдек, ләкин безгә финанс ярдәме кирәк. Шуңа күрә сез рекламаны карый аласыз яки кире кага аласыз.\nИгътибарыгыз өчен рәхмәт!</string>
 </resources>

@@ -41,4 +41,9 @@
     <string name="compact_view">Kompakti näkymä</string>
     <string name="horizontal_layout">Vaakasuuntainen asettelu</string>
     <string name="vertical_layout">Pystyasettelu</string>
+    <string name="back">Takaisin</string>
+    <string name="review">Arvioi sovellus ja arvostelu</string>
+    <string name="ad">Ilmoitus</string>
+    <string name="adWatch">katso Ad</string>
+    <string name="adMessage">Hei!\nEmme todellakaan halunneet lisätä mainoksia, mutta tarvitsemme taloudellista tukea. Joten voit katsella mainoksia tai kieltäytyä.\nKiitos huomiosta!</string>
 </resources>
