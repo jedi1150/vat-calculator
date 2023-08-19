@@ -49,6 +49,7 @@ android {
         }
     }
     buildToolsVersion '30.0.3'
+    namespace 'com.sandello.ndscalculator'
 }
 dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
