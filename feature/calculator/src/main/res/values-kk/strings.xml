@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string-array name="penny_type">
+        <item>Мәтін</item>
+        <item>Сан</item>
+    </string-array>
+    <string name="amount">Сома</string>
+    <string name="without_vat">ҚҚС-сыз</string>
+    <string name="include_vat">ҚҚС есебімен</string>
+    <string name="vat">ҚҚС</string>
+    <string name="gross_amount">Жалпы сома</string>
+    <string name="net_amount">Таза сома</string>
+    <string name="rate">Бағалау</string>
+</resources>

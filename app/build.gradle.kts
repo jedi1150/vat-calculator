@@ -1,13 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.android.kotlin)
-    alias(libs.plugins.android.kapt)
-    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.compose)
     alias(libs.plugins.firebase.crashlytics)
     alias(libs.plugins.gms)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.protobuf)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -19,15 +17,6 @@ android {
         targetSdk = 34
         versionCode = 116
         versionName = "2.0.0"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += mapOf(
-                    "room.schemaLocation" to "$projectDir/schemas",
-                    "room.incremental" to "true"
-                )
-            }
-        }
     }
     buildTypes {
         named("release") {
@@ -60,66 +49,33 @@ android {
         generateLocaleConfig = true
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
-    }
-}
-
-protobuf {
-    protoc {
-        artifact = libs.protobuf.protoc.get().toString()
-    }
-    generateProtoTasks {
-        all().forEach { task ->
-            task.builtins {
-                register("java") {
-                    option("lite")
-                }
-                register("kotlin") {
-                    option("lite")
-                }
-            }
-        }
+    kotlinOptions {
+        jvmTarget = "21"
     }
 }
 
 dependencies {
+    implementation(project(":core:data"))
+    implementation(project(":core:designsystem"))
+    implementation(project(":core:model"))
+    implementation(project(":feature:calculator"))
+    implementation(project(":feature:settings"))
+
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.foundation)
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.tooling)
-    implementation(libs.androidx.compose.material)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.material3.window.size)
-    implementation(libs.androidx.compose.animation.graphics)
     implementation(libs.androidx.runtime.compose)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.datastore.preferences)
-    implementation(libs.androidx.datastore.proto)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.browser)
-    implementation(libs.material)
-    implementation(libs.androidx.room.runtime)
-    annotationProcessor(libs.androidx.room.compiler)
-    ksp(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.ktx)
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation (libs.moneytostr)
 
     // Firebase
     implementation(platform(libs.google.firebase.bom))
     implementation(libs.google.firebase.crashlytics.ktx)
     implementation(libs.google.firebase.analytics.ktx)
-
-    testImplementation(libs.androidx.room.testing)
 }
