@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="penny_type">
+    <item>Matn</item>
+    <item>Raqam</item>
+  </string-array>
+    <string name="amount">Miqdor</string>
+  <string name="without_vat">QQSsiz</string>
+  <string name="include_vat">QQS bilan</string>
+  <string name="vat">QQS</string>
+  <string name="gross_amount">Yalpi miqdor</string>
+  <string name="net_amount">Sof miqdor</string>
+  <string name="rate">Baholash</string>
+</resources>
