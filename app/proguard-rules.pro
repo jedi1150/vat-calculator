@@ -1,1 +1,1 @@
--keep class com.google.protobuf.MessageSchema { *; }
+-keep class * extends com.google.protobuf.GeneratedMessageLite { *; }
