@@ -15,7 +15,7 @@ android {
         applicationId = "com.sandello.ndscalculator"
         minSdk = 21
         targetSdk = 34
-        versionCode = 117
+        versionCode = 118
         versionName = "2.0.0"
     }
     buildTypes {
