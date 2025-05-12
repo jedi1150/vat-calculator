@@ -171,8 +171,12 @@ private fun CalculatorScreen(
                         if (it.isNaN().not()) numberInstance.format(it) else null
                     }.orEmpty(),
                     onValueChange = { value ->
-                        numberInstance.parse(value)?.let { parsed: Number ->
-                            onAmountChange(parsed.toDouble())
+                        if (value.isNotEmpty()) {
+                            numberInstance.parse(value)?.let { parsed: Number ->
+                                onAmountChange(parsed.toDouble())
+                            }
+                        } else {
+                            onAmountChange(0.0)
                         }
                     },
                     modifier = Modifier
