@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.sandello.ndscalculator.core.data"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 21
