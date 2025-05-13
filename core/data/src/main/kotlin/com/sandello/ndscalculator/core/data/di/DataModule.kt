@@ -22,6 +22,6 @@ abstract class DataModule {
     companion object {
         @Provides
         @Singleton
-        fun provideVatCalculator(): VatCalculator = VatCalculator(rate = 20.0)
+        fun provideVatCalculator(): VatCalculator = VatCalculator(rate = 0.0)
     }
 }
