@@ -72,8 +72,8 @@ fun CalculatorRoute(
 private fun CalculatorScreen(
     contentPadding: PaddingValues = PaddingValues(),
     calculatorUiState: CalculatorUiState,
-    onAmountChange: (Double) -> Unit,
-    onRateChange: (Double) -> Unit,
+    onAmountChange: (String) -> Unit,
+    onRateChange: (String) -> Unit,
     onClearClick: () -> Unit,
 ) {
     val numberInstance: DecimalFormat = NumberFormat.getInstance(Locale.getDefault()) as DecimalFormat
@@ -167,17 +167,9 @@ private fun CalculatorScreen(
             ) {
 
                 OutlinedTextField(
-                    value = calculatorUiState.amount.let {
-                        if (it.isNaN().not()) numberInstance.format(it) else null
-                    }.orEmpty(),
+                    value = calculatorUiState.amount,
                     onValueChange = { value ->
-                        if (value.isNotEmpty()) {
-                            numberInstance.parse(value)?.let { parsed: Number ->
-                                onAmountChange(parsed.toDouble())
-                            }
-                        } else {
-                            onAmountChange(0.0)
-                        }
+                        onAmountChange(value)
                     },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -192,11 +184,9 @@ private fun CalculatorScreen(
                     shape = MaterialTheme.shapes.medium,
                 )
                 OutlinedTextField(
-                    value = calculatorUiState.rate.let { numberInstance.format(it) },
+                    value = calculatorUiState.rate,
                     onValueChange = { value ->
-                        numberInstance.parse(value)?.let { parsed: Number ->
-                            onRateChange(parsed.toDouble())
-                        }
+                        onRateChange(value)
                     },
                     modifier = Modifier
                         .wrapContentWidth()

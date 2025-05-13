@@ -16,24 +16,24 @@ class CalculatorViewModel @Inject constructor(
     private val _uiState: MutableStateFlow<CalculatorUiState> = MutableStateFlow(CalculatorUiState())
     val uiState: StateFlow<CalculatorUiState> = _uiState.asStateFlow()
 
-    fun setAmount(value: Double) {
+    fun setAmount(value: String) {
         _uiState.update {
             it.copy(amount = value)
         }
         count()
     }
 
-    fun setRate(value: Double) {
+    fun setRate(value: String) {
         _uiState.update {
             it.copy(rate = value)
         }
-        vatRepository.setRate(value)
+        vatRepository.setRate(value.toDoubleOrNull() ?: 0.0)
         count()
     }
 
     fun clearValues() = _uiState.update {
         it.copy(
-            amount = 0.0,
+            amount = String(),
             grossAmount = 0.0,
             grossInclude = 0.0,
             netAmount = 0.0,
@@ -42,8 +42,8 @@ class CalculatorViewModel @Inject constructor(
     }
 
     private fun count() {
-        val amount = _uiState.value.amount
-        val rate = _uiState.value.rate
+        val amount = _uiState.value.amount.toDoubleOrNull() ?: 0.0
+        val rate = _uiState.value.rate.toDoubleOrNull() ?: 0.0
 
         if (amount.isNaN().not() && rate.isNaN().not()) {
             val grossAmount = vatRepository.calculateVatAmount(amount)
@@ -74,14 +74,14 @@ class CalculatorViewModel @Inject constructor(
 }
 
 data class CalculatorUiState(
-    val amount: Double = 0.0,
-    val rate: Double = 20.0,
+    val amount: String = String(),
+    val rate: String = String(),
     val grossAmount: Double = 0.0,
     val grossInclude: Double = 0.0,
     val netAmount: Double = 0.0,
     val netInclude: Double = 0.0,
 ) {
     val hasData: Boolean
-        get() = amount != 0.0
+        get() = amount != String()
 }
 
