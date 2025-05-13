@@ -47,6 +47,7 @@ import com.sandello.ndscalculator.core.model.ThemeType
 import com.sandello.ndscalculator.feature.settings.components.SettingsLanguageDialog
 import com.sandello.ndscalculator.feature.settings.components.SettingsThemeDialog
 import java.util.Locale
+import androidx.core.net.toUri
 
 @Composable
 fun SettingsRoute(
@@ -88,7 +89,7 @@ fun SettingsRoute(
             }
         },
         onLinkClicked = { url ->
-            launchCustomChromeTab(context, Uri.parse(url), backgroundColor)
+            launchCustomChromeTab(context, url.toUri(), backgroundColor)
         },
     )
 }
