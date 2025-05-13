@@ -1,24 +1,22 @@
 [versions]
 androidGradlePlugin = "8.10.0"
-androidxComposeBom = "2024.09.03"
-androidxActivity = "1.9.2"
-androidxCore = "1.13.1"
+androidxComposeBom = "2025.05.00"
+androidxActivity = "1.10.1"
+androidxCore = "1.16.0"
 androidxCoreSplashscreen = "1.0.1"
-androidxLifecycle = "2.8.6"
 androidxHiltNavigationCompose = "1.2.0"
-androidxDataStore = "1.1.1"
+androidxDataStore = "1.1.4"
 androidxAppCompat = "1.7.0"
 androidxBrowser = "1.8.0"
-androidxNavigation = "2.8.2"
-hilt = "2.52"
-firebaseBom = "33.4.0"
-firebaseCrashlyticsPlugin = "3.0.2"
+androidxNavigation = "2.9.0"
+hilt = "2.56"
+firebaseBom = "33.13.0"
+firebaseCrashlyticsPlugin = "3.0.3"
 gmsPlugin = "4.4.2"
-protobuf = "4.26.1"
-protobufPlugin = "0.9.4"
-kotlin = "2.0.20"
-ksp = "2.0.20-1.0.25"
-materialVersion = "1.12.0"
+protobuf = "4.30.2"
+protobufPlugin = "0.9.5"
+kotlin = "2.1.20"
+ksp = "2.1.20-1.0.32"
 moneytostr = "1.21"
 
 [libraries]
@@ -47,7 +45,6 @@ kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", v
 #moneytostr = { module = "com.github.javadev:moneytostr", version.ref = "moneytostr" }
 protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
-material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
