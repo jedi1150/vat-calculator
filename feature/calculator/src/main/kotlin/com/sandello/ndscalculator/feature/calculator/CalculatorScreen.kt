@@ -214,7 +214,6 @@ private fun CalculatorScreen(
                 .fillMaxSize()
                 .padding(horizontal = 16.dp, vertical = 64.dp)
                 .padding(contentPadding)
-                .consumeWindowInsets(contentPadding)
                 .windowInsetsPadding(WindowInsets.safeDrawing),
             contentAlignment = Alignment.BottomEnd,
         ) {
