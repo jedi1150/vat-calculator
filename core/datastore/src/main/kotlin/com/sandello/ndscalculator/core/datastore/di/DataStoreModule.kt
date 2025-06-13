@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
 import androidx.datastore.dataStoreFile
-import com.sandello.ndscalculator.core.datastore.Settings
-import com.sandello.ndscalculator.core.datastore.SettingsSerializer
+import com.sandello.ndscalculator.core.datastore.UserPreferences
+import com.sandello.ndscalculator.core.datastore.UserPreferencesSerializer
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,11 +19,11 @@ object DataStoreModule {
 
     @Provides
     @Singleton
-    fun providesSettingsDataStore(
+    fun providesUserSettingsDataStore(
         @ApplicationContext context: Context,
-        settingsSerializer: SettingsSerializer,
-    ): DataStore<Settings> =
-        DataStoreFactory.create(serializer = settingsSerializer) {
-            context.dataStoreFile("settings.pb")
+        userPreferencesSerializer: UserPreferencesSerializer,
+    ): DataStore<UserPreferences> =
+        DataStoreFactory.create(serializer = userPreferencesSerializer) {
+            context.dataStoreFile("user_preferences.pb")
         }
 }

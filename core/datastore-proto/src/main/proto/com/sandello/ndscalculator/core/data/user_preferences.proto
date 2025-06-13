@@ -5,7 +5,13 @@ option java_multiple_files = true;
 
 import "com/sandello/ndscalculator/core/data/theme_type.proto";
 
-message Settings {
+message UserPreferences {
   ThemeTypeProto theme_type = 1;
   string language_tag = 2;
+
+  bool is_save_amount_enabled = 3;
+  bool is_save_amount_initialized = 4;
+
+  string amount_value = 10;
+  string vat_value = 11;
 }

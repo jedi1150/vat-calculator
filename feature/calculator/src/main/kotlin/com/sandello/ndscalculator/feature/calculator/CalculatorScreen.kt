@@ -97,7 +97,7 @@ private fun CalculatorScreen(
                         style = MaterialTheme.typography.headlineSmall,
                     )
                     OutlinedTextField(
-                        value = numberInstance.format(calculatorUiState.grossAmount),
+                        value = calculatorUiState.grossAmount,
                         onValueChange = {},
                         modifier = Modifier.fillMaxWidth(),
                         readOnly = true,
@@ -109,7 +109,7 @@ private fun CalculatorScreen(
                         shape = MaterialTheme.shapes.medium,
                     )
                     OutlinedTextField(
-                        value = calculatorUiState.grossInclude.toPlainString(),
+                        value = calculatorUiState.grossInclude,
                         onValueChange = {},
                         modifier = Modifier.fillMaxWidth(),
                         readOnly = true,
@@ -130,7 +130,7 @@ private fun CalculatorScreen(
                         style = MaterialTheme.typography.headlineSmall,
                     )
                     OutlinedTextField(
-                        value = calculatorUiState.netAmount.toPlainString(),
+                        value = calculatorUiState.netAmount,
                         onValueChange = {},
                         modifier = Modifier.fillMaxWidth(),
                         readOnly = true,
@@ -142,7 +142,7 @@ private fun CalculatorScreen(
                         shape = MaterialTheme.shapes.medium,
                     )
                     OutlinedTextField(
-                        value = calculatorUiState.netInclude.toPlainString(),
+                        value = calculatorUiState.netInclude,
                         onValueChange = {},
                         modifier = Modifier.fillMaxWidth(),
                         readOnly = true,

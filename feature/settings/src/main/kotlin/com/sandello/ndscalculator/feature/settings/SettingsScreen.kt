@@ -24,6 +24,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -39,6 +40,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.Wallpapers
 import androidx.compose.ui.unit.dp
 import androidx.core.content.pm.PackageInfoCompat
+import androidx.core.net.toUri
 import androidx.core.os.LocaleListCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -47,7 +49,6 @@ import com.sandello.ndscalculator.core.model.ThemeType
 import com.sandello.ndscalculator.feature.settings.components.SettingsLanguageDialog
 import com.sandello.ndscalculator.feature.settings.components.SettingsThemeDialog
 import java.util.Locale
-import androidx.core.net.toUri
 
 @Composable
 fun SettingsRoute(
@@ -88,6 +89,7 @@ fun SettingsRoute(
                 }
             }
         },
+        onChangeSaveAmount = viewModel::updateSaveAmount,
         onLinkClicked = { url ->
             launchCustomChromeTab(context, url.toUri(), backgroundColor)
         },
@@ -101,6 +103,7 @@ fun SettingsScreen(
     appVersion: String,
     onChangeThemeType: (ThemeType) -> Unit,
     onChangeLocale: (Locale) -> Unit,
+    onChangeSaveAmount: (Boolean) -> Unit,
     onLinkClicked: (String) -> Unit,
 ) {
     var showThemeDialog by rememberSaveable {
@@ -125,10 +128,7 @@ fun SettingsScreen(
         )
     }
 
-    Surface(
-        modifier = Modifier.fillMaxSize()
-//            .consumeWindowInsets(contentPadding)
-    ) {
+    Surface(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
                 .verticalScroll(androidx.compose.foundation.rememberScrollState())
@@ -163,7 +163,8 @@ fun SettingsScreen(
                     supportingContent = {
                         val currentLocale = settingsUiState.availableLocales.firstOrNull { locales -> locales == settingsUiState.locale }
                         val language = if (currentLocale != null && currentLocale != Locale.ROOT) {
-                            currentLocale.getDisplayLanguage(currentLocale).replaceFirstChar { letter -> if (letter.isLowerCase()) letter.titlecase(currentLocale) else letter.toString() }
+                            currentLocale.getDisplayLanguage(currentLocale)
+                                .replaceFirstChar { letter -> if (letter.isLowerCase()) letter.titlecase(currentLocale) else letter.toString() }
                         } else {
                             stringResource(id = R.string.locale_system)
                         }
@@ -171,6 +172,26 @@ fun SettingsScreen(
                             text = when (settingsUiState.locale) {
                                 currentLocale -> language
                                 else -> stringResource(id = R.string.locale_system)
+                            },
+                        )
+                    },
+                )
+                HorizontalDivider()
+                ListItem(
+                    headlineContent = {
+                        Text(stringResource(R.string.save_amount))
+                    },
+                    modifier = Modifier.clickable {
+                        onChangeSaveAmount(settingsUiState.isSaveAmountEnabled.not())
+                    },
+                    supportingContent = {
+                        Text(stringResource(R.string.save_amount_description))
+                    },
+                    trailingContent = {
+                        Switch(
+                            checked = settingsUiState.isSaveAmountEnabled,
+                            onCheckedChange = {
+                                onChangeSaveAmount(it)
                             },
                         )
                     },
@@ -222,16 +243,29 @@ private fun launchCustomChromeTab(context: Context, uri: Uri, @ColorInt toolbarC
     customTabsIntent.launchUrl(context, uri)
 }
 
-@Preview(device = "spec:width=411dp,height=891dp", wallpaper = Wallpapers.BLUE_DOMINATED_EXAMPLE, uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL)
-@Preview(device = "spec:width=411dp,height=891dp", wallpaper = Wallpapers.BLUE_DOMINATED_EXAMPLE, uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL)
+@Preview(
+    device = "spec:width=411dp,height=891dp",
+    wallpaper = Wallpapers.BLUE_DOMINATED_EXAMPLE,
+    uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL
+)
+@Preview(
+    device = "spec:width=411dp,height=891dp",
+    wallpaper = Wallpapers.BLUE_DOMINATED_EXAMPLE,
+    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
+)
 @Composable
 private fun PreviewSettingScreen() {
     VatTheme {
         SettingsScreen(
-            settingsUiState = SettingsUiState(),
+            settingsUiState = SettingsUiState(
+                themeType = ThemeType.SYSTEM,
+                locale = Locale("en"),
+                isSaveAmountEnabled = true,
+            ),
             appVersion = "versionName",
             onChangeThemeType = {},
             onChangeLocale = {},
+            onChangeSaveAmount = {},
             onLinkClicked = {},
         )
     }

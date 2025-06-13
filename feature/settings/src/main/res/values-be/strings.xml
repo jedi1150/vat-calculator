@@ -9,4 +9,6 @@
     <string name="theme_system_default">Сістэма па змаўчанні</string>
     <string name="app_version">Версія %1$s (%2$d)</string>
     <string name="locale_system">Мова сістэмы</string>
+    <string name="save_amount">Захоўваць суму</string>
+    <string name="save_amount_description">Аднаўляць суму пры запуску праграмы</string>
 </resources>
