@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string-array name="penny_type">
-        <item>Текст</item>
-        <item>Число</item>
-    </string-array>
     <string name="amount">Сумма</string>
     <string name="without_vat">Сумма без учета НДС</string>
     <string name="include_vat">Сумма с учетом НДС</string>

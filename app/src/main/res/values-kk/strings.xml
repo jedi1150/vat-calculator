@@ -1,49 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string-array name="penny_type">
-        <item>Мәтін</item>
-        <item>Сан</item>
-    </string-array>
     <string name="app_name">ҚҚС</string>
-    <string name="amount">Сома</string>
-    <string name="without_vat">ҚҚС-сыз</string>
-    <string name="include_vat">ҚҚС есебімен</string>
-    <string name="vat">ҚҚС</string>
-    <string name="gross_amount">Жалпы сома</string>
-    <string name="net_amount">Таза сома</string>
-    <string name="copied">Көшірілді!</string>
-    <string name="light">Жарық</string>
-    <string name="dark">Қараңғы</string>
-    <string name="battery_saver">Батареяны үнемдегіш арқылы орнатылады</string>
-    <string name="system_default">Жүйе әдепкі</string>
-    <string name="choose_theme">Тақырып</string>
-    <string name="cancel">Болдырмау</string>
-    <string name="improve_translation">Аударманы жақсарту</string>
-    <string name="settings">Параметрлер</string>
-    <string name="other">Басқа</string>
-    <string name="save_value">Құнды сақтау</string>
-    <string name="vat_rate">ҚҚС ставкасы</string>
-    <string name="rate">Бағалау</string>
-    <string name="language">Тіл</string>
-    <string name="rate_string">%1$s\n%3$s бағамы %2$s</string>
-    <string name="general_settings">Жалпы</string>
-    <string name="amount_to_words">Сөздердің саны</string>
-    <string name="currency">Валюта</string>
-    <string name="penny_type">Пенни түрі</string>
-    <string name="save_amount_on_exit">Шығу кезінде соманы үнемдеңіз</string>
-    <string name="do_not_save_amount_on_exit">Шығу кезінде соманы сақтамаңыз</string>
-    <string name="arbitrary_rate_set">Ерікті ҚҚС мөлшерлемесі</string>
-    <string name="set_vat_rate">ҚҚС мөлшерлемесін белгілеу қажет</string>
-    <string name="set">Мәнді орнатыңыз</string>
-    <string name="type_standard">стандартты</string>
-    <string name="type_higher">жоғарырақ</string>
-    <string name="type_reduced">азайды</string>
-    <string name="compact_view">Ықшам көрініс</string>
-    <string name="horizontal_layout">Көлденең орналасу</string>
-    <string name="vertical_layout">Тік орналасу</string>
-    <string name="back">Артқа</string>
-    <string name="review">Қолданбаға баға беріңіз және шолыңыз</string>
-    <string name="ad">Жарнама</string>
-    <string name="adWatch">қарау Ad</string>
-    <string name="adMessage">Сәлем!\nБіз шынымен де жарнама қосқымыз келмеді, бірақ бізге қаржылық қолдау қажет. Сонымен, сіз жарнамаларды көре аласыз немесе одан бас тарта аласыз.\nНазар аударғаныңызға рақмет!</string>
+    <string name="screen_calculator">Есептегіш</string>
+    <string name="screen_settings">Баптаулар</string>
 </resources>
