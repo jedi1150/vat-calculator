@@ -1,16 +1,24 @@
 package com.sandello.vatcalculator
 
-class VatCalculator(var rate: Double) {
+import android.util.Log
+import java.math.BigDecimal
+import java.math.RoundingMode
 
-    fun calculateVatAmount(amount: Double): Double {
-        return amount * (rate / 100)
+class VatCalculator(var rate: BigDecimal) {
+
+    fun calculateVatAmount(amount: BigDecimal): BigDecimal {
+        Log.d("VatCalculator", "calculateVatAmount: amount = $amount, rate = $rate")
+        return amount.multiply(rate).divide(BigDecimal(100), 2, RoundingMode.HALF_UP)
     }
 
-    fun calculateTotalWithVat(amount: Double): Double {
-        return amount + calculateVatAmount(amount)
+    fun calculateTotalWithVat(amount: BigDecimal): BigDecimal {
+        Log.d("VatCalculator", "calculateTotalWithVat: amount = $amount, rate = $rate")
+        return amount.add(calculateVatAmount(amount))
     }
 
-    fun extractVatAmountFromTotal(totalAmount: Double): Double {
-        return totalAmount * (rate / (100 + rate))
+    fun extractVatAmountFromTotal(totalAmount: BigDecimal): BigDecimal {
+        Log.d("VatCalculator", "extractVatAmountFromTotal: totalAmount = $totalAmount, rate = $rate")
+        return totalAmount.multiply(rate)
+            .divide(rate.add(BigDecimal(100)), 2, RoundingMode.HALF_UP)
     }
 }

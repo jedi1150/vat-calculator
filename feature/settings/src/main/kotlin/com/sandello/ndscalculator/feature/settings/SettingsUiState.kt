@@ -4,8 +4,9 @@ import com.sandello.ndscalculator.core.model.ThemeType
 import java.util.Locale
 
 data class SettingsUiState(
-    var themeType: ThemeType = ThemeType.SYSTEM,
-    var locale: Locale = Locale.ROOT,
+    var themeType: ThemeType,
+    var locale: Locale,
+    var isSaveAmountEnabled: Boolean
 ) {
     val availableLocales = listOf(
         Locale.ROOT,

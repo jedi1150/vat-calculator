@@ -2,8 +2,8 @@ package com.sandello.ndscalculator.feature.settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sandello.ndscalculator.core.data.repository.SettingsRepository
-import com.sandello.ndscalculator.core.model.SettingsData
+import com.sandello.ndscalculator.core.data.repository.UserPreferencesRepository
+import com.sandello.ndscalculator.core.model.UserPreferencesData
 import com.sandello.ndscalculator.core.model.ThemeType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -16,26 +16,40 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
-    private val settingsRepository: SettingsRepository,
+    private val userPreferencesRepository: UserPreferencesRepository,
 ) : ViewModel() {
     val settingsUiState: StateFlow<SettingsUiState> =
-        settingsRepository.settingsData.map { settingsData: SettingsData ->
-            SettingsUiState(themeType = settingsData.themeType, locale = settingsData.locale)
+        userPreferencesRepository.userPreferencesData.map { userPreferencesData: UserPreferencesData ->
+            SettingsUiState(
+                themeType = userPreferencesData.themeType,
+                locale = userPreferencesData.locale,
+                isSaveAmountEnabled = userPreferencesData.isSaveAmountEnabled,
+            )
         }.stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5_000),
-            initialValue = SettingsUiState(),
+            initialValue = SettingsUiState(
+                themeType = ThemeType.SYSTEM,
+                locale = Locale.ROOT,
+                isSaveAmountEnabled = true,
+            ),
         )
 
     fun updateThemeType(themeType: ThemeType) {
         viewModelScope.launch {
-            settingsRepository.setThemeType(themeType)
+            userPreferencesRepository.setThemeType(themeType)
+        }
+    }
+
+    fun updateSaveAmount(isSaveAmountEnabled: Boolean) {
+        viewModelScope.launch {
+            userPreferencesRepository.setSaveAmount(isSaveAmountEnabled)
         }
     }
 
     fun updateLocale(locale: Locale) {
         viewModelScope.launch {
-            settingsRepository.setLocale(locale)
+            userPreferencesRepository.setLocale(locale)
         }
     }
 }

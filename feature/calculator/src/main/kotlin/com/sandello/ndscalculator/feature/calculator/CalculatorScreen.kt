@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
@@ -98,7 +97,7 @@ private fun CalculatorScreen(
                         style = MaterialTheme.typography.headlineSmall,
                     )
                     OutlinedTextField(
-                        value = numberInstance.format(calculatorUiState.grossAmount),
+                        value = calculatorUiState.grossAmount,
                         onValueChange = {},
                         modifier = Modifier.fillMaxWidth(),
                         readOnly = true,
@@ -110,7 +109,7 @@ private fun CalculatorScreen(
                         shape = MaterialTheme.shapes.medium,
                     )
                     OutlinedTextField(
-                        value = calculatorUiState.grossInclude.toPlainString(),
+                        value = calculatorUiState.grossInclude,
                         onValueChange = {},
                         modifier = Modifier.fillMaxWidth(),
                         readOnly = true,
@@ -131,7 +130,7 @@ private fun CalculatorScreen(
                         style = MaterialTheme.typography.headlineSmall,
                     )
                     OutlinedTextField(
-                        value = calculatorUiState.netAmount.toPlainString(),
+                        value = calculatorUiState.netAmount,
                         onValueChange = {},
                         modifier = Modifier.fillMaxWidth(),
                         readOnly = true,
@@ -143,7 +142,7 @@ private fun CalculatorScreen(
                         shape = MaterialTheme.shapes.medium,
                     )
                     OutlinedTextField(
-                        value = calculatorUiState.netInclude.toPlainString(),
+                        value = calculatorUiState.netInclude,
                         onValueChange = {},
                         modifier = Modifier.fillMaxWidth(),
                         readOnly = true,

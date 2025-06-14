@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string-array name="penny_type">
-        <item>Тэкст</item>
-        <item>Нумар</item>
-    </string-array>
     <string name="amount">Сума</string>
     <string name="without_vat">Без ПДВ</string>
     <string name="include_vat">Уключаючы ПДВ</string>

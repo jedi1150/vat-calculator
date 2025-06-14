@@ -9,4 +9,6 @@
     <string name="theme_dark">Темная</string>
     <string name="theme_light">Светлая</string>
     <string name="theme_system_default">Как в системе</string>
+    <string name="save_amount">Сохранять сумму</string>
+    <string name="save_amount_description">Восстанавливать сумму при запуске приложения</string>
 </resources>

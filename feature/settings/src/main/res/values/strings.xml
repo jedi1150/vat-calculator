@@ -10,4 +10,6 @@
     <string name="theme_dark">Dark</string>
     <string name="theme_light">Light</string>
     <string name="theme_system_default">System default</string>
+    <string name="save_amount">Save amount</string>
+    <string name="save_amount_description">Restore amount on app launch</string>
 </resources>
