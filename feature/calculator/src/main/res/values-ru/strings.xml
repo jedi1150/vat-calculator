@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="amount">Сумма</string>
-    <string name="without_vat">Сумма без учета НДС</string>
-    <string name="include_vat">Сумма с учетом НДС</string>
+    <string name="without_vat">Без учета НДС</string>
+    <string name="include_vat">С учетом НДС</string>
     <string name="vat">НДС</string>
     <string name="gross_amount">Начислить НДС</string>
     <string name="net_amount">Выделить НДС</string>
