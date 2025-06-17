@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_version">Версія %1$s (%2$d)</string>
+    <string name="locale_system">Мова сістэмы</string>
     <string name="settings_contribute_description">Унесці свой уклад у дадатак</string>
     <string name="settings_language">Мова</string>
     <string name="settings_privacy_policy">Палітыка прыватнасці</string>
@@ -7,8 +9,6 @@
     <string name="theme_dark">Цёмная</string>
     <string name="theme_light">Лёгкая тэма</string>
     <string name="theme_system_default">Сістэма па змаўчанні</string>
-    <string name="app_version">Версія %1$s (%2$d)</string>
-    <string name="locale_system">Мова сістэмы</string>
     <string name="save_amount">Захоўваць суму</string>
     <string name="save_amount_description">Аднаўляць суму пры запуску праграмы</string>
 </resources>
