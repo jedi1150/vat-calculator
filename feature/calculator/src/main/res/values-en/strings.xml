@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="amount">Amount</string>
+    <string name="without_vat">Excluding VAT</string>
+    <string name="include_vat">Including VAT</string>
+    <string name="vat">VAT</string>
+    <string name="gross_amount">Gross Amount</string>
+    <string name="net_amount">Net Amount</string>
+    <string name="rate">Rate</string>
+</resources>
