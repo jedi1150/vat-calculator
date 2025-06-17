@@ -1,0 +1,7 @@
+files:
+  - source: /app/**/values/strings.xml
+    translation: /app/src/main/res/values-%two_letters_code%/%original_file_name%
+  - source: /feature/calculator/**/values/strings.xml
+    translation: /feature/calculator/src/main/res/values-%two_letters_code%/%original_file_name%
+  - source: /feature/settings/**/values/strings.xml
+    translation: /feature/settings/src/main/res/values-%two_letters_code%/%original_file_name%
