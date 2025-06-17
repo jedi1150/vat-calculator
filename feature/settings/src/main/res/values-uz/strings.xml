@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_version">Versiya %1$s (%2$d)</string>
+    <string name="locale_system">Tizim tili</string>
     <string name="settings_contribute_description">Ilovaga hissa qo\'shing</string>
     <string name="settings_language">Til</string>
     <string name="settings_privacy_policy">Maxfiylik siyosati</string>
@@ -7,8 +9,6 @@
     <string name="theme_dark">Qorong\'i mavzu</string>
     <string name="theme_light">Engil mavzu</string>
     <string name="theme_system_default">Tizim birlamchi</string>
-    <string name="app_version">Versiya %1$s (%2$d)</string>
-    <string name="locale_system">Tizim tili</string>
     <string name="save_amount">Summani saqlash</string>
     <string name="save_amount_description">Ilova ochilganda summani tiklash</string>
 </resources>
