@@ -211,7 +211,7 @@ private fun CalculatorScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 16.dp, vertical = 64.dp)
+                .padding(end = 16.dp, bottom = 64.dp)
                 .padding(contentPadding)
                 .windowInsetsPadding(WindowInsets.safeDrawing),
             contentAlignment = Alignment.BottomEnd,
