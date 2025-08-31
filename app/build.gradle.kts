@@ -17,14 +17,17 @@ android {
         applicationId = "com.sandello.ndscalculator"
         minSdk = 23
         targetSdk = 36
-        versionCode = 122
+        versionCode = 123
         versionName = "2.2.0"
     }
     buildTypes {
-        named("release") {
+        release {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
         }
     }
     flavorDimensions += listOf("flavor-type")
