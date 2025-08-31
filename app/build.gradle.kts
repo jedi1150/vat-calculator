@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.compose)
@@ -13,16 +15,19 @@ android {
     compileSdk = 36
     defaultConfig {
         applicationId = "com.sandello.ndscalculator"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 36
-        versionCode = 121
-        versionName = "2.1.0"
+        versionCode = 123
+        versionName = "2.2.0"
     }
     buildTypes {
-        named("release") {
+        release {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
         }
     }
     flavorDimensions += listOf("flavor-type")
@@ -52,8 +57,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
-    kotlinOptions {
-        jvmTarget = "21"
+    kotlin {
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_21
+        }
     }
 }
 
@@ -76,6 +83,6 @@ dependencies {
 
     // Firebase
     implementation(platform(libs.google.firebase.bom))
-    implementation(libs.google.firebase.crashlytics.ktx)
-    implementation(libs.google.firebase.analytics.ktx)
+    implementation(libs.google.firebase.crashlytics)
+    implementation(libs.google.firebase.analytics)
 }
