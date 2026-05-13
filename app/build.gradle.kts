@@ -12,11 +12,11 @@ plugins {
 
 android {
     namespace = "com.sandello.ndscalculator"
-    compileSdk = 36
+    compileSdk = 37
     defaultConfig {
         applicationId = "com.sandello.ndscalculator"
         minSdk = 23
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 125
         versionName = "2.2.2"
     }
