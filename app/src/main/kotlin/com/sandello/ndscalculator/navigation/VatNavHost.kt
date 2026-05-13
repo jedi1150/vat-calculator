@@ -3,7 +3,7 @@ package com.sandello.ndscalculator.navigation
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
-import com.sandello.ndscalculator.feature.calculator.navigation.calculatorRoute
+import com.sandello.ndscalculator.feature.calculator.navigation.CalculatorRoute
 import com.sandello.ndscalculator.feature.calculator.navigation.calculatorScreen
 import com.sandello.ndscalculator.feature.settings.navigation.settingsScreen
 import com.sandello.ndscalculator.ui.VatAppState
@@ -12,7 +12,7 @@ import com.sandello.ndscalculator.ui.VatAppState
 fun VatNavHost(
     contentPadding: PaddingValues,
     appState: VatAppState,
-    startDestination: String = calculatorRoute,
+    startDestination: Any = CalculatorRoute,
 ) {
     NavHost(
         navController = appState.navController,

@@ -22,17 +22,17 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.sandello.ndscalculator.feature.settings.SettingsRoute
+import kotlinx.serialization.Serializable
 
-const val settingsRoute = "settings"
+@Serializable
+object SettingsRoute
 
 fun NavController.navigateToSettings(navOptions: NavOptions? = null) {
-    this.navigate(settingsRoute, navOptions)
+    this.navigate(SettingsRoute, navOptions)
 }
 
 fun NavGraphBuilder.settingsScreen(contentPadding: PaddingValues = PaddingValues()) {
-    composable(
-        route = settingsRoute,
-    ) {
+    composable<SettingsRoute> {
         SettingsRoute(contentPadding)
     }
 }

@@ -1,22 +1,23 @@
 [versions]
 androidGradlePlugin = "9.2.1"
-androidxComposeBom = "2026.02.00"
-androidxActivity = "1.12.4"
-androidxCore = "1.17.0"
+androidxComposeBom = "2026.05.00"
+androidxActivity = "1.13.0"
+androidxCore = "1.18.0"
 androidxCoreSplashscreen = "1.2.0"
 androidxHiltNavigationCompose = "1.3.0"
-androidxDataStore = "1.2.0"
+androidxDataStore = "1.2.1"
 androidxAppCompat = "1.7.1"
-androidxBrowser = "1.9.0"
-androidxNavigation = "2.9.7"
-hilt = "2.59.1"
-firebaseBom = "34.9.0"
-firebaseCrashlyticsPlugin = "3.0.6"
+androidxBrowser = "1.10.0"
+androidxNavigation = "2.9.8"
+hilt = "2.59.2"
+firebaseBom = "34.13.0"
+firebaseCrashlyticsPlugin = "3.0.7"
 gmsPlugin = "4.4.4"
-protobuf = "4.33.5"
-protobufPlugin = "0.9.6"
-kotlin = "2.3.10"
-ksp = "2.3.4"
+protobuf = "4.34.1"
+protobufPlugin = "0.10.0"
+kotlin = "2.3.21"
+kotlinxSerialization = "1.11.0"
+ksp = "2.3.8"
 #moneytostr = "1.21"
 
 [libraries]
@@ -40,7 +41,8 @@ google-firebase-crashlytics = { group = "com.google.firebase", name = "firebase-
 google-firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
-kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 #moneytostr = { module = "com.github.javadev:moneytostr", version.ref = "moneytostr" }
 protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
@@ -53,5 +55,6 @@ firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "
 gms = { id = "com.google.gms.google-services", version.ref = "gmsPlugin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }

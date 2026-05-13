@@ -42,7 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.pm.PackageInfoCompat
 import androidx.core.net.toUri
 import androidx.core.os.LocaleListCompat
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sandello.ndscalculator.core.designsystem.theme.VatTheme
 import com.sandello.ndscalculator.core.model.ThemeType
@@ -259,7 +259,7 @@ private fun PreviewSettingScreen() {
         SettingsScreen(
             settingsUiState = SettingsUiState(
                 themeType = ThemeType.SYSTEM,
-                locale = Locale("en"),
+                locale = Locale.forLanguageTag("en"),
                 isSaveAmountEnabled = true,
             ),
             appVersion = "versionName",

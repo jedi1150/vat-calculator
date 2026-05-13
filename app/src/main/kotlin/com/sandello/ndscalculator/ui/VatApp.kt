@@ -23,11 +23,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
 import com.sandello.ndscalculator.navigation.TopLevelDestination
 import com.sandello.ndscalculator.navigation.VatNavHost
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun VatApp(
     windowSizeClass: WindowSizeClass,
@@ -108,5 +109,5 @@ fun VatApp(
 }
 
 private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) = this?.hierarchy?.any {
-    it.route?.contains(destination.name, true) == true
+    it.hasRoute(destination.route)
 } == true

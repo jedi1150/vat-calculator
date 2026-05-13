@@ -6,19 +6,19 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.sandello.ndscalculator.feature.calculator.CalculatorRoute
+import kotlinx.serialization.Serializable
 
-const val calculatorRoute = "calculator"
+@Serializable
+object CalculatorRoute
 
 fun NavController.navigateToCalculator(navOptions: NavOptions? = null) {
-    this.navigate(calculatorRoute, navOptions)
+    this.navigate(CalculatorRoute, navOptions)
 }
 
 fun NavGraphBuilder.calculatorScreen(
     contentPadding: PaddingValues = PaddingValues(),
 ) {
-    composable(
-        route = calculatorRoute,
-    ) {
+    composable<CalculatorRoute> {
         CalculatorRoute(contentPadding)
     }
 }
