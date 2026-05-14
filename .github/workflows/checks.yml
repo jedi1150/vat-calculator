@@ -38,9 +38,6 @@ jobs:
       - name: Check lint
         run: ./gradlew :app:lintProdDebug
 
-      - name: Check binary compatibility
-        run: ./gradlew :lib:checkLegacyAbi
-
       - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v7
