@@ -38,6 +38,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.TransformOrigin
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -45,12 +46,13 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.os.ConfigurationCompat
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sandello.ndscalculator.core.designsystem.theme.VatTheme
 import java.text.DecimalFormat
 import java.text.NumberFormat
-import java.util.Locale
+import androidx.compose.ui.platform.LocalLocale
 
 @Composable
 fun CalculatorRoute(
@@ -76,13 +78,13 @@ private fun CalculatorScreen(
     onRateChange: (String) -> Unit,
     onClearClick: () -> Unit,
 ) {
-    val numberInstance: DecimalFormat = remember {
-        NumberFormat.getInstance(Locale.getDefault()) as DecimalFormat
-    }
-    remember(numberInstance) {
-        numberInstance.isGroupingUsed = false
-        numberInstance.minimumFractionDigits = 2
-        true
+    val configuration = LocalConfiguration.current
+    val locale = ConfigurationCompat.getLocales(configuration).get(0) ?: LocalLocale.current.platformLocale
+    val numberInstance: DecimalFormat = remember(locale) {
+        (NumberFormat.getInstance(locale) as DecimalFormat).apply {
+            isGroupingUsed = false
+            minimumFractionDigits = 2
+        }
     }
 
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -174,7 +176,9 @@ private fun CalculatorScreen(
                 OutlinedTextField(
                     value = calculatorUiState.amount,
                     onValueChange = { value ->
-                        onAmountChange(value)
+                        if (value.isEmpty() || value.matches(Regex("""^\d*[.,]?\d*$"""))) {
+                            onAmountChange(value.replace(",", "."))
+                        }
                     },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -191,7 +195,9 @@ private fun CalculatorScreen(
                 OutlinedTextField(
                     value = calculatorUiState.rate,
                     onValueChange = { value ->
-                        onRateChange(value)
+                        if (value.isEmpty() || value.matches(Regex("""^\d*[.,]?\d*$"""))) {
+                            onRateChange(value.replace(",", "."))
+                        }
                     },
                     modifier = Modifier
                         .wrapContentWidth()
@@ -240,8 +246,6 @@ private fun CalculatorScreen(
         }
     }
 }
-
-fun Double.toPlainString() = String.format(Locale.getDefault(), "%.2f", this)
 
 @Preview
 @Composable

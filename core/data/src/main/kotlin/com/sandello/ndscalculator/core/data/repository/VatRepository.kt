@@ -7,7 +7,6 @@ import java.math.BigDecimal
 import javax.inject.Inject
 
 class VatRepository @Inject constructor(
-    private val vatCalculator: VatCalculator,
     private val userPreferencesRepository: UserPreferencesRepository,
 ) {
     val amount: Flow<String>
@@ -20,22 +19,21 @@ class VatRepository @Inject constructor(
 
     suspend fun setRate(rate: String) {
         userPreferencesRepository.setVatRate(rate)
-        vatCalculator.rate = rate.toBigDecimalOrNull() ?: BigDecimal.ZERO
     }
 
     suspend fun setAmount(amount: String) {
         userPreferencesRepository.setAmount(amount)
     }
 
-    fun calculateVatAmount(amount: BigDecimal): BigDecimal {
-        return vatCalculator.calculateVatAmount(amount)
+    fun calculateVatAmount(amount: BigDecimal, rate: BigDecimal): BigDecimal {
+        return VatCalculator.calculateVatAmount(amount, rate)
     }
 
-    fun calculateTotalWithVat(amount: BigDecimal): BigDecimal {
-        return vatCalculator.calculateTotalWithVat(amount)
+    fun calculateTotalWithVat(amount: BigDecimal, rate: BigDecimal): BigDecimal {
+        return VatCalculator.calculateTotalWithVat(amount, rate)
     }
 
-    fun extractVatAmountFromTotal(amount: BigDecimal): BigDecimal {
-        return vatCalculator.extractVatAmountFromTotal(amount)
+    fun extractVatAmountFromTotal(amount: BigDecimal, rate: BigDecimal): BigDecimal {
+        return VatCalculator.extractVatAmountFromTotal(amount, rate)
     }
 }

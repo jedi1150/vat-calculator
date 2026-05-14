@@ -1,16 +1,20 @@
 package com.sandello.ndscalculator.feature.calculator
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sandello.ndscalculator.core.data.repository.UserPreferencesRepository
 import com.sandello.ndscalculator.core.data.repository.VatRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.math.BigDecimal
 import javax.inject.Inject
@@ -20,103 +24,76 @@ class CalculatorViewModel @Inject constructor(
     private val vatRepository: VatRepository,
     private val preferencesRepository: UserPreferencesRepository,
 ) : ViewModel() {
-    private val _uiState: MutableStateFlow<CalculatorUiState> = MutableStateFlow(CalculatorUiState())
-    val uiState: StateFlow<CalculatorUiState> = _uiState.asStateFlow()
+
+    private val _amount = MutableStateFlow("")
+    private val _rate = MutableStateFlow("")
+
+    val uiState: StateFlow<CalculatorUiState> = combine(_amount, _rate) { amount, rate ->
+        val amountBigDecimal = amount.toBigDecimalOrNull() ?: BigDecimal.ZERO
+        val rateBigDecimal = rate.toBigDecimalOrNull() ?: BigDecimal.ZERO
+
+        val grossAmount = vatRepository.calculateVatAmount(amountBigDecimal, rateBigDecimal)
+        val grossInclude = vatRepository.calculateTotalWithVat(amountBigDecimal, rateBigDecimal)
+        val netAmount = vatRepository.extractVatAmountFromTotal(amountBigDecimal, rateBigDecimal)
+        val netInclude = amountBigDecimal.subtract(netAmount)
+
+        CalculatorUiState(
+            amount = amount,
+            rate = rate,
+            grossAmount = grossAmount.toPlainString(),
+            grossInclude = grossInclude.toPlainString(),
+            netAmount = netAmount.toPlainString(),
+            netInclude = netInclude.toPlainString(),
+        )
+    }.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5_000),
+        initialValue = CalculatorUiState()
+    )
 
     init {
         viewModelScope.launch {
-            val amount: String = if (preferencesRepository.userPreferencesData.first().isSaveAmountEnabled) vatRepository.amount.first() else String()
-            val rate: String = vatRepository.rate.first()
-            _uiState.update {
-                it.copy(
-                    amount = amount,
-                    rate = rate,
-                )
-            }
-            vatRepository.setAmount(amount)
-            vatRepository.setRate(rate)
-            count()
+            val prefs = preferencesRepository.userPreferencesData.first()
+            val initialAmount = if (prefs.isSaveAmountEnabled) vatRepository.amount.first() else ""
+            val initialRate = vatRepository.rate.first()
+            _amount.value = initialAmount
+            _rate.value = initialRate
         }
+
+        @OptIn(FlowPreview::class)
+        _amount
+            .debounce(500)
+            .onEach { vatRepository.setAmount(it) }
+            .launchIn(viewModelScope)
+
+        @OptIn(FlowPreview::class)
+        _rate
+            .debounce(500)
+            .onEach { vatRepository.setRate(it) }
+            .launchIn(viewModelScope)
     }
 
     fun setAmount(value: String) {
-        _uiState.update {
-            it.copy(amount = value)
-        }
-        viewModelScope.launch {
-            vatRepository.setAmount(value)
-            count()
-        }
+        _amount.value = value
     }
 
     fun setRate(value: String) {
-        _uiState.update {
-            it.copy(rate = value)
-        }
-        viewModelScope.launch {
-            vatRepository.setRate(value)
-            count()
-        }
+        _rate.value = value
     }
 
-    fun clearValues() = _uiState.update {
-        it.copy(
-            amount = String(),
-            grossAmount = String(),
-            grossInclude = String(),
-            netAmount = String(),
-            netInclude = String(),
-        )
+    fun clearValues() {
+        _amount.value = ""
     }
-
-    private fun count() {
-//        val amount: String = _uiState.value.amount
-//        val rate: String = _uiState.value.rate
-
-        val currentAmountBigDecimal: BigDecimal = _uiState.value.amount.toBigDecimalOrNull() ?: BigDecimal.ZERO
-
-        val grossAmount: BigDecimal = vatRepository.calculateVatAmount(currentAmountBigDecimal)
-        val grossInclude: BigDecimal = vatRepository.calculateTotalWithVat(currentAmountBigDecimal)
-        val netAmount: BigDecimal = vatRepository.extractVatAmountFromTotal(currentAmountBigDecimal)
-        val netInclude: BigDecimal = currentAmountBigDecimal.subtract(netAmount)
-
-        Log.d("CalculatorViewModel", "currentAmountBigDecimal: $currentAmountBigDecimal")
-        Log.d("CalculatorViewModel", "grossAmount: $grossAmount")
-        Log.d("CalculatorViewModel", "grossInclude: $grossInclude")
-        Log.d("CalculatorViewModel", "netAmount: $netAmount")
-        Log.d("CalculatorViewModel", "netInclude: $netInclude")
-
-        _uiState.update {
-            it.copy(
-                grossAmount = grossAmount.toString(),
-                grossInclude = grossInclude.toString(),
-                netAmount = netAmount.toString(),
-                netInclude = netInclude.toString(),
-            )
-        }
-//        } else {
-//            _uiState.update {
-//                it.copy(
-//                    grossAmount = 0.0,
-//                    grossInclude = 0.0,
-//                    netAmount = 0.0,
-//                    netInclude = 0.0,
-//                )
-//            }
-//        }
-    }
-
 }
 
 data class CalculatorUiState(
-    val amount: String = String(),
-    val rate: String = String(),
-    val grossAmount: String = String(),
-    val grossInclude: String = String(),
-    val netAmount: String = String(),
-    val netInclude: String = String(),
+    val amount: String = "",
+    val rate: String = "",
+    val grossAmount: String = "",
+    val grossInclude: String = "",
+    val netAmount: String = "",
+    val netInclude: String = "",
 ) {
     val hasData: Boolean
-        get() = amount != String()
+        get() = amount.isNotEmpty()
 }
-
