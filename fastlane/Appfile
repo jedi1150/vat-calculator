@@ -1,0 +1,2 @@
+json_key_file("app/google-play-distribution.json")
+package_name("com.sandello.ndscalculator")

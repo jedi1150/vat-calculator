@@ -1,0 +1,72 @@
+default_platform(:android)
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  def latest_google_play_version_code
+    productionVersionCodes = google_play_track_version_codes(track: 'production', json_key: 'app/google-play-distribution.json')
+    betaVersionCodes = google_play_track_version_codes(track: 'beta', json_key: 'app/google-play-distribution.json')
+    internalVersionCodes = google_play_track_version_codes(track: 'internal', json_key: 'app/google-play-distribution.json')
+
+    # puts version codes from all tracks into the same array
+    versionCodes = [
+      productionVersionCodes,
+      betaVersionCodes,
+      internalVersionCodes
+    ].reduce([], :concat)
+
+    # returns the highest version code from array
+    return versionCodes.max || 0
+  end
+
+  desc "Deploy Beta to the Firebase"
+  lane :deploy_firebase do
+    increment_version_code(
+      gradle_file_path: "app/build.gradle.kts",
+      version_code: latest_google_play_version_code + 1,
+    )
+    gradle(
+      task: 'bundle',
+      flavor: 'prod',
+      build_type: 'release',
+      properties: {
+        "android.injected.signing.store.file" => ENV['SIGNING_KEYSTORE'],
+        "android.injected.signing.store.password" => ENV['SIGNING_STORE_PASSWORD'],
+        "android.injected.signing.key.alias" => ENV['SIGNING_KEY_ALIAS'],
+        "android.injected.signing.key.password" => ENV['SIGNING_KEY_PASSWORD'],
+      }
+    )
+    firebase_app_distribution(
+      app: ENV["FIREBASE_APP_ID"],
+      android_artifact_type: "AAB",
+      testers: ENV["FIREBASE_TESTER_EMAILS"],
+      service_credentials_file: './app/firebase-app-distribution.json',
+    )
+  end
+
+  desc "Deploy release to the Google Play as internal"
+  lane :deploy_google_play_internal do
+    increment_version_code(
+      gradle_file_path: "app/build.gradle.kts",
+      version_code: latest_google_play_version_code + 1,
+    )
+    gradle(
+      task: 'bundle',
+      flavor: 'prod',
+      build_type: 'release',
+      properties: {
+        "android.injected.signing.store.file" => ENV['SIGNING_KEYSTORE'],
+        "android.injected.signing.store.password" => ENV['SIGNING_STORE_PASSWORD'],
+        "android.injected.signing.key.alias" => ENV['SIGNING_KEY_ALIAS'],
+        "android.injected.signing.key.password" => ENV['SIGNING_KEY_PASSWORD'],
+      }
+    )
+    upload_to_play_store(
+      track: 'internal',
+      json_key: 'app/google-play-distribution.json'
+    )
+  end
+end
