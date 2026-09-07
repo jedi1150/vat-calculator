@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.screenshot)
 }
 
 android {
@@ -30,6 +31,10 @@ android {
             jvmTarget = JvmTarget.JVM_21
         }
     }
+    buildFeatures {
+        compose = true
+    }
+    experimentalProperties["android.experimental.enableScreenshotTest"] = true
 }
 
 dependencies {
@@ -43,4 +48,7 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.kotlinx.serialization.json)
+
+    screenshotTestImplementation(libs.screenshot.validation.api)
+    screenshotTestImplementation(libs.androidx.compose.ui.tooling)
 }

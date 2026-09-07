@@ -81,7 +81,7 @@ fun CalculatorRoute(contentPadding: PaddingValues = PaddingValues(), viewModel: 
 }
 
 @Composable
-private fun CalculatorScreen(
+internal fun CalculatorScreen(
     contentPadding: PaddingValues = PaddingValues(),
     calculatorUiState: CalculatorUiState,
     onAmountChange: (String) -> Unit,

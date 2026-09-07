@@ -28,6 +28,7 @@ nav3Core = "1.1.7"
 navigationevent = "1.1.2"
 protobuf = "4.36.1"
 protobufPlugin = "0.10.0"
+screenshot = "0.0.1-alpha16"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
@@ -67,6 +68,7 @@ ktlint-cli = { group = "io.github.ktlint.core", name = "ktlint-cli", version.ref
 #moneytostr = { module = "com.github.javadev:moneytostr", version.ref = "moneytostr" }
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
 protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
+screenshot-validation-api = { group = "com.android.tools.screenshot", name = "screenshot-validation-api", version.ref = "screenshot" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -82,3 +84,4 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
+screenshot = { id = "com.android.compose.screenshot", version.ref = "screenshot" }

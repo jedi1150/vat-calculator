@@ -26,6 +26,7 @@ naming:
     ignoreAnnotated:
       - Composable
       - Preview
+      - PreviewTest
   TopLevelPropertyNaming:
     constantPattern: '[A-Z][A-Za-z0-9_]*'
 
