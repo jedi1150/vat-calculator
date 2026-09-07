@@ -13,8 +13,7 @@ on:
       - "lib/**"
       - "baselineprofile/**"
       - "gradle/libs.versions.toml"
-    paths-ignore:
-      - "app/src/**/generated/baselineProfiles/**"
+      - "!app/src/**/generated/baselineProfiles/**"
 
 concurrency:
   group: baseline-profile
