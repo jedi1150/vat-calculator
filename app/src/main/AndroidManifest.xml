@@ -15,6 +15,10 @@
         android:theme="@style/Theme.Vat.Splash"
         tools:targetApi="tiramisu">
 
+        <profileable
+            android:shell="true"
+            tools:targetApi="q" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

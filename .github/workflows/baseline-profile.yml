@@ -1,0 +1,89 @@
+name: Baseline Profile
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * 1"
+  push:
+    branches: [ "main" ]
+    paths:
+      - "app/**"
+      - "feature/**"
+      - "core/**"
+      - "lib/**"
+      - "baselineprofile/**"
+      - "gradle/libs.versions.toml"
+    paths-ignore:
+      - "app/src/**/generated/baselineProfiles/**"
+
+concurrency:
+  group: baseline-profile
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    name: Generate Baseline Profile
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v7
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Setup Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Create google-services.json file
+        run: |
+          echo "$GOOGLE_SERVICES_JSON" | base64 -d > app/google-services.json
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+
+      - name: Generate Baseline Profile
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: ./gradlew :app:generateProdReleaseBaselineProfile
+
+      - name: Upload Baseline Profile
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: baseline-profiles
+          path: app/src/**/generated/baselineProfiles/**
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Open pull request
+        if: github.event_name != 'pull_request'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "Refresh Baseline Profiles for cold start and settings"
+          branch: chore/baseline-profiles
+          title: "Refresh Baseline Profiles"
+          body: |
+            Автоматическая регенерация ART Baseline Profiles.
+
+            Проверьте, что `startup-prof.txt` меньше `baseline-prof.txt` и в baseline есть SettingsScreen.
+          add-paths: |
+            app/src/prodRelease/generated/baselineProfiles/

@@ -18,8 +18,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import com.sandello.ndscalculator.navigation.TopLevelDestination
 import com.sandello.ndscalculator.navigation.VatNavHost
 
@@ -29,6 +32,7 @@ fun VatApp(
     appState: VatAppState = rememberVatAppState(windowSizeClass = windowSizeClass),
 ) {
     Scaffold(
+        modifier = Modifier.semantics { testTagsAsResourceId = true },
         bottomBar = {
             if (appState.shouldShowBottomBar) {
                 VatBottomBar(appState)
@@ -59,6 +63,9 @@ private fun VatBottomBar(appState: VatAppState) {
             NavigationBarItem(
                 selected = destination.key == appState.navigationState.topLevelRoute,
                 onClick = { appState.navigateToTopLevelDestination(destination) },
+                modifier = Modifier
+                    .semantics { testTagsAsResourceId = true }
+                    .testTag(destination.testTag),
                 icon = { DestinationIcon(destination) },
                 label = { DestinationLabel(destination) },
             )
@@ -73,6 +80,9 @@ private fun VatNavRail(appState: VatAppState) {
             NavigationRailItem(
                 selected = destination.key == appState.navigationState.topLevelRoute,
                 onClick = { appState.navigateToTopLevelDestination(destination) },
+                modifier = Modifier
+                    .semantics { testTagsAsResourceId = true }
+                    .testTag(destination.testTag),
                 icon = { DestinationIcon(destination) },
                 label = { DestinationLabel(destination) },
             )
@@ -84,7 +94,7 @@ private fun VatNavRail(appState: VatAppState) {
 private fun DestinationIcon(destination: TopLevelDestination) {
     Icon(
         painter = painterResource(id = destination.iconId),
-        contentDescription = null,
+        contentDescription = stringResource(id = destination.titleTextId),
     )
 }
 

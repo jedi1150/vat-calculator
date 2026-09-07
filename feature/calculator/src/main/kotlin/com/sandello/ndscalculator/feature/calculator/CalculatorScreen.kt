@@ -40,6 +40,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalLocale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -197,7 +198,8 @@ private fun CalculatorInputRow(
             onValueChange = { value -> sanitizeDecimalInput(value)?.let(onAmountChange) },
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f),
+                .weight(1f)
+                .testTag("calculator_amount"),
             label = { Text(stringResource(R.string.amount)) },
             placeholder = { Text(placeholder) },
             keyboardOptions = DecimalKeyboardOptions,
