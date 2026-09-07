@@ -11,7 +11,7 @@ class UserPreferencesDataSource @Inject constructor(private val userPreferencesD
     val userPreferencesData = userPreferencesDataStore.data.map { preferences ->
         UserPreferencesData(
             themeType = preferences.themeType.toThemeType(),
-            locale = Locale(preferences.languageTag),
+            locale = localeFromLanguageTag(preferences.languageTag),
             amount = preferences.amountValue,
             rate = preferences.vatValue,
             isSaveAmountEnabled = preferences.isSaveAmountEnabled,
@@ -67,6 +67,8 @@ class UserPreferencesDataSource @Inject constructor(private val userPreferencesD
         }
     }
 }
+
+private fun localeFromLanguageTag(tag: String): Locale = if (tag.isEmpty()) Locale.ROOT else Locale.forLanguageTag(tag)
 
 private fun ThemeTypeProto?.toThemeType(): ThemeType = when (this) {
     ThemeTypeProto.LIGHT -> ThemeType.LIGHT
