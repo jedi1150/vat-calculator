@@ -20,39 +20,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import com.sandello.ndscalculator.navigation.TopLevelDestination
 import com.sandello.ndscalculator.navigation.VatNavHost
 
 @Composable
 fun VatApp(
     windowSizeClass: WindowSizeClass,
-    appState: VatAppState = rememberVatAppState(
-        windowSizeClass = windowSizeClass,
-    ),
+    appState: VatAppState = rememberVatAppState(windowSizeClass = windowSizeClass),
 ) {
     Scaffold(
         bottomBar = {
             if (appState.shouldShowBottomBar) {
-                NavigationBar {
-                    appState.topLevelDestinations.forEach { destination ->
-                        NavigationBarItem(
-                            selected = destination.key == appState.navigationState.topLevelRoute,
-                            onClick = {
-                                appState.navigateToTopLevelDestination(destination)
-                            },
-                            icon = {
-                                Icon(
-                                    painter = painterResource(id = destination.iconId),
-                                    contentDescription = null,
-                                )
-                            },
-                            label = {
-                                Text(
-                                    text = stringResource(id = destination.titleTextId),
-                                )
-                            },
-                        )
-                    }
-                }
+                VatBottomBar(appState)
             }
         },
     ) { contentPadding ->
@@ -60,32 +39,10 @@ fun VatApp(
             Modifier
                 .fillMaxSize()
                 .consumeWindowInsets(contentPadding)
-                .windowInsetsPadding(
-                    WindowInsets.safeDrawing.only(
-                        WindowInsetsSides.Horizontal,
-                    ),
-                ),
+                .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal)),
         ) {
             if (appState.shouldShowNavRail) {
-                NavigationRail {
-                    appState.topLevelDestinations.forEach { destination ->
-                        NavigationRailItem(
-                            selected = destination.key == appState.navigationState.topLevelRoute,
-                            onClick = {
-                                appState.navigateToTopLevelDestination(destination)
-                            },
-                            icon = {
-                                Icon(
-                                    painter = painterResource(id = destination.iconId),
-                                    contentDescription = null,
-                                )
-                            },
-                            label = {
-                                Text(text = stringResource(id = destination.titleTextId))
-                            },
-                        )
-                    }
-                }
+                VatNavRail(appState)
             }
             VatNavHost(
                 contentPadding = contentPadding,
@@ -93,4 +50,45 @@ fun VatApp(
             )
         }
     }
+}
+
+@Composable
+private fun VatBottomBar(appState: VatAppState) {
+    NavigationBar {
+        appState.topLevelDestinations.forEach { destination ->
+            NavigationBarItem(
+                selected = destination.key == appState.navigationState.topLevelRoute,
+                onClick = { appState.navigateToTopLevelDestination(destination) },
+                icon = { DestinationIcon(destination) },
+                label = { DestinationLabel(destination) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun VatNavRail(appState: VatAppState) {
+    NavigationRail {
+        appState.topLevelDestinations.forEach { destination ->
+            NavigationRailItem(
+                selected = destination.key == appState.navigationState.topLevelRoute,
+                onClick = { appState.navigateToTopLevelDestination(destination) },
+                icon = { DestinationIcon(destination) },
+                label = { DestinationLabel(destination) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun DestinationIcon(destination: TopLevelDestination) {
+    Icon(
+        painter = painterResource(id = destination.iconId),
+        contentDescription = null,
+    )
+}
+
+@Composable
+private fun DestinationLabel(destination: TopLevelDestination) {
+    Text(text = stringResource(id = destination.titleTextId))
 }

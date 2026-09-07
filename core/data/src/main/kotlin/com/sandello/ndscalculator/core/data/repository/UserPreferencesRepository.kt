@@ -1,9 +1,9 @@
 package com.sandello.ndscalculator.core.data.repository
 
-import com.sandello.ndscalculator.core.model.UserPreferencesData
 import com.sandello.ndscalculator.core.model.ThemeType
-import kotlinx.coroutines.flow.Flow
+import com.sandello.ndscalculator.core.model.UserPreferencesData
 import java.util.Locale
+import kotlinx.coroutines.flow.Flow
 
 interface UserPreferencesRepository {
     val userPreferencesData: Flow<UserPreferencesData>
@@ -19,5 +19,4 @@ interface UserPreferencesRepository {
     suspend fun setAmount(amount: String)
 
     suspend fun setVatRate(vatRate: String)
-
 }

@@ -22,8 +22,7 @@ object DataStoreModule {
     fun providesUserSettingsDataStore(
         @ApplicationContext context: Context,
         userPreferencesSerializer: UserPreferencesSerializer,
-    ): DataStore<UserPreferences> =
-        DataStoreFactory.create(serializer = userPreferencesSerializer) {
-            context.dataStoreFile("user_preferences.pb")
-        }
+    ): DataStore<UserPreferences> = DataStoreFactory.create(serializer = userPreferencesSerializer) {
+        context.dataStoreFile("user_preferences.pb")
+    }
 }

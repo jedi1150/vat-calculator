@@ -52,19 +52,14 @@ import com.sandello.ndscalculator.feature.settings.components.SettingsThemeDialo
 import java.util.Locale
 
 @Composable
-fun SettingsRoute(
-    contentPadding: PaddingValues = PaddingValues(),
-    viewModel: SettingsViewModel = hiltViewModel(),
-) {
+fun SettingsRoute(contentPadding: PaddingValues = PaddingValues(), viewModel: SettingsViewModel = hiltViewModel()) {
     val context = LocalContext.current
-    val packageManager = context.packageManager
-    val packageName = context.packageName
-    val packageInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0))
-    } else {
-        packageManager.getPackageInfo(packageName, 0)
-    }
-    val appVersion = stringResource(R.string.app_version, packageInfo.versionName.orEmpty(), PackageInfoCompat.getLongVersionCode(packageInfo))
+    val packageInfo = context.appPackageInfo()
+    val appVersion = stringResource(
+        R.string.app_version,
+        packageInfo.versionName.orEmpty(),
+        PackageInfoCompat.getLongVersionCode(packageInfo),
+    )
 
     val settingsUiState by viewModel.settingsUiState.collectAsStateWithLifecycle()
     val backgroundColor = MaterialTheme.colorScheme.background.toArgb()
@@ -76,19 +71,7 @@ fun SettingsRoute(
         onChangeThemeType = viewModel::updateThemeType,
         onChangeLocale = { locale ->
             viewModel.updateLocale(locale)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                if (locale != Locale.ROOT) {
-                    context.getSystemService(LocaleManager::class.java).applicationLocales = LocaleList(locale)
-                } else {
-                    context.getSystemService(LocaleManager::class.java).applicationLocales = LocaleList.getEmptyLocaleList()
-                }
-            } else {
-                if (locale != Locale.ROOT) {
-                    AppCompatDelegate.setApplicationLocales(LocaleListCompat.create(locale))
-                } else {
-                    AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
-                }
-            }
+            applyAppLocale(context, locale)
         },
         onChangeSaveAmount = viewModel::updateSaveAmount,
         onLinkClicked = { url ->
@@ -142,40 +125,18 @@ fun SettingsScreen(
                     headlineContent = {
                         Text(text = stringResource(id = R.string.settings_theme))
                     },
-                    modifier = Modifier.clickable {
-                        showThemeDialog = true
-                    },
+                    modifier = Modifier.clickable { showThemeDialog = true },
                     supportingContent = {
-                        Text(
-                            text = when (settingsUiState.themeType) {
-                                ThemeType.SYSTEM -> stringResource(id = R.string.theme_system_default)
-                                ThemeType.LIGHT -> stringResource(id = R.string.theme_light)
-                                ThemeType.DARK -> stringResource(id = R.string.theme_dark)
-                            }
-                        )
+                        Text(text = stringResource(id = settingsUiState.themeType.labelRes()))
                     },
                 )
                 ListItem(
                     headlineContent = {
                         Text(text = stringResource(id = R.string.settings_language))
                     },
-                    modifier = Modifier.clickable {
-                        showLocaleDialog = true
-                    },
+                    modifier = Modifier.clickable { showLocaleDialog = true },
                     supportingContent = {
-                        val currentLocale = settingsUiState.availableLocales.firstOrNull { locales -> locales == settingsUiState.locale }
-                        val language = if (currentLocale != null && currentLocale != Locale.ROOT) {
-                            currentLocale.getDisplayLanguage(currentLocale)
-                                .replaceFirstChar { letter -> if (letter.isLowerCase()) letter.titlecase(currentLocale) else letter.toString() }
-                        } else {
-                            stringResource(id = R.string.locale_system)
-                        }
-                        Text(
-                            text = when (settingsUiState.locale) {
-                                currentLocale -> language
-                                else -> stringResource(id = R.string.locale_system)
-                            },
-                        )
+                        Text(text = localeLabel(settingsUiState))
                     },
                 )
                 HorizontalDivider()
@@ -238,6 +199,48 @@ fun SettingsScreen(
 const val GITHUB_URL = "https://github.com/jedi1150/vat-calculator"
 const val PRIVACY_POLICY_URL = "https://github.com/jedi1150/vat-calculator/blob/main/privacy-policy.md"
 
+private fun ThemeType.labelRes(): Int = when (this) {
+    ThemeType.SYSTEM -> R.string.theme_system_default
+    ThemeType.LIGHT -> R.string.theme_light
+    ThemeType.DARK -> R.string.theme_dark
+}
+
+@Composable
+private fun localeLabel(settingsUiState: SettingsUiState): String {
+    val currentLocale = settingsUiState.availableLocales.firstOrNull { it == settingsUiState.locale }
+    if (currentLocale == null || currentLocale == Locale.ROOT || settingsUiState.locale != currentLocale) {
+        return stringResource(id = R.string.locale_system)
+    }
+    return currentLocale.getDisplayLanguage(currentLocale).replaceFirstChar { letter ->
+        if (letter.isLowerCase()) letter.titlecase(currentLocale) else letter.toString()
+    }
+}
+
+private fun Context.appPackageInfo() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+    packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0))
+} else {
+    packageManager.getPackageInfo(packageName, 0)
+}
+
+private fun applyAppLocale(context: Context, locale: Locale) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        val localeManager = context.getSystemService(LocaleManager::class.java)
+        localeManager.applicationLocales = if (locale == Locale.ROOT) {
+            LocaleList.getEmptyLocaleList()
+        } else {
+            LocaleList(locale)
+        }
+        return
+    }
+    AppCompatDelegate.setApplicationLocales(
+        if (locale == Locale.ROOT) {
+            LocaleListCompat.getEmptyLocaleList()
+        } else {
+            LocaleListCompat.create(locale)
+        },
+    )
+}
+
 private fun launchCustomChromeTab(context: Context, uri: Uri, @ColorInt toolbarColor: Int) {
     val customTabBarColor = CustomTabColorSchemeParams.Builder().setToolbarColor(toolbarColor).build()
     val customTabsIntent = CustomTabsIntent.Builder().setDefaultColorSchemeParams(customTabBarColor).build()
@@ -248,12 +251,12 @@ private fun launchCustomChromeTab(context: Context, uri: Uri, @ColorInt toolbarC
 @Preview(
     device = "spec:width=411dp,height=891dp",
     wallpaper = Wallpapers.BLUE_DOMINATED_EXAMPLE,
-    uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL
+    uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL,
 )
 @Preview(
     device = "spec:width=411dp,height=891dp",
     wallpaper = Wallpapers.BLUE_DOMINATED_EXAMPLE,
-    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
+    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL,
 )
 @Composable
 private fun PreviewSettingScreen() {

@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
         }
 
         enableEdgeToEdge()
-        if (Build.VERSION.SDK_INT >= 29) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             window.isNavigationBarContrastEnforced = false
         }
 
@@ -72,11 +72,11 @@ class MainActivity : ComponentActivity() {
                         Color.TRANSPARENT,
                     ) { darkTheme },
                     navigationBarStyle = SystemBarStyle.auto(
-                        argb(0xe6, 0xFF, 0xFF, 0xFF),
-                        argb(0x80, 0x1b, 0x1b, 0x1b),
+                        lightScrim,
+                        darkScrim,
                     ) { darkTheme },
                 )
-                if (Build.VERSION.SDK_INT >= 29) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     window.isNavigationBarContrastEnforced = false
                 }
                 onDispose {}
@@ -91,17 +91,17 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
 }
 
 @Composable
-private fun shouldUseDarkTheme(
-    uiState: MainUiState,
-): Boolean = when (uiState) {
-    MainUiState.Loading -> isSystemInDarkTheme()
-    is MainUiState.Success -> when (uiState.settings.themeType) {
+private fun shouldUseDarkTheme(uiState: MainUiState): Boolean {
+    val themeType = (uiState as? MainUiState.Success)?.settings?.themeType ?: return isSystemInDarkTheme()
+    return when (themeType) {
         ThemeType.SYSTEM -> isSystemInDarkTheme()
         ThemeType.LIGHT -> false
         ThemeType.DARK -> true
     }
 }
+
+private val lightScrim = argb(0xE6, 0xFF, 0xFF, 0xFF)
+private val darkScrim = argb(0x80, 0x1B, 0x1B, 0x1B)

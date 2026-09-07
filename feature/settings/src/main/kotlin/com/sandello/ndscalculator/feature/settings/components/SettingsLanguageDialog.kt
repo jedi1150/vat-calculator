@@ -1,9 +1,6 @@
 package com.sandello.ndscalculator.feature.settings.components
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
@@ -15,14 +12,11 @@ import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -60,40 +54,31 @@ internal fun SettingsLanguageDialog(
                         .verticalScroll(state = rememberScrollState()),
                 ) {
                     settingsUiState.availableLocales.forEach { locale ->
-                        val language = if (locale != Locale.ROOT) {
-                            locale.getDisplayLanguage(locale).replaceFirstChar { letter -> if (letter.isLowerCase()) letter.titlecase(locale) else letter.toString() }
-                        } else {
-                            stringResource(id = R.string.locale_system)
-                        }
                         SettingsDialogThemeChooserRow(
-                            text = language,
+                            text = localeOptionLabel(locale),
                             selected = selectedLocale == locale,
                             onClick = { selectedLocale = locale },
                         )
                     }
                 }
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp),
-                    horizontalArrangement = Arrangement.spacedBy(
-                        space = 8.dp,
-                        alignment = Alignment.End,
-                    )
-                ) {
-                    TextButton(onClick = onDismiss) {
-                        Text(text = stringResource(id = android.R.string.cancel))
-                    }
-                    TextButton(
-                        onClick = {
-                            onDismiss()
-                            onChangeLocale(selectedLocale)
-                        },
-                    ) {
-                        Text(text = stringResource(id = android.R.string.ok))
-                    }
-                }
+                SettingsDialogActions(
+                    onDismiss = onDismiss,
+                    onConfirm = {
+                        onDismiss()
+                        onChangeLocale(selectedLocale)
+                    },
+                )
             }
         }
+    }
+}
+
+@Composable
+private fun localeOptionLabel(locale: Locale): String {
+    if (locale == Locale.ROOT) {
+        return stringResource(id = R.string.locale_system)
+    }
+    return locale.getDisplayLanguage(locale).replaceFirstChar { letter ->
+        if (letter.isLowerCase()) letter.titlecase(locale) else letter.toString()
     }
 }

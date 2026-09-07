@@ -2,6 +2,8 @@ package com.sandello.ndscalculator.core.designsystem.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
@@ -38,8 +40,7 @@ private val lightColorScheme = lightColorScheme(
     surfaceTint = md_theme_light_surfaceTint,
 )
 
-
-private val darkColorScheme = androidx.compose.material3.darkColorScheme(
+private val darkColorScheme = darkColorScheme(
     primary = md_theme_dark_primary,
     onPrimary = md_theme_dark_onPrimary,
     primaryContainer = md_theme_dark_primaryContainer,
@@ -82,10 +83,11 @@ fun VatTheme(
         }
 
         darkTheme -> darkColorScheme
+
         else -> lightColorScheme
     }
 
-    androidx.compose.material3.MaterialTheme(
+    MaterialTheme(
         colorScheme = colorScheme,
         shapes = Shapes,
         content = content,

@@ -15,10 +15,7 @@ import com.sandello.ndscalculator.feature.settings.navigation.settingsScreen
 import com.sandello.ndscalculator.ui.VatAppState
 
 @Composable
-fun VatNavHost(
-    contentPadding: PaddingValues,
-    appState: VatAppState,
-) {
+fun VatNavHost(contentPadding: PaddingValues, appState: VatAppState) {
     val entryProvider = entryProvider {
         calculatorScreen(contentPadding)
         settingsScreen(contentPadding)

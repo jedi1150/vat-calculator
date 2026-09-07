@@ -15,11 +15,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 
 @Composable
-internal fun SettingsDialogThemeChooserRow(
-    text: String,
-    selected: Boolean,
-    onClick: () -> Unit,
-) {
+internal fun SettingsDialogThemeChooserRow(text: String, selected: Boolean, onClick: () -> Unit) {
     Row(
         Modifier
             .fillMaxWidth()

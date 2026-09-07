@@ -1,23 +1,16 @@
 package com.sandello.ndscalculator.core.datastore
 
 import androidx.datastore.core.DataStore
-import java.util.Locale
+import com.sandello.ndscalculator.core.model.ThemeType
 import com.sandello.ndscalculator.core.model.UserPreferencesData
-import kotlinx.coroutines.flow.map
+import java.util.Locale
 import javax.inject.Inject
+import kotlinx.coroutines.flow.map
 
-class UserPreferencesDataSource @Inject constructor(
-    private val userPreferencesDataStore: DataStore<UserPreferences>,
-) {
+class UserPreferencesDataSource @Inject constructor(private val userPreferencesDataStore: DataStore<UserPreferences>) {
     val userPreferencesData = userPreferencesDataStore.data.map { preferences ->
         UserPreferencesData(
-            themeType = when (preferences.themeType) {
-                ThemeTypeProto.SYSTEM -> com.sandello.ndscalculator.core.model.ThemeType.SYSTEM
-                ThemeTypeProto.LIGHT -> com.sandello.ndscalculator.core.model.ThemeType.LIGHT
-                ThemeTypeProto.DARK -> com.sandello.ndscalculator.core.model.ThemeType.DARK
-                ThemeTypeProto.UNRECOGNIZED -> com.sandello.ndscalculator.core.model.ThemeType.SYSTEM
-                null -> com.sandello.ndscalculator.core.model.ThemeType.SYSTEM
-            },
+            themeType = preferences.themeType.toThemeType(),
             locale = Locale(preferences.languageTag),
             amount = preferences.amountValue,
             rate = preferences.vatValue,
@@ -26,14 +19,10 @@ class UserPreferencesDataSource @Inject constructor(
         )
     }
 
-    suspend fun setThemeType(themeType: com.sandello.ndscalculator.core.model.ThemeType) {
+    suspend fun setThemeType(themeType: ThemeType) {
         userPreferencesDataStore.updateData { preferences ->
             preferences.copy {
-                this.themeType = when (themeType) {
-                    com.sandello.ndscalculator.core.model.ThemeType.SYSTEM -> ThemeTypeProto.SYSTEM
-                    com.sandello.ndscalculator.core.model.ThemeType.LIGHT -> ThemeTypeProto.LIGHT
-                    com.sandello.ndscalculator.core.model.ThemeType.DARK -> ThemeTypeProto.DARK
-                }
+                this.themeType = themeType.toProto()
             }
         }
     }
@@ -77,4 +66,21 @@ class UserPreferencesDataSource @Inject constructor(
             }
         }
     }
+}
+
+private fun ThemeTypeProto?.toThemeType(): ThemeType = when (this) {
+    ThemeTypeProto.LIGHT -> ThemeType.LIGHT
+
+    ThemeTypeProto.DARK -> ThemeType.DARK
+
+    ThemeTypeProto.SYSTEM,
+    ThemeTypeProto.UNRECOGNIZED,
+    null,
+    -> ThemeType.SYSTEM
+}
+
+private fun ThemeType.toProto(): ThemeTypeProto = when (this) {
+    ThemeType.SYSTEM -> ThemeTypeProto.SYSTEM
+    ThemeType.LIGHT -> ThemeTypeProto.LIGHT
+    ThemeType.DARK -> ThemeTypeProto.DARK
 }

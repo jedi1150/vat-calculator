@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.sandello.ndscalculator.core.data.repository.UserPreferencesRepository
 import com.sandello.ndscalculator.core.data.repository.VatRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.math.BigDecimal
+import javax.inject.Inject
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -16,8 +18,6 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import java.math.BigDecimal
-import javax.inject.Inject
 
 @HiltViewModel
 class CalculatorViewModel @Inject constructor(
@@ -25,10 +25,10 @@ class CalculatorViewModel @Inject constructor(
     private val preferencesRepository: UserPreferencesRepository,
 ) : ViewModel() {
 
-    private val _amount = MutableStateFlow("")
-    private val _rate = MutableStateFlow("")
+    private val amountInput = MutableStateFlow("")
+    private val rateInput = MutableStateFlow("")
 
-    val uiState: StateFlow<CalculatorUiState> = combine(_amount, _rate) { amount, rate ->
+    val uiState: StateFlow<CalculatorUiState> = combine(amountInput, rateInput) { amount, rate ->
         val amountBigDecimal = amount.toBigDecimalOrNull() ?: BigDecimal.ZERO
         val rateBigDecimal = rate.toBigDecimalOrNull() ?: BigDecimal.ZERO
 
@@ -48,7 +48,7 @@ class CalculatorViewModel @Inject constructor(
     }.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5_000),
-        initialValue = CalculatorUiState()
+        initialValue = CalculatorUiState(),
     )
 
     init {
@@ -56,33 +56,37 @@ class CalculatorViewModel @Inject constructor(
             val prefs = preferencesRepository.userPreferencesData.first()
             val initialAmount = if (prefs.isSaveAmountEnabled) vatRepository.amount.first() else ""
             val initialRate = vatRepository.rate.first()
-            _amount.value = initialAmount
-            _rate.value = initialRate
+            amountInput.value = initialAmount
+            rateInput.value = initialRate
         }
 
         @OptIn(FlowPreview::class)
-        _amount
-            .debounce(500)
+        amountInput
+            .debounce(SAVE_DEBOUNCE_MS)
             .onEach { vatRepository.setAmount(it) }
             .launchIn(viewModelScope)
 
         @OptIn(FlowPreview::class)
-        _rate
-            .debounce(500)
+        rateInput
+            .debounce(SAVE_DEBOUNCE_MS)
             .onEach { vatRepository.setRate(it) }
             .launchIn(viewModelScope)
     }
 
     fun setAmount(value: String) {
-        _amount.value = value
+        amountInput.value = value
     }
 
     fun setRate(value: String) {
-        _rate.value = value
+        rateInput.value = value
     }
 
     fun clearValues() {
-        _amount.value = ""
+        amountInput.value = ""
+    }
+
+    private companion object {
+        const val SAVE_DEBOUNCE_MS = 500L
     }
 }
 

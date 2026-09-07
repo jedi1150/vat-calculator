@@ -9,9 +9,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data object CalculatorRoute : NavKey
 
-fun EntryProviderScope<NavKey>.calculatorScreen(
-    contentPadding: PaddingValues = PaddingValues(),
-) {
+fun EntryProviderScope<NavKey>.calculatorScreen(contentPadding: PaddingValues = PaddingValues()) {
     entry<CalculatorRoute> {
         CalculatorScreen(contentPadding)
     }

@@ -35,15 +35,24 @@ jobs:
         env:
           GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
 
-      - name: Check lint
+      - name: Check Android Lint
         run: ./gradlew :app:lintProdDebug
+
+      - name: Check ktlint
+        run: ./gradlew ktlintCheck
+
+      - name: Check detekt
+        run: ./gradlew detektDebug :app:detektProdDebug
 
       - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: lint-reports
-          path: '**/build/reports/lint-results-*'
+          path: |
+            **/build/reports/lint-results-*
+            **/build/reports/ktlint/
+            **/build/reports/detekt/
           if-no-files-found: warn
 
   unit-tests:

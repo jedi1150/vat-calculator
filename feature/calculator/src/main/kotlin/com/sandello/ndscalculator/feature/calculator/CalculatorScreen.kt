@@ -39,6 +39,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalLocale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -52,13 +53,21 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sandello.ndscalculator.core.designsystem.theme.VatTheme
 import java.text.DecimalFormat
 import java.text.NumberFormat
-import androidx.compose.ui.platform.LocalLocale
+
+private val DecimalKeyboardOptions = KeyboardOptions(
+    keyboardType = KeyboardType.Decimal,
+    imeAction = ImeAction.None,
+)
+private val DecimalInputPattern = Regex("""^\d*[.,]?\d*$""")
+private val ClearFabEnter = scaleIn(transformOrigin = TransformOrigin(0f, 0f)) +
+    fadeIn() +
+    expandIn(expandFrom = Alignment.TopStart)
+private val ClearFabExit = scaleOut(transformOrigin = TransformOrigin(0f, 0f)) +
+    fadeOut() +
+    shrinkOut(shrinkTowards = Alignment.TopStart)
 
 @Composable
-fun CalculatorRoute(
-    contentPadding: PaddingValues = PaddingValues(),
-    viewModel: CalculatorViewModel = hiltViewModel(),
-) {
+fun CalculatorRoute(contentPadding: PaddingValues = PaddingValues(), viewModel: CalculatorViewModel = hiltViewModel()) {
     val calculatorUiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     CalculatorScreen(
@@ -78,6 +87,92 @@ private fun CalculatorScreen(
     onRateChange: (String) -> Unit,
     onClearClick: () -> Unit,
 ) {
+    Surface(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            VatResults(
+                modifier = Modifier
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState())
+                    .padding(contentPadding)
+                    .padding(start = 8.dp, top = 8.dp, end = 8.dp),
+                calculatorUiState = calculatorUiState,
+            )
+            CalculatorInputRow(
+                contentPadding = contentPadding,
+                calculatorUiState = calculatorUiState,
+                onAmountChange = onAmountChange,
+                onRateChange = onRateChange,
+            )
+        }
+        ClearValuesButton(
+            contentPadding = contentPadding,
+            visible = calculatorUiState.hasData,
+            onClick = onClearClick,
+        )
+    }
+}
+
+@Composable
+private fun VatResults(modifier: Modifier = Modifier, calculatorUiState: CalculatorUiState) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(24.dp),
+    ) {
+        VatResultGroup(
+            titleRes = R.string.gross_amount,
+            firstValue = calculatorUiState.grossAmount,
+            firstLabelRes = R.string.vat,
+            secondValue = calculatorUiState.grossInclude,
+            secondLabelRes = R.string.include_vat,
+        )
+        VatResultGroup(
+            titleRes = R.string.net_amount,
+            firstValue = calculatorUiState.netAmount,
+            firstLabelRes = R.string.vat,
+            secondValue = calculatorUiState.netInclude,
+            secondLabelRes = R.string.without_vat,
+        )
+    }
+}
+
+@Composable
+private fun VatResultGroup(
+    titleRes: Int,
+    firstValue: String,
+    firstLabelRes: Int,
+    secondValue: String,
+    secondLabelRes: Int,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text(
+            text = stringResource(id = titleRes),
+            style = MaterialTheme.typography.headlineSmall,
+        )
+        ReadOnlyDecimalField(value = firstValue, labelRes = firstLabelRes)
+        ReadOnlyDecimalField(value = secondValue, labelRes = secondLabelRes)
+    }
+}
+
+@Composable
+private fun ReadOnlyDecimalField(value: String, labelRes: Int) {
+    OutlinedTextField(
+        value = value,
+        onValueChange = {},
+        modifier = Modifier.fillMaxWidth(),
+        readOnly = true,
+        label = { Text(stringResource(labelRes)) },
+        keyboardOptions = DecimalKeyboardOptions,
+        shape = MaterialTheme.shapes.medium,
+    )
+}
+
+@Composable
+private fun CalculatorInputRow(
+    contentPadding: PaddingValues,
+    calculatorUiState: CalculatorUiState,
+    onAmountChange: (String) -> Unit,
+    onRateChange: (String) -> Unit,
+) {
     val configuration = LocalConfiguration.current
     val locale = ConfigurationCompat.getLocales(configuration).get(0) ?: LocalLocale.current.platformLocale
     val numberInstance: DecimalFormat = remember(locale) {
@@ -86,166 +181,85 @@ private fun CalculatorScreen(
             minimumFractionDigits = 2
         }
     }
+    val placeholder = numberInstance.format(0.0)
 
-    Surface(modifier = Modifier.fillMaxSize()) {
-        Column(modifier = Modifier.fillMaxSize()) {
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-                    .padding(contentPadding)
-                    .padding(start = 8.dp, top = 8.dp, end = 8.dp),
-                verticalArrangement = Arrangement.spacedBy(24.dp),
-            ) {
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    Text(
-                        text = stringResource(id = R.string.gross_amount),
-                        style = MaterialTheme.typography.headlineSmall,
-                    )
-                    OutlinedTextField(
-                        value = calculatorUiState.grossAmount,
-                        onValueChange = {},
-                        modifier = Modifier.fillMaxWidth(),
-                        readOnly = true,
-                        label = { Text(stringResource(R.string.vat)) },
-                        keyboardOptions = KeyboardOptions(
-                            keyboardType = KeyboardType.Decimal,
-                            imeAction = ImeAction.None,
-                        ),
-                        shape = MaterialTheme.shapes.medium,
-                    )
-                    OutlinedTextField(
-                        value = calculatorUiState.grossInclude,
-                        onValueChange = {},
-                        modifier = Modifier.fillMaxWidth(),
-                        readOnly = true,
-                        label = { Text(stringResource(R.string.include_vat)) },
-                        keyboardOptions = KeyboardOptions(
-                            keyboardType = KeyboardType.Decimal,
-                            imeAction = ImeAction.None,
-                        ),
-                        shape = MaterialTheme.shapes.medium,
-                    )
-                }
-
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    Text(
-                        text = stringResource(id = R.string.net_amount),
-                        style = MaterialTheme.typography.headlineSmall,
-                    )
-                    OutlinedTextField(
-                        value = calculatorUiState.netAmount,
-                        onValueChange = {},
-                        modifier = Modifier.fillMaxWidth(),
-                        readOnly = true,
-                        label = { Text(stringResource(R.string.vat)) },
-                        keyboardOptions = KeyboardOptions(
-                            keyboardType = KeyboardType.Decimal,
-                            imeAction = ImeAction.None,
-                        ),
-                        shape = MaterialTheme.shapes.medium,
-                    )
-                    OutlinedTextField(
-                        value = calculatorUiState.netInclude,
-                        onValueChange = {},
-                        modifier = Modifier.fillMaxWidth(),
-                        readOnly = true,
-                        label = { Text(stringResource(R.string.without_vat)) },
-                        keyboardOptions = KeyboardOptions(
-                            keyboardType = KeyboardType.Decimal,
-                            imeAction = ImeAction.None,
-                        ),
-                        shape = MaterialTheme.shapes.medium,
-                    )
-                }
-            }
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 8.dp, end = 8.dp, bottom = 8.dp)
-                    .systemBarsPadding()
-                    .padding(bottom = contentPadding.calculateBottomPadding())
-                    .imePadding(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-
-                OutlinedTextField(
-                    value = calculatorUiState.amount,
-                    onValueChange = { value ->
-                        if (value.isEmpty() || value.matches(Regex("""^\d*[.,]?\d*$"""))) {
-                            onAmountChange(value.replace(",", "."))
-                        }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f),
-                    label = { Text(stringResource(R.string.amount)) },
-                    placeholder = { Text(numberInstance.format(0.0)) },
-                    keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Decimal,
-                        imeAction = ImeAction.None,
-                    ),
-                    singleLine = true,
-                    shape = MaterialTheme.shapes.medium,
-                )
-                OutlinedTextField(
-                    value = calculatorUiState.rate,
-                    onValueChange = { value ->
-                        if (value.isEmpty() || value.matches(Regex("""^\d*[.,]?\d*$"""))) {
-                            onRateChange(value.replace(",", "."))
-                        }
-                    },
-                    modifier = Modifier
-                        .wrapContentWidth()
-                        .widthIn(max = 120.dp),
-                    label = {
-                        Text(
-                            text = stringResource(R.string.rate),
-                            overflow = TextOverflow.Ellipsis,
-                            softWrap = false,
-                        )
-                    },
-                    placeholder = { Text(numberInstance.format(0.0)) },
-                    suffix = { Text("%") },
-                    keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Decimal,
-                        imeAction = ImeAction.None,
-                    ),
-                    singleLine = true,
-                    shape = MaterialTheme.shapes.medium,
-                )
-            }
-        }
-        Box(
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp, bottom = 8.dp)
+            .systemBarsPadding()
+            .padding(bottom = contentPadding.calculateBottomPadding())
+            .imePadding(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        OutlinedTextField(
+            value = calculatorUiState.amount,
+            onValueChange = { value -> sanitizeDecimalInput(value)?.let(onAmountChange) },
             modifier = Modifier
-                .fillMaxSize()
-                .padding(end = 16.dp, bottom = 64.dp)
-                .padding(contentPadding)
-                .windowInsetsPadding(WindowInsets.safeDrawing),
-            contentAlignment = Alignment.BottomEnd,
+                .fillMaxWidth()
+                .weight(1f),
+            label = { Text(stringResource(R.string.amount)) },
+            placeholder = { Text(placeholder) },
+            keyboardOptions = DecimalKeyboardOptions,
+            singleLine = true,
+            shape = MaterialTheme.shapes.medium,
+        )
+        OutlinedTextField(
+            value = calculatorUiState.rate,
+            onValueChange = { value -> sanitizeDecimalInput(value)?.let(onRateChange) },
+            modifier = Modifier
+                .wrapContentWidth()
+                .widthIn(max = 120.dp),
+            label = {
+                Text(
+                    text = stringResource(R.string.rate),
+                    overflow = TextOverflow.Ellipsis,
+                    softWrap = false,
+                )
+            },
+            placeholder = { Text(placeholder) },
+            suffix = { Text("%") },
+            keyboardOptions = DecimalKeyboardOptions,
+            singleLine = true,
+            shape = MaterialTheme.shapes.medium,
+        )
+    }
+}
+
+@Composable
+private fun ClearValuesButton(contentPadding: PaddingValues, visible: Boolean, onClick: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(end = 16.dp, bottom = 64.dp)
+            .padding(contentPadding)
+            .windowInsetsPadding(WindowInsets.safeDrawing),
+        contentAlignment = Alignment.BottomEnd,
+    ) {
+        AnimatedVisibility(
+            visible = visible,
+            enter = ClearFabEnter,
+            exit = ClearFabExit,
         ) {
-            AnimatedVisibility(
-                visible = calculatorUiState.hasData,
-                enter = scaleIn(transformOrigin = TransformOrigin(0f, 0f)) + fadeIn() + expandIn(expandFrom = Alignment.TopStart),
-                exit = scaleOut(transformOrigin = TransformOrigin(0f, 0f)) + fadeOut() + shrinkOut(shrinkTowards = Alignment.TopStart),
+            SmallFloatingActionButton(
+                onClick = onClick,
+                modifier = Modifier.padding(vertical = 8.dp),
+                elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 0.dp),
             ) {
-                SmallFloatingActionButton(
-                    onClick = onClearClick,
-                    modifier = Modifier.padding(vertical = 8.dp),
-                    elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 0.dp),
-                ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_close), contentDescription = null
-                    )
-                }
+                Icon(
+                    painter = painterResource(R.drawable.ic_close),
+                    contentDescription = null,
+                )
             }
         }
     }
+}
+
+private fun sanitizeDecimalInput(value: String): String? {
+    if (value.isEmpty() || value.matches(DecimalInputPattern)) {
+        return value.replace(",", ".")
+    }
+    return null
 }
 
 @Preview

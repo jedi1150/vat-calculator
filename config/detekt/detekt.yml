@@ -1,0 +1,63 @@
+complexity:
+  LongMethod:
+    ignoreAnnotated:
+      - Composable
+      - Preview
+  LongParameterList:
+    allowedConstructorParameters: 10
+    allowedFunctionParameters: 8
+    ignoreDefaultParameters: true
+    ignoreAnnotated:
+      - Composable
+  TooManyFunctions:
+    allowedFunctionsPerFile: 20
+    allowedFunctionsPerClass: 20
+    allowedFunctionsPerInterface: 20
+    allowedFunctionsPerObject: 20
+    ignorePrivate: true
+    ignoreAnnotatedFunctions:
+      - Composable
+  CyclomaticComplexMethod:
+    ignoreAnnotated:
+      - Composable
+
+naming:
+  FunctionNaming:
+    ignoreAnnotated:
+      - Composable
+      - Preview
+  TopLevelPropertyNaming:
+    constantPattern: '[A-Z][A-Za-z0-9_]*'
+
+style:
+  AbstractClassCanBeInterface:
+    ignoreAnnotated:
+      - Module
+  MagicNumber:
+    ignorePropertyDeclaration: true
+    ignoreCompanionObjectPropertyDeclaration: true
+    ignoreEnums: true
+    ignoreAnnotated:
+      - Preview
+      - Composable
+  UnusedPrivateFunction:
+    ignoreAnnotated:
+      - Preview
+      - Composable
+  UnusedPrivateProperty:
+    ignoreAnnotated:
+      - Preview
+      - Composable
+  MaxLineLength:
+    maxLineLength: 120
+    excludeCommentStatements: true
+  ReturnCount:
+    max: 4
+  WildcardImport:
+    active: true
+  ThrowsCount:
+    max: 3
+
+exceptions:
+  TooGenericExceptionCaught:
+    active: false

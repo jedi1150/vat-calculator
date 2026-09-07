@@ -15,5 +15,4 @@ abstract class DataModule {
     abstract fun bindsSettingsDataRepository(
         settingsRepository: OfflineUserPreferencesRepository,
     ): UserPreferencesRepository
-
 }

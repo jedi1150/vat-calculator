@@ -3,21 +3,20 @@ package com.sandello.ndscalculator.feature.settings
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sandello.ndscalculator.core.data.repository.UserPreferencesRepository
-import com.sandello.ndscalculator.core.model.UserPreferencesData
 import com.sandello.ndscalculator.core.model.ThemeType
+import com.sandello.ndscalculator.core.model.UserPreferencesData
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.util.Locale
+import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import java.util.Locale
-import javax.inject.Inject
 
 @HiltViewModel
-class SettingsViewModel @Inject constructor(
-    private val userPreferencesRepository: UserPreferencesRepository,
-) : ViewModel() {
+class SettingsViewModel @Inject constructor(private val userPreferencesRepository: UserPreferencesRepository) :
+    ViewModel() {
     val settingsUiState: StateFlow<SettingsUiState> =
         userPreferencesRepository.userPreferencesData.map { userPreferencesData: UserPreferencesData ->
             SettingsUiState(

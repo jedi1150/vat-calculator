@@ -9,9 +9,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data object SettingsRoute : NavKey
 
-fun EntryProviderScope<NavKey>.settingsScreen(
-    contentPadding: PaddingValues = PaddingValues(),
-) {
+fun EntryProviderScope<NavKey>.settingsScreen(contentPadding: PaddingValues = PaddingValues()) {
     entry<SettingsRoute> {
         SettingsScreen(contentPadding)
     }
