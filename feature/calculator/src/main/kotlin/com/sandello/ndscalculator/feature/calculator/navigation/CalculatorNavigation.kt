@@ -1,24 +1,18 @@
 package com.sandello.ndscalculator.feature.calculator.navigation
 
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.navigation.NavController
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavOptions
-import androidx.navigation.compose.composable
-import com.sandello.ndscalculator.feature.calculator.CalculatorRoute
+import androidx.navigation3.runtime.EntryProviderScope
+import androidx.navigation3.runtime.NavKey
+import com.sandello.ndscalculator.feature.calculator.CalculatorRoute as CalculatorScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
-object CalculatorRoute
+data object CalculatorRoute : NavKey
 
-fun NavController.navigateToCalculator(navOptions: NavOptions? = null) {
-    this.navigate(CalculatorRoute, navOptions)
-}
-
-fun NavGraphBuilder.calculatorScreen(
+fun EntryProviderScope<NavKey>.calculatorScreen(
     contentPadding: PaddingValues = PaddingValues(),
 ) {
-    composable<CalculatorRoute> {
-        CalculatorRoute(contentPadding)
+    entry<CalculatorRoute> {
+        CalculatorScreen(contentPadding)
     }
 }

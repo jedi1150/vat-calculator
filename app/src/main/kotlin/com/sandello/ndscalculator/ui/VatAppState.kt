@@ -5,44 +5,44 @@ import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.navigation.NavDestination
-import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navOptions
-import com.sandello.ndscalculator.feature.calculator.navigation.navigateToCalculator
-import com.sandello.ndscalculator.feature.settings.navigation.navigateToSettings
+import androidx.navigation3.runtime.NavKey
+import com.sandello.ndscalculator.feature.calculator.navigation.CalculatorRoute
+import com.sandello.ndscalculator.feature.settings.navigation.SettingsRoute
+import com.sandello.ndscalculator.navigation.NavigationState
+import com.sandello.ndscalculator.navigation.Navigator
 import com.sandello.ndscalculator.navigation.TopLevelDestination
-import kotlinx.coroutines.CoroutineScope
+import com.sandello.ndscalculator.navigation.rememberNavigationState
 
 @Composable
 fun rememberVatAppState(
     windowSizeClass: WindowSizeClass,
-    coroutineScope: CoroutineScope = rememberCoroutineScope(),
-    navController: NavHostController = rememberNavController(),
+    startRoute: NavKey = CalculatorRoute,
+    topLevelRoutes: Set<NavKey> = setOf(CalculatorRoute, SettingsRoute),
 ): VatAppState {
+    val navigationState = rememberNavigationState(
+        startRoute = startRoute,
+        topLevelRoutes = topLevelRoutes,
+    )
+    val navigator = remember(navigationState) { Navigator(navigationState) }
     return remember(
-        navController,
-        coroutineScope,
+        navigationState,
+        navigator,
         windowSizeClass,
     ) {
         VatAppState(
-            navController,
-            windowSizeClass,
+            navigationState = navigationState,
+            navigator = navigator,
+            windowSizeClass = windowSizeClass,
         )
     }
 }
 
 @Stable
 class VatAppState(
-    val navController: NavHostController,
+    val navigationState: NavigationState,
+    val navigator: Navigator,
     private val windowSizeClass: WindowSizeClass,
 ) {
-    val currentDestination: NavDestination?
-        @Composable get() = navController.currentBackStackEntryAsState().value?.destination
-
     val shouldShowBottomBar: Boolean
         get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact
 
@@ -50,18 +50,7 @@ class VatAppState(
         get() = !shouldShowBottomBar
 
     fun navigateToTopLevelDestination(topLevelDestination: TopLevelDestination) {
-        val topLevelNavOptions = navOptions {
-            popUpTo(navController.graph.findStartDestination().id) {
-                saveState = true
-            }
-            launchSingleTop = true
-            restoreState = true
-        }
-
-        when (topLevelDestination) {
-            TopLevelDestination.CALCULATOR -> navController.navigateToCalculator(topLevelNavOptions)
-            TopLevelDestination.SETTINGS -> navController.navigateToSettings(topLevelNavOptions)
-        }
+        navigator.navigate(topLevelDestination.key)
     }
 
     val topLevelDestinations: List<TopLevelDestination> = TopLevelDestination.entries

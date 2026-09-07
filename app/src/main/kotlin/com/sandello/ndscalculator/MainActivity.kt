@@ -2,6 +2,7 @@ package com.sandello.ndscalculator
 
 import android.graphics.Color
 import android.graphics.Color.argb
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
@@ -57,6 +58,9 @@ class MainActivity : ComponentActivity() {
         }
 
         enableEdgeToEdge()
+        if (Build.VERSION.SDK_INT >= 29) {
+            window.isNavigationBarContrastEnforced = false
+        }
 
         setContent {
             val darkTheme = shouldUseDarkTheme(uiState)
@@ -72,6 +76,9 @@ class MainActivity : ComponentActivity() {
                         argb(0x80, 0x1b, 0x1b, 0x1b),
                     ) { darkTheme },
                 )
+                if (Build.VERSION.SDK_INT >= 29) {
+                    window.isNavigationBarContrastEnforced = false
+                }
                 onDispose {}
             }
 

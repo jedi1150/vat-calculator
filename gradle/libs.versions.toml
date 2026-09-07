@@ -9,7 +9,8 @@ androidxDataStore = "1.2.1"
 androidxAppCompat = "1.8.0"
 androidxBrowser = "1.10.0"
 androidxLifecycle = "2.11.0"
-androidxNavigation = "2.10.0"
+nav3Core = "1.1.7"
+navigationevent = "1.1.2"
 hilt = "2.60.1"
 firebaseBom = "34.18.0"
 firebaseCrashlyticsPlugin = "3.0.8"
@@ -31,7 +32,11 @@ androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-compose-material3-window-size = { group = "androidx.compose.material3", name = "material3-window-size-class" }
-androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
+androidx-navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "nav3Core" }
+androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "nav3Core" }
+androidx-lifecycle-viewmodel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "androidxLifecycle" }
+androidx-navigationevent = { group = "androidx.navigationevent", name = "navigationevent", version.ref = "navigationevent" }
+androidx-navigationevent-compose = { group = "androidx.navigationevent", name = "navigationevent-compose", version.ref = "navigationevent" }
 androidx-datastore-proto = { group = "androidx.datastore", name = "datastore", version.ref = "androidxDataStore" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
 androidx-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }

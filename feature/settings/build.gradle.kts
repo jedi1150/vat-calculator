@@ -44,5 +44,6 @@ dependencies {
 
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.navigation3.runtime)
     implementation(libs.kotlinx.serialization.json)
 }

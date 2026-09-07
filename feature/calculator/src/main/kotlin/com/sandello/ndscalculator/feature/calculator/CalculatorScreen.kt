@@ -170,7 +170,8 @@ private fun CalculatorScreen(
                     .padding(start = 8.dp, end = 8.dp, bottom = 8.dp)
                     .systemBarsPadding()
                     .padding(bottom = contentPadding.calculateBottomPadding())
-                    .imePadding(), horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    .imePadding(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
 
                 OutlinedTextField(

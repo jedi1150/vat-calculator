@@ -6,10 +6,8 @@ import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.only
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -22,13 +20,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavDestination
-import androidx.navigation.NavDestination.Companion.hasRoute
-import androidx.navigation.NavDestination.Companion.hierarchy
-import com.sandello.ndscalculator.navigation.TopLevelDestination
 import com.sandello.ndscalculator.navigation.VatNavHost
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun VatApp(
     windowSizeClass: WindowSizeClass,
@@ -42,9 +35,7 @@ fun VatApp(
                 NavigationBar {
                     appState.topLevelDestinations.forEach { destination ->
                         NavigationBarItem(
-                            selected = appState.currentDestination.isTopLevelDestinationInHierarchy(
-                                destination
-                            ),
+                            selected = destination.key == appState.navigationState.topLevelRoute,
                             onClick = {
                                 appState.navigateToTopLevelDestination(destination)
                             },
@@ -76,14 +67,10 @@ fun VatApp(
                 ),
         ) {
             if (appState.shouldShowNavRail) {
-                NavigationRail(
-                    modifier = Modifier.padding(contentPadding),
-                ) {
+                NavigationRail {
                     appState.topLevelDestinations.forEach { destination ->
                         NavigationRailItem(
-                            selected = appState.currentDestination.isTopLevelDestinationInHierarchy(
-                                destination
-                            ),
+                            selected = destination.key == appState.navigationState.topLevelRoute,
                             onClick = {
                                 appState.navigateToTopLevelDestination(destination)
                             },
@@ -107,7 +94,3 @@ fun VatApp(
         }
     }
 }
-
-private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) = this?.hierarchy?.any {
-    it.hasRoute(destination.route)
-} == true
