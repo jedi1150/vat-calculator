@@ -85,31 +85,19 @@ baselineProfile {
     }
 }
 
-val uninstallFirst = providers.gradleProperty("baselineProfile.uninstall").orElse("false").get() == "true"
-
-val uninstallConflictingPackages = tasks.register("uninstallConflictingPackages") {
-    group = "verification"
-    description = "Uninstalls Play Store and leftover test packages so profiling APKs can install."
-    val adbPath = androidComponents.sdkComponents.adb.map { it.asFile.absolutePath }
-    inputs.property("adb", adbPath)
-    onlyIf { uninstallFirst }
-    doLast {
-        val adb = adbPath.get()
-        listOf(
-            "com.sandello.ndscalculator",
-            "com.sandello.ndscalculator.baselineprofile",
-        ).forEach { pkg ->
-            ProcessBuilder(adb, "shell", "am", "force-stop", pkg).inheritIO().start().waitFor()
-            ProcessBuilder(adb, "uninstall", pkg).inheritIO().start().waitFor()
-            ProcessBuilder(adb, "shell", "pm", "uninstall", "--user", "0", pkg).inheritIO().start().waitFor()
+if (providers.gradleProperty("baselineProfile.uninstall").orElse("false").get() == "true") {
+    val uninstallConflictingPackages =
+        tasks.register<UninstallConflictingPackagesTask>("uninstallConflictingPackages") {
+            group = "verification"
+            description = "Uninstalls Play Store and leftover test packages so profiling APKs can install."
+            adbPath.set(androidComponents.sdkComponents.adb.map { it.asFile.absolutePath })
         }
-    }
-}
 
-tasks.matching { task ->
-    task.name.startsWith("connected") && task.name.endsWith("AndroidTest")
-}.configureEach {
-    dependsOn(uninstallConflictingPackages)
+    tasks.matching { task ->
+        task.name.startsWith("connected") && task.name.endsWith("AndroidTest")
+    }.configureEach {
+        dependsOn(uninstallConflictingPackages)
+    }
 }
 
 dependencies {

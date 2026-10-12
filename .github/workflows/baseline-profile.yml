@@ -2,8 +2,6 @@ name: Baseline Profile
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 4 * * 1"
   push:
     branches: [ "main" ]
     paths:
